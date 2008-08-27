@@ -1,1 +1,41 @@
-Copyright (C) 2007, 2008  Harish Narayanan <harish@simula.no>Licensing information follows a little later in this file.This directory tree holds version 0.2 of Dorsal, a set of simplescripts to build Dolfin and the rest of the FEniCS entourage (as wellas their dependencies) for various platforms.In order to use Dorsal, first make sure your platform is supported bylooking for it under the 'platforms' directory. (If it's not, pleaselet us know about it and we will work toward adding it.) Then, invokethe build script by running:  ./dorsal.sh platforms/foo.platformwhere 'foo' is your platform. If all goes according to plan, youshould see a lot of compilation-related text scroll past your screenand eventually end up with a complete, up-to-date installation ofvarious FEniCS projects and their corresponding dependencies.If you run into any problems, ensure that you've installed all thepreliminary dependencies for your platform (usually from the systempackage manager) that Dorsal assumes you already have. An incompletelist of this is provided in the .platform file for each platform. Inmost cases, this should solve your problem. If you're having furtherdifficulty, please contact us.Dorsal is free software; you can redistribute it and/or modify itunder the terms of the GNU General Public License as published by theFree Software Foundation; either version 3, or (at your option) anylater version.This software is distributed in the hope that it will be useful, butWITHOUT ANY WARRANTY; without even the implied warranty ofMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNUGeneral Public License for more details.You should have received a copy of the GNU General Public Licensealong with this software; see the file COPYING.  If not, write to theFree Software Foundation, 59 Temple Place - Suite 330, Boston, MA02111-1307, USA.
+Copyright (C) 2007, 2008
+  Harish Narayanan <harish@simula.no>
+Licensing information follows a little later in this file.
+
+This directory tree holds version 0.2 of Dorsal, a set of simple
+scripts to build Dolfin and the rest of the FEniCS entourage (as well
+as their dependencies) for various platforms.
+
+In order to use Dorsal, first make sure your platform is supported by
+looking for it under the 'platforms' directory. (If it's not, please
+let us know about it and we will work toward adding it.) Then, invoke
+the build script by running:
+
+  ./dorsal.sh platforms/foo.platform
+
+where 'foo' is your platform. If all goes according to plan, you
+should see a lot of compilation-related text scroll past your screen
+and eventually end up with a complete, up-to-date installation of
+various FEniCS projects and their corresponding dependencies.
+
+If you run into any problems, ensure that you've installed all the
+preliminary dependencies for your platform (usually from the system
+package manager) that Dorsal assumes you already have. An incomplete
+list of this is provided in the .platform file for each platform. In
+most cases, this should solve your problem. If you're having further
+difficulty, please contact us.
+
+Dorsal is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the
+Free Software Foundation; either version 3, or (at your option) any
+later version.
+
+This software is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this software; see the file COPYING.  If not, write to the
+Free Software Foundation, 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
