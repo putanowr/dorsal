@@ -1,9 +1,10 @@
 2008-08 Harish Narayanan <harish@simula.no>
 	* Complete rewrite; modularised the scripts
-	* Created a framework for easy addition of additional platforms
+	* Created a framework for easy addition of additional
+	  platforms 
 2008-07 Ilmar Wilbers <ilmarw@simula.no>
 	* Added basic error reporting
 	* Replaced autotools-based dolfin build with scons
 	* Modified and tested on more platforms
-2007-xx Harish Narayanan <hnarayan@umich.edu>
+2007-06 Harish Narayanan <hnarayan@umich.edu>
 	* Initial release for RHEL 4
