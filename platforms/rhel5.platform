@@ -6,7 +6,7 @@
 # Platform specific variables
 PETSC_ARCH=linux-gnu-cxx-debug
 
-# Define the packages foo needs
+# Define the packages this platform needs
 PACKAGES=(
            python
 	   mercurial
@@ -29,4 +29,4 @@ PACKAGES=(
 	   viper
 	   instant
 	   #dolfin
-	  )
+	 )

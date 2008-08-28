@@ -80,22 +80,6 @@ package_unpack() {
     quit_if_fail "Error unpacking ${NAME}."
 }
 
-package_specific_build() {
-    # We are already in the appropriate build folder
-    if [ ${BUILDCHAIN} = "autotools" ]
-    then
-	./configure --prefix=${INSTALL_PATH}
-	make
-	make install
-    elif [ ${BUILDCHAIN} = "python" ]
-    then
-	python setup.py install --prefix=${INSTALL_PATH}
-    elif [ ${BUILDCHAIN} = "custom" ]
-    then
-	echo "You have forgotten to overload the custom build function package_specific_build()."
-    fi
-} 
-
 package_build() {
     # Get things ready for the compilation process 
     echo "Building ${NAME}"
@@ -107,7 +91,21 @@ package_build() {
 
     # Move to the appropriate folder before compilation
     cd ${NAME}
-    package_specific_build
+
+    # Use the appropriate build chain to build the package
+    if [ ${BUILDCHAIN} = "autotools" ]
+    then
+	./configure --prefix=${INSTALL_PATH}
+	make
+	make install
+    elif [ ${BUILDCHAIN} = "python" ]
+    then
+	python setup.py install --prefix=${INSTALL_PATH}
+    elif [ ${BUILDCHAIN} = "custom" ]
+    then
+	# Add a check here to make sure it's properly defined
+	package_specific_build
+    fi
 
     # Quit with a useful message if someting goes wrong
     quit_if_fail "There was a problem building ${NAME}."
@@ -170,6 +168,7 @@ do
     unset SOURCE
     unset PACKING
     unset BUILDCHAIN
+    unset -f package_specific_build
     
     source packages/${PACKAGE}.package
 
