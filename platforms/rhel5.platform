@@ -1,0 +1,32 @@
+# Red Hat Enterprise Linux 5
+
+# This assumes that you have blah and blah installed. In order to
+# install it, do yum install blah blah bah
+
+# Platform specific variables
+PETSC_ARCH=linux-gnu-cxx-debug
+
+# Define the packages foo needs
+PACKAGES=(
+           python
+	   mercurial
+	   scons
+	   numpy
+	   boost
+	   swig
+	   openmpi
+	   #petsc
+	   #slepc
+	   gts
+	   cln
+	   ginac
+	   suitesparsewithmetis
+	   fiat
+	   ferari
+	   ufc
+	   ffc
+	   syfi
+	   viper
+	   instant
+	   #dolfin
+	  )

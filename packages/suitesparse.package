@@ -1,0 +1,9 @@
+NAME=SuiteSparse
+SOURCE=http://www.cise.ufl.edu/research/sparse/SuiteSparse/current/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+
+package_specific_build () {
+    export UMFPACK_DIR=$PWD
+    make
+}

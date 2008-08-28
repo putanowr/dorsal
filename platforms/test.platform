@@ -7,5 +7,5 @@
 
 # Define the packages foo needs
 PACKAGES=(
-	   dolfin
+	   suitesparsewithmetis
 	  )
