@@ -3,7 +3,7 @@
 # This build script assumes that you have the following packages
 # already installed via Red Hat's yum:
 #
-# yum install libtool libxml2 pkgconfig lapack blas gcc-c++
+# yum install libtool libxml2 pkgconfig lapack blas gcc gcc-c++
 
 # Platform specific variables
 PETSC_ARCH=linux-gnu-cxx-debug

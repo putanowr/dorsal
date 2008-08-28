@@ -96,7 +96,10 @@ package_build() {
     # package
     if [ ${BUILDCHAIN} = "autotools" ]
     then
-	./configure --prefix=${INSTALL_PATH}
+	if [ ! -e Makefile ] 
+	then
+	    ./configure --prefix=${INSTALL_PATH}
+	fi
 	make
 	make install
     elif [ ${BUILDCHAIN} = "python" ]
