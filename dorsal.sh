@@ -92,7 +92,8 @@ package_build() {
     # Move to the appropriate folder before compilation
     cd ${NAME}
 
-    # Use the appropriate build chain to build the package
+    # Use the appropriate build system to compile and install the
+    # package
     if [ ${BUILDCHAIN} = "autotools" ]
     then
 	./configure --prefix=${INSTALL_PATH}
