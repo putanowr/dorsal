@@ -2,9 +2,10 @@
 
 # Any platform-specific dependencies and notes go here
 
+# Platform specific variables
+PETSC_ARCH=linux-gnu-cxx-debug
+
 # Define the packages foo needs
 PACKAGES=(
-	  python
-	  mercurial
-	  ufc
+	  boost
 	  )

@@ -81,20 +81,17 @@ package_specific_build() {
     # We are already in the appropriate build folder
     if [ ${BUILDCHAIN} = "autotools" ]
     then
-	echo "./configure --prefix=${INSTALL_PATH}"
-	echo "make"
-	echo "make install"
+	./configure --prefix=${INSTALL_PATH}
+	make
+	make install
     elif [ ${BUILDCHAIN} = "python" ]
     then
-	echo "python setup.py install"
+	python setup.py install --prefix=${INSTALL_PATH}
     elif [ ${BUILDCHAIN} = "custom" ]
     then
 	echo "You have forgotten to overload the custom build function package_specific_build()."
     fi
-
-    # Quit with a useful message if someting goes wrong
-    quit_if_fail "There was a problem building ${NAME}."
- } 
+} 
 
 package_build() {
     # Get things ready for the compilation process 
@@ -104,9 +101,13 @@ package_build() {
         echo "${NAME} does not exist -- please unpack first."
         exit 1
     fi
+
     # Move to the appropriate folder before compilation
     cd ${NAME}
     package_specific_build
+
+    # Quit with a useful message if someting goes wrong
+    quit_if_fail "There was a problem building ${NAME}."
 }
 
 #### Start the build process ###

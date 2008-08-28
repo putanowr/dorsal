@@ -1,0 +1,9 @@
+NAME=boost_1_36_0
+SOURCE=http://downloads.sourceforge.net/boost/
+PACKING=.tar.bz2
+BUILDCHAIN=custom
+
+package_specific_build () {
+    cd $NAME
+    export BOOST_DIR=$PWD
+}
