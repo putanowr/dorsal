@@ -1,11 +1,7 @@
 # Red Hat Enterprise Linux 5
 
 # This build script assumes that you have the following packages
-# already installed:
-#
-# libtool, libxml2, pkg-config, LAPACK, BLAS and a C++ compiler.
-#
-# In case you are missing something, install it using:
+# already installed via Red Hat's yum:
 #
 # yum install libtool libxml2 pkgconfig lapack blas gcc-c++
 

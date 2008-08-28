@@ -1,0 +1,27 @@
+# Ubuntu 8.04 LTS
+
+# This build script assumes that you have the following packages
+# already installed via Ubuntu's apt-get:
+#
+# sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
+# pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
+# libboost-dev wget openmpi-bin
+
+# Platform specific variables
+PETSC_ARCH=linux-gnu-cxx-debug
+
+# Define the packages this platform needs.
+PACKAGES=(
+	   petsc
+	   slepc
+	   cln
+	   ginac
+	   fiat
+	   ferari
+	   ufc
+	   ffc
+	   syfi
+	   viper
+	   instant
+	   dolfin
+	 )
