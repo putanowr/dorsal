@@ -7,8 +7,10 @@ package_specific_build () {
     export UMFPACK_DIR=$PWD
     wget http://glaros.dtc.umn.edu/gkhome/fetch/sw/metis/metis-4.0.tar.gz
     tar -xzf metis-4.0.tar.gz
+    export CFLAGS=-fPIC
     cd metis-4.0
     make
     cd ..
     make
+    unset CFLAGS
 }
