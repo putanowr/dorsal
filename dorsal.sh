@@ -1,29 +1,9 @@
 #!/usr/bin/env bash
 
-# Plan
-# 1. Needs a master loop to read platform sets
-# 2. Need to implement other worker functions
-# 3. Think about adding package-specific variables to their individual
-#    package files
-
-
-if [ $# -ne 1 ]
-then
-    echo "Error: Platform to build for not specified."
-    echo "Correct usage: ./dorsal.sh platforms/foo.platform"
-    exit 1
-fi
-
-source dorsal.cfg
-
-if [ -z "$DISTDIR" ]
-then
-        # set DISTDIR to /usr/src/distfiles if not already set
-        DISTDIR=/usr/src/distfiles
-fi
-export DISTDIR
+### Define helper functions ###
 
 quit_if_fail() {
+    # Exit with some useful information if something goes wrong
     status=$?
     if [ $status -ne 0 ]
 	then
@@ -32,7 +12,6 @@ quit_if_fail() {
 	exit $status
     fi
 }
-
 
 package_fetch (){
     # First make sure we're in the right directory before downloading
@@ -115,18 +94,10 @@ package_specific_build() {
 
     # Quit with a useful message if someting goes wrong
     quit_if_fail "There was a problem building ${NAME}."
-    
-#         if [ -e configure ]
-#         then
-#                 #run configure script if it exists
-#                 ./configure --prefix=/usr
-#         fi
-#         #run make
-#         make $MAKEOPTS MAKE="make $MAKEOPTS"  
-} 
+ } 
 
 package_build() {
-
+    # Get things ready for the compilation process 
     echo "Building ${NAME}"
     if [ ! -d "${NAME}" ]
     then
@@ -138,8 +109,33 @@ package_build() {
     package_specific_build
 }
 
+#### Start the build process ###
+
 export ORIGDIR=`pwd`
 
+# Read configuration variables from dorsal.cfg
+source dorsal.cfg
+
+# If any important variables are missing, revert them to defaults
+if [ -z "$DOWNLOAD_PATH" ]
+then
+    DOWNLOAD_PATH=$HOME/downloads/src
+fi
+
+if [-x "$INSTALL_PATH" ]
+then
+    INSTALL_PATH=$HOME/builds
+fi
+
+# Check if dorsal.sh was invoked coerrectly
+if [ $# -ne 1 ]
+then
+    echo "Error: Platform to build for not specified."
+    echo "Correct usage: ./dorsal.sh platforms/foo.platform"
+    exit 1
+fi
+
+# Make sure the requested platform exists
 if [ -e "$1" ]
 then
     source $1
@@ -148,8 +144,15 @@ else
     exit 1
 fi
 
+# Create necessary directories and export appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
+mkdir -p ${INSTALL_PATH}
+export PATH=$INSTALL_PATH/bin:$PATH
+export LD_LIBRARY_PATH=$INSTALL_PATH/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$INSTALL_PATH/lib/python2.5/site-packages:$PYTHONPATH
+export PKG_CONFIG_PATH=$INSTALL_PATH/lib/pkgconfig:$PKG_CONFIG_PATH:/usr/lib/pkgconfig
 
+# Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]} 
 do
     cd ${ORIGDIR}
@@ -176,24 +179,3 @@ do
     package_unpack
     package_build
 done
-
-# case "${2}" in
-#         fetch)
-# 	        package_fetch
-# 		;;
-#         unpack)
-#                 package_unpack
-#                 ;;
-#         build)
-#                 package_build
-#                 ;;
-#         all)
-# 	        package_fetch
-#                 package_unpack
-# 		package_build
-#                 ;;
-#         *)
-#                 echo "Please specify fetch, unpack, build or all as the second arg"
-#                 exit 1
-#                 ;;
-# esac
