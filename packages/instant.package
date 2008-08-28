@@ -1,0 +1,4 @@
+NAME=instant
+SOURCE=http://www.fenics.org/hg/
+PACKING=hg
+BUILDCHAIN=python

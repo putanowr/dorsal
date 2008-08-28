@@ -1,0 +1,11 @@
+NAME=dolfin
+SOURCE=http://www.fenics.org/hg/
+PACKING=hg
+BUILDCHAIN=custom
+
+package_specific_build () {
+scons enableOptimize=yes enableDemos=yes enableMtl4=no enableTrilinos=no \
+enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR \
+withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR \
+install prefix=$INSTALL_PATH
+}

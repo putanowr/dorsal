@@ -1,0 +1,4 @@
+NAME=syfi
+SOURCE=http://www.fenics.org/hg/
+PACKING=hg
+BUILDCHAIN=autotools

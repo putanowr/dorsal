@@ -1,0 +1,4 @@
+NAME=fiat
+SOURCE=http://www.fenics.org/hg/
+PACKING=hg
+BUILDCHAIN=python
