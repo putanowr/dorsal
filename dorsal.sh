@@ -20,7 +20,7 @@ package_fetch (){
     echo "Fetching ${NAME}"
 
     # Fetch the package appropriately from its source
-    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ]
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
 	# Only fetch tarballs that do not exist
 	if [ ! -e ${NAME}${PACKING} ]
@@ -49,7 +49,7 @@ package_unpack() {
     cd ${DOWNLOAD_PATH}
 
     # Only need to unpack tarballs
-    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ]
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
 	echo "Unpacking ${NAME}"
 	# Make sure the tarball was downloaded
@@ -59,7 +59,7 @@ package_unpack() {
 	    exit 1
 	fi
 	# Set appropriate untar flag
-	if [ ${PACKING} = ".tar.bz2" ]
+	if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
 	then
 	    C="j"
 	else

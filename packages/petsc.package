@@ -1,0 +1,10 @@
+NAME=petsc-2.3.3-p13
+SOURCE=ftp://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+
+package_specific_build () {
+export PETSC_DIR=$PWD
+./config/configure.py --with-mpi-dir=$INSTALL_PATH --with-clanguage=cxx --download-hypre=yes --enable-hypre=1 --with-shared=1
+make all
+}

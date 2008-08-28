@@ -4,6 +4,5 @@ PACKING=.tar.bz2
 BUILDCHAIN=custom
 
 package_specific_build () {
-    cd $NAME
     export BOOST_DIR=$PWD
 }

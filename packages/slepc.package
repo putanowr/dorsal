@@ -1,0 +1,10 @@
+NAME=slepc-2.3.3
+SOURCE=http://www.grycap.upv.es/slepc/download/distrib/
+PACKING=.tgz
+BUILDCHAIN=custom
+
+package_specific_build () {
+    export SLEPC_DIR=$PWD
+    ./config/configure.py
+    make all
+}

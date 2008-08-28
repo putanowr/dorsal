@@ -3,9 +3,9 @@
 # Any platform-specific dependencies and notes go here
 
 # Platform specific variables
-PETSC_ARCH=linux-gnu-cxx-debug
+#PETSC_ARCH=linux-gnu-cxx-debug
 
 # Define the packages foo needs
 PACKAGES=(
-	  boost
+	  ginac
 	  )
