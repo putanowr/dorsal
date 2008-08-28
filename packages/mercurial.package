@@ -1,0 +1,4 @@
+name = mercurial-1.0.1
+source = http://www.selenic.com/mercurial/release/
+packing = tgz
+buildchain = python

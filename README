@@ -8,8 +8,8 @@ as their dependencies) for various platforms.
 
 In order to use Dorsal, first make sure your platform is supported by
 looking for it under the 'platforms' directory. (If it's not, please
-let us know about it and we will work toward adding it.) Then, invoke
-the build script by running:
+let us know about it and we will work toward adding it.) Then, tweak
+dorsal.cfg to your liking and invoke the build script by running:
 
   ./dorsal.sh platforms/foo.platform
 

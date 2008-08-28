@@ -1,0 +1,5 @@
+# Test Platform Foo
+
+# Any platform-specific dependencies and notes go here
+
+packages=(python mercurial)

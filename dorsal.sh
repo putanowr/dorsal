@@ -1,12 +1,20 @@
 #!/usr/bin/env bash
 
-if [ $# -ne 2 ]
+# TODO
+# 1. Needs a master loop to read platform sets
+# 2. Need to implement other worker functions
+# 3. Think about adding package-specific variables to their individual
+#    package files
+
+
+if [ $# -ne 1 ]
 then
-        echo "Please specify package file and unpack, compile or all"
-        exit 1
+    echo "Error: Platform to build for not specified."
+    echo "Correct usage: ./dorsal.sh platforms/foo.platform"
+    exit 1
 fi
 
-source /etc/package.conf
+source dorsal.cfg
 
 if [ -z "$DISTDIR" ]
 then
@@ -63,10 +71,10 @@ export WORKDIR=${ORIGDIR}/work
 
 if [ -e "$1" ]
 then
-        source $1
+    source $1
 else
-        echo "Package file $1 not found."
-        exit 1
+    echo "Platform set '`basename -s .platform $1`' not found. Refer README to check if your platform is supported."
+    exit 1
 fi
 
 export SRCDIR=${WORKDIR}/${P}
