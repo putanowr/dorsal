@@ -1,12 +1,19 @@
 # Red Hat Enterprise Linux 5
 
-# This assumes that you have blah and blah installed. In order to
-# install it, do yum install blah blah bah
+# This build script assumes that you have the following packages
+# already installed:
+#
+# libtool, libxml2, pkg-config, LAPACK, BLAS and a C++ compiler.
+#
+# In case you are missing something, install it using:
+#
+# yum install libtool libxml2 pkgconfig lapack blas gcc-c++
 
 # Platform specific variables
 PETSC_ARCH=linux-gnu-cxx-debug
 
-# Define the packages this platform needs
+# Define the packages this platform needs. Should optional packages be
+# commented out by default?
 PACKAGES=(
            python
 	   mercurial
@@ -15,12 +22,12 @@ PACKAGES=(
 	   boost
 	   swig
 	   openmpi
-	   #petsc
-	   #slepc
+	   petsc
+	   slepc
 	   gts
 	   cln
 	   ginac
-	   suitesparse
+	   suitesparsewithmetis
 	   fiat
 	   ferari
 	   ufc
@@ -28,5 +35,5 @@ PACKAGES=(
 	   syfi
 	   viper
 	   instant
-	   #dolfin
+	   dolfin
 	 )

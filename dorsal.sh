@@ -112,7 +112,7 @@ package_build() {
     quit_if_fail "There was a problem building ${NAME}."
 }
 
-#### Start the build process ###
+### Start the build process ###
 
 export ORIGDIR=`pwd`
 
