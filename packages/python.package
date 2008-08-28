@@ -1,4 +1,4 @@
-name = Python-2.5.2
-source = http://python.org/ftp/python/2.5.2/
-packing = tbz2
-buildchain = autotools
+NAME=Python-2.5.2
+SOURCE=http://python.org/ftp/python/2.5.2/
+PACKING=.tar.bz2
+BUILDCHAIN=autotools

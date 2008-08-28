@@ -2,4 +2,9 @@
 
 # Any platform-specific dependencies and notes go here
 
-packages=(python mercurial)
+# Define the packages foo needs
+PACKAGES=(
+	  python
+	  mercurial
+	  ufc
+	  )
