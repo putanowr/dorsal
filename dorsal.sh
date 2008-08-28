@@ -1,3 +1,5 @@
+# Refer README and COPYING for licensing information.
+
 #!/usr/bin/env bash
 
 ### Define helper functions ###

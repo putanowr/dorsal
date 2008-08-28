@@ -20,7 +20,7 @@ PACKAGES=(
 	   gts
 	   cln
 	   ginac
-	   suitesparsewithmetis
+	   suitesparse
 	   fiat
 	   ferari
 	   ufc
