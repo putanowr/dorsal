@@ -1,6 +1,7 @@
-# Refer README and COPYING for licensing information.
-
 #!/usr/bin/env bash
+
+# This is Dorsal. Refer README and COPYING for more information about
+# it as well as terms of distribution.
 
 ### Define helper functions ###
 
