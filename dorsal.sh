@@ -123,7 +123,7 @@ then
     DOWNLOAD_PATH=$HOME/downloads/src
 fi
 
-if [-x "$INSTALL_PATH" ]
+if [ -z "$INSTALL_PATH" ]
 then
     INSTALL_PATH=$HOME/builds
 fi
