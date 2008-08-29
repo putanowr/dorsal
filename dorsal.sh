@@ -90,7 +90,12 @@ package_build() {
     fi
 
     # Move to the appropriate folder before compilation
-    cd ${NAME}
+    if [ -z "$EXTRACTSTO" ]
+    then
+	cd ${NAME}
+    else
+	cd ${EXTRACTSTO}
+    fi
 
     # Use the appropriate build system to compile and install the
     # package
@@ -172,6 +177,7 @@ do
     unset SOURCE
     unset PACKING
     unset BUILDCHAIN
+    unset EXTRACTSTO
     unset -f package_specific_build
     
     source packages/${PACKAGE}.package

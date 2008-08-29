@@ -2,6 +2,7 @@ NAME=foo-x.y.z
 SOURCE=http://foo.org/downloads/foo/
 PACKING=[.tar.gz|tar.bz2|.tbz2|.tgz|hg]
 BUILDCHAIN=[autotools|python|custom]
+EXTRACTSTO=DIRECTORY
 
 package_specific_build () {
 # Any custom build instructions go here

@@ -2,9 +2,12 @@ NAME=vtk-5.2.0
 SOURCE=http://www.vtk.org/files/release/5.2/
 PACKING=.tar.gz
 BUILDCHAIN=custom
+EXTRACTSTO=VTK
 
 package_specific_build () {
-    ./bootstrap --prefix=${INSTALL_PATH}
+    export BUILD_SHARED_LIBS=ON
+    export VTK_WRAP_PYTHON=ON
+    export CMAKE_INSTALL_PREFIX=${INSTALL_PATH}
+    ccmake .
     make
-    make install
 }

@@ -8,8 +8,10 @@
 # Platform specific variables
 PETSC_ARCH=linux-gnu-cxx-debug
 
-# Define the packages this platform needs. Should optional packages be
-# commented out by default?
+# Define the packages this platform needs.
+
+# Currently broken packages are commented out. Once everything works,
+perhaps optional packages can be commented out.
 PACKAGES=(
            python
 	   mercurial
@@ -29,7 +31,9 @@ PACKAGES=(
 	   ufc
 	   ffc
 	   syfi
+	   cmake
+	   #vtk
 	   viper
 	   instant
-	   dolfin
+	   #dolfin
 	 )

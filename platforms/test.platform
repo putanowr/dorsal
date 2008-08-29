@@ -1,5 +1,8 @@
 # This is just a test plaform
 
 PACKAGES=(
+	   cmake
 	   vtk
+	   gts
+	   ufc
 	 )
