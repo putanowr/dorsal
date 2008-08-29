@@ -1,0 +1,10 @@
+NAME=vtk-5.2.0
+SOURCE=http://www.vtk.org/files/release/5.2/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+
+package_specific_build () {
+    ./bootstrap --prefix=${INSTALL_PATH}
+    make
+    make install
+}
