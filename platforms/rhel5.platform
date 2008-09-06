@@ -11,7 +11,7 @@ PETSC_ARCH=linux-gnu-cxx-debug
 # Define the packages this platform needs.
 
 # Currently broken packages are commented out. Once everything works,
-perhaps optional packages can be commented out.
+# perhaps optional packages can be commented out.
 PACKAGES=(
            python
 	   mercurial

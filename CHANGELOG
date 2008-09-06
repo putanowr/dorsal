@@ -1,4 +1,5 @@
 2008-08 Harish Narayanan <harish@simula.no>
+	* Changed distribution license to GPL version 3
 	* Complete rewrite; modularised the scripts
 	* Created a framework for easy addition of additional
 	  platforms 
