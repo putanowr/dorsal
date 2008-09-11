@@ -138,7 +138,7 @@ then
     INSTALL_PATH=$HOME/builds
 fi
 
-# Check if dorsal.sh was invoked coerrectly
+# Check if dorsal.sh was invoked correctly
 if [ $# -ne 1 ]
 then
     echo "Error: Platform to build for not specified."
