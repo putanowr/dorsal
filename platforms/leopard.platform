@@ -1,0 +1,25 @@
+# Mac OS X 10.5 with Fink (beta!)
+
+# This build script assumes that you have the following packages
+# already installed via fink:
+#
+# fink install openmpi-dev wget boost1.33 suitesparse python25 \
+# vtk-py25 numpy-py25 pkgconfig gts libxml2 scons gcc43
+
+# Platform specific variables
+PETSC_ARCH=
+
+# Define the packages this platform needs.
+PACKAGES=(
+           #mercurial
+           #swig
+	   fiat
+	   ferari
+	   ufc
+	   ufl
+	   ffc
+	   syfi
+	   viper
+	   instant
+	   #dolfin
+	 )

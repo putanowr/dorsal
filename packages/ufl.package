@@ -1,0 +1,4 @@
+NAME=ufl
+SOURCE=http://www.fenics.org/dev/
+PACKING=hg
+BUILDCHAIN=python

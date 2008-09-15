@@ -13,7 +13,7 @@ PETSC_ARCH=linux-gnu-cxx-debug
 # Define the packages this platform needs.
 
 # This has not been tested. I have just guessed what Hardy has and
-what it will need from information on the FEniCS Wiki.
+# what it will need from information on the FEniCS Wiki.
 PACKAGES=(
 	   petsc
 	   slepc
