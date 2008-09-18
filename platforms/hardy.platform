@@ -5,7 +5,7 @@
 #
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
-# libboost-dev wget openmpi-bin
+# libboost-dev wget openmpi-bin libatlas-base-dev
 
 # Platform specific variables
 PETSC_ARCH=linux-gnu-cxx-debug
