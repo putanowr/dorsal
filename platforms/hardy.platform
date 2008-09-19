@@ -5,7 +5,7 @@
 #
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
-# libboost-dev wget openmpi-bin libatlas-base-dev
+# libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev
 
 # Platform specific variables
 PETSC_ARCH=linux-gnu-cxx-debug
@@ -15,7 +15,6 @@ PETSC_ARCH=linux-gnu-cxx-debug
 # This has not been tested. I have just guessed what Hardy has and
 # what it will need from information on the FEniCS Wiki.
 PACKAGES=(
-	   petsc
 	   slepc
 	   cln
 	   ginac
