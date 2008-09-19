@@ -1,4 +1,8 @@
 NAME=syfi
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
-BUILDCHAIN=autotools
+BUILDCHAIN=custom
+
+package_specific_build () {
+scons install prefix=$INSTALL_PATH
+}
