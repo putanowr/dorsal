@@ -8,12 +8,12 @@
 # libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev
 
 # Platform specific variables
-PETSC_ARCH=linux-gnu-cxx-debug
+PETSC_ARCH=linux-gnu-c-opt
+export PETSC_DIR=/usr/lib/petsc
+export UMFPACK_DIR=/usr
+export BOOST_DIR=/usr
 
 # Define the packages this platform needs.
-
-# This has not been tested. I have just guessed what Hardy has and
-# what it will need from information on the FEniCS Wiki.
 PACKAGES=(
 	   slepc
 	   cln
