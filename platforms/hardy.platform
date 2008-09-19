@@ -13,17 +13,17 @@ export PETSC_DIR=/usr/lib/petsc
 export UMFPACK_DIR=/usr
 export BOOST_DIR=/usr
 
-# Define the packages this platform needs.
+# Define the packages this platform needs
 PACKAGES=(
-	   slepc
-	   cln
-	   ginac
-	   fiat
-	   ferari
-	   ufc
-	   ffc
-	   syfi
-	   viper
-	   instant
-	   dolfin
-	 )
+slepc
+cln
+ginac
+fiat
+ferari
+ufc
+ffc
+syfi
+viper
+instant
+dolfin
+)

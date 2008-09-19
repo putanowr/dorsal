@@ -6,34 +6,31 @@
 # yum install libtool libxml2 pkgconfig lapack blas gcc gcc-c++
 
 # Platform specific variables
-PETSC_ARCH=linux-gnu-cxx-debug
+PETSC_ARCH=linux-gnu-cxx-opt
 
-# Define the packages this platform needs.
-
-# Currently broken packages are commented out. Once everything works,
-# perhaps optional packages can be commented out.
+# Define the packages this platform needs
 PACKAGES=(
-           python
-	   mercurial
-	   scons
-	   numpy
-	   boost
-	   swig
-	   openmpi
-	   petsc
-	   slepc
-	   gts
-	   cln
-	   ginac
-	   suitesparsewithmetis
-	   fiat
-	   ferari
-	   ufc
-	   ffc
-	   syfi
-	   cmake
-	   #vtk
-	   viper
-	   instant
-	   #dolfin
-	 )
+python
+mercurial
+scons
+numpy
+boost
+swig 
+openmpi
+petsc
+slepc
+gts 
+cln
+ginac
+suitesparsewithmetis
+fiat
+ferari
+ufc 
+ffc
+syfi
+cmake
+#vtk
+viper
+instant
+#dolfin
+)
