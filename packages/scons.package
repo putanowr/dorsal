@@ -1,4 +1,4 @@
-NAME=scons-1.0.0
+NAME=scons-1.0.1
 SOURCE=http://downloads.sourceforge.net/scons/
 PACKING=.tar.gz
 BUILDCHAIN=python
