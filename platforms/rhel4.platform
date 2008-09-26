@@ -1,0 +1,37 @@
+# Red Hat Enterprise Linux 4
+
+# This build script assumes that you have the following packages
+# already installed via Red Hat's package manager:
+#
+# libtool libxml2 pkgconfig lapack blas gcc gcc-c++
+
+# Platform specific variables
+export PETSC_ARCH=linux-gnu-cxx-opt
+
+# Define the packages this platform needs
+PACKAGES=(
+python
+mercurial
+scons
+numpy
+boost
+swig 
+openmpi
+petsc
+slepc
+gts 
+cln
+ginac
+suitesparsewithmetis
+fiat
+ferari
+ufc
+ufl 
+ffc
+#syfi
+cmake
+#vtk
+#viper
+instant
+dolfin
+)
