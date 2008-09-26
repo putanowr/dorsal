@@ -83,7 +83,7 @@ package_unpack() {
 package_build() {
     # Get things ready for the compilation process 
     echo "Building ${NAME}"
-    if [ ! -d "${NAME}" ]
+    if [ ! -d "${NAME}" ] && [ ! -d "${EXTRACTSTO}" ]
     then
         echo "${NAME} does not exist -- please unpack first."
         exit 1

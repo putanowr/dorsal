@@ -4,9 +4,14 @@
 # already installed via Red Hat's yum:
 #
 # yum install libtool libxml2 pkgconfig lapack blas gcc gcc-c++
+#
+# Also, if you're having difficulty building SuiteSparse, you may need
+# to run (as root):
+#
+# ln -s /usr/lib64/libg2c.so.0.0.0 /usr/lib/libg2c.so
 
 # Platform specific variables
-PETSC_ARCH=linux-gnu-cxx-opt
+export PETSC_ARCH=linux-gnu-cxx-opt
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -25,12 +30,13 @@ ginac
 suitesparsewithmetis
 fiat
 ferari
-ufc 
+ufc
+ufl 
 ffc
-syfi
+#syfi
 cmake
 #vtk
-viper
+#viper
 instant
-#dolfin
+dolfin
 )

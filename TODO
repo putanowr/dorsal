@@ -5,8 +5,8 @@
   if necessary.
     Red Hat Enterprise Linux 4	(rhel4)
     Red Hat Enterprise Linux 5 	(rhel5)
-    Ubuntu 7.10			(gutsy)
-    Ubuntu 8.04			(hardy)
+    Ubuntu 7.10	       	     	(gutsy)
+    Ubuntu 8.04 LTS		(hardy)
     Ubuntu 8.10			(intrepid)
     Mac OS X 10.4 (with fink)	(tiger)
     Mac OS X 10.5 (with fink)	(leopard)
@@ -27,3 +27,7 @@
 
 * Introduce support for Windows (with Cygwin/MinGW)
   Difficulty: High      Urgency: Moderate
+
+* Add scons as a build type, since more FEniCS projects are migrating
+  to it
+  Difficulty: Low      Urgency: Moderate
