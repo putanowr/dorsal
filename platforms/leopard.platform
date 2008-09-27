@@ -19,8 +19,8 @@ export BOOST_DIR=/sw
 
 # Define the packages this platform needs.
 PACKAGES=(
-#petsc
-#slepc
+petsc
+slepc
 cln
 ginac
 fiat
