@@ -1,25 +1,35 @@
-# Mac OS X 10.5 with Fink (beta!)
+# Mac OS X 10.5 with Fink
 
-# This build script assumes that you have the following packages
-# already installed via fink:
+# This build script assumes that you have installed Xcode.app and
+# X11.app from Mac OS's original install disc. This gives you access
+# to a recent gcc, among other things. In order to have easy access to
+# a lot of useful Free Software, this script also assumes you have
+# installed Fink (from http://www.finkproject.org/).
+
+# Via Fink, you need to install the following packages:
 #
-# fink install openmpi-dev wget boost1.33 suitesparse python25 \
-# vtk-py25 numpy-py25 pkgconfig gts libxml2 scons gcc43
+# fink install wget libtool libxml2 pkgconfig gcc43 openmpi \
+# openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 boost1.33 \
+# suitesparse scons gts swig
 
 # Platform specific variables
-PETSC_ARCH=
+export PETSC_ARCH=darwin9.2.0-cxx-opt
+export UMFPACK_DIR=/sw
+export BOOST_DIR=/sw
 
 # Define the packages this platform needs.
 PACKAGES=(
-           #mercurial
-           #swig
-	   fiat
-	   ferari
-	   ufc
-	   ufl
-	   ffc
-	   syfi
-	   viper
-	   instant
-	   #dolfin
-	 )
+#petsc
+#slepc
+cln
+ginac
+fiat
+ferari
+ufc
+ufl
+#ffc
+syfi
+viper
+instant
+dolfin
+)

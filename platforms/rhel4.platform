@@ -6,6 +6,7 @@
 # libtool libxml2 pkgconfig lapack blas gcc gcc-c++
 
 # Platform specific variables
+export LAPACKANDBLAS_DIR=/usr/lib64
 export PETSC_ARCH=linux-gnu-cxx-opt
 
 # Define the packages this platform needs

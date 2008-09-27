@@ -5,7 +5,7 @@ BUILDCHAIN=custom
 
 package_specific_build () {
     echo "[atlas]" > site.cfg
-    echo "library_dirs = $LAPACKANDBLAS" >> site.cfg
+    echo "library_dirs = $LAPACKANDBLAS_DIR" >> site.cfg
     echo "atlas_libs = lapack, blas" >> site.cfg
     python setup.py install --prefix=${INSTALL_PATH}
 }
