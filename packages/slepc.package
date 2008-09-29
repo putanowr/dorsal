@@ -6,6 +6,6 @@ BUILDCHAIN=custom
 package_specific_build () {
     export SLEPC_DIR=$PWD
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SLEPC_DIR/lib/$PETSC_ARCH
-#    ./config/configure.py
-#    make all
+    ./config/configure.py
+    make all
 }

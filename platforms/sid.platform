@@ -1,0 +1,28 @@
+# Debian GNU/Linux Unstable
+
+# This build script assumes that you have the following packages
+# already installed via Debian's apt-get:
+#
+# sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
+# pkg-config python-dev python-numpy python-vtk swig wget \
+# libsuitesparse-dev libboost-dev openmpi-bin libatlas-base-dev \
+# petsc-dev libcln-dev libginac-dev
+
+# Platform specific variables
+export PETSC_ARCH=linux-gnu-c-opt
+export PETSC_DIR=/usr/lib/petsc
+export UMFPACK_DIR=/usr
+export BOOST_DIR=/usr
+
+# Define the packages this platform needs
+PACKAGES=(
+slepc
+fiat
+ferari
+ufl
+ffc
+syfi
+viper
+instant
+dolfin
+)
