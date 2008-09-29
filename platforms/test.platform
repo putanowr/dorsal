@@ -2,8 +2,11 @@
 
 # Platform specific variables
 export PETSC_ARCH=darwin9.2.0-cxx-opt
+export PETSC_DIR=${DOWNLOAD_PATH}/petsc-2.3.3-p15
+export SLEPC_DIR=${DOWNLOAD_PATH}/slepc-2.3.3
+export UMFPACK_DIR=/sw
+export BOOST_DIR=/sw
 
 PACKAGES=(
-petsc
-slepsc
+dolfin
 )
