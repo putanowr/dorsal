@@ -5,6 +5,6 @@ BUILDCHAIN=custom
 
 package_specific_build () {
 export PETSC_DIR=$PWD
-./config/configure.py --with-mpi-dir=$INSTALL_PATH --with-clanguage=cxx --with-fc=0 --download-hypre=1 --enable-hypre=1 --with-shared=1
+./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-shared=1
 make all
 }

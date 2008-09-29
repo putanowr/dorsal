@@ -8,5 +8,7 @@ export UMFPACK_DIR=/sw
 export BOOST_DIR=/sw
 
 PACKAGES=(
+petsc-test
+slepc
 dolfin
 )

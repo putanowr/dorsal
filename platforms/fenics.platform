@@ -1,0 +1,19 @@
+# The core FEniCS packages
+
+# This build script is platform independent. Once you have boostrapped
+# the .platform file specific to your environment, you can use this
+# file to save time during subsequent rebuilds by building only the
+# fast-changing FEniCS project sources.
+
+# Define the packages this platform needs.
+PACKAGES=(
+fiat
+ferari
+ufc
+ufl
+ffc
+syfi
+viper
+instant
+#dolfin
+)
