@@ -1,0 +1,36 @@
+# Ubuntu 8.04 LTS
+
+# This build script assumes that you have the following packages
+# already installed via Ubuntu's apt-get:
+#
+# sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
+# pkg-config python-dev python-numpy python-vtk swig atlas3-base-dev \
+# lapack3-dev libsuitesparse-dev libboost-dev wget libparmetis-dev
+#
+# If you're having difficulty running dolfin demos because of slepc
+# or petsc errors, add the following to your dolfin.conf:
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DOWNLOAD_PATH/slepc-2.3.3/lib/linux-gnu-c-opt:$DOWNLOAD_PATH/petsc-2.3.3-p15/lib/linux-gnu-c-opt
+
+# Platform specific variables
+export PETSC_ARCH=linux-gnu-c-opt
+export PETSC_DIR=/usr/lib/petsc
+export UMFPACK_DIR=/usr
+export BOOST_DIR=/usr
+
+# Define the packages this platform needs
+PACKAGES=(
+openmpi
+petsc
+slepc
+cln
+ginac
+fiat
+ferari
+ufc
+ufl
+ffc
+syfi
+viper
+instant
+dolfin
+)

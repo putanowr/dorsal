@@ -6,7 +6,7 @@
    Red Hat Enterprise Linux 4    (rhel4)   [Broken; very old gcc]
    Red Hat Enterprise Linux 5    (rhel5)   [Works without SyFi/VTK/Viper]
    Debian GNU/Linux Unstable       (sid)   [Works!]
-   Ubuntu 7.10                   (gutsy)   [Not tested]
+   Ubuntu 7.10                   (gutsy)   [Works!]
    Ubuntu 8.04 LTS               (hardy)   [Works!]
    Ubuntu 8.10                (intrepid)   [Works!]
    Mac OS X 10.4 (with fink)     (tiger)   [Not tested]
