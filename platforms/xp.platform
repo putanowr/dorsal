@@ -1,0 +1,37 @@
+# Windows XP with Cygwin
+
+# This build script assumes that you have installed Cygwin
+# (http://www.cygwin.com/). This gives you access to a lot of Free
+# Software on your Windows machine, and it is assumed that you use it
+# to install the following beyond a default installation of Cygwin (to
+# C:\cygwin):
+
+# Devel Python X11 Web->Wget
+
+# Platform specific variables
+export LAPACKANDBLAS_DIR=
+export PETSC_ARCH=
+
+# Define the packages this platform needs
+PACKAGES=(
+scons
+numpy
+swig 
+openmpi
+petsc
+slepc
+gts 
+cln
+ginac
+suitesparsewithmetis
+fiat
+ferari
+ufc
+ufl 
+ffc
+syfi
+vtk
+viper
+instant
+dolfin
+)
