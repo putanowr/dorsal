@@ -2,17 +2,17 @@
 
 # This build script assumes that you have installed Cygwin
 # (http://www.cygwin.com/), which gives you access to a lot of Free
-# Software on your Windows machine. Using Cygwin, install the
-# following software beyond the default installation:
+# Software on your Windows machine. Using Cygwin's setup.exe, install
+# the following software (along with any dependencies they request)
+# beyond the default installation:
 
 # Devel > autoconf, automake, boost, boost-devel, cmake, doxygen gcc4,
-# gcc4-fortan, gettext, gettext-devel, libtool, make, mercurial,
-# pkg-config, swig
+# gettext, gettext-devel, libtool, make, mercurial, pkg-config, swig
+# Gnome > glib2, glib2-devel
+# Graphics > libnetpbm10, libnetpbm-devel
 # Math > SuiteSparse, libSuiteSparse-devel, lapack
 # Text > libxml2
 # Web > wget
-
-# Along with any dependencies these packages request.
 
 # Platform specific variables
 export PETSC_ARCH=cygwin
@@ -21,27 +21,28 @@ export BOOST_DIR=/usr
 
 export CC=gcc-4
 export CXX=g++-4
-export F77=gfortran-4
-export F90=gfortran-4
+
+ln -sf /usr/bin/gcc-4 $INSTALL_PATH/bin/cc
+ln -sf /usr/bin/g++-4 $INSTALL_PATH/bin/c++
+
 
 # Define the packages this platform needs
 PACKAGES=(
 scons
-openmpi
-petsc
+petscwithmpi
 slepc
-gts 
+gts
 cln
 ginac
-suitesparsewithmetis
+#suitesparsewithmetis
 fiat
 ferari
 ufc
-ufl 
+ufl
 ffc
-syfi
-vtk
-viper
+#syfi
+#vtk
+#viper
 instant
-dolfin
+#dolfin
 )

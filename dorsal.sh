@@ -177,7 +177,7 @@ fi
 
 # Create necessary directories and export appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
-mkdir -p ${INSTALL_PATH}
+mkdir -p ${INSTALL_PATH}/bin
 export PATH=$INSTALL_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$INSTALL_PATH/lib:$LD_LIBRARY_PATH
 export PYTHONPATH=$INSTALL_PATH/lib/python2.5/site-packages:$PYTHONPATH
