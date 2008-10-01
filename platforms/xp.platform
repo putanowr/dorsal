@@ -1,26 +1,28 @@
 # Windows XP with Cygwin
 
 # This build script assumes that you have installed Cygwin
-# (http://www.cygwin.com/). This gives you access to a lot of Free
-# Software on your Windows machine, and it is assumed that you use it
-# to install the following beyond a default installation of Cygwin (to
-# C:\cygwin):
+# (http://www.cygwin.com/), which gives you access to a lot of Free
+# Software on your Windows machine. Using Cygwin, install the
+# following software beyond the default installation:
 
 # Devel > autoconf, automake, boost, boost-devel, cmake, doxygen gcc4,
 # gcc4-fortan, gettext, gettext-devel, libtool, make, mercurial,
 # pkg-config, swig
-
 # Math > SuiteSparse, libSuiteSparse-devel, lapack
-
 # Text > libxml2
-
 # Web > wget
 
 # Along with any dependencies these packages request.
 
 # Platform specific variables
-export LAPACKANDBLAS_DIR=
-export PETSC_ARCH=
+export PETSC_ARCH=cygwin
+export UMFPACK_DIR=/usr
+export BOOST_DIR=/usr
+
+export CC=gcc-4
+export CXX=g++-4
+export F77=gfortran-4
+export F90=gfortran-4
 
 # Define the packages this platform needs
 PACKAGES=(

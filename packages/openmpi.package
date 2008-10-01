@@ -2,4 +2,4 @@ NAME=openmpi-1.2.7
 SOURCE=http://www.open-mpi.org/software/ompi/v1.2/downloads/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
-CONFOPTS='--disable-mpi-f90'
+CONFOPTS='--disable-mpi-f90 --disable-mpi-profile'
