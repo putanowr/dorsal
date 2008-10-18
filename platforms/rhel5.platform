@@ -34,8 +34,8 @@ ferari
 ufc
 ufl 
 ffc
-#syfi
-cmake
+syfi
+#cmake
 #vtk
 #viper
 instant
