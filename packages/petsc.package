@@ -6,6 +6,6 @@ MAKETARGETS=all
 
 package_specific_setup () {
 export PETSC_DIR=$PWD
-ln -sf $PETC_DIR/lib/$PETSC_ARCH/libpetsc.so $INSTALL_PATH/lib/libpetsc.so
+ln -sf $PETSC_DIR/lib/$PETSC_ARCH/libpetsc.so $INSTALL_PATH/lib/libpetsc.so
 ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-shared=1
 }
