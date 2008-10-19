@@ -9,7 +9,7 @@ MAKETARGETS="'' install"
 
 package_specific_setup () {
 # Variable declarations that are used by other packages go here.
-# Can also be used for nonstandard .configu
+# Can also be used for nonstandard ./configure
 }
 
 package_specific_build () {

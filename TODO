@@ -30,10 +30,6 @@
 * Introduce support for Windows (with Cygwin/MinGW).
   Difficulty: High      Urgency: Moderate
 
-* Add scons as a build type, since more FEniCS projects are migrating
-  to it.
-  Difficulty: Low       Urgency: Moderate
-
 * Add a post-build step to the build chain to allow for any special
   cleanup steps or messages that need to be passed on to the user.
   Difficulty: Low       Urgency: Moderate

@@ -13,7 +13,6 @@ scons $SCONSOPTS prefix=$INSTALL_PATH install
 }
 
 package_specific_teardown () {
-echo "Execute the following to set your environment:"
+echo "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
 echo "source $PWD/dolfin.conf"
-source $PWD/dolfin.conf # why?
 }

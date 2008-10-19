@@ -13,6 +13,7 @@
 # Platform specific variables
 export LAPACKANDBLAS_DIR=/usr/lib64
 export PETSC_ARCH=linux-gnu-cxx-opt
+export PYTHONVER=2.6
 
 # Define the packages this platform needs
 PACKAGES=(

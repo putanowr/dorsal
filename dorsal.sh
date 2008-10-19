@@ -220,11 +220,11 @@ else
     exit 1
 fi
 
-if [ ${PACKAGES[0]} == python ]
+# If the platform doesn't override the system python by installing its
+# own figure out the version of of the existing python
+if [ -z "$PYTHONVER" ]
 then
-    PYTHONVER=python2.6
-else
-    PYTHONVER=python`python -V 2>&1 | cut -c 8-10`
+    PYTHONVER=`python -c "import sys; print sys.version[:3]"`
 fi
 
 # Create necessary directories and export appropriate variables
@@ -232,7 +232,7 @@ mkdir -p ${DOWNLOAD_PATH}
 mkdir -p ${INSTALL_PATH}/bin
 export PATH=$INSTALL_PATH/bin:$PATH
 export LD_LIBRARY_PATH=$INSTALL_PATH/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$INSTALL_PATH/lib/$PYTHONVER/site-packages:$PYTHONPATH
+export PYTHONPATH=$INSTALL_PATH/lib/python$PYTHONVER/site-packages:$PYTHONPATH
 export PKG_CONFIG_PATH=$INSTALL_PATH/lib/pkgconfig:$PKG_CONFIG_PATH:/usr/lib/pkgconfig
 
 # Fetch and build individual packages
