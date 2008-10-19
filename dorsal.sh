@@ -120,7 +120,7 @@ package_build() {
 	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
 	fi
 	# The default is "make" followed by "make install". Use eval to allow empty target.
-	for target in ${MAKETARGETS:-'"" install'}
+	for target in ${MAKETARGETS}
 	do
 	    eval echo make $target >>dorsal_build
 	done
@@ -253,7 +253,7 @@ do
     unset CONFOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
-    unset MAKETARGETS
+    MAKETARGETS='"" install'
 
     # a skeleton default implementation
     package_specific_setup () { true; }
