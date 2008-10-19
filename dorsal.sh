@@ -8,16 +8,18 @@
 # Colours for progress and error reporting
 BAD="\033[1;37;41m"
 GOOD="\033[1;37;42m"
+cecho() {
+    COL=$1; shift
+    echo -e "${COL}$@\033[0m"
+}
 
 quit_if_fail() {
     # Exit with some useful information if something goes wrong
     status=$?
     if [ $status -ne 0 ]
-	then
-	echo -en "${BAD}"
-	echo 'Failure with exit status:' $status
-	echo 'Exit message:' $1
-	echo -en "\033[0m"
+    then
+	cecho $BAD 'Failure with exit status:' $status
+	cecho $BAD 'Exit message:' $1
 	exit $status
     fi
 }
@@ -26,9 +28,7 @@ package_fetch (){
     # First make sure we're in the right directory before downloading
     cd ${DOWNLOAD_PATH}
 
-    echo -en "${GOOD}"
-    echo "Fetching ${NAME}"
-    echo -en "\033[0m"
+    cecho $GOOD "Fetching ${NAME}"
 
     # Fetch the package appropriately from its source
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
@@ -62,15 +62,11 @@ package_unpack() {
     # Only need to unpack tarballs
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
-	echo -en "${GOOD}"
-	echo "Unpacking ${NAME}"
-	echo -en "\033[0m"
+	cecho $GOOD "Unpacking ${NAME}"
 	# Make sure the tarball was downloaded
 	if [ ! -e ${NAME}${PACKING} ]
 	then
-	    echo -en "${BAD}"
-	    echo "${NAME}${PACKING} does not exist. Please download first."
-	    echo -en "\033[0m"
+	    cecho $BAD "${NAME}${PACKING} does not exist. Please download first."
 	    exit 1
 	fi
 	# Set appropriate untar flag
@@ -94,14 +90,10 @@ package_unpack() {
 
 package_build() {
     # Get things ready for the compilation process
-    echo -en "${GOOD}"
-    echo "Building ${NAME}"
-    echo -en "\033[0m"
+    cecho $GOOD "Building ${NAME}"
     if [ ! -d "${NAME}" ] && [ ! -d "${EXTRACTSTO}" ]
     then
-	echo -en "${BAD}"
-        echo "${NAME} does not exist -- please unpack first."
-	echo -en "\033[0m"
+        cecho $BAD "${NAME} does not exist -- please unpack first."
         exit 1
     fi
 
@@ -157,9 +149,7 @@ fi
 # Check if dorsal.sh was invoked correctly
 if [ $# -ne 1 ]
 then
-    echo -en "${BAD}"
-    echo "Error: Platform to build for not specified."
-    echo -en "\033[0m"
+    cecho $BAD "Error: Platform to build for not specified."
     echo "Correct usage: ./dorsal.sh platforms/foo.platform"
     exit 1
 fi
@@ -169,9 +159,7 @@ if [ -e "$1" ]
 then
     source $1
 else
-    echo -en "${BAD}"
-    echo "Platform set '`basename -s .platform $1`' not found. Refer README to check if your platform is supported."
-    echo -en "\033[0m"
+    cecho $BAD "Platform set '`basename -s .platform $1`' not found. Refer README to check if your platform is supported."
     exit 1
 fi
 
@@ -189,9 +177,7 @@ do
     cd ${ORIGDIR}
     if [ ! -e packages/${PACKAGE}.package ]
     then
-	echo -en "${BAD}"
-        echo "packages/${PACKAGE}.package does not exist yet. Please create it."
-	echo -en "\033[0m"
+        cecho $BAD "packages/${PACKAGE}.package does not exist yet. Please create it."
         exit 1
     fi
 
@@ -207,9 +193,7 @@ do
 
     if [ ! ${NAME} ] || [ ! ${SOURCE} ] || [ ! ${PACKING} ] || [ ! ${BUILDCHAIN} ]
     then
-	echo -en "${BAD}"
-	echo "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
-	echo -en "\033[0m"
+	cecho $BAD "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
 	exit 1
     fi
 
