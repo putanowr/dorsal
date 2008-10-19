@@ -108,16 +108,20 @@ package_build() {
     fi
 
     package_specific_setup
+    quit_if_fail "There was a problem in build setup for ${NAME}."
 
     # Use the appropriate build system to compile and install the
     # package
     echo "#!/usr/bin/env bash" >dorsal_build
+    echo "set -e" >>dorsal_build    # exit immediately on error
     chmod a+x dorsal_build
+
     if [ ${BUILDCHAIN} = "autotools" ]
     then
 	if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
 	then
 	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
+	    quit_if_fail "There was a problem configuring build for ${NAME}."
 	fi
 	# The default is "make" followed by "make install". Use eval to allow empty target.
 	for target in ${MAKETARGETS}
@@ -139,8 +143,6 @@ package_build() {
     fi
 
     ./dorsal_build 2>&1 | tee build_log
-
-    # Quit with a useful message if someting goes wrong
     quit_if_fail "There was a problem building ${NAME}."
 
     package_specific_teardown
