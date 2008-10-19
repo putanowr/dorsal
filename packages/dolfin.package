@@ -1,10 +1,16 @@
 NAME=dolfin
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
-BUILDCHAIN=scons
+BUILDCHAIN=custom
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=yes enableMtl4=no enableTrilinos=no
 enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR
 withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR"
+
+package_specific_build () {
+# Remove -Werror from CXXFLAGS.
+export CXXFLAGS="-Wall -pipe -ansi"
+scons $SCONSOPTS prefix=$INSTALL_PATH install
+}
 
 package_specific_teardown () {
 echo "Execute the following to set your environment:"
