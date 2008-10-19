@@ -1,11 +1,10 @@
 NAME=numpy-1.1.1
 SOURCE=http://downloads.sourceforge.net/numpy/
 PACKING=.tar.gz
-BUILDCHAIN=custom
+BUILDCHAIN=python
 
-package_specific_build () {
+package_specific_setup () {
     echo "[atlas]" > site.cfg
     echo "library_dirs = $LAPACKANDBLAS_DIR" >> site.cfg
     echo "atlas_libs = lapack, blas" >> site.cfg
-    python setup.py install --prefix=${INSTALL_PATH}
 }

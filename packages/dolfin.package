@@ -1,12 +1,13 @@
 NAME=dolfin
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
-BUILDCHAIN=custom
+BUILDCHAIN=scons
+SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=yes enableMtl4=no enableTrilinos=no
+enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR
+withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR"
 
-package_specific_build () {
-scons enableDebug=0 enableOptimize=yes enableDemos=yes enableMtl4=no enableTrilinos=no \
-enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR \
-withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR
-scons install prefix=$INSTALL_PATH
-source dolfin.conf
+package_specific_teardown () {
+echo "Execute the following to set your environment:"
+echo "source $PWD/dolfin.conf"
+source $PWD/dolfin.conf # why?
 }

@@ -1,9 +1,21 @@
 NAME=foo-x.y.z
 SOURCE=http://foo.org/downloads/foo/
 PACKING=[.tar.gz|tar.bz2|.tbz2|.tgz|hg]
-BUILDCHAIN=[autotools|python|custom]
+BUILDCHAIN=[autotools|python|scons|custom]
 EXTRACTSTO=DIRECTORY
+CONFOPTS=""
+SCONSOPTS=""
+MAKETARGETS="'' install"
+
+package_specific_setup () {
+# Variable declarations that are used by other packages go here.
+# Can also be used for nonstandard .configu
+}
 
 package_specific_build () {
-# Any custom build instructions go here
+# Any custom build instructions go here. Only used by custom buildchain.
+}
+
+package_specific_teardown () {
+# Variable declarations here, too.
 }

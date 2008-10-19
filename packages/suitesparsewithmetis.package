@@ -3,8 +3,11 @@ SOURCE=http://www.cise.ufl.edu/research/sparse/SuiteSparse/current/
 PACKING=.tar.gz
 BUILDCHAIN=custom
 
-package_specific_build () {
+package_specific_setup () {
     export UMFPACK_DIR=$PWD
+}
+
+package_specific_build () {
     perl -pi -e 's/^CFLAGS = -O/CFLAGS = -fPIC -O/g' UFconfig/UFconfig.mk
     perl -pi -e 's/-lgfortran.*n//g' UFconfig/UFconfig.mk
     perl -pi -e 's/-lg2c//g' UFconfig/UFconfig.mk

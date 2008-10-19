@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -a
 
 # This is Dorsal. Refer README and COPYING for more information about
 # it as well as terms of distribution.
@@ -105,24 +106,40 @@ package_build() {
 	cd ${EXTRACTSTO}
     fi
 
+    package_specific_setup
+
     # Use the appropriate build system to compile and install the
     # package
+    echo "#!/usr/bin/env bash" >dorsal_build
+    chmod a+x dorsal_build
     if [ ${BUILDCHAIN} = "autotools" ]
     then
-	if [ ! -e Makefile ] 
+	if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
 	then
 	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
 	fi
-	make
-	make install
+	# The default is "make" followed by "make install". Use eval to allow empty target.
+	for target in ${MAKETARGETS:-'"" install'}
+	do
+	    eval echo make $target >>dorsal_build
+	done
     elif [ ${BUILDCHAIN} = "python" ]
     then
-	python setup.py install --prefix=${INSTALL_PATH}
+	echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
+    elif [ ${BUILDCHAIN} = "scons" ]
+    then
+	echo scons ${SCONSOPTS} prefix=${INSTALL_PATH} install >>dorsal_build
     elif [ ${BUILDCHAIN} = "custom" ]
     then
-	# Add a check here to make sure it's properly defined
-	package_specific_build
+	# Yuck. Write variables and functions to file so that it can be run stand-alone
+	declare -x >>dorsal_build   # exported (all) variables
+	declare -f package_specific_build >>dorsal_build   # the function
+	echo package_specific_build >>dorsal_build
     fi
+
+    ./dorsal_build 2>&1 | tee build_log
+
+    package_specific_teardown
 
     # Quit with a useful message if someting goes wrong
     quit_if_fail "There was a problem building ${NAME}."
@@ -189,7 +206,7 @@ if [ -e "$platform" ]
 then
     source $platform
 else
-    cecho $BAD "Platform set '$platform' not found. Refer README to check if your platform is supported."
+    cecho $BAD "Platform set '$platform' not found. Refer to README to check if your platform is supported."
     exit 1
 fi
 
@@ -223,8 +240,14 @@ do
     unset PACKING
     unset BUILDCHAIN
     unset CONFOPTS
+    unset SCONSOPTS
     unset EXTRACTSTO
-    unset -f package_specific_build
+    unset MAKETARGETS
+
+    # a skeleton default implementation
+    package_specific_setup () { true; }
+    package_specific_build () { true; }
+    package_specific_teardown () { true; }
     
     source packages/${PACKAGE}.package
 
@@ -238,3 +261,5 @@ do
     package_unpack
     package_build
 done
+
+cecho $GOOD "Build finished."
