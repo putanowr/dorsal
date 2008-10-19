@@ -201,11 +201,12 @@ then
 	exit 1
     fi
     cecho $GOOD "Building with $platform:"
-    # Show the initial comments of that file, as they often contain instructions about
-    # packages that should be installed first etc. Remove first field '#' so that cut-
-    # and-paste of e.g. apt-get commands is easy.
+    # Show the initial comments of that file, as they often contain
+    # instructions about packages that should be installed first
+    # etc. Remove first field '#' so that cut-and-paste of
+    # e.g. apt-get commands is easy.
     awk '/^[^#]/ {exit} {$1=""; print}' <$platform
-    cecho $GOOD "Ok? Press enter to continue build, or ctrl-c to quit."
+    cecho $GOOD "OK? Press enter to continue build, or ctrl-c to quit."
     read
 else
     platform=$1

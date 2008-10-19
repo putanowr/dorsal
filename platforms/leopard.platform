@@ -17,7 +17,7 @@ export PETSC_ARCH=darwin9.2.0-cxx-opt
 export UMFPACK_DIR=/sw
 export BOOST_DIR=/sw
 
-# Define the packages this platform needs.
+# Define the packages this platform needs
 PACKAGES=(
 petsc
 slepc
