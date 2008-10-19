@@ -9,6 +9,7 @@ set -a
 # Colours for progress and error reporting
 BAD="\033[1;37;41m"
 GOOD="\033[1;37;42m"
+
 cecho() {
     COL=$1; shift
     echo -e "${COL}$@\033[0m"
@@ -139,10 +140,10 @@ package_build() {
 
     ./dorsal_build 2>&1 | tee build_log
 
-    package_specific_teardown
-
     # Quit with a useful message if someting goes wrong
     quit_if_fail "There was a problem building ${NAME}."
+
+    package_specific_teardown
 }
 
 guess_platform() {
@@ -151,13 +152,22 @@ guess_platform() {
     # checking for existence of specific directories or programs.
     if [ -f /etc/xthostname ]; then
 	echo crayxt
+    elif [ -f /usr/bin/sw_vers ]; then
+	if [ `sw_vers | grep -o '10\.[4-5]'` == '10.5' ]; then
+	    echo leopard
+	else
+	    echo tiger
+	fi
     elif [ -f /etc/issue ]; then
 	case "$(</etc/issue)" in
 	    Debian*lenny/sid*)	echo sid;;
 	    Ubuntu\ 7.10*)	echo gutsy;;
 	    Ubuntu\ 8.04*)	echo hardy;;
 	    Ubuntu\ 8.10*)	echo intrepid;;
-	    CentOS*\ 4.4*)	echo centos4;;
+	    Red\ Hat\ Enterprise\ Linux*\ 4*) echo rhel4;;
+	    Red\ Hat\ Enterprise\ Linux*\ 5*) echo rhel5;;
+	    CentOS*\ 4*)	echo rhel4;;
+	    CentOS*\ 5*)	echo rhel5;;
 	esac
     fi
 }
