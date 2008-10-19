@@ -128,6 +128,23 @@ package_build() {
     quit_if_fail "There was a problem building ${NAME}."
 }
 
+guess_platform() {
+    # Try to guess the name of the platform we're running on.
+    # Could do this by self-reporting (/etc/issue on linux), or by
+    # checking for existence of specific directories or programs.
+    if [ -f /etc/xthostname ]; then
+	echo crayxt
+    elif [ -f /etc/issue ]; then
+	case "$(</etc/issue)" in
+	    Debian*lenny/sid*)	echo sid;;
+	    Ubuntu\ 7.10*)	echo gutsy;;
+	    Ubuntu\ 8.04*)	echo hardy;;
+	    Ubuntu\ 8.10*)	echo intrepid;;
+	    CentOS*\ 4.4*)	echo centos4;;
+	esac
+    fi
+}
+
 ### Start the build process ###
 
 export ORIGDIR=`pwd`
@@ -149,17 +166,30 @@ fi
 # Check if dorsal.sh was invoked correctly
 if [ $# -ne 1 ]
 then
-    cecho $BAD "Error: Platform to build for not specified."
-    echo "Correct usage: ./dorsal.sh platforms/foo.platform"
-    exit 1
+    platform=platforms/`guess_platform`.platform
+    if ! [ -e $platform ]
+    then
+	cecho $BAD "Error: Platform to build for not specified (and not autmatically recognized)."
+	echo "Correct usage: ./dorsal.sh platforms/foo.platform"
+	exit 1
+    fi
+    cecho $GOOD "Building with $platform:"
+    # Show the initial comments of that file, as they often contain instructions about
+    # packages that should be installed first etc. Remove first field '#' so that cut-
+    # and-paste of e.g. apt-get commands is easy.
+    awk '/^[^#]/ {exit} {$1=""; print}' <$platform
+    cecho $GOOD "Ok? Press enter to continue build, or ctrl-c to quit."
+    read
+else
+    platform=$1
 fi
 
 # Make sure the requested platform exists
-if [ -e "$1" ]
+if [ -e "$platform" ]
 then
-    source $1
+    source $platform
 else
-    cecho $BAD "Platform set '`basename -s .platform $1`' not found. Refer README to check if your platform is supported."
+    cecho $BAD "Platform set '$platform' not found. Refer README to check if your platform is supported."
     exit 1
 fi
 
