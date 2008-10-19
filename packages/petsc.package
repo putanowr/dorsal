@@ -2,10 +2,13 @@ NAME=petsc-2.3.3-p15
 SOURCE=ftp://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
-MAKETARGETS=all
 
 package_specific_setup () {
 export PETSC_DIR=$PWD
-ln -sf $PETSC_DIR/lib/$PETSC_ARCH/libpetsc.so $INSTALL_PATH/lib/libpetsc.so
-./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-shared=1
+./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-shared=1 \
+		      --prefix=$INSTALL_PATH
+}
+
+package_specific_teardown () {
+    ln -sf $INSTALL_PATH/lib/$PETSC_ARCH/* $INSTALL_PATH/lib/
 }
