@@ -6,6 +6,6 @@ MAKETARGETS=all
 
 package_specific_setup () {
     export SLEPC_DIR=$PWD
-    ln -sf $SLEPC_DIR/lib/$PETSC_ARCH/libslepc.so $INSTALL_PATH/lib
+    ln -sf $SLEPC_DIR/lib/$PETSC_ARCH/libslepc.so $INSTALL_PATH/lib/libslepc.so
     ./config/configure.py
 }
