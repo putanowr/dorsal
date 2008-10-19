@@ -7,10 +7,6 @@
 # pkg-config python-dev python-numpy python-vtk swig wget \
 # libsuitesparse-dev libboost-dev openmpi-bin libatlas-base-dev \
 # petsc-dev libcln-dev libginac-dev
-#
-# If you're having difficulty running dolfin demos because of slepc
-# errors, add the following to your dolfin.conf:
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DOWNLOAD_PATH/slepc-2.3.3/lib/linux-gnu-c-opt
 
 # Platform specific variables
 export PETSC_ARCH=linux-gnu-c-opt
