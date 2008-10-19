@@ -1,3 +1,4 @@
+
 Copyright (C) 2007, 2008
   Harish Narayanan <harish@simula.no>
 Licensing information follows a little later in this file.
@@ -6,17 +7,28 @@ This directory tree holds Dorsal, a set of simple scripts to build
 Dolfin and the rest of the FEniCS entourage (as well as their
 dependencies) for various platforms.
 
-In order to use Dorsal, first make sure your platform is supported by
-looking for it under the 'platforms' directory. (If it's not, please
-let us know about it and we will work toward adding it.) Then, tweak
-dorsal.cfg to your liking and invoke the build script by running:
+Currently, dorsal supports the following platforms:
 
-  ./dorsal.sh platforms/foo.platform
+   Red Hat Enterprise Linux 5    (rhel5)
+   Debian GNU/Linux Unstable       (sid)
+   Ubuntu 7.10                   (gutsy)
+   Ubuntu 8.04 LTS               (hardy)
+   Ubuntu 8.10                (intrepid)
+   Mac OS X 10.5 (with Fink)   (leopard)
 
-where 'foo' is your platform. If all goes according to plan, you
-should see a lot of compilation-related text scroll past your screen
-and eventually end up with a complete, up-to-date installation of
-various FEniCS projects and their corresponding dependencies.
+If your favourite platform is not on the list above, please let us
+know about and we can work together toward adding it.
+
+In order to use Dorsal on a supported platform, you need to first
+tweak dorsal.cfg to your liking and then invoke the build script by
+running:
+
+   ./dorsal.sh
+
+If all goes according to plan, you should see a lot of
+compilation-related text scroll past your screen and eventually end up
+with a complete, up-to-date installation of various FEniCS projects
+and their corresponding dependencies.
 
 If you run into any problems, ensure that you've installed all the
 preliminary dependencies for your platform (usually from the system

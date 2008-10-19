@@ -4,13 +4,8 @@
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
    Red Hat Enterprise Linux 4    (rhel4)   [Broken; very old gcc]
-   Red Hat Enterprise Linux 5    (rhel5)   [Works without SyFi/VTK/Viper]
-   Debian GNU/Linux Unstable       (sid)   [Works!]
-   Ubuntu 7.10                   (gutsy)   [Works!]
-   Ubuntu 8.04 LTS               (hardy)   [Works!]
-   Ubuntu 8.10                (intrepid)   [Works!]
+   Red Hat Enterprise Linux 5    (rhel5)   [Works without CMake/VTK/Viper]
    Mac OS X 10.4 (with Fink)     (tiger)   [Not tested]
-   Mac OS X 10.5 (with Fink)   (leopard)   [Works!]
    Windows XP  (with Cygwin)        (xp)   [Being tested]
   Feel free to contribute information for other platforms as well.
   Difficulty: Low       Urgency: High	  	   
@@ -29,7 +24,3 @@
 
 * Introduce support for Windows (with Cygwin/MinGW).
   Difficulty: High      Urgency: Moderate
-
-* Add a post-build step to the build chain to allow for any special
-  cleanup steps or messages that need to be passed on to the user.
-  Difficulty: Low       Urgency: Moderate
