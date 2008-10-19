@@ -4,6 +4,7 @@
 # the .platform file specific to your environment, you can use this
 # file to save time during subsequent rebuilds by building only the
 # fast-changing FEniCS project sources.
+##
 
 # Define the packages this platform needs.
 PACKAGES=(

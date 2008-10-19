@@ -9,6 +9,7 @@
 # to run (as root):
 #
 # ln -s /usr/lib64/libg2c.so.0.0.0 /usr/lib/libg2c.so
+##
 
 # Platform specific variables
 export LAPACKANDBLAS_DIR=/usr/lib64

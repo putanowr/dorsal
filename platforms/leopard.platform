@@ -11,6 +11,7 @@
 # fink install wget libtool libxml2 pkgconfig gcc43 openmpi \
 # openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 boost1.33 \
 # suitesparse scons gts swig
+##
 
 # Platform specific variables
 export PETSC_ARCH=darwin9.2.0-cxx-opt

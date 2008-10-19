@@ -6,6 +6,7 @@
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev libparmetis-dev
+##
 
 # Platform specific variables
 export PETSC_ARCH=linux-gnu-c-opt

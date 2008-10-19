@@ -4,6 +4,7 @@
 # already installed via Red Hat's package manager:
 #
 # libtool libxml2 pkgconfig lapack blas gcc gcc-c++
+##
 
 # Platform specific variables
 export LAPACKANDBLAS_DIR=/usr/lib64
