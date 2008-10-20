@@ -7,7 +7,7 @@ This directory tree holds Dorsal, a set of simple scripts to build
 Dolfin and the rest of the FEniCS entourage (as well as their
 dependencies) for various platforms.
 
-Currently, dorsal supports the following platforms:
+Currently, Dorsal supports the following platforms:
 
    Red Hat Enterprise Linux 5    (rhel5)
    Debian GNU/Linux Unstable       (sid)

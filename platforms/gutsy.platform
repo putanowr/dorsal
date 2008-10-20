@@ -10,7 +10,6 @@
 
 # Platform specific variables
 export PETSC_ARCH=linux-gnu-c-opt
-export PETSC_DIR=/usr/lib/petsc
 export UMFPACK_DIR=/usr
 export BOOST_DIR=/usr
 

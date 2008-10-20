@@ -31,10 +31,10 @@ ferari
 ufc
 ufl 
 ffc
-#syfi
+syfi
 cmake
 #vtk
 #viper
 instant
-#dolfin
+dolfin
 )

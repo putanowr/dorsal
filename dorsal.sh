@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -a
 
-# This is Dorsal. Refer README and COPYING for more information about
-# it as well as terms of distribution.
+# This is Dorsal. Refer to the files README and COPYING for more
+# information about it as well as terms of distribution.
 
 ### Define helper functions ###
 
@@ -113,7 +113,7 @@ package_build() {
     # Use the appropriate build system to compile and install the
     # package
     echo "#!/usr/bin/env bash" >dorsal_build
-    echo "set -e" >>dorsal_build    # exit immediately on error
+    echo "set -e" >>dorsal_build    # Exit immediately on error
     chmod a+x dorsal_build
 
     if [ ${BUILDCHAIN} = "autotools" ]
@@ -123,7 +123,8 @@ package_build() {
 	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
 	    quit_if_fail "There was a problem configuring build for ${NAME}."
 	fi
-	# The default is "make" followed by "make install". Use eval to allow empty target.
+	# The default is "make" followed by "make install". Use eval
+	# to allow for an empty target.
 	for target in ${MAKETARGETS}
 	do
 	    eval echo make $target >>dorsal_build
@@ -136,9 +137,10 @@ package_build() {
 	echo scons ${SCONSOPTS} prefix=${INSTALL_PATH} install >>dorsal_build
     elif [ ${BUILDCHAIN} = "custom" ]
     then
-	# Yuck. Write variables and functions to file so that it can be run stand-alone
-	declare -x >>dorsal_build   # exported (all) variables
-	declare -f package_specific_build >>dorsal_build   # the function
+	# Write variables and functions to file so that it can
+	# be run stand-alone.
+	declare -x >>dorsal_build
+	declare -f package_specific_build >>dorsal_build
 	echo package_specific_build >>dorsal_build
     fi
 
@@ -198,14 +200,14 @@ then
     platform=platforms/`guess_platform`.platform
     if ! [ -e $platform ]
     then
-	cecho $BAD "Error: Platform to build for not specified (and not autmatically recognized)."
+	cecho $BAD "Error: Platform to build for not specified (and not automatically recognized)."
 	echo "Correct usage: ./dorsal.sh platforms/foo.platform"
 	exit 1
     fi
     cecho $GOOD "Building with $platform:"
-    # Show the initial comments of that file, as they often contain
-    # instructions about packages that should be installed first
-    # etc. Remove first field '#' so that cut-and-paste of
+    # Show the initial comments in the platform file, as it often
+    # contains instructions about packages that should be installed
+    # first, etc. Remove first field '#' so that cut-and-paste of
     # e.g. apt-get commands is easy.
     awk '/^##/ {exit} {$1=""; print}' <$platform
     cecho $GOOD "OK? Press enter to continue build, or ctrl-c to quit."
@@ -219,12 +221,12 @@ if [ -e "$platform" ]
 then
     source $platform
 else
-    cecho $BAD "Platform set '$platform' not found. Refer to README to check if your platform is supported."
+    cecho $BAD "Platform set '$platform' not found. Refer to the file README to check if your platform is supported."
     exit 1
 fi
 
 # If the platform doesn't override the system python by installing its
-# own figure out the version of of the existing python
+# own, figure out the version of of the existing python
 if [ -z "$PYTHONVER" ]
 then
     PYTHONVER=`python -c "import sys; print sys.version[:3]"`
@@ -257,7 +259,7 @@ do
     unset EXTRACTSTO
     MAKETARGETS='"" install'
 
-    # a skeleton default implementation
+    # A skeleton default implementation
     package_specific_setup () { true; }
     package_specific_build () { true; }
     package_specific_teardown () { true; }
