@@ -17,7 +17,7 @@ Currently, Dorsal supports the following platforms:
    Mac OS X 10.5 (with Fink)   (leopard)
 
 If your favourite platform is not on the list above, please let us
-know about and we can work together toward adding it.
+know about it, and we can work together toward adding it.
 
 In order to use Dorsal on a supported platform, you need to first
 tweak dorsal.cfg to your liking and then invoke the build script by

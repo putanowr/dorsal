@@ -1,0 +1,21 @@
+# Formal name of the platform
+
+# Basic platform-specific instructions should reside here. These
+# include a list of packages the user needs to install (usually using
+# the system package manager) prior to invoking dorsal.sh. Any other
+# system-specific tips and instructions should reside here also.
+#
+# When you're done with the instructions, delineate the end of this
+# block with a double-hash, as used below.
+##
+
+# Platform specific variables
+export BAR=
+export FOO=
+
+# Define the packages this platform needs
+PACKAGES=(
+foo
+bar
+baz
+)
