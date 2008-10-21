@@ -5,10 +5,9 @@ BUILDCHAIN=autotools
 
 package_specific_setup () {
 export PETSC_DIR=$PWD
-./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-cc=gcc-4 --with-cxx=g++-4 --download-mpich=1 --with-shared=0 
+./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-cc=gcc-4 --with-cxx=g++-4 --with-mpi=0 --with-shared=0 
 }
 
 package_specific_teardown () {
 ln -sf $INSTALL_PATH/lib/$PETSC_ARCH/* $INSTALL_PATH/lib/
-export PATH=$PATH:$PWD/externalpackages/mpich2-1.0.5p4/bin
 }

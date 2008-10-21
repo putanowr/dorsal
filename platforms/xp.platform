@@ -6,19 +6,20 @@
 # the following software (along with any dependencies they request)
 # beyond the default installation:
 
+
 # Devel > autoconf, automake, boost, boost-devel, cmake, doxygen gcc4,
-# gettext, gettext-devel, libtool, make, mercurial, pkg-config, swig
+# gettext, gettext-devel, libtool, libxml2, libxml2-devel, make,
+# mercurial, pkg-config, swig
 # Gnome > glib2, glib2-devel
 # Graphics > libnetpbm10, libnetpbm-devel
-# Math > SuiteSparse, libSuiteSparse-devel, lapack
-# Text > libxml2
+# Math > SuiteSparse, libSuiteSparse-devel, gmp, libgmp-devel, lapack
 # Web > wget
 ##
 
 # Platform specific variables
 export PETSC_ARCH=cygwin
-export UMFPACK_DIR=/usr
-export BOOST_DIR=/usr
+export UMFPACK_DIR=/usr/include/suitesparse
+export BOOST_DIR=/usr/include/boost-1_33_1
 
 export CC=gcc-4
 export CXX=g++-4
@@ -26,10 +27,14 @@ export CXX=g++-4
 ln -sf /usr/bin/gcc-4 $INSTALL_PATH/bin/cc
 ln -sf /usr/bin/g++-4 $INSTALL_PATH/bin/c++
 
+export TEMP=$DOWNLOAD_PATH/tmp
+export TMP=$TEMP
+mkdir -p $TEMP
+
 # Define the packages this platform needs
 PACKAGES=(
 scons
-petscwithmpi
+petscwithoutmpi
 slepc
 gts
 cln
