@@ -144,7 +144,13 @@ package_build() {
 	echo package_specific_build >>dorsal_build
     fi
 
-    ./dorsal_build 2>&1 | tee build_log
+    if [ $BASH_VERSINFO -ge 3 ]
+    then
+	set -o pipefail
+	./dorsal_build 2>&1 | tee build_log
+    else
+	./dorsal_build
+    fi
     quit_if_fail "There was a problem building ${NAME}."
 
     package_specific_teardown
