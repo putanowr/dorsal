@@ -21,6 +21,3 @@
   system and subsequent "refresh" builds to update only the rapidly
   changing packages.
   Difficulty: Moderate  Urgency: Moderate
-
-* Introduce support for Windows (with Cygwin/MinGW).
-  Difficulty: High      Urgency: Moderate
