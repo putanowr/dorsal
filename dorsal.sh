@@ -220,6 +220,9 @@ then
     # first, etc. Remove first field '#' so that cut-and-paste of
     # e.g. apt-get commands is easy.
     awk '/^##/ {exit} {$1=""; print}' <$platform
+    echo
+    echo "Download to: $DOWNLOAD_PATH"
+    echo "Install in : $INSTALL_PATH"
     cecho $GOOD "OK? Press enter to continue build, or ctrl-c to quit."
     read
 else
