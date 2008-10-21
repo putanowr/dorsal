@@ -1,3 +1,10 @@
+2008-10 Joachim B Haga <jobh@simula.no>
+	* Automatically guess the platform
+	* Create build log and rebuild script for individual
+	  packages
+	* Support for parallel make/scons
+	* Improved sleps/petsc targets to avoid the need for
+	  manually setting LD_LIBRARY_PATH
 2008-08 Harish Narayanan <harish@simula.no>
 	* Changed distribution license to GPL version 3
 	* Complete rewrite; modularised the scripts
