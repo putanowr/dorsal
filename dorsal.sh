@@ -157,19 +157,18 @@ package_build() {
 
 guess_platform() {
     # Try to guess the name of the platform we're running on.
-    # Could do this by self-reporting (/etc/issue on linux), or by
-    # checking for existence of specific directories or programs.
-    if [ -f /etc/xthostname ]; then
-	echo crayxt
-    elif [ -f /usr/bin/cygwin1.dll ]; then
+    if [ -f /usr/bin/cygwin1.dll ]
+    then
 	echo xp
-    elif [ -f /usr/bin/sw_vers ]; then
+    elif [ -f /usr/bin/sw_vers ]
+    then
 	if [ `sw_vers | grep -o '10\.[4-5]'` == '10.5' ]; then
 	    echo leopard
 	else
 	    echo tiger
 	fi
-    elif [ -f /etc/issue ]; then
+    elif [ -f /etc/issue ]
+    then
 	case "$(</etc/issue)" in
 	    Debian*lenny/sid*)	echo sid;;
 	    Ubuntu\ 7.10*)	echo gutsy;;
