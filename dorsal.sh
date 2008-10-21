@@ -188,6 +188,10 @@ export ORIGDIR=`pwd`
 
 # Read configuration variables from dorsal.cfg
 source dorsal.cfg
+if [ -f local.cfg ]
+then
+    source local.cfg
+fi
 
 # If any important variables are missing, revert them to defaults
 if [ -z "$DOWNLOAD_PATH" ]
