@@ -61,6 +61,11 @@ package_unpack() {
     # First make sure we're in the right directory before unpacking
     cd ${DOWNLOAD_PATH}
 
+    if [ -z "$EXTRACTSTO" ]
+    then
+	EXTRACTSTO=$NAME
+    fi
+
     # Only need to unpack tarballs
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
@@ -80,7 +85,7 @@ package_unpack() {
 	fi
 
 	# Unpack the tarball only if it isn't already
-	if [ ! -d "${NAME}" ]
+	if [ ! -d "${EXTRACTSTO}" ]
 	then
 	    tar x${C}f ${NAME}${PACKING}
 	fi
@@ -93,19 +98,13 @@ package_unpack() {
 package_build() {
     # Get things ready for the compilation process
     cecho $GOOD "Building ${NAME}"
-    if [ ! -d "${NAME}" ] && [ ! -d "${EXTRACTSTO}" ]
+    if [ ! -d "${EXTRACTSTO}" ]
     then
-        cecho $BAD "${NAME} does not exist -- please unpack first."
+        cecho $BAD "${EXTRACTSTO} does not exist -- please unpack first."
         exit 1
     fi
 
-    # Move to the appropriate folder before compilation
-    if [ -z "$EXTRACTSTO" ]
-    then
-	cd ${NAME}
-    else
-	cd ${EXTRACTSTO}
-    fi
+    cd ${EXTRACTSTO}
 
     package_specific_setup
     quit_if_fail "There was a problem in build setup for ${NAME}."
