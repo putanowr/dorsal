@@ -113,6 +113,8 @@ package_build() {
     # package
     echo "#!/usr/bin/env bash" >dorsal_build
     echo "set -e" >>dorsal_build    # Exit immediately on error
+    # Write variables to file so that it can be run stand-alone.
+    declare -x | grep '^[^!]*=' >>dorsal_build
     chmod a+x dorsal_build
 
     if [ ${BUILDCHAIN} = "autotools" ]
@@ -136,9 +138,7 @@ package_build() {
 	echo scons -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} install >>dorsal_build
     elif [ ${BUILDCHAIN} = "custom" ]
     then
-	# Write variables and functions to file so that it can
-	# be run stand-alone.
-	declare -x | grep '^[^!]*=' >>dorsal_build
+	# Write the function definition to file
 	declare -f package_specific_build >>dorsal_build
 	echo package_specific_build >>dorsal_build
     fi
