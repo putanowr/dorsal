@@ -9,7 +9,7 @@ withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR"
 package_specific_build () {
 # Remove -Werror from CXXFLAGS.
 export CXXFLAGS="-Wall -pipe -ansi"
-scons $SCONSOPTS prefix=$INSTALL_PATH install
+scons -j $PROCS $SCONSOPTS prefix=$INSTALL_PATH install
 }
 
 package_specific_teardown () {

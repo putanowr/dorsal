@@ -127,14 +127,14 @@ package_build() {
 	# to allow for an empty target.
 	for target in "${MAKETARGETS[@]}"
 	do
-	    echo make $target >>dorsal_build
+	    echo make -j ${PROCS} $target >>dorsal_build
 	done
     elif [ ${BUILDCHAIN} = "python" ]
     then
 	echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
     elif [ ${BUILDCHAIN} = "scons" ]
     then
-	echo scons ${SCONSOPTS} prefix=${INSTALL_PATH} install >>dorsal_build
+	echo scons -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} install >>dorsal_build
     elif [ ${BUILDCHAIN} = "custom" ]
     then
 	# Write variables and functions to file so that it can
