@@ -34,15 +34,14 @@ slepc
 gts
 cln
 ginac
-#suitesparsewithmetis
 fiat
 ferari
 ufc
 ufl
 ffc
-#syfi
+syfi
 #vtk
 #viper
 instant
-#dolfin
+dolfin
 )

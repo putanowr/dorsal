@@ -139,7 +139,7 @@ package_build() {
     then
 	# Write variables and functions to file so that it can
 	# be run stand-alone.
-	declare -x >>dorsal_build
+	declare -x | grep '^[^!]*=' >>dorsal_build
 	declare -f package_specific_build >>dorsal_build
 	echo package_specific_build >>dorsal_build
     fi
@@ -156,6 +156,8 @@ guess_platform() {
     # checking for existence of specific directories or programs.
     if [ -f /etc/xthostname ]; then
 	echo crayxt
+    elif [ -f /usr/bin/cygwin1.dll ]; then
+	echo xp
     elif [ -f /usr/bin/sw_vers ]; then
 	if [ `sw_vers | grep -o '10\.[4-5]'` == '10.5' ]; then
 	    echo leopard
