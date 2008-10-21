@@ -125,9 +125,9 @@ package_build() {
 	fi
 	# The default is "make" followed by "make install". Use eval
 	# to allow for an empty target.
-	for target in ${MAKETARGETS}
+	for target in "${MAKETARGETS[@]}"
 	do
-	    eval echo make $target >>dorsal_build
+	    echo make $target >>dorsal_build
 	done
     elif [ ${BUILDCHAIN} = "python" ]
     then
@@ -259,7 +259,7 @@ do
     unset CONFOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
-    MAKETARGETS='"" install'
+    MAKETARGETS=('' install)
 
     # A skeleton default implementation
     package_specific_setup () { true; }

@@ -5,7 +5,7 @@ BUILDCHAIN=[autotools|python|scons|custom]
 EXTRACTSTO=DIRECTORY
 CONFOPTS=""
 SCONSOPTS=""
-MAKETARGETS="'' install"
+MAKETARGETS=('' install)
 
 package_specific_setup () {
 # Variable declarations that are used by other packages go here.
