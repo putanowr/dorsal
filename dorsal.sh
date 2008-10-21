@@ -193,12 +193,12 @@ source dorsal.cfg
 # If any important variables are missing, revert them to defaults
 if [ -z "$DOWNLOAD_PATH" ]
 then
-    DOWNLOAD_PATH=$HOME/downloads/src
+    DOWNLOAD_PATH=$HOME/Downloads/src
 fi
 
 if [ -z "$INSTALL_PATH" ]
 then
-    INSTALL_PATH=$HOME/builds
+    INSTALL_PATH=$HOME/Builds
 fi
 
 # Check if dorsal.sh was invoked correctly
