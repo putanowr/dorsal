@@ -3,16 +3,35 @@
 	* Create build log and rebuild script for individual
 	  packages
 	* Support for parallel make/scons
-	* Improved sleps/petsc targets to avoid the need for
-	  manually setting LD_LIBRARY_PATH
+	* Improved sleps/petsc packages to avoid the need
+	  for manually setting LD_LIBRARY_PATH
+	* Display platfom-specific instructions as part of 
+	  the build process
+2008-10 Harish Narayanan <harish@simula.no>
+	* Automatically probe for system python version
+	* Added preliminary support for xp
+2008-09 Luk ShunTim <shuntim.luk@polyu.edu.hk>
+	* Added support for sid
+2008-09	Harish Narayanan <harish@simula.no>
+	* Added support for leopard
+	* Removed the need for gfortran (in mpi, petsc,
+	  suitesparse)
+	* Added support for custom configuration options
+	* Added colour progress/error reporting	
+	* Updated to recent versions of all packages
+2008-09 Ilmar Wilbers <ilmarw@simula.no>
+	* Added support for intrepid
+	* Added support for gutsy
 2008-08 Harish Narayanan <harish@simula.no>
 	* Changed distribution license to GPL version 3
 	* Complete rewrite; modularised the scripts
 	* Created a framework for easy addition of additional
-	  platforms 
+	  platforms
+	* Added support for rhel5
 2008-07 Ilmar Wilbers <ilmarw@simula.no>
 	* Added basic error reporting
-	* Replaced autotools-based dolfin build with scons
-	* Modified and tested on more platforms
+	* Replaced autotools-based builds (for dolfin, syfi)
+	  with scons
+	* Added support for hardy
 2007-06 Harish Narayanan <hnarayan@umich.edu>
-	* Initial release for RHEL 4
+	* Initial release for rhel4

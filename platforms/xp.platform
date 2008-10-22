@@ -5,8 +5,7 @@
 # Software on your Windows machine. Using Cygwin's setup.exe, install
 # the following software (along with any dependencies they request)
 # beyond the default installation:
-
-
+#
 # Devel > autoconf, automake, boost, boost-devel, cmake, doxygen gcc4,
 # gettext, gettext-devel, libtool, libxml2, libxml2-devel, make,
 # mercurial, pkg-config, swig
