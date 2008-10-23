@@ -12,7 +12,7 @@
 	* Added preliminary support for xp
 2008-09 Luk ShunTim <shuntim.luk@polyu.edu.hk>
 	* Added support for sid
-2008-09	Harish Narayanan <harish@simula.no>
+2008-09 Harish Narayanan <harish@simula.no>
 	* Added support for leopard
 	* Removed the need for gfortran (in mpi, petsc,
 	  suitesparse)

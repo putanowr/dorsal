@@ -1,8 +1,8 @@
 NAME=foo-x.y.z
 SOURCE=http://foo.org/downloads/foo/
-PACKING=[.tar.gz|tar.bz2|.tbz2|.tgz|hg]
+PACKING=[.tar.gz|.tar.bz2|.tbz2|.tgz|hg]
 BUILDCHAIN=[autotools|python|scons|custom]
-EXTRACTSTO=DIRECTORY
+EXTRACTSTO=barnotfoo
 CONFOPTS=""
 SCONSOPTS=""
 MAKETARGETS=('' install)
