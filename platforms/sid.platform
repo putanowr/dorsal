@@ -7,6 +7,9 @@
 # pkg-config python-dev python-numpy python-vtk swig wget \
 # libsuitesparse-dev libboost-dev openmpi-bin libatlas-base-dev \
 # petsc-dev libcln-dev libginac-dev
+#
+# Also, if you have multiple MPI libraries installed, make sure
+# "update-alternatives --config mpi" is set to openmpi.
 ##
 
 # Platform specific variables
