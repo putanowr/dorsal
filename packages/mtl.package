@@ -1,0 +1,8 @@
+NAME=mtl4
+SOURCE=https://svn.osl.iu.edu/tlc/trunk/mtl4/trunk
+PACKING=svn
+BUILDCHAIN=custom
+
+package_specific_setup () {
+    export MTL4_DIR=$PWD
+}

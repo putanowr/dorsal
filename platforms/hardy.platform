@@ -22,6 +22,10 @@ PACKAGES=(
 slepc
 cln
 ginac
+gmp
+mtl
+trilinos
+#scotch
 fiat
 ferari
 ufc

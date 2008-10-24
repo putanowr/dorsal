@@ -2,7 +2,8 @@ NAME=dolfin
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=scons
-SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=yes enableMtl4=no enableTrilinos=no
+SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=yes
+enableMtl4=yes withMtl4Dir=$MTL4_DIR enableTrilinos=yes enableGmp=yes
 enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR
 withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR"
 

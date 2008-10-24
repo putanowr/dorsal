@@ -42,13 +42,24 @@ package_fetch (){
 	fi
     elif [ ${PACKING} = "hg" ]
     then
-	# Suitably clone or update hg packages
+	# Suitably clone or update hg repositories
 	if [ ! -d ${NAME} ]
 	then
 	    hg clone ${SOURCE}${NAME}
 	else
 	    cd ${NAME}
-	    hg pull --update ${SOURCE}${NAME}
+	    hg pull --update
+	    cd ..
+	fi
+    elif [ ${PACKING} = "svn" ]
+    then
+	# Suitably check out or update svn repositories
+	if [ ! -d ${NAME} ]
+	then
+	    svn co ${SOURCE} ${NAME}
+	else
+	    cd ${NAME}
+	    svn up
 	    cd ..
 	fi
     fi
