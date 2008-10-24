@@ -11,6 +11,7 @@ BAD="\033[1;37;41m"
 GOOD="\033[1;37;42m"
 
 cecho() {
+    # Display messages in a specified colour
     COL=$1; shift
     echo -e "${COL}$@\033[0m"
 }
@@ -27,7 +28,7 @@ quit_if_fail() {
 }
 
 package_fetch (){
-    # First make sure we're in the right directory before downloading
+    # First, make sure we're in the right directory before downloading
     cd ${DOWNLOAD_PATH}
 
     cecho $GOOD "Fetching ${NAME}"
@@ -35,7 +36,7 @@ package_fetch (){
     # Fetch the package appropriately from its source
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
-	# Only fetch tarballs that do not exist
+	# Only download tarballs that do not exist
 	if [ ! -e ${NAME}${PACKING} ]
 	then
 	    wget -c ${SOURCE}${NAME}${PACKING}
@@ -87,7 +88,7 @@ package_unpack() {
 	    cecho $BAD "${NAME}${PACKING} does not exist. Please download first."
 	    exit 1
 	fi
-	# Set appropriate untar flag
+	# Set appropriate decompress flag
 	if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
 	then
 	    C="j"
@@ -115,16 +116,19 @@ package_build() {
         exit 1
     fi
 
+    # Move to the build directory
     cd ${EXTRACTSTO}
 
+    # Carry out any package-specific setup
     package_specific_setup
     quit_if_fail "There was a problem in build setup for ${NAME}."
 
     # Use the appropriate build system to compile and install the
     # package
     echo "#!/usr/bin/env bash" >dorsal_build
-    echo "set -e" >>dorsal_build    # Exit immediately on error
-    # Write variables to file so that it can be run stand-alone.
+    echo "set -e" >>dorsal_build
+
+    # Write variables to file so that it can be run stand-alone
     declare -x | grep '^[^!]*=' >>dorsal_build
     chmod a+x dorsal_build
 
@@ -154,6 +158,7 @@ package_build() {
 	echo package_specific_build >>dorsal_build
     fi
 
+    # Log the build
     if [ $BASH_VERSINFO -ge 3 ]
     then
 	set -o pipefail
@@ -163,11 +168,12 @@ package_build() {
     fi
     quit_if_fail "There was a problem building ${NAME}."
 
+    # Carry out any package-specific post-build instructions
     package_specific_teardown
 }
 
 guess_platform() {
-    # Try to guess the name of the platform we're running on.
+    # Try to guess the name of the platform we're running on
     if [ -f /usr/bin/cygwin1.dll ]
     then
 	echo xp
