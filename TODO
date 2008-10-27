@@ -21,3 +21,8 @@
   system and subsequent "refresh" builds to update only the rapidly
   changing packages.
   Difficulty: Moderate  Urgency: Moderate
+
+* Respect preexisting environment variables (don't clobber existing
+  variables by resetting them to defaults) when setting variables
+  related to packages.
+  Difficulty: Easy	Urgency: Moderate
