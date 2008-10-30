@@ -9,6 +9,7 @@ set -a
 # Colours for progress and error reporting
 BAD="\033[1;37;41m"
 GOOD="\033[1;37;42m"
+BOLD="\033[1m"
 
 cecho() {
     # Display messages in a specified colour

@@ -21,6 +21,6 @@ export CXXFLAGS="-Wall -pipe -ansi"
 
 package_specific_teardown () {
 unset CXXFLAGS
-echo "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
-echo "source $PWD/dolfin.conf"
+cecho $BOLD "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
+cecho $BOLD "source ${PWD/#$HOME\//~/}dolfin.conf"
 }
