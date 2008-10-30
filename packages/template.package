@@ -5,7 +5,7 @@ BUILDCHAIN=[autotools|python|scons|custom]
 EXTRACTSTO=barnotfoo
 CONFOPTS=""
 SCONSOPTS=""
-MAKETARGETS=('' install)
+TARGETS=('' install)
 
 package_specific_setup () {
 # Variable declarations that are used by other packages go here.

@@ -139,9 +139,7 @@ package_build() {
 	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
 	    quit_if_fail "There was a problem configuring build for ${NAME}."
 	fi
-	# The default is "make" followed by "make install". Use eval
-	# to allow for an empty target.
-	for target in "${MAKETARGETS[@]}"
+	for target in "${TARGETS[@]}"
 	do
 	    echo make -j ${PROCS} $target >>dorsal_build
 	done
@@ -150,7 +148,10 @@ package_build() {
 	echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
     elif [ ${BUILDCHAIN} = "scons" ]
     then
-	echo scons -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} install >>dorsal_build
+	for target in "${TARGETS[@]}"
+	do
+	    echo scons -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
+	done
     elif [ ${BUILDCHAIN} = "custom" ]
     then
 	# Write the function definition to file
@@ -287,7 +288,7 @@ do
     unset CONFOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
-    MAKETARGETS=('' install)
+    TARGETS=('' install)
 
     # A skeleton default implementation
     package_specific_setup () { true; }

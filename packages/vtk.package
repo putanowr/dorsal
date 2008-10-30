@@ -3,7 +3,7 @@ SOURCE=http://www.vtk.org/files/release/5.2/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=VTK
-MAKETARGETS=('')
+TARGETS=('')
 
 package_specific_setup () {
     export BUILD_SHARED_LIBS=ON
