@@ -16,6 +16,13 @@ cecho() {
     echo -e "${COL}$@\033[0m"
 }
 
+default () {
+    # Export a variable, if it is not already set
+    VAR="${1%%=*}"
+    VALUE="${1#*=}"
+    eval "[[ \$$VAR ]] || export $VAR='$VALUE'"
+}
+
 quit_if_fail() {
     # Exit with some useful information if something goes wrong
     status=$?
@@ -73,10 +80,7 @@ package_unpack() {
     # First make sure we're in the right directory before unpacking
     cd ${DOWNLOAD_PATH}
 
-    if [ -z "$EXTRACTSTO" ]
-    then
-	EXTRACTSTO=$NAME
-    fi
+    default EXTRACTSTO=$NAME
 
     # Only need to unpack tarballs
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
@@ -212,15 +216,8 @@ then
 fi
 
 # If any important variables are missing, revert them to defaults
-if [ -z "$DOWNLOAD_PATH" ]
-then
-    DOWNLOAD_PATH=$HOME/Downloads/src
-fi
-
-if [ -z "$INSTALL_PATH" ]
-then
-    INSTALL_PATH=$HOME/Builds
-fi
+default DOWNLOAD_PATH=$HOME/Downloads/src
+default INSTALL_PATH=$HOME/Builds
 
 # Check if dorsal.sh was invoked correctly
 if [ $# -ne 1 ]
@@ -258,10 +255,7 @@ fi
 
 # If the platform doesn't override the system python by installing its
 # own, figure out the version of of the existing python
-if [ -z "$PYTHONVER" ]
-then
-    PYTHONVER=`python -c "import sys; print sys.version[:3]"`
-fi
+default PYTHONVER=`python -c "import sys; print sys.version[:3]"`
 
 # Create necessary directories and export appropriate variables
 mkdir -p ${DOWNLOAD_PATH}

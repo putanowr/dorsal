@@ -16,9 +16,9 @@
 ##
 
 # Platform specific variables
-export PETSC_ARCH=cygwin
-export UMFPACK_DIR=/usr/include/suitesparse
-export BOOST_DIR=/usr/include/boost-1_33_1
+default PETSC_ARCH=cygwin
+default UMFPACK_DIR=/usr/include/suitesparse
+default BOOST_DIR=/usr/include/boost-1_33_1
 
 export CC=gcc-4
 export CXX=g++-4

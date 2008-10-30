@@ -9,9 +9,9 @@
 # block with a double-hash, as used below.
 ##
 
-# Platform specific variables
-export BAR=
-export FOO=
+# Default values for platform specific variables
+default BAR=
+default FOO=
 
 # Define the packages this platform needs
 PACKAGES=(

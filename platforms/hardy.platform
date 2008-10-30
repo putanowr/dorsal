@@ -12,10 +12,10 @@
 ##
 
 # Platform specific variables
-export PETSC_ARCH=linux-gnu-c-opt
-export PETSC_DIR=/usr/lib/petsc
-export UMFPACK_DIR=/usr
-export BOOST_DIR=/usr
+default PETSC_ARCH=linux-gnu-c-opt
+default PETSC_DIR=/usr/lib/petsc
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
