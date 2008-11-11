@@ -2,7 +2,7 @@ NAME=dolfin
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=scons
-SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=yes
+SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePydolfin=no
 enableTrilinos=yes enableGmp=yes
 enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR
 withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR"
@@ -22,5 +22,5 @@ export CXXFLAGS="-Wall -pipe -ansi"
 package_specific_teardown () {
 unset CXXFLAGS
 cecho $BOLD "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
-cecho $BOLD "source ${PWD/#$HOME\//~/}dolfin.conf"
+cecho $BOLD "source ${PWD/#$HOME\//~/}/dolfin.conf"
 }
