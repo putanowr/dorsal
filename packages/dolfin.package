@@ -3,7 +3,7 @@ SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=scons
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePydolfin=no
-enableTrilinos=yes enableGmp=yes
+enableTrilinos=no enableGmp=yes
 enablePetsc=yes withPetscDir=$PETSC_DIR enableSlepc=yes withSlepcDir=$SLEPC_DIR
 withUmfpackDir=$UMFPACK_DIR withBoostDir=$BOOST_DIR"
 
