@@ -2,4 +2,3 @@ NAME=ParMetis-3.1.1
 SOURCE=http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
-}
