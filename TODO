@@ -25,4 +25,4 @@
 * Respect preexisting environment variables (don't clobber existing
   variables by resetting them to defaults) when setting variables
   related to packages.
-  Difficulty: Easy	Urgency: Moderate
+  Difficulty: Easy      Urgency: Moderate
