@@ -3,3 +3,7 @@ SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 CONFOPTS='--enable-mpi --with-mpi-compilers'
+
+package_specific_setup () {
+    export TRILINOS_DIR=${INSTALL_PATH}
+}

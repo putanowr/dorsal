@@ -2,4 +2,8 @@ NAME=gmp-4.2.4
 SOURCE=ftp://ftp.gnu.org/gnu/gmp/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
-CONFOPTS='--enable-cxx --host=$GMP_ARCH'
+CONFOPTS='--enable-cxx --host=none-apple-darwin'
+
+package_specific_setup () {
+    export GMP_DIR=${INSTALL_PATH}
+}
