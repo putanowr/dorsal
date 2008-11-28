@@ -2,10 +2,10 @@ NAME=dolfin
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=scons
-SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=yes enablePydolfin=yes
+SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePydolfin=yes
 withBoostDir=$BOOST_DIR"
 
-# Handel optional dependencies
+# Handle optional dependencies
 if [[ $UMFPACK_DIR ]]
 then
     SCONSOPTS="$SCONSOPTS enableUmfpack=yes withUmfpackDir=$UMFPACK_DIR"
@@ -46,6 +46,20 @@ then
     SCONSOPTS="$SCONSOPTS enableGmp=yes withGmpDir=$GMP_DIR"
 else
     SCONSOPTS="$SCONSOPTS enableGmp=no"
+fi
+
+if [[ $PARMETIS_DIR ]]
+then
+    SCONSOPTS="$SCONSOPTS enableParmetis=yes withParmetisDir=$PARMETIS_DIR"
+else
+    SCONSOPTS="$SCONSOPTS enableParmetis=no"
+fi
+
+if [[ $SCOTCH_DIR ]]
+then
+    SCONSOPTS="$SCONSOPTS enableScotch=yes withScotchDir=$SCOTCH_DIR"
+else
+    SCONSOPTS="$SCONSOPTS enableScotch=no"
 fi
 
 package_specific_setup () {

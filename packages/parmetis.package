@@ -2,3 +2,12 @@ NAME=ParMetis-3.1.1
 SOURCE=http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
+
+package_specific_setup () {
+    export PARMETIS_DIR=${INSTALL_PATH}
+}
+
+package_specific_teardown () {
+    ln -sf ${PWD}/*.a ${INSTALL_PATH}/lib/
+    ln -sf ${PWD}/*.h ${INSTALL_PATH}/include/
+}

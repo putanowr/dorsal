@@ -2,4 +2,15 @@ NAME=scotch_5.1.2
 SOURCE=http://gforge.inria.fr/frs/download.php/8849/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
-EXTRACTSTO=scotch_5.1
+EXTRACTSTO=scotch_5.1/src
+
+package_specific_setup () {
+    export SCOTCH_DIR=${INSTALL_PATH}
+    ln -sf Make.inc/Makefile.inc.i686_mac_darwin8 Makefile.inc
+}
+
+package_specific_teardown () {
+    cd ..
+    ln -sf ${PWD}/lib/* ${INSTALL_PATH}/lib/
+    ln -sf ${PWD}/include/* ${INSTALL_PATH}/include/
+}

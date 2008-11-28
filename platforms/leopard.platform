@@ -19,7 +19,14 @@
 #
 # cd /sw/bin
 # sudo ln -sf python2.5 python
-# sudo ln -sf python2.5-config python-config 
+# sudo ln -sf python2.5-config python-config
+#
+# Finally, Parmetis requires malloc.h to compile. In order that it can
+# find it, you need to create another symlink.
+#
+# cd /usr/include
+# sudo ln -s malloc/malloc.h malloc.h
+#
 ##
 
 # Platform specific variables
@@ -37,8 +44,8 @@ ginac
 gmp
 mtl
 trilinos
-#parmetis
-#scotch
+parmetis
+scotch
 fiat
 ferari
 ufc
