@@ -6,7 +6,7 @@ EXTRACTSTO=scotch_5.1/src
 
 package_specific_setup () {
     export SCOTCH_DIR=${INSTALL_PATH}
-    ln -sf Make.inc/Makefile.inc.i686_mac_darwin8 Makefile.inc
+    ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
 }
 
 package_specific_teardown () {

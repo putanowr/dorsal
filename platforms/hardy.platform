@@ -13,6 +13,8 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-c-opt
+default GMP_ARCH=x86_64-linux-gnu
+default SCOTCH_ARCH=i686_pc_linux2
 default PETSC_DIR=/usr/lib/petsc
 default UMFPACK_DIR=/usr
 default BOOST_DIR=/usr

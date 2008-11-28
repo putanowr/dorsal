@@ -32,6 +32,7 @@
 # Platform specific variables
 default PETSC_ARCH=darwin9.2.0-cxx-opt
 default GMP_ARCH=none-apple-darwin
+default SCOTCH_ARCH=i686_mac_darwin8
 default UMFPACK_DIR=/sw
 default BOOST_DIR=/sw
 
