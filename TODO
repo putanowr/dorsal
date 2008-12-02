@@ -22,7 +22,6 @@
   changing packages.
   Difficulty: Moderate  Urgency: Moderate
 
-* Respect preexisting environment variables (don't clobber existing
-  variables by resetting them to defaults) when setting variables
-  related to packages.
-  Difficulty: Easy      Urgency: Moderate
+* Allow the user to specify whether she wants to install development
+  versions of FEniCS projects or only build point-release tarballs.
+  Difficulty: Easy      Urgency: High
