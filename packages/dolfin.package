@@ -8,9 +8,9 @@ withBoostDir=$BOOST_DIR"
 # Handle optional dependencies
 if [[ $UMFPACK_DIR ]]
 then
-    SCONSOPTS="$SCONSOPTS enableUmfpack=yes withUmfpackDir=$UMFPACK_DIR"
+    SCONSOPTS="$SCONSOPTS enableUmfpack=yes withUmfpackDir=$UMFPACK_DIR enableCholmod=yes withCholmodDir=$UMFPACK_DIR"
 else
-    SCONSOPTS="$SCONSOPTS enableUmfpack=no"
+    SCONSOPTS="$SCONSOPTS enableUmfpack=no enableCholmod=no"
 fi
 
 if [[ $PETSC_DIR ]]

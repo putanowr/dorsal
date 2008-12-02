@@ -13,8 +13,11 @@
 
 # Platform specific variables
 default LAPACKANDBLAS_DIR=/usr/lib64
+default PYTHONVER=2.6
 default PETSC_ARCH=linux-gnu-cxx-opt
-export PYTHONVER=2.6
+default GMP_ARCH=x86_64-linux-gnu
+default SCOTCH_ARCH=i686_pc_linux2
+default BOOST_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -31,6 +34,11 @@ gts
 cln
 ginac
 suitesparsewithmetis
+gmp
+mtl
+trilinos
+parmetis
+scotch
 fiat
 ferari
 ufc

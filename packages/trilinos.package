@@ -2,7 +2,7 @@ NAME=trilinos-9.0.1
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
-CONFOPTS='--enable-mpi --with-mpi-compilers'
+CONFOPTS="--enable-mpi --with-mpi-compilers --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
 
 package_specific_setup () {
     export TRILINOS_DIR=${INSTALL_PATH}

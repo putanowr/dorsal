@@ -1,10 +1,15 @@
 NAME=ParMetis-3.1.1
 SOURCE=http://glaros.dtc.umn.edu/gkhome/fetch/sw/parmetis/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
+BUILDCHAIN=custom
 
 package_specific_setup () {
     export PARMETIS_DIR=${INSTALL_PATH}
+    perl -pi -e 's/\/lib/\/lib64/g' Makefile.in
+}
+
+package_specific_build() {
+    make default
 }
 
 package_specific_teardown () {

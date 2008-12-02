@@ -27,6 +27,7 @@ ginac
 gmp
 mtl
 trilinos
+parmetis
 scotch
 fiat
 ferari
