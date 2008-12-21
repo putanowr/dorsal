@@ -8,10 +8,13 @@ package_specific_setup () {
     export SCOTCH_DIR=${INSTALL_PATH}
     perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
+    ORG_PROCS=${PROCS}
+    PROCS=1
 }
 
 package_specific_teardown () {
     cd ..
     ln -sf ${PWD}/lib/* ${INSTALL_PATH}/lib/
     ln -sf ${PWD}/include/* ${INSTALL_PATH}/include/
+    PROCS=${ORG_PROCS}
 }
