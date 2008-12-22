@@ -226,7 +226,7 @@ then
     platform=platforms/`guess_platform`.platform
     if ! [ -e $platform ]
     then
-	cecho $BAD "Error: Platform to build for not specified (and not automatically recognized)."
+	cecho $BAD "Error: Platform to build for not specified (and not automatically recognised)."
 	echo "Correct usage: ./dorsal.sh platforms/foo.platform"
 	exit 1
     fi

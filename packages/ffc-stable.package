@@ -1,0 +1,4 @@
+NAME=ffc-0.5.1
+SOURCE=http://www.fenics.org/pub/software/ffc/v0.5/
+PACKING=.tar.gz
+BUILDCHAIN=python

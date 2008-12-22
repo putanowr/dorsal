@@ -5,6 +5,7 @@
   if necessary.
    Red Hat Enterprise Linux 4    (rhel4)   [Broken; very old gcc]
    Red Hat Enterprise Linux 5    (rhel5)   [Works without CMake/VTK/Viper]
+   Debian Etch                    (etch)   [Not tested]
    Mac OS X 10.4 (with Fink)     (tiger)   [Not tested]
    Windows XP  (with Cygwin)        (xp)   [Being tested]
   Feel free to contribute information for other platforms as well.
@@ -24,4 +25,8 @@
 
 * Allow the user to specify whether she wants to install development
   versions of FEniCS projects or only build point-release tarballs.
+  Difficulty: Easy      Urgency: High
+
+* Allow the user to install just a single package by specifying
+  something like ./dorsal.sh package-install foo
   Difficulty: Easy      Urgency: High
