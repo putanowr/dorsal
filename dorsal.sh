@@ -190,17 +190,17 @@ guess_platform() {
 	else
 	    echo tiger
 	fi
-    elif [ -f /etc/issue ]
-    then
-	case "$(</etc/issue)" in
-	    Debian*lenny/sid*)	echo sid;;
-	    Ubuntu\ 7.10*)	echo gutsy;;
-	    Ubuntu\ 8.04*)	echo hardy;;
-	    Ubuntu\ 8.10*)	echo intrepid;;
-	    Red\ Hat\ Enterprise\ Linux*\ 4*) echo rhel4;;
-	    Red\ Hat\ Enterprise\ Linux*\ 5*) echo rhel5;;
-	    CentOS*\ 4*)	echo rhel4;;
-	    CentOS*\ 5*)	echo rhel5;;
+    elif [ -x /usr/bin/lsb_release ]; then
+	local codename=$(lsb_release -c | awk '{print $2}')
+	case $codename in
+	    lenny|sid|gutsy|hardy|intrepid) echo $codename;;
+	    Nahant*)  echo rhel4;;
+	    Tikanga*) echo rhel5;;
+	    *)
+		case $(lsb_release -d) in
+		    *CentOS*\ 4*) echo rhel4;;
+		    *CentOS*\ 5*) echo rhel5;;
+		esac;;
 	esac
     fi
 }
