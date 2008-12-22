@@ -5,7 +5,8 @@
 #
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
-# libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev libparmetis-dev
+# libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev libparmetis-dev \
+# libgmp3-dev libscotch-dev libcln-dev libginac-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "update-alternatives --config mpi" is set to openmpi.
@@ -20,8 +21,8 @@ default BOOST_DIR=/usr
 # Define the packages this platform needs
 PACKAGES=(
 slepc
-cln
-ginac
+mtl
+trilinos
 fiat
 ferari
 ufc
