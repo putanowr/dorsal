@@ -30,3 +30,7 @@
 * Allow the user to install just a single package by specifying
   something like ./dorsal.sh package-install foo
   Difficulty: Easy      Urgency: High
+
+* Sniff out 32/64 bit-ness of machines automatically to suitably set
+  GMP_ARCH, SCOTCH_ARCH etc.
+  Difficulty: Medium	Urgency: High

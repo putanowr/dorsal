@@ -1,3 +1,10 @@
+2008-11 Joachim B Haga <jobh@simula.no>
+	* Introduced the function 'default' instead of
+	  'export' to prevent clobbering existing variables
+2008-11 Harish Narayanan <harish@simula.no>
+	* Modularised DOLFIN package file and added remaining
+	  dependencies
+	* Updated to recent versions of all packages
 2008-10 Joachim B Haga <jobh@simula.no>
 	* Automatically guess the platform
 	* Create build log and rebuild script for individual
