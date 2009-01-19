@@ -1,4 +1,4 @@
 NAME=Python-2.6.1
-SOURCE=http://python.org/ftp/python/2.6/
+SOURCE=http://python.org/ftp/python/2.6.1/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
