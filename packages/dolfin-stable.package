@@ -1,5 +1,5 @@
-NAME=dolfin-0.8.1
-SOURCE=http://www.fenics.org/pub/software/dolfin/v0.8/
+NAME=dolfin-0.9.0
+SOURCE=http://www.fenics.org/pub/software/dolfin/v0.9/
 PACKING=.tar.gz
 BUILDCHAIN=scons
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePydolfin=yes
