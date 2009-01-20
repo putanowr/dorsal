@@ -26,12 +26,12 @@ default () {
 
 quit_if_fail() {
     # Exit with some useful information if something goes wrong
-    status=$?
-    if [ $status -ne 0 ]
+    STATUS=$?
+    if [ ${STATUS} -ne 0 ]
     then
-	cecho $BAD 'Failure with exit status:' $status
-	cecho $BAD 'Exit message:' $1
-	exit $status
+	cecho ${BAD} 'Failure with exit status:' ${STATUS}
+	cecho ${BAD} 'Exit message:' $1
+	exit ${STATUS}
     fi
 }
 
@@ -39,7 +39,7 @@ package_fetch (){
     # First, make sure we're in the right directory before downloading
     cd ${DOWNLOAD_PATH}
 
-    cecho $GOOD "Fetching ${NAME}"
+    cecho ${GOOD} "Fetching ${NAME}"
 
     # Fetch the package appropriately from its source
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
@@ -81,16 +81,16 @@ package_unpack() {
     # First make sure we're in the right directory before unpacking
     cd ${DOWNLOAD_PATH}
 
-    default EXTRACTSTO=$NAME
+    default EXTRACTSTO=${NAME}
 
     # Only need to unpack tarballs
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
-	cecho $GOOD "Unpacking ${NAME}"
+	cecho ${GOOD} "Unpacking ${NAME}"
 	# Make sure the tarball was downloaded
 	if [ ! -e ${NAME}${PACKING} ]
 	then
-	    cecho $BAD "${NAME}${PACKING} does not exist. Please download first."
+	    cecho ${BAD} "${NAME}${PACKING} does not exist. Please download first."
 	    exit 1
 	fi
 	# Set appropriate decompress flag
@@ -114,10 +114,10 @@ package_unpack() {
 
 package_build() {
     # Get things ready for the compilation process
-    cecho $GOOD "Building ${NAME}"
+    cecho ${GOOD} "Building ${NAME}"
     if [ ! -d "${EXTRACTSTO}" ]
     then
-        cecho $BAD "${EXTRACTSTO} does not exist -- please unpack first."
+        cecho ${BAD} "${EXTRACTSTO} does not exist -- please unpack first."
         exit 1
     fi
 
@@ -165,7 +165,7 @@ package_build() {
     fi
 
     # Log the build
-    if [ $BASH_VERSINFO -ge 3 ]
+    if [ ${BASH_VERSINFO} -ge 3 ]
     then
 	set -o pipefail
 	./dorsal_build 2>&1 | tee build_log
@@ -191,9 +191,9 @@ guess_platform() {
 	    echo tiger
 	fi
     elif [ -x /usr/bin/lsb_release ]; then
-	local codename=$(lsb_release -c | awk '{print $2}')
-	case $codename in
-	    lenny|sid|gutsy|hardy|intrepid) echo $codename;;
+	local CODENAME=$(lsb_release -c | awk '{print $2}')
+	case ${CODENAME} in
+	    lenny|sid|gutsy|hardy|intrepid) echo ${CODENAME};;
 	    Nahant*)  echo rhel4;;
 	    Tikanga*) echo rhel5;;
 	    *)
@@ -217,40 +217,40 @@ then
 fi
 
 # If any important variables are missing, revert them to defaults
-default DOWNLOAD_PATH=$HOME/Downloads/src
-default INSTALL_PATH=$HOME/Builds
+default DOWNLOAD_PATH=${HOME}/Downloads/src
+default INSTALL_PATH=${HOME}/Builds
 
 # Check if dorsal.sh was invoked correctly
 if [ $# -ne 1 ]
 then
-    platform=platforms/`guess_platform`.platform
-    if ! [ -e $platform ]
+    PLATFORM=platforms/`guess_platform`.platform
+    if ! [ -e ${PLATFORM} ]
     then
-	cecho $BAD "Error: Platform to build for not specified (and not automatically recognised)."
+	cecho ${BAD} "Error: Platform to build for not specified (and not automatically recognised)."
 	echo "Correct usage: ./dorsal.sh platforms/foo.platform"
 	exit 1
     fi
-    cecho $GOOD "Building with $platform:"
+    cecho ${GOOD} "Building with ${PLATFORM}:"
     # Show the initial comments in the platform file, as it often
     # contains instructions about packages that should be installed
     # first, etc. Remove first field '#' so that cut-and-paste of
     # e.g. apt-get commands is easy.
-    awk '/^##/ {exit} {$1=""; print}' <$platform
+    awk '/^##/ {exit} {$1=""; print}' <${PLATFORM}
     echo
-    echo "Download to: $DOWNLOAD_PATH"
-    echo "Install in:  $INSTALL_PATH"
-    cecho $GOOD "OK? Press enter to continue build, or ctrl-c to quit."
+    echo "Download to: ${DOWNLOAD_PATH}"
+    echo "Install in:  ${INSTALL_PATH}"
+    cecho ${GOOD} "OK? Press enter to continue build, or ctrl-c to quit."
     read
 else
-    platform=$1
+    PLATFORM=$1
 fi
 
 # Make sure the requested platform exists
-if [ -e "$platform" ]
+if [ -e "${PLATFORM}" ]
 then
-    source $platform
+    source ${PLATFORM}
 else
-    cecho $BAD "Platform set '$platform' not found. Refer to the file README to check if your platform is supported."
+    cecho ${BAD} "Platform set '${PLATFORM}' not found. Refer to the file README to check if your platform is supported."
     exit 1
 fi
 
@@ -273,7 +273,7 @@ do
     cd ${ORIGDIR}
     if [ ! -e packages/${PACKAGE}.package ]
     then
-        cecho $BAD "packages/${PACKAGE}.package does not exist yet. Please create it."
+        cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
         exit 1
     fi
 
@@ -295,7 +295,7 @@ do
 
     if [ ! ${NAME} ] || [ ! ${SOURCE} ] || [ ! ${PACKING} ] || [ ! ${BUILDCHAIN} ]
     then
-	cecho $BAD "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
+	cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
 	exit 1
     fi
 
@@ -304,4 +304,4 @@ do
     package_build
 done
 
-cecho $GOOD "Build finished."
+cecho ${GOOD} "Build finished."

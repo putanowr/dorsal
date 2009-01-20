@@ -4,7 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 
 package_specific_setup () {
-    export UMFPACK_DIR=$PWD
+    export UMFPACK_DIR=${PWD}
 }
 
 package_specific_build () {

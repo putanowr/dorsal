@@ -4,10 +4,10 @@ PACKING=.tgz
 BUILDCHAIN=autotools
 
 package_specific_setup () {
-    export SLEPC_DIR=$PWD
-    ./config/configure.py --prefix=$INSTALL_PATH
+    export SLEPC_DIR=${PWD}
+    ./config/configure.py --prefix=${INSTALL_PATH}
 }
 
 package_specific_teardown () {
-    ln -sf $INSTALL_PATH/lib/$PETSC_ARCH/* $INSTALL_PATH/lib/
+    ln -sf ${INSTALL_PATH}/lib/$PETSC_ARCH/* ${INSTALL_PATH}/lib/
 }

@@ -45,7 +45,8 @@ ufc
 ufl 
 ffc
 syfi
-#cmake
+cmake
+vtkdata
 #vtk
 #viper
 instant

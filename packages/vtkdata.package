@@ -1,0 +1,9 @@
+NAME=vtkdata-5.2.1
+SOURCE=http://www.vtk.org/files/release/5.2/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+EXTRACTSTO=VTKData
+
+package_specific_setup () {
+    export VTK_DATA_ROOT=${PWD}
+}

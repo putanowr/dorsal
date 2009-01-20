@@ -4,5 +4,5 @@ PACKING=svn
 BUILDCHAIN=custom
 
 package_specific_setup () {
-    export MTL4_DIR=$PWD
+    export MTL4_DIR=${PWD}
 }

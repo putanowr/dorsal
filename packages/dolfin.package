@@ -3,63 +3,63 @@ SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=scons
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePydolfin=yes
-withBoostDir=$BOOST_DIR"
+withBoostDir=${BOOST_DIR}"
 
 # Handle optional dependencies
-if [[ $UMFPACK_DIR ]]
+if [[ ${UMFPACK_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableUmfpack=yes withUmfpackDir=$UMFPACK_DIR enableCholmod=yes withCholmodDir=$UMFPACK_DIR"
+    SCONSOPTS="${SCONSOPTS} enableUmfpack=yes withUmfpackDir=${UMFPACK_DIR} enableCholmod=yes withCholmodDir=${UMFPACK_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableUmfpack=no enableCholmod=no"
+    SCONSOPTS="${SCONSOPTS} enableUmfpack=no enableCholmod=no"
 fi
 
-if [[ $PETSC_DIR ]]
+if [[ ${PETSC_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enablePetsc=yes withPetscDir=$PETSC_DIR"
+    SCONSOPTS="${SCONSOPTS} enablePetsc=yes withPetscDir=${PETSC_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enablePetsc=no"
+    SCONSOPTS="${SCONSOPTS} enablePetsc=no"
 fi
 
-if [[ $SLEPC_DIR ]]
+if [[ ${SLEPC_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableSlepc=yes withSlepcDir=$SLEPC_DIR"
+    SCONSOPTS="${SCONSOPTS} enableSlepc=yes withSlepcDir=${SLEPC_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableSlepc=no"
+    SCONSOPTS="${SCONSOPTS} enableSlepc=no"
 fi
 
-if [[ $MTL4_DIR ]]
+if [[ ${MTL4_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableMtl4=yes withMtl4Dir=$MTL4_DIR"
+    SCONSOPTS="${SCONSOPTS} enableMtl4=yes withMtl4Dir=${MTL4_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableMtl4=no"
+    SCONSOPTS="${SCONSOPTS} enableMtl4=no"
 fi
 
-if [[ $TRILINOS_DIR ]]
+if [[ ${TRILINOS_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableTrilinos=yes withTrilinosDir=$TRILINOS_DIR"
+    SCONSOPTS="${SCONSOPTS} enableTrilinos=yes withTrilinosDir=${TRILINOS_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableTrilinos=no"
+    SCONSOPTS="${SCONSOPTS} enableTrilinos=no"
 fi
 
-if [[ $GMP_DIR ]]
+if [[ ${GMP_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableGmp=yes withGmpDir=$GMP_DIR"
+    SCONSOPTS="${SCONSOPTS} enableGmp=yes withGmpDir=${GMP_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableGmp=no"
+    SCONSOPTS="${SCONSOPTS} enableGmp=no"
 fi
 
-if [[ $PARMETIS_DIR ]]
+if [[ ${PARMETIS_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableParmetis=yes withParmetisDir=$PARMETIS_DIR"
+    SCONSOPTS="${SCONSOPTS} enableParmetis=yes withParmetisDir=${PARMETIS_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableParmetis=no"
+    SCONSOPTS="${SCONSOPTS} enableParmetis=no"
 fi
 
-if [[ $SCOTCH_DIR ]]
+if [[ ${SCOTCH_DIR} ]]
 then
-    SCONSOPTS="$SCONSOPTS enableScotch=yes withScotchDir=$SCOTCH_DIR"
+    SCONSOPTS="${SCONSOPTS} enableScotch=yes withScotchDir=${SCOTCH_DIR}"
 else
-    SCONSOPTS="$SCONSOPTS enableScotch=no"
+    SCONSOPTS="${SCONSOPTS} enableScotch=no"
 fi
 
 package_specific_setup () {
@@ -69,6 +69,6 @@ export CXXFLAGS="-Wall -pipe -ansi"
 
 package_specific_teardown () {
 unset CXXFLAGS
-cecho $BOLD "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
-cecho $BOLD "source ${PWD/#$HOME\//~/}/dolfin.conf"
+cecho ${BOLD} "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
+cecho ${BOLD} "source ${PWD/#$HOME\//~/}/dolfin.conf"
 }
