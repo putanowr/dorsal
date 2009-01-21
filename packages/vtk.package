@@ -6,8 +6,12 @@ EXTRACTSTO=VTK
 TARGETS=('')
 
 package_specific_setup () {
-    export BUILD_SHARED_LIBS=ON
-    export VTK_WRAP_PYTHON=ON
-    export CMAKE_INSTALL_PREFIX=${INSTALL_PATH}
+    chmod 600 Utilities/vtktiff/tif_fax3sm.c
     ccmake .
+    ORG_PROCS=${PROCS}
+    PROCS=1
+}
+
+package_specific_teardown () {
+    PROCS=${ORG_PROCS}
 }

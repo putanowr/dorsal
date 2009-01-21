@@ -5,4 +5,5 @@ BUILDCHAIN=autotools
 
 package_specific_setup () {
     ./bootstrap --prefix=${INSTALL_PATH}
+    export CMAKE_LIBRARY_PATH=${INSTALL_PATH}
 }
