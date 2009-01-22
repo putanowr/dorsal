@@ -270,6 +270,7 @@ export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}:/usr/lib
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]} 
 do
+    # Check if the package exists
     cd ${ORIGDIR}
     if [ ! -e packages/${PACKAGE}.package ]
     then
@@ -277,6 +278,7 @@ do
         exit 1
     fi
 
+    # Reset package-specific variables
     unset NAME
     unset SOURCE
     unset PACKING
@@ -286,19 +288,29 @@ do
     unset EXTRACTSTO
     TARGETS=('' install)
 
-    # A skeleton default implementation
+    # Reset package-specific functions
     package_specific_setup () { true; }
     package_specific_build () { true; }
     package_specific_teardown () { true; }
-    
+
+    # Fetch information pertinent to the package
     source packages/${PACKAGE}.package
 
+    # Turn to a stable version of the package if that's what the user
+    # wants and it exists
+    if [ ${STABLE_BUILD} = true ] && [ -e packages/${PACKAGE}-stable.package ]
+    then
+	source packages/${PACKAGE}-stable.package
+    fi
+
+    # Ensure that the package file is sanely constructed
     if [ ! ${NAME} ] || [ ! ${SOURCE} ] || [ ! ${PACKING} ] || [ ! ${BUILDCHAIN} ]
     then
 	cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
 	exit 1
     fi
 
+    # Fetch, unpack and build the current package
     package_fetch
     package_unpack
     package_build
