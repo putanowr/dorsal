@@ -3,7 +3,6 @@ SOURCE=http://www.vtk.org/files/release/5.2/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=VTK
-TARGETS=('')
 
 package_specific_setup () {
     chmod 600 Utilities/vtktiff/tif_fax3sm.c

@@ -4,7 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 
 package_specific_setup () {
-    export UMFPACK_DIR=${PWD}
+    export UMFPACK_DIR=${INSTALL_PATH}
 }
 
 package_specific_build () {
@@ -21,4 +21,10 @@ package_specific_build () {
     make
     cd ..
     make
+}
+
+package_specific_teardown () {
+    mkdir -p ${INSTALL_PATH}/include/suitesparse
+    ln -sf `find ${PWD} -name '*.h' | grep -vi demo | xargs` ${INSTALL_PATH}/include/suitesparse
+    ln -sf `find ${PWD} -name 'lib*.a' | xargs` ${INSTALL_PATH}/lib
 }
