@@ -1,0 +1,3 @@
+NAME=viper-0.4.2
+SOURCE=http://www.fenics.org/pub/software/viper/v0.4/
+PACKING=.tar.gz

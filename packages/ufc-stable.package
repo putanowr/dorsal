@@ -1,0 +1,3 @@
+NAME=ufc-1.1
+SOURCE=http://www.fenics.org/pub/software/ufc/v1.0/
+PACKING=.tar.gz

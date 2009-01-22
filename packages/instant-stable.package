@@ -1,0 +1,3 @@
+NAME=instant-0.9.5
+SOURCE=http://www.fenics.org/pub/software/instant/v0.9/
+PACKING=.tar.gz

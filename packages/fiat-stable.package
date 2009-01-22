@@ -1,0 +1,3 @@
+NAME=FIAT-0.3.4
+SOURCE=http://www.fenics.org/pub/software/fiat/
+PACKING=.tar.gz
