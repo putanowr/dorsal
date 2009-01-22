@@ -239,6 +239,13 @@ then
     echo
     echo "Download to: ${DOWNLOAD_PATH}"
     echo "Install in:  ${INSTALL_PATH}"
+    echo
+    if [ ${STABLE_BUILD} = true ]
+    then
+	echo "Building stable point-releases of FEniCS projects."
+    else
+	echo "Building development releases of FEniCS projects."
+    fi
     cecho ${GOOD} "OK? Press enter to continue build, or ctrl-c to quit."
     read
 else

@@ -13,4 +13,6 @@ package_specific_setup () {
 
 package_specific_teardown () {
     PROCS=${ORG_PROCS}
+    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.2:${LD_LIBRARY_PATH
+    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.2:${DYLD_LIBRARY_PATH}
 }

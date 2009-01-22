@@ -3,13 +3,14 @@
 
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
-   Red Hat Enterprise Linux 4    (rhel4)   [Broken; very old gcc]
-   Red Hat Enterprise Linux 5    (rhel5)   [Works without CMake/VTK/Viper]
    Debian Etch                    (etch)   [Not tested]
    Mac OS X 10.4 (with Fink)     (tiger)   [Not tested]
    Windows XP  (with Cygwin)        (xp)   [Being tested]
   Feel free to contribute information for other platforms as well.
-  Difficulty: Low       Urgency: High	  	   
+  Difficulty: Low       Urgency: High
+
+* Fix the VTK and Viper packages on rhel4 and rhel5
+  Difficulty: Moderate  Urgency: High
 
 * Add (MD5/SHA1) check summing mechanism to the downloading routine
   (and corresponding hashes to the package files) to verify if
@@ -29,4 +30,4 @@
 
 * Sniff out 32/64 bit-ness of machines automatically to suitably set
   GMP_ARCH, SCOTCH_ARCH etc.
-  Difficulty: Medium	Urgency: High
+  Difficulty: Moderate	Urgency: High

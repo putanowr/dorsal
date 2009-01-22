@@ -3,7 +3,8 @@
 # This build script assumes that you have the following packages
 # already installed via Red Hat's package manager:
 #
-# libtool libxml2 pkgconfig lapack blas gcc gcc-c++
+# subversion libtool libxml2 pkgconfig lapack blas gcc gcc-c++
+# gcc4 gcc4-c++ libgomp
 #
 # Before compiling VTK, you need to manually configure it using an
 # interface its build system provides. Here are some of the relevant
@@ -28,6 +29,9 @@ default PETSC_ARCH=linux-gnu-cxx-opt
 default GMP_ARCH=x86_64-linux-gnu
 default SCOTCH_ARCH=i686_pc_linux2
 default BOOST_DIR=/usr
+
+export CC=gcc4
+export CXX=g++4
 
 # Define the packages this platform needs
 PACKAGES=(
