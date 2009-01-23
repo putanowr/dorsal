@@ -9,12 +9,10 @@ dependencies) for various platforms.
 
 Currently, Dorsal supports the following environments:
 
-   Debian GNU/Linux Unstable     (lenny)
-   Mac OS X 10.5 (with Fink)   (leopard)
-   Red Hat Enterprise Linux 4    (rhel4)
-   Red Hat Enterprise Linux 5    (rhel5)
-   Ubuntu 8.04 LTS               (hardy)
-   Ubuntu 8.10                (intrepid)
+   Debian GNU/Linux 4.0, Testing        (etch, lenny)
+   Mac OS X 10.4, 10.5 (with Fink)      (tiger, leopard)
+   Red Hat Enterprise Linux 4, 5        (rhel4, rhel5)
+   Ubuntu 7.10, 8.04 LTS, 8.10          (gutsy, hardy, intrepid)
 
 If your favourite platform is not on the list above, please let us
 know about it, and we can work together toward adding it.
@@ -35,7 +33,8 @@ preliminary dependencies for your platform (usually from the system
 package manager) that Dorsal assumes you already have. An incomplete
 list of this is provided in the .platform file for each platform,
 along with platform-specific tips. In most cases, these should solve
-your problem. If you're having further difficulty, please contact us.
+your problem. If you're having further difficulty, please contact us
+by e-mailing dorsal-dev@fenics.org.
 
 Dorsal is free software; you can redistribute it and/or modify it
 under the terms of the GNU General Public License as published by the
@@ -44,10 +43,10 @@ later version.
 
 This software is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
 General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this software; see the file COPYING.  If not, write to the
+along with this software; see the file COPYING. If not, write to the
 Free Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.
