@@ -8,6 +8,13 @@
 # gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
 # vtk-python atlas-devel suitesparse-devel gmp-devel gts-devel \
 # blas-devel lapack-devel cln-devel ginac-devel python-devel
+#
+# When you try to plot your results, SELinux might complain about
+# libmesa potentially attempting to do something evil. In order to
+# calm SELinux down and let it know you would like to see your
+# results, run the following as root:
+#
+# chcon -t textrel_shlib_t '/usr/lib/libOSMesa.so.6.5.3'
 ##
 
 # Platform specific variables

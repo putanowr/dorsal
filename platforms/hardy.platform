@@ -8,7 +8,7 @@
 # libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev libparmetis-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
-# "update-alternatives --config mpi" is set to openmpi.
+# "sudo update-alternatives --config mpi" is set to openmpi.
 ##
 
 # Platform specific variables
