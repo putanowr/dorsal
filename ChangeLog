@@ -1,4 +1,7 @@
 2009-01 Harish Narayanan <harish@simula.no>
+	* Added support for fedora10
+	* Added preliminary support for tiger
+	* Added support for etch
 	* Improved functionality of rhel4/rhel5
 	* Introduced a mechanism for installing stable
 	  versions of FEniCS packages

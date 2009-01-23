@@ -50,7 +50,7 @@ ginac
 suitesparsewithmetis
 gmp
 mtl
-#trilinos
+trilinos
 parmetis
 scotch
 fiat

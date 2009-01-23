@@ -194,6 +194,7 @@ guess_platform() {
 	local CODENAME=$(lsb_release -c | awk '{print $2}')
 	case ${CODENAME} in
 	    etch|lenny|sid|gutsy|hardy|intrepid) echo ${CODENAME};;
+	    Cambridge) echo fedora10;;
 	    Nahant*)  echo rhel4;;
 	    Tikanga*) echo rhel5;;
 	    *)
@@ -244,7 +245,7 @@ then
     then
 	echo "Building stable point-releases of FEniCS projects."
     else
-	echo "Building development releases of FEniCS projects."
+	echo "Building development versions of FEniCS projects."
     fi
     cecho ${GOOD} "OK? Press enter to continue build, or ctrl-c to quit."
     read

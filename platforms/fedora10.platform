@@ -1,0 +1,43 @@
+# Fedora 10
+
+# This build script assumes that you have the following packages
+# already installed via Fedora's yum. In order to install them, run
+# the following as root:
+#
+# yum install -y redhat-lsb mercurial subversion libxml2-devel \
+# gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
+# vtk-python atlas-devel suitesparse-devel gmp-devel gts-devel \
+# blas-devel lapack-devel cln-devel ginac-devel
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default GMP_DIR=/usr
+default SCOTCH_ARCH=i686_pc_linux2
+
+PETSC_DIR=${INSTALL_PATH}
+SLEPC_DIR=${INSTALL_PATH}
+MTL_DIR=${DOWNLOAD_PATH}/mtl4
+TRILINOS_DIR=${INSTALL_PATH}
+PARMETIS_DIR=${INSTALL_PATH}
+
+# Define the packages this platform needs
+PACKAGES=(
+## petsc
+## slepc
+## mtl
+## trilinos
+## parmetis
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
+syfi
+viper
+instant
+dolfin
+)
