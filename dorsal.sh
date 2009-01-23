@@ -193,7 +193,7 @@ guess_platform() {
     elif [ -x /usr/bin/lsb_release ]; then
 	local CODENAME=$(lsb_release -c | awk '{print $2}')
 	case ${CODENAME} in
-	    lenny|sid|gutsy|hardy|intrepid) echo ${CODENAME};;
+	    etch|lenny|sid|gutsy|hardy|intrepid) echo ${CODENAME};;
 	    Nahant*)  echo rhel4;;
 	    Tikanga*) echo rhel5;;
 	    *)

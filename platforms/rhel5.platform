@@ -36,7 +36,7 @@ mercurial
 scons
 numpy
 boost
-swig 
+swig
 openmpi
 petsc
 slepc
