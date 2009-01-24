@@ -10,11 +10,11 @@
 # interface its build system provides. Here are some of the relevant
 # options:
 #
-# BUILD_SHARED_LIBS	ON
-# CMAKE_INSTALL_PREFIX	${INSTALL_PATH}
-# VTK_DATA_ROOT		${DOWNLOAD_PATH}/VTKData
-# VTK_WRAP_PYTHON	ON                                                                         
-# VTK_USE_TK		OFF
+# BUILD_SHARED_LIBS     ON
+# CMAKE_INSTALL_PREFIX  ${INSTALL_PATH}
+# VTK_DATA_ROOT         ${DOWNLOAD_PATH}/VTKData
+# VTK_WRAP_PYTHON       ON
+# VTK_USE_TK            OFF
 #
 # Also, if you're having difficulty building SuiteSparse, you may need
 # to run (as root):

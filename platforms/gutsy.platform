@@ -3,23 +3,33 @@
 # This build script assumes that you have the following packages
 # already installed via Ubuntu's apt-get:
 #
-# sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
-# pkg-config python-dev python-numpy python-vtk swig atlas3-base-dev \
-# lapack3-dev libsuitesparse-dev libboost-dev wget libparmetis-dev
+# sudo apt-get install g++ mercurial libxml2-dev libgts-dev \
+# pkg-config python-dev python-numpy python-vtk atlas3-base-dev \
+# lapack3-dev libsuitesparse-dev libboost-dev wget libparmetis-dev \
+# subversion m4 gfortran-4.1
 ##
 
 # Platform specific variables
-default PETSC_ARCH=linux-gnu-c-opt
+default PETSC_ARCH=linux-gnu-cxx-opt
+default GMP_ARCH=x86_64-linux-gnu
+default SCOTCH_ARCH=i686_pc_linux2
 default UMFPACK_DIR=/usr
 default BOOST_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
 openmpi
+scons
+swig
 petsc
 slepc
 cln
 ginac
+gmp
+mtl
+trilinos
+parmetis
+scotch
 fiat
 ferari
 ufc
