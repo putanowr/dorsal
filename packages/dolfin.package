@@ -63,12 +63,12 @@ else
 fi
 
 package_specific_setup () {
-# Remove -Werror from CXXFLAGS.
-export CXXFLAGS="-Wall -pipe -ansi"
+    # Remove -Werror from CXXFLAGS.
+    export CXXFLAGS="-Wall -pipe -ansi"
 }
 
 package_specific_teardown () {
-unset CXXFLAGS
-cecho ${BOLD} "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
-cecho ${BOLD} "source ${PWD/#$HOME\//~/}/dolfin.conf"
+    unset CXXFLAGS
+    cecho ${BOLD} "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
+    cecho ${BOLD} "source ${PWD/#$HOME\//~/}/dolfin.conf"
 }
