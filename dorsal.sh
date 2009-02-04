@@ -72,8 +72,8 @@ package_fetch (){
 	    cd ..
 	fi
     fi
-    
-    # Quit with a useful message if someting goes wrong
+
+    # Quit with a useful message if something goes wrong
     quit_if_fail "Error fetching ${NAME}."
 }
 
@@ -108,7 +108,7 @@ package_unpack() {
 	fi
     fi
 
-    # Quit with a useful message if someting goes wrong
+    # Quit with a useful message if something goes wrong
     quit_if_fail "Error unpacking ${NAME}."
 }
 
@@ -117,8 +117,8 @@ package_build() {
     cecho ${GOOD} "Building ${NAME}"
     if [ ! -d "${EXTRACTSTO}" ]
     then
-        cecho ${BAD} "${EXTRACTSTO} does not exist -- please unpack first."
-        exit 1
+	cecho ${BAD} "${EXTRACTSTO} does not exist -- please unpack first."
+	exit 1
     fi
 
     # Move to the build directory
@@ -159,7 +159,7 @@ package_build() {
 	done
     elif [ ${BUILDCHAIN} = "custom" ]
     then
-	# Write the function definition to file
+        # Write the function definition to file
 	declare -f package_specific_build >>dorsal_build
 	echo package_specific_build >>dorsal_build
     fi
@@ -203,6 +203,14 @@ guess_platform() {
 		    *CentOS*\ 5*) echo rhel5;;
 		esac;;
 	esac
+    fi
+}
+
+guess_architecture() {
+    # Try to guess the architecture of the platform we are running on
+    if [ -f /usr/bin/uname ]
+    then
+	echo `uname -m`
     fi
 }
 
@@ -276,14 +284,14 @@ export PYTHONPATH=${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages:${PYTHONP
 export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}:/usr/lib/pkgconfig
 
 # Fetch and build individual packages
-for PACKAGE in ${PACKAGES[@]} 
+for PACKAGE in ${PACKAGES[@]}
 do
     # Check if the package exists
     cd ${ORIGDIR}
     if [ ! -e packages/${PACKAGE}.package ]
     then
-        cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
-        exit 1
+	cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
+	exit 1
     fi
 
     # Reset package-specific variables
