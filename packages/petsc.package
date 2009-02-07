@@ -1,4 +1,4 @@
-NAME=petsc-2.3.3-p15
+NAME=petsc-3.0.0-p3
 SOURCE=ftp://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
@@ -9,5 +9,7 @@ package_specific_setup () {
 }
 
 package_specific_teardown () {
-    ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/* ${INSTALL_PATH}/lib/
+    export PETSC_DIR=${INSTALL_PATH}
+    export PETSC_ARCH_TEMP=${PETSC_ARCH}
+    unset PETSC_ARCH
 }
