@@ -3,12 +3,55 @@
 # This build script assumes that you have the following packages
 # already installed via Debian's apt-get:
 #
-# sudo apt-get install g++ mercurial libxml2-dev libgts-dev \
-# pkg-config python-dev python-numpy python-vtk libboost-dev \
-# libgmp3-dev libcln-dev libginac-dev subversion zlib1g-dev wget
+# sudo apt-get install g++ python2.5 python2.5-dev mercurial \
+# libxml2-dev libgts-dev libboost-dev libcln-dev libginac-dev \
+# libgmp3-dev zlib1g-dev wget subversion pkg-config cmake \
+# libgl1-mesa-dev xorg-dev
+#
+# In order to default to Python 2.5, create the following symbolic
+# links (as root, in /usr/bin):
+#
+# ln -sf python2.5 python 
+# ln -sf pydoc2.5 pydoc
+# ln -sf pygettext2.5 pygettext
+#
+# Before compiling VTK, you need to manually configure it using an
+# interface its build system provides. Here are some of the relevant
+# options:
+#
+# BUILD_SHARED_LIBS     ON
+# CMAKE_INSTALL_PREFIX  ${INSTALL_PATH}
+# VTK_DATA_ROOT         ${DOWNLOAD_PATH}/VTKData
+# VTK_WRAP_PYTHON       ON
+# VTK_USE_TK            OFF
+#
+# If you are having trouble starting Viper (the FEniCS visualisation
+# program) while running the DOLFIN demos, add the following to
+# dolfin.conf to load the Python VTK bindings correctly:
+#
+# export LD_LIBRARY_PATH="${INSTALL_PATH}/lib/vtk-5.2:$LD_LIBRARY_PATH"
+# 
+# You need to replace ${INSTALL_PATH} with it's actual value from
+# dorsal.cfg.
+#
+# If you receive linking errors while trying to build the DOLFIN
+# demos, modify the following lines in 
+# ${DOWNLOAD_PATH}/dolfin/scons/simula-scons/simula_scons/pkgconfiggenerators/cholmod.py
+# to read:
+#
+#  libs += " -L%s -lamd -lcamd" % getAmdLibDir(sconsEnv)
+#  libs += " -L%s -lcolamd -lccolamd" % getColamdLibDir(sconsEnv)
+#
+# Now rebuild DOLFIN, by going to the DOLFIN folder
+# ${DOWNLOAD_PATH}/dolfin and typing:
+#
+# scons install
+#
+# The demos should now work.
 ##
 
 # Platform specific variables
+default LAPACKANDBLAS_DIR=/usr/lib
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=i686_pc_linux2
 default BOOST_DIR=/usr
@@ -16,13 +59,13 @@ default GMP_ARCH=i686-linux-gnu
 
 # Define the packages this platform needs
 PACKAGES=(
-openmpi
 scons
+numpy
 swig
+openmpi
 petsc
 slepc
 suitesparsewithmetis
-gmp
 mtl
 trilinos
 parmetis
@@ -33,6 +76,8 @@ ufc
 ufl
 ffc
 syfi
+vtkdata
+vtk
 viper
 instant
 dolfin
