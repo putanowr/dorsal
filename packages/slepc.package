@@ -1,10 +1,10 @@
-NAME=slepc-3.0.0-p1
+NAME=slepc-3.0.0-p2
 SOURCE=http://www.grycap.upv.es/slepc/download/distrib/
 PACKING=.tgz
 BUILDCHAIN=autotools
 
 package_specific_setup () {
-    if [ -z "${PETSC_ARCH_TEMP}"]
+    if [ -z "${PETSC_ARCH_TEMP}" ]
     then
 	export PETSC_ARCH_TEMP=${PETSC_ARCH}
     fi
@@ -15,6 +15,10 @@ package_specific_setup () {
 }
 
 package_specific_teardown () {
+    if [ -e ${INSTALL_PATH}/lib/${PETSC_ARCH} ]
+    then
+	ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/* ${INSTALL_PATH}/lib/
+    fi
     export SLEPC_DIR=${INSTALL_PATH}
     unset PETSC_ARCH
     unset PETSC_ARCH_TEMP
