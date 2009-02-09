@@ -3,7 +3,7 @@
 
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
-   Mac OS X 10.4 (with Fink)     (tiger)   [Not tested]
+   Mac OS X 10.4 (with Fink)     (tiger)   [Being tested]
    Windows XP  (with Cygwin)        (xp)   [Being tested]
   Feel free to contribute information for other platforms as well.
   Difficulty: Low       Urgency: High
