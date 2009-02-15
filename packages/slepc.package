@@ -1,4 +1,4 @@
-NAME=slepc-3.0.0-p2
+NAME=slepc-2.3.3
 SOURCE=http://www.grycap.upv.es/slepc/download/distrib/
 PACKING=.tgz
 BUILDCHAIN=autotools
