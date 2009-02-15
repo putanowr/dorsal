@@ -1,4 +1,4 @@
-NAME=boost_1_37_0
+NAME=boost_1_38_0
 SOURCE=http://downloads.sourceforge.net/boost/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
