@@ -1,4 +1,4 @@
-# Debian GNU/Linux Testing
+# Debian GNU/Linux 5.0
 
 # This build script assumes that you have the following packages
 # already installed via Debian's apt-get:
