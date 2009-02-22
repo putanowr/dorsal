@@ -21,7 +21,8 @@
   FEniCS projects) and slow changing (e.g. Python,
   Mercurial). Introduce the notion of a "first build" to bootstrap the
   system and subsequent "refresh" builds to update only the rapidly
-  changing packages.
+  changing packages. Use dorsal_build files in the different projects
+  for this.
   Difficulty: Moderate  Urgency: Moderate
 
 * Allow the user to install just a single package by specifying

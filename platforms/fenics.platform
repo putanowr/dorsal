@@ -1,12 +1,31 @@
 # The core FEniCS packages
 
-# This build script is platform independent. Once you have boostrapped
-# the .platform file specific to your environment, you can use this
-# file to save time during subsequent rebuilds by building only the
-# fast-changing FEniCS project sources.
+# Once you have boostrapped the .platform file specific to your
+# environment, you can use this file to save time during subsequent
+# rebuilds by building only the fast-changing FEniCS project sources.
+#
+# This build script will eventually be platform dependent, but it is
+# not there yet. For now, please open ./platforms/fenics.platform and
+# fiddle with the platform-specific variables so that they match your
+# platform.
 ##
 
-# Define the packages this platform needs.
+# Platform specific variables
+default PETSC_ARCH=darwin9.2.0-cxx-opt
+default GMP_ARCH=none-apple-darwin
+default SCOTCH_ARCH=i686_mac_darwin8
+default UMFPACK_DIR=/sw
+default BOOST_DIR=/sw
+
+default PETSC_DIR=${INSTALL_PATH}
+default SLEPC_DIR=${INSTALL_PATH}
+default GMP_DIR=${INSTALL_PATH}
+default MTL4_DIR=${DOWNLOAD_PATH}/mtl4
+default TRILINOS_DIR=${INSTALL_PATH}
+default PARMETIS_DIR=${INSTALL_PATH}
+default SCOTCH_DIR=${INSTALL_PATH}
+
+# Define the packages this platform needs
 PACKAGES=(
 fiat
 ferari
