@@ -1,8 +1,8 @@
-NAME=trilinos-8.0.8
+NAME=trilinos-9.0.2
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
-CONFOPTS="--enable-mpi --with-mpi-compilers --enable-pytrilinos --enable-amesos --cache-file=config.cache --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
+CONFOPTS="--enable-pytrilinos --enable-amesos --cache-file=config.cache --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
 
 package_specific_setup () {
     export TRILINOS_DIR=${INSTALL_PATH}
