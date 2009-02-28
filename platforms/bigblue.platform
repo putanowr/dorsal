@@ -1,0 +1,29 @@
+# Ubuntu 8.10 (Specific for the bigblue cluster at simula)
+#
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-c-opt
+default PETSC_DIR=/usr/lib/petsc
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default SCOTCH_DIR=/usr
+default PARMETIS_DIR=/usr
+default GMP_DIR=/usr
+default TRILINOS_DIR=/usr
+
+# Define the packages this platform needs
+PACKAGES=(
+scipy
+slepc
+mtl
+fiat
+ferari
+ufc
+ufl
+ffc
+syfi
+viper
+instant
+dolfin
+)
