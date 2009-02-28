@@ -1,3 +1,9 @@
+2009-02 Harish Narayanan <harish@simula.no>
+	* Added support for lenny
+	* Modified ufc package to account for new scons-based install
+	* Generalised petsc/slepc packages to handle slight differences in
+	  2x and 3x versions of the software
+	* Updated to recent versions of all packages
 2009-01 Harish Narayanan <harish@simula.no>
 	* Added support for fedora10
 	* Added preliminary support for tiger
@@ -18,7 +24,7 @@
 	* Create build log and rebuild script for individual
 	  packages
 	* Support for parallel make/scons
-	* Improved sleps/petsc packages to avoid the need
+	* Improved slepc/petsc packages to avoid the need
 	  for manually setting LD_LIBRARY_PATH
 	* Display platfom-specific instructions as part of 
 	  the build process
