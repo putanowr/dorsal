@@ -1,5 +1,5 @@
 NAME=scipy-0.7.0
-SOURCE=http://switch.dl.sourceforge.net/sourceforge/scipy/
+SOURCE=http://downloads.sourceforge.net/scipy/
 PACKING=.tar.gz
 BUILDCHAIN=python
 
