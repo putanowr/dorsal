@@ -1,0 +1,8 @@
+NAME=scipy-0.7.0
+SOURCE=http://switch.dl.sourceforge.net/sourceforge/scipy/
+PACKING=.tar.gz
+BUILDCHAIN=python
+
+package_specific_setup () {
+    perl -pi -e 's/<umfpack/<suitesparse\/umfpack/g' scipy/sparse/linalg/dsolve/umfpack/umfpack.i
+}
