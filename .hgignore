@@ -3,6 +3,7 @@ syntax: glob
 .DS_Store
 platforms/*test.platform
 packages/*test.package
+local.cfg
 
 syntax: regexp
 .*\#.*\#$
