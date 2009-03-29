@@ -203,6 +203,7 @@ guess_platform() {
 		case $(lsb_release -d) in
 		    *CentOS*\ 4*) echo rhel4;;
 		    *CentOS*\ 5*) echo rhel5;;
+		    *openSUSE*\ 11.1*) echo opensuse11.1;;
 		esac;;
 	esac
     fi

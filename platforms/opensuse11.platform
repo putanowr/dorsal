@@ -1,0 +1,53 @@
+# openSUSE 11.1
+
+# This build script assumes that you have the following packages
+# already installed via openSUSE's zypper. In order to install them,
+# first run the following as root to add the required repos:
+#
+# sudo zypper addrepo http://download.opensuse.org/distribution/11.1/repo/oss/ OSS
+# sudo zypper addrepo http://download.opensuse.org/update/11.1/ Update
+# sudo zypper addrepo http://download.opensuse.org/repositories/science/openSUSE_11.1/ Science
+# sudo zypper addrepo http://download.opensuse.org/repositories/Education/openSUSE_11.1/ Education
+# sudo zypper addrepo http://download.opensuse.org/repositories/devel:/libraries:/c_c++/ Devel_Libraries_for_C/C++
+# sudo zypper addrepo http://packman.unixheads.com/suse/11.1/ Packman 
+#
+# Then run the following as root to install the actual packages:
+#
+# sudo zypper install -C mercurial subversion libxml2-devel \
+# gcc gcc-c++ openmpi-devel scons python-numpy swig wget boost-devel=1.36.0 \
+# vtk-python libatlas3-devel suitesparse-common-devel gmp-devel gts-devel \
+# libblas3 liblapack3 cln-devel libginac-devel python-devel
+# 
+# When you try to plot your results, SELinux might complain about
+# libmesa potentially attempting to do something evil. In order to
+# calm SELinux down and let it know you would like to see your
+# results, run the following as root:
+#
+# chcon -t textrel_shlib_t '/usr/lib/libOSMesa.so.6.5.3'
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default GMP_DIR=/usr
+default SCOTCH_ARCH=i686_pc_linux2
+
+# Define the packages this platform needs
+PACKAGES=(
+petsc
+slepc
+mtl
+trilinos
+parmetis
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
+syfi
+viper
+instant
+dolfin
+)
