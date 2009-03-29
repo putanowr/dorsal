@@ -2,7 +2,7 @@ NAME=dolfin
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=scons
-SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePydolfin=yes
+SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePython=yes
 withBoostDir=${BOOST_DIR}"
 
 # Handle optional dependencies
