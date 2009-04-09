@@ -1,5 +1,5 @@
-NAME=vtk-5.2.1
-SOURCE=http://www.vtk.org/files/release/5.2/
+NAME=vtk-5.4.0
+SOURCE=http://www.vtk.org/files/release/5.4/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=VTK

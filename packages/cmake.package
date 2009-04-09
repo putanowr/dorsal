@@ -1,4 +1,4 @@
-NAME=cmake-2.6.2
+NAME=cmake-2.6.3
 SOURCE=http://www.cmake.org/files/v2.6/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
