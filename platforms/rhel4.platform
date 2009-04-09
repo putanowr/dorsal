@@ -45,8 +45,6 @@ openmpi
 petsc
 slepc
 gts 
-cln
-ginac
 suitesparsewithmetis
 gmp
 mtl

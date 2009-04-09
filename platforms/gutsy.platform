@@ -23,8 +23,6 @@ scons
 swig
 petsc
 slepc
-cln
-ginac
 gmp
 mtl
 trilinos

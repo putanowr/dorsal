@@ -22,8 +22,6 @@ default BOOST_DIR=/usr
 # Define the packages this platform needs
 PACKAGES=(
 slepc
-cln
-ginac
 gmp
 mtl
 trilinos

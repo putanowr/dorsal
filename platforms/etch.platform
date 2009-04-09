@@ -4,9 +4,8 @@
 # already installed via Debian's apt-get:
 #
 # sudo apt-get install g++ python2.5 python2.5-dev mercurial \
-# libxml2-dev libgts-dev libboost-dev libcln-dev libginac-dev \
+# libxml2-dev libgts-dev libboost-dev libgl1-mesa-dev xorg-dev \
 # libgmp3-dev zlib1g-dev wget subversion pkg-config cmake \
-# libgl1-mesa-dev xorg-dev
 #
 # In order to default to Python 2.5, create the following symbolic
 # links (as root, in /usr/bin):

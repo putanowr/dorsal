@@ -36,8 +36,6 @@ scons
 petscwithoutmpi
 slepc
 gts
-cln
-ginac
 fiat
 ferari
 ufc
