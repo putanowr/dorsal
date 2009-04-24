@@ -40,6 +40,8 @@ default BOOST_DIR=/sw
 PACKAGES=(
 petsc
 slepc
+cln
+ginac
 gmp
 mtl
 trilinos

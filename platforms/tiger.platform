@@ -64,6 +64,8 @@ unset __CF_USER_TEXT_ENCODING
 PACKAGES=(
 petsc
 slepc
+cln
+ginac
 gmp
 mtl
 trilinos
