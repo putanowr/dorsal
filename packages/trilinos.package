@@ -2,6 +2,7 @@ NAME=trilinos-9.0.3
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
+TARGETS=('' install clean)
 CONFOPTS="--enable-pytrilinos --enable-amesos --cache-file=config.cache --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
 
 package_specific_setup () {
