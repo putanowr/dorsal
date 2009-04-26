@@ -193,12 +193,12 @@ guess_platform() {
     elif [ -x /usr/bin/lsb_release ]; then
 	local CODENAME=$(lsb_release -c | awk '{print $2}')
 	case ${CODENAME} in
-	    */sid)                echo sid;;            # Debian unstable
-	    etch|lenny|squeeze)   echo ${CODENAME};;    # Debian stable
-	    gutsy|hardy|intrepid) echo ${CODENAME};;    # Ubuntu
-	    Cambridge)            echo fedora10;;
-	    Nahant*)              echo rhel4;;
-	    Tikanga*)             echo rhel5;;
+	    */sid)                       echo sid;;            # Debian unstable
+	    etch|lenny|squeeze)          echo ${CODENAME};;    # Debian stable
+	    gutsy|hardy|intrepid|jaunty) echo ${CODENAME};;    # Ubuntu
+	    Cambridge)                   echo fedora10;;
+	    Nahant*)                     echo rhel4;;
+	    Tikanga*)                    echo rhel5;;
 	    *)
 		case $(lsb_release -d) in
 		    *CentOS*\ 4*) echo rhel4;;
