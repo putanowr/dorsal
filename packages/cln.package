@@ -1,4 +1,8 @@
-NAME=cln-1.2.2
-SOURCE=http://www.ginac.de/CLN/
-PACKING=.tar.bz2
+NAME=cln
+SOURCE=git://www.ginac.de/
+PACKING=.git
 BUILDCHAIN=autotools
+
+package_specific_setup () {
+autoreconf -iv
+}
