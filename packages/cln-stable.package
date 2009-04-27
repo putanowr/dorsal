@@ -1,5 +1,0 @@
-NAME=cln-1.2.2
-SOURCE=http://www.ginac.de/CLN/
-PACKING=.tar.bz2
-BUILDCHAIN=autotools
-
