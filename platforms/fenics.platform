@@ -10,6 +10,9 @@
 # platform.
 ##
 
+export CC=gcc-4
+export CXX=g++-4
+
 # Platform specific variables
 default PETSC_ARCH=darwin9.2.0-cxx-opt
 default GMP_ARCH=none-apple-darwin
