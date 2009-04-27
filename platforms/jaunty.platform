@@ -24,6 +24,7 @@ default GMP_DIR=/usr
 # Define the packages this platform needs
 PACKAGES=(
 slepc
+swiginac
 mtl
 trilinos
 fiat

@@ -25,6 +25,7 @@ petsc
 slepc
 cln
 ginac
+swiginac
 gmp
 mtl
 trilinos

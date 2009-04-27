@@ -44,6 +44,7 @@ slepc
 gts 
 cln
 ginac
+swiginac
 suitesparsewithmetis
 gmp
 mtl

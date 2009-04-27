@@ -28,6 +28,7 @@ default SCOTCH_ARCH=i686_pc_linux2
 PACKAGES=(
 petsc
 slepc
+swiginac
 mtl
 trilinos
 parmetis

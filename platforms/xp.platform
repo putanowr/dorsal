@@ -38,6 +38,7 @@ slepc
 gts
 cln
 ginac
+swiginac
 fiat
 ferari
 ufc

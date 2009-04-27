@@ -65,6 +65,7 @@ swig
 openmpi
 petsc
 slepc
+swiginac
 suitesparsewithmetis
 mtl
 trilinos
