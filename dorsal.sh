@@ -71,6 +71,17 @@ package_fetch (){
 	    svn up
 	    cd ..
 	fi
+    elif [ ${PACKING} = ".git" ]
+    then
+	# Suitably clone or update git repositories
+	if [ ! -d ${NAME} ]
+	then
+	    git clone ${SOURCE}${NAME}${PACKING}
+	else
+	    cd ${NAME}
+	    git pull
+	    cd ..
+	fi
     fi
 
     # Quit with a useful message if something goes wrong
