@@ -5,7 +5,7 @@
 #
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
-# libboost-dev wget openmpi-bin libatlas-base-dev petsc-dev libparmetis-dev \
+# libboost-dev wget openmpi-bin libatlas-base-dev libparmetis-dev \
 # libgmp3-dev libscotch-dev libcln-dev libginac-dev subversion
 #
 # Also, if you have multiple MPI libraries installed, make sure
@@ -14,7 +14,6 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-c-opt
-default PETSC_DIR=/usr/lib/petsc
 default UMFPACK_DIR=/usr
 default BOOST_DIR=/usr
 default SCOTCH_DIR=/usr
@@ -23,6 +22,7 @@ default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+petsc
 slepc
 swiginac
 mtl
