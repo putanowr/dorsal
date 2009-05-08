@@ -166,7 +166,7 @@ package_build() {
     then
 	for target in "${TARGETS[@]}"
 	do
-	    echo scons -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
+	    echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
 	done
     elif [ ${BUILDCHAIN} = "custom" ]
     then
