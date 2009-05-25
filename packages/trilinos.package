@@ -7,4 +7,5 @@ CONFOPTS="--enable-pytrilinos --enable-amesos --cache-file=config.cache --with-c
 
 package_specific_setup () {
     export TRILINOS_DIR=${INSTALL_PATH}
+    patch packages/PyTrilinos/src/FILEstream.cpp < ${ORIGDIR}/patches/trilinos.patch
 }
