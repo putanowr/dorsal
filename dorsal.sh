@@ -234,6 +234,8 @@ export ORIGDIR=`pwd`
 
 # Read configuration variables from dorsal.cfg
 source dorsal.cfg
+
+# For changes specific to your local setup or for debugging, use local.cfg
 if [ -f local.cfg ]
 then
     source local.cfg
