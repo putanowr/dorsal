@@ -9,8 +9,9 @@
 # Via Fink, you need to install the following packages:
 #
 # fink install wget libtool libxml2 pkgconfig gcc44 openmpi \
-# openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 boost1.33 \
-# suitesparse scons gts swig git autogen readline
+# openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 \
+# boost1.35.python25 boost1.35.nopython suitesparse scons gts swig git \
+# autogen readline 
 #
 # Also, if you're running Fink with 'unstable' repositories enabled,
 # Fink might have installed Python 2.6 for you. Since many goodies
@@ -35,6 +36,9 @@ default GMP_ARCH=none-apple-darwin
 default SCOTCH_ARCH=i686_mac_darwin8
 default UMFPACK_DIR=/sw
 default BOOST_DIR=/sw
+
+export CC=gcc-4
+export CXX=g++-4
 
 # Define the packages this platform needs
 PACKAGES=(

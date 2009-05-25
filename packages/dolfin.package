@@ -63,7 +63,9 @@ else
 fi
 
 package_specific_setup () {
-    # Remove -Werror from CXXFLAGS.
+    export CC=mpicc
+    export CXX=mpic++
+    # Remove -Werror from CXXFLAGS
     export CXXFLAGS="-Wall -pipe -ansi"
 }
 
