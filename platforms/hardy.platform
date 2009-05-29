@@ -6,7 +6,7 @@
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
-# libatlas-base-dev petsc-dev libparmetis-dev gfortran
+# libatlas-base-dev petsc-dev libparmetis-dev gfortran liblapack-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
