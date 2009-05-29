@@ -25,6 +25,9 @@ default TRILINOS_DIR=${INSTALL_PATH}
 default PARMETIS_DIR=${INSTALL_PATH}
 default SCOTCH_DIR=${INSTALL_PATH}
 
+export CC=gcc-4
+export CXX=g++-4
+
 # Define the packages this platform needs
 PACKAGES=(
 fiat
