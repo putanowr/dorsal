@@ -4,6 +4,7 @@ PACKING=hg
 BUILDCHAIN=scons
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePython=yes
 withBoostDir=${BOOST_DIR}"
+TARGETS=(configure '' install)
 
 # Handle optional dependencies
 if [[ ${UMFPACK_DIR} ]]
