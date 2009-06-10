@@ -6,7 +6,7 @@
 # sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
-# libatlas-base-dev petsc-dev libparmetis-dev libgmp3-dev libscotch-dev \
+# libatlas-base-dev petsc-dev libparmetis-dev libscotch-dev \
 # libcln-dev subversion gfortran liblapack-dev git git-core
 #
 # Also, if you have multiple MPI libraries installed, make sure
@@ -20,7 +20,7 @@ default UMFPACK_DIR=/usr
 default BOOST_DIR=/usr
 default SCOTCH_DIR=/usr
 default PARMETIS_DIR=/usr
-default GMP_DIR=/usr
+default GMP_ARCH=x86_64-linux-gnu
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -29,6 +29,7 @@ slepc
 cln
 ginac
 swiginac
+gmp
 mtl
 trilinos
 fiat
