@@ -35,7 +35,6 @@ export CXX=g++4
 
 # Define the packages this platform needs
 PACKAGES=(
-git
 python
 mercurial
 scons
