@@ -1,5 +1,5 @@
-NAME=scotch_5.1.3
-SOURCE=http://gforge.inria.fr/frs/download.php/15601/
+NAME=scotch_5.1.6
+SOURCE=http://gforge.inria.fr/frs/download.php/22247/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_5.1/src

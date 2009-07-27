@@ -1,4 +1,4 @@
-NAME=vtk-5.4.0
+NAME=vtk-5.4.2
 SOURCE=http://www.vtk.org/files/release/5.4/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
@@ -13,6 +13,6 @@ package_specific_setup () {
 
 package_specific_teardown () {
     PROCS=${ORG_PROCS}
-    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.2:${LD_LIBRARY_PATH
-    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.2:${DYLD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.4:${LD_LIBRARY_PATH}
+    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.4:${DYLD_LIBRARY_PATH}
 }

@@ -1,4 +1,4 @@
-NAME=ginac-1.5.1
+NAME=ginac-1.5.2
 SOURCE=ftp://ftpthep.physik.uni-mainz.de/pub/GiNaC/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
