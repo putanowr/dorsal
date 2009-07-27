@@ -32,6 +32,7 @@ default BOOST_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+git
 python
 mercurial
 scons
@@ -41,7 +42,7 @@ swig
 openmpi
 petsc
 slepc
-gts 
+gts
 cln
 ginac
 swiginac
