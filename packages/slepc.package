@@ -1,5 +1,5 @@
 NAME=slepc-3.0.0-p4
-SOURCE=http://www.grycap.upv.es/slepc/download/distrib/
+SOURCE=http://fenics.org/pub/software/dorsal/mirror/
 PACKING=.tgz
 BUILDCHAIN=autotools
 
