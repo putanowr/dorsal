@@ -7,7 +7,7 @@
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
-# libcln-dev subversion gfortran liblapack-dev autoconf
+# subversion gfortran liblapack-dev autoconf
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
@@ -25,6 +25,7 @@ default GMP_DIR=/usr
 PACKAGES=(
 petsc
 slepc
+cln
 ginac
 swiginac
 mtl
