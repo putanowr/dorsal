@@ -5,7 +5,7 @@ BUILDCHAIN=autotools
 
 package_specific_setup () {
     export PETSC_DIR=${PWD}
-    ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-shared=1 --download-hypre=1 --with-parmetis=1 --download-scalapack=1 --download-blacs=1 --download-mumps=1 --prefix=${INSTALL_PATH} 
+    ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-shared=1 --download-hypre=1 --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR} --download-scalapack=1 --download-blacs=1 --download-mumps=1 --prefix=${INSTALL_PATH} 
 
 }
 
