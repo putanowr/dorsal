@@ -26,7 +26,6 @@ default GMP_DIR=/usr
 PACKAGES=(
 slepc
 swiginac
-mtl
 trilinos
 fiat
 ferari

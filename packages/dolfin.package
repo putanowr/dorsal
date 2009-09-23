@@ -28,13 +28,6 @@ else
     SCONSOPTS="${SCONSOPTS} enableSlepc=no"
 fi
 
-if [[ ${MTL4_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableMtl4=yes withMtl4Dir=${MTL4_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableMtl4=no"
-fi
-
 if [[ ${TRILINOS_DIR} ]]
 then
     SCONSOPTS="${SCONSOPTS} enableTrilinos=yes withTrilinosDir=${TRILINOS_DIR}"

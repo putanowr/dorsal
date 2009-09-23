@@ -28,7 +28,6 @@ slepc
 cln
 ginac
 swiginac
-mtl
 trilinos
 fiat
 ferari

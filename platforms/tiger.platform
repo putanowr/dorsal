@@ -46,9 +46,9 @@
 # cd /usr/include
 # sudo ln -s malloc/malloc.h malloc.h
 #
-# If you're still having problems, try removing the packages mtl,
-# trilinos and scotch from the file platforms/tiger.platform. They are
-# only optional requirements for DOLFIN.
+# If you're still having problems, try removing the packages trilinos
+# and scotch from the file platforms/tiger.platform. They are only
+# optional requirements for DOLFIN.
 #
 ##
 
@@ -68,7 +68,6 @@ cln
 ginac
 swiginac
 gmp
-mtl
 trilinos
 parmetis
 scotch

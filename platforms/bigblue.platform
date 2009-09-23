@@ -20,7 +20,6 @@ default TRILINOS_DIR=/usr
 PACKAGES=(
 slepc
 gmp
-mtl
 numpy
 scipy
 fiat
