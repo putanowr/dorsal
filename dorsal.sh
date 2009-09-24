@@ -196,7 +196,7 @@ guess_platform() {
 	echo xp
     elif [ -f /usr/bin/sw_vers ]
     then
-	local MACOSVER=$(sw_vers | grep -o '10\.[4-5]')
+	local MACOSVER=$(sw_vers | grep -o '10\.[4-6]')
 	if [ ${MACOSVER} == '10.4' ]; then
 	    echo tiger
 	elif [ ${MACOSVER} == '10.5' ]; then
