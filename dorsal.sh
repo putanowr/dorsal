@@ -196,10 +196,13 @@ guess_platform() {
 	echo xp
     elif [ -f /usr/bin/sw_vers ]
     then
-	if [ `sw_vers | grep -o '10\.[4-5]'` == '10.5' ]; then
-	    echo leopard
-	else
+	local MACOSVER=$(sw_vers | grep -o '10\.[4-5]')
+	if [ ${MACOSVER} == '10.4' ]; then
 	    echo tiger
+	elif [ ${MACOSVER} == '10.5' ]; then
+	    echo leopard
+	elif [ ${MACOSVER} == '10.6' ]; then
+	    echo snowleopard
 	fi
     elif [ -x /usr/bin/lsb_release ]; then
 	local CODENAME=$(lsb_release -c | awk '{print $2}')
