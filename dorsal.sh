@@ -11,6 +11,11 @@ BAD="\033[1;37;41m"
 GOOD="\033[1;37;42m"
 BOLD="\033[1m"
 
+prettify_dir() {
+   # Make a directory name more readable by replacing homedir with "~"
+   echo ${1/#$HOME\//~\/}
+}
+
 cecho() {
     # Display messages in a specified colour
     COL=$1; shift
@@ -194,30 +199,30 @@ guess_platform() {
     if [ -f /usr/bin/cygwin1.dll ]
     then
 	echo xp
-    elif [ -f /usr/bin/sw_vers ]
+    elif [ -x /usr/bin/sw_vers ]
     then
-	local MACOSVER=$(sw_vers | grep -o '10\.[4-6]')
-	if [ ${MACOSVER} == '10.4' ]; then
-	    echo tiger
-	elif [ ${MACOSVER} == '10.5' ]; then
-	    echo leopard
-	elif [ ${MACOSVER} == '10.6' ]; then
-	    echo snowleopard
-	fi
+	local MACOSVER=$(sw_vers -productVersion)
+	case ${MACOSVER} in
+	    10.4*) 	echo tiger;;
+	    10.5*)	echo leopard;;
+	    10.6*)	echo snowleopard;;
+	esac
     elif [ -x /usr/bin/lsb_release ]; then
-	local CODENAME=$(lsb_release -c | awk '{print $2}')
+	local CODENAME=$(lsb_release -c | cut -f 2-)
 	case ${CODENAME} in
-	    */sid)                              echo sid;;            # Debian unstable
-	    etch|lenny|squeeze)                 echo ${CODENAME};;    # Debian stable
-	    gutsy|hardy|intrepid|jaunty|karmic) echo ${CODENAME};;    # Ubuntu
-	    Cambridge)                          echo fedora10;;
-	    Nahant*)                            echo rhel4;;
-	    Tikanga*)                           echo rhel5;;
+	    */sid)                      echo sid;;            # Debian unstable
+	    etch|lenny|squeeze)         echo ${CODENAME};;    # Debian stable
+	    gutsy|hardy|intrepid)	echo ${CODENAME};;    # Ubuntu (old)
+	    jaunty|karmic)		echo ${CODENAME};;    # Ubuntu
+	    Cambridge)                  echo fedora10;;
+	    Nahant*)                    echo rhel4;;
+	    Tikanga*)                   echo rhel5;;
 	    *)
-		case $(lsb_release -d) in
-		    *CentOS*\ 4*) echo rhel4;;
-		    *CentOS*\ 5*) echo rhel5;;
-		    *openSUSE*\ 11.1*) echo opensuse11.1;;
+		local DESCRIPTION=$(lsb_release -d | cut -f 2-)
+		case ${DESCRIPTION} in
+		    CentOS*\ 4*)	echo rhel4;;
+		    CentOS*\ 5*)	echo rhel5;;
+		    openSUSE\ 11.1*)	echo opensuse11;;
 		esac;;
 	esac
     fi
@@ -225,7 +230,7 @@ guess_platform() {
 
 guess_architecture() {
     # Try to guess the architecture of the platform we are running on
-    if [ -f /usr/bin/uname ]
+    if [ -x /usr/bin/uname ]
     then
 	echo `uname -m`
     fi
@@ -265,8 +270,8 @@ then
     # e.g. apt-get commands is easy.
     awk '/^##/ {exit} {$1=""; print}' <${PLATFORM}
     echo
-    echo "Download to: ${DOWNLOAD_PATH}"
-    echo "Install in:  ${INSTALL_PATH}"
+    echo "Download to: $(prettify_dir ${DOWNLOAD_PATH})"
+    echo "Install in:  $(prettify_dir ${INSTALL_PATH})"
     echo
     if [ ${STABLE_BUILD} = true ]
     then

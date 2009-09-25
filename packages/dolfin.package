@@ -73,5 +73,5 @@ package_specific_setup () {
 package_specific_teardown () {
     unset CXXFLAGS
     cecho ${BOLD} "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
-    cecho ${BOLD} "source ${PWD/#$HOME\//~/}/dolfin.conf"
+    cecho ${BOLD} "source $(prettify_dir $PWD/dolfin.conf)"
 }
