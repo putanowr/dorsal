@@ -1,4 +1,4 @@
-NAME=slepc-3.0.0-p4
+NAME=slepc-3.0.0-p6
 SOURCE=http://fenics.org/pub/software/dorsal/mirror/
 PACKING=.tgz
 BUILDCHAIN=autotools

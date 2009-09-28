@@ -1,4 +1,4 @@
-NAME=matplotlib-0.98.5.3
+NAME=matplotlib-0.99.1.1
 SOURCE=http://downloads.sourceforge.net/matplotlib/
 PACKING=.tar.gz
 BUILDCHAIN=python
