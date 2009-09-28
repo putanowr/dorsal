@@ -1,0 +1,23 @@
+--- dolfin/io/XMLFile.cpp~	2009-09-25 17:18:13.000000000 +0200
++++ dolfin/io/XMLFile.cpp	2009-09-28 13:15:27.000000000 +0200
+@@ -84,14 +84,14 @@
+   document = xmlParseFile(filename.c_str());
+   int ret = 1;
+   parser = xmlRelaxNGNewParserCtxt("http://fenics.org/pub/misc/dolfin.rng");
+-  xmlRelaxNGSetParserStructuredErrors(parser,
+-                                      (xmlStructuredErrorFunc)rng_parser_error,
+-                                      stderr);
++//   xmlRelaxNGSetParserStructuredErrors(parser,
++//                                       (xmlStructuredErrorFunc)rng_parser_error,
++//                                       stderr);
+   schema = xmlRelaxNGParse(parser);
+   validator = xmlRelaxNGNewValidCtxt(schema);
+-  xmlRelaxNGSetValidStructuredErrors(validator,
+-                                     (xmlStructuredErrorFunc)rng_valid_error,
+-                                     stderr);
++//   xmlRelaxNGSetValidStructuredErrors(validator,
++//                                      (xmlStructuredErrorFunc)rng_valid_error,
++//                                      stderr);
+   ret = xmlRelaxNGValidateDoc(validator, document);
+   if ( ret == 0 ) {
+     info(0, "%s validates", filename.c_str());

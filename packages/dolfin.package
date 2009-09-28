@@ -68,6 +68,7 @@ package_specific_setup () {
     export CXX=mpic++
     # Remove -Werror from CXXFLAGS
     export CXXFLAGS="-Wall -pipe -ansi"
+    patch --forward dolfin/io/XMLFile.cpp < ${ORIGDIR}/patches/dolfin.patch || true
 }
 
 package_specific_teardown () {
