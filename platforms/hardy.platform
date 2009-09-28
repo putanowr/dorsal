@@ -22,6 +22,7 @@ default BOOST_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+parmetis
 petsc
 slepc
 cln
@@ -30,7 +31,6 @@ swiginac
 gmp
 mtl
 trilinos
-parmetis
 scotch
 fiat
 ferari

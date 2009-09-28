@@ -301,6 +301,8 @@ default PYTHONVER=`python -c "import sys; print sys.version[:3]"`
 # Create necessary directories and export appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
 mkdir -p ${INSTALL_PATH}/bin
+mkdir -p ${INSTALL_PATH}/lib
+mkdir -p ${INSTALL_PATH}/include
 export PATH=${INSTALL_PATH}/bin:${PATH}
 export LD_LIBRARY_PATH=${INSTALL_PATH}/lib:${LD_LIBRARY_PATH}
 export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib:${DYLD_LIBRARY_PATH}

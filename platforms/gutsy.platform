@@ -21,6 +21,7 @@ PACKAGES=(
 openmpi
 scons
 swig
+parmetis
 petsc
 slepc
 cln
@@ -29,7 +30,6 @@ swiginac
 gmp
 mtl
 trilinos
-parmetis
 scotch
 fiat
 ferari

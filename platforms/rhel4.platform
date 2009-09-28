@@ -42,6 +42,7 @@ numpy
 boost
 swig
 openmpi
+parmetis
 petsc
 slepc
 gts
@@ -52,7 +53,6 @@ suitesparsewithmetis
 gmp
 mtl
 trilinos
-parmetis
 scotch
 cmake
 vtkdata

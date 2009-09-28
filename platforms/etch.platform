@@ -63,13 +63,13 @@ scons
 numpy
 swig
 openmpi
+parmetis
 petsc
 slepc
 swiginac
 suitesparsewithmetis
 mtl
 trilinos
-parmetis
 scotch
 fiat
 ferari
