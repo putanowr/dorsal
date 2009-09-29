@@ -3,10 +3,6 @@ SOURCE=http://downloads.sourceforge.net/boost/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
 
-package_specific_setup () {
-    export BOOST_DIR=${PWD}
-}
-
 package_specific_build () {
     ./bootstrap.sh --prefix=${INSTALL_PATH}
     ./bjam install
