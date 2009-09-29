@@ -1,0 +1,20 @@
+NAME=petsc-3.0.0-p8
+SOURCE=ftp://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+
+package_specific_setup () {
+    export PETSC_DIR=${PWD}
+    ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-shared=1 --download-hypre=1 --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR} --download-scalapack=1 --download-blacs=1 --download-mumps=1 --prefix=${INSTALL_PATH} 
+
+}
+
+package_specific_teardown () {
+    if [ -e ${INSTALL_PATH}/lib/${PETSC_ARCH} ]
+    then
+	ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/* ${INSTALL_PATH}/lib/
+    fi
+    export PETSC_DIR=${INSTALL_PATH}
+    export PETSC_ARCH_TEMP=${PETSC_ARCH}
+    unset PETSC_ARCH
+}
