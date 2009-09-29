@@ -3,8 +3,8 @@
 # This build script assumes that you have the following packages
 # already installed via Red Hat's yum:
 #
-# yum install -y libtool libxml2 pkgconfig lapack blas gcc gcc-c++ \
-# subversion zlib-devel
+# yum install -y libtool libxml2 pkgconfig lapack-devel blas-devel \
+# gcc gcc-c++ subversion zlib-devel
 #
 # Before compiling VTK, you need to manually configure it using an
 # interface its build system provides. Here are some of the relevant
