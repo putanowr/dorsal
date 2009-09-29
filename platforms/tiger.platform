@@ -11,7 +11,7 @@
 #
 # fink install wget libtool libxml2 pkgconfig gcc43 openmpi \
 # openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 boost1.33 \
-# suitesparse scons gts swig bash svn
+# suitesparse scons gts75 swig bash svn
 #
 # Make sure you're running dorsal within this newer fink-installed
 # bash.
