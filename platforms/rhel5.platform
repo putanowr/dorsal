@@ -28,7 +28,6 @@ default PYTHONVER=2.6
 default PETSC_ARCH=linux-gnu-cxx-opt
 default GMP_ARCH=x86_64-linux-gnu
 default SCOTCH_ARCH=i686_pc_linux2
-default BOOST_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(

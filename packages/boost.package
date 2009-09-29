@@ -6,3 +6,12 @@ BUILDCHAIN=custom
 package_specific_setup () {
     export BOOST_DIR=${PWD}
 }
+
+package_specific_build () {
+    ./bootstrap.sh --prefix=${INSTALL_PATH}
+    ./bjam install
+}
+
+package_specific_teardown () {
+    export BOOST_DIR=${INSTALL_PATH}
+}
