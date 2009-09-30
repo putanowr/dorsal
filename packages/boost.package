@@ -5,7 +5,7 @@ BUILDCHAIN=custom
 
 package_specific_build () {
     ./bootstrap.sh --prefix=${INSTALL_PATH}
-    ./bjam install
+    ./bjam --without-mpi install
 }
 
 package_specific_teardown () {
