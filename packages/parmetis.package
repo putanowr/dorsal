@@ -4,7 +4,6 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 
 package_specific_setup () {
-    export PARMETIS_DIR=${INSTALL_PATH}
     perl -pi -e 's/\/lib/\/lib64/g' Makefile.in
     perl -pi -e 's/^OPTFLAGS =/OPTFLAGS = -fPIC/g' Makefile.in
 }
@@ -16,4 +15,8 @@ package_specific_build() {
 package_specific_teardown () {
     ln -sf ${PWD}/*.a ${INSTALL_PATH}/lib/
     ln -sf ${PWD}/*.h ${INSTALL_PATH}/include/
+}
+
+package_specific_announce () {
+    export PARMETIS_DIR=${INSTALL_PATH}
 }

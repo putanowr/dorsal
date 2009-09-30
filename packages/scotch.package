@@ -5,7 +5,6 @@ BUILDCHAIN=autotools
 EXTRACTSTO=scotch_5.1/src
 
 package_specific_setup () {
-    export SCOTCH_DIR=${INSTALL_PATH}
     perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
     ORG_PROCS=${PROCS}
@@ -17,4 +16,8 @@ package_specific_teardown () {
     ln -sf ${PWD}/lib/* ${INSTALL_PATH}/lib/
     ln -sf ${PWD}/include/* ${INSTALL_PATH}/include/
     PROCS=${ORG_PROCS}
+}
+
+package_specific_announce () {
+    export SCOTCH_DIR=${INSTALL_PATH}
 }

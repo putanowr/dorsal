@@ -4,6 +4,6 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 EXTRACTSTO=VTKData
 
-package_specific_setup () {
+package_specific_announce () {
     export VTK_DATA_ROOT=${PWD}
 }

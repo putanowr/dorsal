@@ -40,7 +40,7 @@ quit_if_fail() {
     fi
 }
 
-package_fetch (){
+package_fetch () {
     # First, make sure we're in the right directory before downloading
     cd ${DOWNLOAD_PATH}
 
@@ -144,59 +144,75 @@ package_build() {
     package_specific_setup
     quit_if_fail "There was a problem in build setup for ${NAME}."
 
-    if [ ${SKIP_BUILD} = false ]
+    # Use the appropriate build system to compile and install the
+    # package
+    echo "#!/usr/bin/env bash" >dorsal_build
+    echo "set -e" >>dorsal_build
+
+    # Write variables to file so that it can be run stand-alone
+    declare -x | grep '^[^!]*=' >>dorsal_build
+    chmod a+x dorsal_build
+
+    if [ ${BUILDCHAIN} = "autotools" ]
     then
-
-        # Use the appropriate build system to compile and install the
-        # package
-	echo "#!/usr/bin/env bash" >dorsal_build
-	echo "set -e" >>dorsal_build
-
-        # Write variables to file so that it can be run stand-alone
-	declare -x | grep '^[^!]*=' >>dorsal_build
-	chmod a+x dorsal_build
-
-	if [ ${BUILDCHAIN} = "autotools" ]
+	if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
 	then
-	    if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
-	    then
-		./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
-		quit_if_fail "There was a problem configuring build for ${NAME}."
-	    fi
-	    for target in "${TARGETS[@]}"
-	    do
-		echo make -j ${PROCS} $target >>dorsal_build
-	    done
-	elif [ ${BUILDCHAIN} = "python" ]
-	then
-	    echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
-	elif [ ${BUILDCHAIN} = "scons" ]
-	then
-	    for target in "${TARGETS[@]}"
-	    do
-		echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
-	    done
-	elif [ ${BUILDCHAIN} = "custom" ]
-	then
+	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
+	    quit_if_fail "There was a problem configuring build for ${NAME}."
+	fi
+	for target in "${TARGETS[@]}"
+	do
+	    echo make -j ${PROCS} $target >>dorsal_build
+	done
+    elif [ ${BUILDCHAIN} = "python" ]
+    then
+	echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
+    elif [ ${BUILDCHAIN} = "scons" ]
+    then
+	for target in "${TARGETS[@]}"
+	do
+	    echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
+	done
+    elif [ ${BUILDCHAIN} = "custom" ]
+    then
         # Write the function definition to file
-	    declare -f package_specific_build >>dorsal_build
-	    echo package_specific_build >>dorsal_build
-	fi
-
-        # Log the build
-	if [ ${BASH_VERSINFO} -ge 3 ]
-	then
-	    set -o pipefail
-	    ./dorsal_build 2>&1 | tee build_log
-	else
-	    ./dorsal_build
-	fi
-	quit_if_fail "There was a problem building ${NAME}."
-
+	declare -f package_specific_build >>dorsal_build
+	echo package_specific_build >>dorsal_build
     fi
-
+    
+    # Log the build
+    if [ ${BASH_VERSINFO} -ge 3 ]
+    then
+	set -o pipefail
+	./dorsal_build 2>&1 | tee build_log
+    else
+	./dorsal_build
+    fi
+    quit_if_fail "There was a problem building ${NAME}."
+    
     # Carry out any package-specific post-build instructions
     package_specific_teardown
+}
+
+package_announce() {
+    # Get ready to announce environment variables related to the package
+    cecho ${GOOD} "Setting up ${NAME}"
+
+    cd ${DOWNLOAD_PATH}
+    default EXTRACTSTO=${NAME}
+
+    if [ ! -d "${EXTRACTSTO}" ]
+    then
+	cecho ${BAD} "${EXTRACTSTO} does not exist -- please install atleast once."
+	exit 1
+    fi
+
+    # Move to the package directory
+    cd ${EXTRACTSTO}
+
+    # Carry out any package-specific announcements
+    package_specific_announce
+    quit_if_fail "There was a problem setting environment variables for ${NAME}."
 }
 
 guess_platform() {
@@ -321,10 +337,10 @@ do
     cd ${ORIGDIR}
 
     # Skip building this package if the user requests for it
-    SKIP_BUILD=false
+    SKIP=false
     if [ ${PACKAGE:0:5} = "skip:" ]
     then
-	SKIP_BUILD=true
+	SKIP=true
 	PACKAGE=${PACKAGE#skip:}
     fi
 
@@ -349,6 +365,7 @@ do
     package_specific_setup () { true; }
     package_specific_build () { true; }
     package_specific_teardown () { true; }
+    package_specific_announce () { true; }
 
     # Fetch information pertinent to the package
     source packages/${PACKAGE}.package
@@ -367,10 +384,14 @@ do
 	exit 1
     fi
 
-    # Fetch, unpack and build the current package
-    package_fetch
-    package_unpack
-    package_build
+    # Fetch, unpack, build and announce the current package
+    if [ ${SKIP} = false ]
+    then
+	package_fetch
+	package_unpack
+	package_build
+    fi
+    package_announce
 done
 
 cecho ${GOOD} "Build finished."

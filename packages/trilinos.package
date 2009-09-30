@@ -6,6 +6,9 @@ TARGETS=('' install clean)
 CONFOPTS="--enable-pytrilinos --enable-amesos --cache-file=config.cache --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
 
 package_specific_setup () {
-    export TRILINOS_DIR=${INSTALL_PATH}
     patch --forward packages/PyTrilinos/src/FILEstream.cpp < ${ORIGDIR}/patches/trilinos.patch || true
+}
+
+package_specific_announce () {
+    export TRILINOS_DIR=${INSTALL_PATH}
 }

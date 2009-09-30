@@ -3,10 +3,6 @@ SOURCE=http://www.cise.ufl.edu/research/sparse/SuiteSparse/current/
 PACKING=.tar.gz
 BUILDCHAIN=custom
 
-package_specific_setup () {
-    export UMFPACK_DIR=${INSTALL_PATH}
-}
-
 package_specific_build () {
     perl -pi -e 's/^CFLAGS = -O/CFLAGS = -fPIC -O/g' UFconfig/UFconfig.mk
     perl -pi -e 's/-lgfortran.*n//g' UFconfig/UFconfig.mk
@@ -27,4 +23,8 @@ package_specific_teardown () {
     mkdir -p ${INSTALL_PATH}/include/suitesparse
     ln -sf `find ${PWD} -name '*.h' | grep -vi demo | xargs` ${INSTALL_PATH}/include/suitesparse
     ln -sf `find ${PWD} -name 'lib*.a' | xargs` ${INSTALL_PATH}/lib
+}
+
+package_specific_announce () {
+    export UMFPACK_DIR=${INSTALL_PATH}
 }

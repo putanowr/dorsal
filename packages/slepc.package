@@ -19,7 +19,10 @@ package_specific_teardown () {
     then
 	ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/* ${INSTALL_PATH}/lib/
     fi
-    export SLEPC_DIR=${INSTALL_PATH}
+}
+
+package_specific_announce () {
     unset PETSC_ARCH
     unset PETSC_ARCH_TEMP
+    export SLEPC_DIR=${INSTALL_PATH}
 }

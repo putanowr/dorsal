@@ -4,6 +4,6 @@ PACKING=.tar.bz2
 BUILDCHAIN=autotools
 CONFOPTS="--enable-cxx --host=${GMP_ARCH}"
 
-package_specific_setup () {
+package_specific_announce () {
     export GMP_DIR=${INSTALL_PATH}
 }
