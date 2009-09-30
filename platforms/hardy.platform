@@ -19,10 +19,10 @@ default SCOTCH_ARCH=i686_pc_linux2
 default PETSC_DIR=/usr/lib/petsc
 default UMFPACK_DIR=/usr
 default BOOST_DIR=/usr
+default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-parmetis
 petsc
 slepc
 cln
