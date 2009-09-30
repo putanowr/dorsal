@@ -1,5 +1,5 @@
 NAME=petsc-3.0.0-p8
-SOURCE=ftp://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
+SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 
