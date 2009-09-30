@@ -27,6 +27,7 @@ default SCOTCH_DIR=${INSTALL_PATH}
 
 export CC=gcc-4
 export CXX=g++-4
+export PKG_CONFIG_PATH=/sw/lib/pkgconfig
 
 # Define the packages this platform needs
 PACKAGES=(
