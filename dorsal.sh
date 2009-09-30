@@ -196,14 +196,14 @@ package_build() {
 
 package_announce() {
     # Get ready to announce environment variables related to the package
-    cecho ${GOOD} "Setting up ${NAME}"
+    cecho ${GOOD} "Announcing ${NAME}"
 
     cd ${DOWNLOAD_PATH}
     default EXTRACTSTO=${NAME}
 
     if [ ! -d "${EXTRACTSTO}" ]
     then
-	cecho ${BAD} "${EXTRACTSTO} does not exist -- please install atleast once."
+	cecho ${BAD} "${EXTRACTSTO} does not exist -- please install at least once."
 	exit 1
     fi
 

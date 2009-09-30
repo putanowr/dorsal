@@ -9,9 +9,10 @@
 #
 # Via Fink, you need to install the following packages:
 #
-# fink install wget libtool libxml2 pkgconfig gcc43 openmpi \
-# openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 boost1.33 \
-# suitesparse scons gts75 swig bash svn
+# fink install wget libtool libxml2 pkgconfig gcc44 openmpi \
+# openmpi-dev python25 vtk-py25 numpy-py25 mercurial-py25 \
+# boost1.35.python25 boost1.35.nopython suitesparse scons gts75 swig
+# git autogen readline 
 #
 # Make sure you're running dorsal within this newer fink-installed
 # bash.
@@ -59,6 +60,10 @@ default SCOTCH_ARCH=i686_mac_darwin8
 default UMFPACK_DIR=/sw
 default BOOST_DIR=/sw
 unset __CF_USER_TEXT_ENCODING
+
+export CC=gcc-4
+export CXX=g++-4
+export PKG_CONFIG_PATH=/sw/lib/pkgconfig
 
 # Define the packages this platform needs
 PACKAGES=(
