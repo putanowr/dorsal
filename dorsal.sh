@@ -144,51 +144,56 @@ package_build() {
     package_specific_setup
     quit_if_fail "There was a problem in build setup for ${NAME}."
 
-    # Use the appropriate build system to compile and install the
-    # package
-    echo "#!/usr/bin/env bash" >dorsal_build
-    echo "set -e" >>dorsal_build
-
-    # Write variables to file so that it can be run stand-alone
-    declare -x | grep '^[^!]*=' >>dorsal_build
-    chmod a+x dorsal_build
-
-    if [ ${BUILDCHAIN} = "autotools" ]
+    if [ ${SKIP_BUILD} = false ]
     then
-	if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
+
+        # Use the appropriate build system to compile and install the
+        # package
+	echo "#!/usr/bin/env bash" >dorsal_build
+	echo "set -e" >>dorsal_build
+
+        # Write variables to file so that it can be run stand-alone
+	declare -x | grep '^[^!]*=' >>dorsal_build
+	chmod a+x dorsal_build
+
+	if [ ${BUILDCHAIN} = "autotools" ]
 	then
-	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
-	    quit_if_fail "There was a problem configuring build for ${NAME}."
-	fi
-	for target in "${TARGETS[@]}"
-	do
-	    echo make -j ${PROCS} $target >>dorsal_build
-	done
-    elif [ ${BUILDCHAIN} = "python" ]
-    then
-	echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
-    elif [ ${BUILDCHAIN} = "scons" ]
-    then
-	for target in "${TARGETS[@]}"
-	do
-	    echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
-	done
-    elif [ ${BUILDCHAIN} = "custom" ]
-    then
+	    if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
+	    then
+		./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
+		quit_if_fail "There was a problem configuring build for ${NAME}."
+	    fi
+	    for target in "${TARGETS[@]}"
+	    do
+		echo make -j ${PROCS} $target >>dorsal_build
+	    done
+	elif [ ${BUILDCHAIN} = "python" ]
+	then
+	    echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
+	elif [ ${BUILDCHAIN} = "scons" ]
+	then
+	    for target in "${TARGETS[@]}"
+	    do
+		echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
+	    done
+	elif [ ${BUILDCHAIN} = "custom" ]
+	then
         # Write the function definition to file
-	declare -f package_specific_build >>dorsal_build
-	echo package_specific_build >>dorsal_build
-    fi
+	    declare -f package_specific_build >>dorsal_build
+	    echo package_specific_build >>dorsal_build
+	fi
 
-    # Log the build
-    if [ ${BASH_VERSINFO} -ge 3 ]
-    then
-	set -o pipefail
-	./dorsal_build 2>&1 | tee build_log
-    else
-	./dorsal_build
+        # Log the build
+	if [ ${BASH_VERSINFO} -ge 3 ]
+	then
+	    set -o pipefail
+	    ./dorsal_build 2>&1 | tee build_log
+	else
+	    ./dorsal_build
+	fi
+	quit_if_fail "There was a problem building ${NAME}."
+
     fi
-    quit_if_fail "There was a problem building ${NAME}."
 
     # Carry out any package-specific post-build instructions
     package_specific_teardown
@@ -312,8 +317,18 @@ export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}:/usr/lib
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
-    # Check if the package exists
+    # Return to the main Dorsal directory
     cd ${ORIGDIR}
+
+    # Skip building this package if the user requests for it
+    SKIP_BUILD=false
+    if [ ${PACKAGE:0:5} = "skip:" ]
+    then
+	SKIP_BUILD=true
+	PACKAGE=${PACKAGE#skip:}
+    fi
+
+    # Check if the package exists
     if [ ! -e packages/${PACKAGE}.package ]
     then
 	cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
