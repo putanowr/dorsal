@@ -1,3 +1,16 @@
+2009-10 Harish Narayanan <harish@simula.no>
+	* Added ability to skip building of specific packages
+2009-10 Garth N. Wells <gnw20@cam.ac.uk>
+	* Improved support for rhel5
+2009-09 Joachim B Haga <jobh@simula.no>
+	* Prettified display of home directory in output
+2009-09 Harish Narayanan <harish@simula.no>
+	* Started experimenting with mumps support (in petsc)
+	* Added initial support for snowleopard
+	* Updated to recent versions of all packages
+2009-09 Harish Narayanan <harish@simula.no>
+	* Started mirroring unstable packages
+	* Removed support for gutsy
 2009-08 Anders Logg <logg@simula.no>
 	* Added initial support for karmic
 2009-07 Harish Narayanan <harish@simula.no>
