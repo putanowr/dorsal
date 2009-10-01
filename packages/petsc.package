@@ -19,5 +19,4 @@ package_specific_announce () {
     export PETSC_DIR=${INSTALL_PATH}
     export PETSC_ARCH_TEMP=${PETSC_ARCH}
     unset PETSC_ARCH
-    export UMFPACK_DIR=${INSTALL_PATH}
 }
