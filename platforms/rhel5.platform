@@ -17,6 +17,11 @@
 # VTK_WRAP_PYTHON       ON
 # VTK_USE_TK            OFF
 #
+# Once you've set up VTK, you need to manually set the following
+# environment variable in order for Viper to find it:
+#
+# export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.4:${LD_LIBRARY_PATH}
+#
 # Also, if you're having difficulty building SuiteSparse, you may need
 # to run (as root):
 #
