@@ -9,9 +9,9 @@
 # Via Fink, you need to install the following packages:
 #
 # fink install wget libtool libxml2 pkgconfig gcc44 openmpi \
-# openmpi-dev python25 vtk52 numpy-py25 mercurial-py25 \
+# openmpi-dev python25 vtk54 numpy-py25 mercurial-py25 \
 # boost1.35.python25 boost1.35.nopython suitesparse scons gts75 swig \
-# git autogen readline 
+# git autogen readline
 #
 # Also, if you're running Fink with 'unstable' repositories enabled,
 # Fink might have installed Python 2.6 for you. Since many goodies
@@ -24,42 +24,41 @@
 #
 # Finally, Parmetis requires malloc.h to compile. In order that it can
 # find it, you need to create another symlink.
-#
 # cd /usr/include
 # sudo ln -s malloc/malloc.h malloc.h
 #
 ##
 
 # Platform specific variables
-default PETSC_ARCH=darwin9.2.0-cxx-opt
+default PETSC_ARCH=darwin10.0.0-cxx-opt
 default GMP_ARCH=none-apple-darwin
 default SCOTCH_ARCH=i686_mac_darwin8
-default UMFPACK_DIR=/sw64
-default BOOST_DIR=/sw64
+default UMFPACK_DIR=/sw
+default BOOST_DIR=/sw
 
 export CC=gcc-4
 export CXX=g++-4
-export PKG_CONFIG_PATH=/sw64/lib/pkgconfig
+export PKG_CONFIG_PATH=/sw/lib/pkgconfig
 
 # Define the packages this platform needs
 PACKAGES=(
-parmetis
+skip:parmetis
 petsc
-slepc
-cln
-ginac
-swiginac
-gmp
-mtl
-trilinos
-scotch
-fiat
-ferari
-ufc
-ufl
-ffc
-syfi
-viper
-instant
+skip:slepc
+#cln
+#ginac
+#swiginac
+skip:gmp
+skip:mtl
+skip:trilinos
+skip:scotch
+skip:fiat
+skip:ferari
+skip:ufc
+skip:ufl
+skip:ffc
+#syfi
+skip:viper
+skip:instant
 dolfin
 )
