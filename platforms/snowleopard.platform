@@ -42,23 +42,23 @@ export PKG_CONFIG_PATH=/sw/lib/pkgconfig
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:parmetis
+parmetis
 petsc
-skip:slepc
+slepc
 #cln
 #ginac
 #swiginac
-skip:gmp
-skip:mtl
-skip:trilinos
-skip:scotch
-skip:fiat
-skip:ferari
-skip:ufc
-skip:ufl
-skip:ffc
+gmp
+mtl
+trilinos
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
 #syfi
-skip:viper
-skip:instant
+viper
+instant
 dolfin
 )
