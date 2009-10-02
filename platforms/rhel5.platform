@@ -5,7 +5,7 @@
 #
 # yum install -y libtool libxml2 libxml2-devel pkgconfig lapack-devel \
 # blas-devel gcc gcc-c++ gcc-gfortran subversion zlib-devel openssl-devel \
-# glib2-devel bzip2-devel
+# glib2-devel bzip2-devel libXt-devel libX11-devel
 #
 # Before compiling VTK, you need to manually configure it using an
 # interface its build system provides. Here are some of the relevant
