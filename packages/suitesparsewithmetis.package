@@ -25,6 +25,6 @@ package_specific_teardown () {
     ln -sf `find ${PWD} -name 'lib*.a' | xargs` ${INSTALL_PATH}/lib
 }
 
-package_specific_announce () {
+package_specific_register () {
     export UMFPACK_DIR=${INSTALL_PATH}
 }

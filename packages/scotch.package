@@ -18,6 +18,6 @@ package_specific_teardown () {
     PROCS=${ORG_PROCS}
 }
 
-package_specific_announce () {
+package_specific_register () {
     export SCOTCH_DIR=${INSTALL_PATH}
 }

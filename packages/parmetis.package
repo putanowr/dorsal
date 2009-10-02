@@ -17,6 +17,6 @@ package_specific_teardown () {
     ln -sf ${PWD}/*.h ${INSTALL_PATH}/include/
 }
 
-package_specific_announce () {
+package_specific_register () {
     export PARMETIS_DIR=${INSTALL_PATH}
 }

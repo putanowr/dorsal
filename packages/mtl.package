@@ -3,6 +3,6 @@ SOURCE=https://svn.osl.iu.edu/tlc/trunk/mtl4/trunk
 PACKING=svn
 BUILDCHAIN=custom
 
-package_specific_announce () {
+package_specific_register () {
     export MTL4_DIR=${PWD}
 }

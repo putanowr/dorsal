@@ -8,6 +8,6 @@ package_specific_build () {
     ./bjam --without-mpi install
 }
 
-package_specific_announce () {
+package_specific_register () {
     export BOOST_DIR=${INSTALL_PATH}
 }

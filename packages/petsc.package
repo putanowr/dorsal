@@ -5,7 +5,7 @@ BUILDCHAIN=autotools
 
 package_specific_setup () {
     export PETSC_DIR=${PWD}
-    ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-shared=1 --download-hypre=1 --download-umfpack=1 --prefix=${INSTALL_PATH}
+    ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-shared=1 --download-hypre=1 --prefix=${INSTALL_PATH}
 }
 
 package_specific_teardown () {
@@ -15,7 +15,7 @@ package_specific_teardown () {
     fi
 }
 
-package_specific_announce () {
+package_specific_register () {
     export PETSC_DIR=${INSTALL_PATH}
     export PETSC_ARCH_TEMP=${PETSC_ARCH}
     unset PETSC_ARCH

@@ -12,6 +12,6 @@ package_specific_teardown () {
     ln -sf ${INSTALL_PATH}/lib/$PETSC_ARCH/* ${INSTALL_PATH}/lib/
 }
 
-package_specific_announce () {
+package_specific_register () {
     export PETSC_DIR=${PWD}
 }

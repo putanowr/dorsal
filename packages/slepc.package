@@ -21,7 +21,7 @@ package_specific_teardown () {
     fi
 }
 
-package_specific_announce () {
+package_specific_register () {
     unset PETSC_ARCH
     unset PETSC_ARCH_TEMP
     export SLEPC_DIR=${INSTALL_PATH}

@@ -194,13 +194,10 @@ package_build() {
     package_specific_teardown
 }
 
-package_announce() {
-    # Get ready to announce environment variables related to the package
-    cecho ${GOOD} "Announcing ${NAME}"
-
+package_register() {
+    # Get ready to set environment variables related to the package
     cd ${DOWNLOAD_PATH}
     default EXTRACTSTO=${NAME}
-
     if [ ! -d "${EXTRACTSTO}" ]
     then
 	cecho ${BAD} "${EXTRACTSTO} does not exist -- please install at least once."
@@ -210,8 +207,8 @@ package_announce() {
     # Move to the package directory
     cd ${EXTRACTSTO}
 
-    # Carry out any package-specific announcements
-    package_specific_announce
+    # Set any package-specific environment variables
+    package_specific_register
     quit_if_fail "There was a problem setting environment variables for ${NAME}."
 }
 
@@ -365,7 +362,7 @@ do
     package_specific_setup () { true; }
     package_specific_build () { true; }
     package_specific_teardown () { true; }
-    package_specific_announce () { true; }
+    package_specific_register () { true; }
 
     # Fetch information pertinent to the package
     source packages/${PACKAGE}.package
@@ -384,14 +381,17 @@ do
 	exit 1
     fi
 
-    # Fetch, unpack, build and announce the current package
     if [ ${SKIP} = false ]
     then
+        # Fetch, unpack and build the current package
 	package_fetch
 	package_unpack
 	package_build
+    else
+        # Let the user know we're skipping the current package
+	cecho ${GOOD} "Skipping ${NAME}"
     fi
-    package_announce
+    package_register
 done
 
 cecho ${GOOD} "Build finished."

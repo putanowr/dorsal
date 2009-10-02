@@ -1,6 +1,6 @@
 NAME=foo-x.y.z
 SOURCE=http://foo.org/downloads/foo/
-PACKING=[.tar.gz|.tar.bz2|.tbz2|.tgz|hg|svn]
+PACKING=[.tar.gz|.tar.bz2|.tbz2|.tgz|hg|svn|git]
 BUILDCHAIN=[autotools|python|scons|custom]
 EXTRACTSTO=barnotfoo
 CONFOPTS=""
@@ -8,14 +8,19 @@ SCONSOPTS=""
 TARGETS=('' install)
 
 package_specific_setup () {
-# Variable declarations that are used by other packages go here.
-# Can also be used for nonstandard ./configure
+    # Any non-standard configuration information goes here.
 }
 
 package_specific_build () {
-# Any custom build instructions go here. Only used by custom buildchain.
+    # Any custom build instructions go here. Only used by 'custom'
+    # buildchain.
 }
 
 package_specific_teardown () {
-# Variable declarations here, too.
+    # Any non-standard installation instructions go here.
+}
+
+package_specific_register () {
+    # Any environment variables defined by this package that are
+    # needed by other packages goes here.
 }

@@ -15,7 +15,7 @@ package_specific_teardown () {
     PROCS=${ORG_PROCS}
 }
 
-package_specific_announce () {
+package_specific_register () {
     export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.4:${LD_LIBRARY_PATH}
     export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.4:${DYLD_LIBRARY_PATH}
 }

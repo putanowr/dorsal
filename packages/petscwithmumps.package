@@ -16,7 +16,7 @@ package_specific_teardown () {
     fi
 }
 
-package_specific_announce () {
+package_specific_register () {
     export PETSC_DIR=${INSTALL_PATH}
     export PETSC_ARCH_TEMP=${PETSC_ARCH}
     unset PETSC_ARCH

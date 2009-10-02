@@ -9,6 +9,6 @@ package_specific_setup () {
     patch --forward packages/PyTrilinos/src/FILEstream.cpp < ${ORIGDIR}/patches/trilinos.patch || true
 }
 
-package_specific_announce () {
+package_specific_register () {
     export TRILINOS_DIR=${INSTALL_PATH}
 }
