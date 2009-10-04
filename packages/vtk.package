@@ -11,7 +11,7 @@ package_specific_setup () {
     PROCS=1
 }
 
-package_specific_teardown () {
+package_specific_install () {
     PROCS=${ORG_PROCS}
 }
 

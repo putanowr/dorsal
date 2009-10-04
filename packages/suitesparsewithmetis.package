@@ -19,7 +19,7 @@ package_specific_build () {
     make
 }
 
-package_specific_teardown () {
+package_specific_install () {
     mkdir -p ${INSTALL_PATH}/include/suitesparse
     ln -sf `find ${PWD} -name '*.h' | grep -vi demo | xargs` ${INSTALL_PATH}/include/suitesparse
     ln -sf `find ${PWD} -name 'lib*.a' | xargs` ${INSTALL_PATH}/lib

@@ -16,7 +16,7 @@ package_specific_build () {
     # buildchain.
 }
 
-package_specific_teardown () {
+package_specific_install () {
     # Any non-standard installation instructions go here.
 }
 

@@ -12,7 +12,7 @@ package_specific_build() {
     make default
 }
 
-package_specific_teardown () {
+package_specific_install () {
     ln -sf ${PWD}/*.a ${INSTALL_PATH}/lib/
     ln -sf ${PWD}/*.h ${INSTALL_PATH}/include/
 }

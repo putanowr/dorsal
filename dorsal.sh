@@ -191,7 +191,7 @@ package_build() {
     quit_if_fail "There was a problem building ${NAME}."
     
     # Carry out any package-specific post-build instructions
-    package_specific_teardown
+    package_specific_install
 }
 
 package_register() {
@@ -361,7 +361,7 @@ do
     # Reset package-specific functions
     package_specific_setup () { true; }
     package_specific_build () { true; }
-    package_specific_teardown () { true; }
+    package_specific_install () { true; }
     package_specific_register () { true; }
 
     # Fetch information pertinent to the package

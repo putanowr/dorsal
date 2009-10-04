@@ -11,7 +11,7 @@ package_specific_setup () {
     PROCS=1
 }
 
-package_specific_teardown () {
+package_specific_install () {
     cd ..
     ln -sf ${PWD}/lib/* ${INSTALL_PATH}/lib/
     ln -sf ${PWD}/include/* ${INSTALL_PATH}/include/

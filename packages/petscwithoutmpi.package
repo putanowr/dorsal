@@ -8,7 +8,7 @@ package_specific_setup () {
     ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-clanguage=cxx --with-fc=0 --with-cc=gcc-4 --with-cxx=g++-4 --with-mpi=0 --with-shared=0 --download-hypre=1
 }
 
-package_specific_teardown () {
+package_specific_install () {
     ln -sf ${INSTALL_PATH}/lib/$PETSC_ARCH/* ${INSTALL_PATH}/lib/
 }
 
