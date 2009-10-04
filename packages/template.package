@@ -12,8 +12,8 @@ package_specific_setup () {
 }
 
 package_specific_build () {
-    # Any custom build instructions go here. Only used by 'custom'
-    # buildchain.
+    # Any custom build instructions go here. This function is only
+    # usef if the 'custom' buildchain is defined.
 }
 
 package_specific_install () {
@@ -22,5 +22,5 @@ package_specific_install () {
 
 package_specific_register () {
     # Any environment variables defined by this package that are
-    # needed by other packages goes here.
+    # required by other packages go here.
 }
