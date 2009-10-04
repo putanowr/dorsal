@@ -3,16 +3,11 @@ SOURCE=http://www.vtk.org/files/release/5.4/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=VTK
+PROCS=1
 
 package_specific_setup () {
     chmod 600 Utilities/vtktiff/tif_fax3sm.c
     ccmake .
-    ORG_PROCS=${PROCS}
-    PROCS=1
-}
-
-package_specific_install () {
-    PROCS=${ORG_PROCS}
 }
 
 package_specific_register () {

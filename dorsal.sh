@@ -256,7 +256,7 @@ guess_architecture() {
 
 ### Start the build process ###
 
-export ORIGDIR=`pwd`
+export ORIG_DIR=`pwd`
 
 # Read configuration variables from dorsal.cfg
 source dorsal.cfg
@@ -267,9 +267,11 @@ then
     source local.cfg
 fi
 
-# If any important variables are missing, revert them to defaults
-default DOWNLOAD_PATH=${HOME}/Downloads/src
-default INSTALL_PATH=${HOME}/Builds
+# If any variables are missing, revert them to defaults
+default DOWNLOAD_PATH=${HOME}/Work/FEniCS
+default INSTALL_PATH=${HOME}/Work/FEniCS/build
+default PROCS=1
+default STABLE_BUILD=true
 
 # Check if dorsal.sh was invoked correctly
 if [ $# -ne 1 ]
@@ -316,7 +318,7 @@ fi
 # own, figure out the version of of the existing python
 default PYTHONVER=`python -c "import sys; print sys.version[:3]"`
 
-# Create necessary directories and export appropriate variables
+# Create necessary directories and set appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
 mkdir -p ${INSTALL_PATH}/bin
 mkdir -p ${INSTALL_PATH}/lib
@@ -326,12 +328,13 @@ export LD_LIBRARY_PATH=${INSTALL_PATH}/lib:${LD_LIBRARY_PATH}
 export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib:${DYLD_LIBRARY_PATH}
 export PYTHONPATH=${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages:${PYTHONPATH}
 export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}:/usr/lib/pkgconfig
+ORIG_PROCS=${PROCS}
 
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
     # Return to the main Dorsal directory
-    cd ${ORIGDIR}
+    cd ${ORIG_DIR}
 
     # Skip building this package if the user requests for it
     SKIP=false
@@ -357,6 +360,7 @@ do
     unset SCONSOPTS
     unset EXTRACTSTO
     TARGETS=('' install)
+    PROCS=${ORIG_PROCS}
 
     # Reset package-specific functions
     package_specific_setup () { true; }

@@ -3,19 +3,17 @@ SOURCE=http://gforge.inria.fr/frs/download.php/15601/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_5.1/src
+PROCS=1
 
 package_specific_setup () {
     perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
-    ORG_PROCS=${PROCS}
-    PROCS=1
 }
 
 package_specific_install () {
     cd ..
     ln -sf ${PWD}/lib/* ${INSTALL_PATH}/lib/
     ln -sf ${PWD}/include/* ${INSTALL_PATH}/include/
-    PROCS=${ORG_PROCS}
 }
 
 package_specific_register () {
