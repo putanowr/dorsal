@@ -8,7 +8,8 @@ SCONSOPTS=""
 TARGETS=('' install)
 
 package_specific_setup () {
-    # Any non-standard configuration information goes here.
+    # Any non-standard configuration and pre-build instructions go
+    # here.
 }
 
 package_specific_build () {
@@ -17,7 +18,8 @@ package_specific_build () {
 }
 
 package_specific_install () {
-    # Any non-standard installation instructions go here.
+    # Any non-standard installation and post-build instructions go
+    # here.
 }
 
 package_specific_register () {
