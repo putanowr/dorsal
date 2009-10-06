@@ -10,7 +10,7 @@
 #
 # fink install wget libtool2 libxml2 pkgconfig \
 # boost1.35.nopython suitesparse scons gts75 swig \
-# git autogen readline5 mercurial-py26
+# git autogen readline5 mercurial-py26 vtk54-cocoa
 #
 # Finally, Parmetis requires malloc.h to compile. In order that it can
 # find it, you need to create another symlink.
