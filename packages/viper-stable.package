@@ -1,3 +1,7 @@
 NAME=viper-0.4.4
 SOURCE=http://www.fenics.org/pub/software/viper/v0.4/
 PACKING=.tar.gz
+
+package_specific_setup () {
+    patch --forward src/viper/viper.py < ${ORIGDIR}/patches/viper.patch || true
+}
