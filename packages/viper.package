@@ -2,7 +2,3 @@ NAME=viper
 SOURCE=http://www.fenics.org/hg/
 PACKING=hg
 BUILDCHAIN=python
-
-package_specific_setup () {
-    patch --forward src/viper/viper.py < ${ORIGDIR}/patches/viper.patch || true
-}
