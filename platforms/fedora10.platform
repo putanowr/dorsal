@@ -6,8 +6,8 @@
 #
 # yum install -y redhat-lsb mercurial subversion libxml2-devel \
 # gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
-# vtk-python atlas-devel suitesparse-devel gmp-devel gts-devel \
-# blas-devel lapack-devel cln-devel ginac-devel python-devel
+# vtk-python atlas-devel suitesparse-devel gts-devel blas-devel \
+# lapack-devel cln-devel ginac-devel python-devel
 #
 # When you try to plot your results, SELinux might complain about
 # libmesa potentially attempting to do something evil. In order to
@@ -19,9 +19,9 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
+default GMP_ARCH=i686-linux-gnu
 default UMFPACK_DIR=/usr
 default BOOST_DIR=/usr
-default GMP_DIR=/usr
 default SCOTCH_ARCH=i686_pc_linux2
 
 # Define the packages this platform needs
@@ -30,6 +30,7 @@ parmetis
 petsc
 slepc
 swiginac
+gmp
 mtl
 trilinos
 scotch
