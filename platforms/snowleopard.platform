@@ -1,16 +1,22 @@
-# Mac OS X 10.6 with Fink
+# Mac OS X 10.6 with MacPorts
 
 # This build script assumes that you have installed Xcode.app and
 # X11.app from Mac OS's original install disc. This gives you access
 # to a recent gcc, among other things. In order to have easy access to
 # a lot of useful Free Software, this script also assumes you have
-# installed Fink (from http://www.finkproject.org/).
+# installed MacPorts (from http://www.macports.org/).
 #
-# Via Fink, you need to install the following packages:
+# Via Macports, you need to install the following packages:
 #
-# fink install wget libtool2 libxml2 pkgconfig \
-# boost1.35.nopython suitesparse scons gts75 swig \
-# git autogen readline5 mercurial-py26 vtk54-cocoa
+# sudo port install wget autogen readline pkgconfig libxml2 libtool
+# gts gmp zlib python26 swig py26-numpy mercurial git-core scons
+# ginac boost +python26 vtk-devel +py26
+#
+# Before proceeding, you need to make sure that Python 2.6 installed
+# by MacPorts is the default one on your machine:
+#
+# sudo port install python_select  
+# sudo python_select python26
 #
 # Finally, Parmetis requires malloc.h to compile. In order that it can
 # find it, you need to create another symlink.
@@ -22,31 +28,26 @@
 
 # Platform specific variables
 default PETSC_ARCH=darwin10.0.0-cxx-opt
-default GMP_ARCH=none-apple-darwin
 default SCOTCH_ARCH=i686_mac_darwin8
-default UMFPACK_DIR=/sw
-default BOOST_DIR=/sw
+default BOOST_DIR=/opt/local
 
-export PKG_CONFIG_PATH=/sw/lib/pkgconfig
+export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
 petsc
 slepc
-#cln
-#ginac
-#swiginac
-gmp
+# swiginac
 mtl
-#trilinos
+# trilinos
 scotch
 fiat
 ferari
 ufc
 ufl
 ffc
-#syfi
+# syfi
 viper
 instant
 dolfin
