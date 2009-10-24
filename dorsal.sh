@@ -328,7 +328,7 @@ export PATH=${INSTALL_PATH}/bin:${PATH}
 export LD_LIBRARY_PATH=${INSTALL_PATH}/lib:${LD_LIBRARY_PATH}
 export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib:${DYLD_LIBRARY_PATH}
 export PYTHONPATH=${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages:${PYTHONPATH}
-export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}:/usr/lib/pkgconfig
+export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}
 ORIG_PROCS=${PROCS}
 
 # Fetch and build individual packages
