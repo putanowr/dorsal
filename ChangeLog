@@ -1,4 +1,10 @@
+2009-11 Douglas N. Arnold <arnold@umn.edu>
+	* Added initial support for fedora11
 2009-10 Harish Narayanan <harish@simula.no>
+	* Polished support for bigblue
+	* Streamlined the main build script
+	* Improved support for snowleopard (and moved to MacPorts)
+	* Improved support for rhel5
 	* Added ability to skip building of specific packages
 2009-10 Garth N. Wells <gnw20@cam.ac.uk>
 	* Improved support for rhel5
