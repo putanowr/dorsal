@@ -233,6 +233,7 @@ guess_platform() {
 	    gutsy|hardy|intrepid)	echo ${CODENAME};;    # Ubuntu (old)
 	    jaunty|karmic)		echo ${CODENAME};;    # Ubuntu
 	    Cambridge)                  echo fedora10;;
+	    Leonidas)                   echo fedora11;;
 	    Nahant*)                    echo rhel4;;
 	    Tikanga*)                   echo rhel5;;
 	    *)
