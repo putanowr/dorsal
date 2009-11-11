@@ -1,0 +1,39 @@
+# Fedora 11
+
+# This build script assumes that you have the following packages
+# already installed via Fedora's yum. In order to install them, run
+# the following as root:
+#
+# yum install -y redhat-lsb mercurial subversion libxml2-devel \
+# gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
+# vtk-python atlas-devel suitesparse-devel gts-devel blas-devel \
+# lapack-devel cln-devel ginac-devel python-devel
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default GMP_ARCH=i686-linux-gnu
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default SCOTCH_ARCH=i686_pc_linux2
+
+# Define the packages this platform needs
+PACKAGES=(
+openmpi
+parmetis
+petsc
+slepc
+swiginac
+gmp
+mtl
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
+syfi
+viper
+instant
+dolfin
+)
