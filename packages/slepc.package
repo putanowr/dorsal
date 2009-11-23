@@ -1,5 +1,5 @@
-NAME=slepc-3.0.0-p6
-SOURCE=http://fenics.org/pub/software/dorsal/mirror/
+NAME=slepc-3.0.0-p7
+SOURCE=http://distfiles.macports.org/slepc/
 PACKING=.tgz
 BUILDCHAIN=autotools
 
