@@ -1,4 +1,4 @@
 NAME=ufl
-SOURCE=http://www.fenics.org/hg/
-PACKING=hg
+SOURCE=lp:
+PACKING=bzr
 BUILDCHAIN=python

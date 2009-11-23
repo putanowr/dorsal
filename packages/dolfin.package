@@ -1,6 +1,6 @@
 NAME=dolfin
-SOURCE=http://www.fenics.org/hg/
-PACKING=hg
+SOURCE=lp:
+PACKING=bzr
 BUILDCHAIN=scons
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePython=yes
 withBoostDir=${BOOST_DIR}"

@@ -1,4 +1,4 @@
-NAME=viper
-SOURCE=http://www.fenics.org/hg/
-PACKING=hg
+NAME=fenics-viper
+SOURCE=lp:
+PACKING=bzr
 BUILDCHAIN=python

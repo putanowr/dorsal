@@ -87,6 +87,17 @@ package_fetch () {
 	    git pull
 	    cd ..
 	fi
+    elif [ ${PACKING} = "bzr" ]
+    then
+	# Suitably branch or update bzr repositories
+	if [ ! -d ${NAME} ]
+	then
+	    bzr branch ${SOURCE}${NAME}
+	else
+	    cd ${NAME}
+	    bzr update
+	    cd ..
+	fi
     fi
 
     # Quit with a useful message if something goes wrong

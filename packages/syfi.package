@@ -1,4 +1,4 @@
-NAME=syfi
-SOURCE=http://www.fenics.org/hg/
-PACKING=hg
+NAME=fenics-syfi
+SOURCE=lp:
+PACKING=bzr
 BUILDCHAIN=scons
