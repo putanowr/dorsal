@@ -4,6 +4,5 @@ PACKING=.tar.gz
 BUILDCHAIN=autotools
 
 package_specific_setup () { 
-    #cmake -DWITH_examples=true -DWITH_demos=true -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH .
-    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH .
+    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
 }
