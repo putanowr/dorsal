@@ -1,0 +1,17 @@
+NAME=CGAL-3.5
+SOURCE=http://gforge.inria.fr/frs/download.php/24197/CGAL-3.5
+PACKING=.tar.gz
+BUILDCHAIN=custom
+
+package_specific_setup () { 
+    #cmake -DWITH_examples=true -DWITH_demos=true -DCMAKE_BUILD_TYPE=Debug -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH .
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_PATH .
+}
+
+package_specific_build () {
+    make
+}
+
+package_specific_install () {
+    make install
+}
