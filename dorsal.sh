@@ -95,7 +95,7 @@ package_fetch () {
 	    bzr branch ${SOURCE}${NAME}
 	else
 	    cd ${NAME}
-	    bzr update
+	    bzr pull
 	    cd ..
 	fi
     fi
