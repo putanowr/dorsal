@@ -29,7 +29,7 @@ PACKAGES=(
 parmetis
 petsc
 slepc
-swiginac
+# swiginac
 gmp
 mtl
 trilinos
@@ -39,7 +39,7 @@ ferari
 ufc
 ufl
 ffc
-syfi
+# syfi
 viper
 instant
 dolfin

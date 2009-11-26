@@ -25,9 +25,9 @@ default GMP_DIR=/usr
 PACKAGES=(
 petsc
 slepc
-cln
-ginac
-swiginac
+# cln
+# ginac
+# swiginac
 mtl
 trilinos
 fiat
@@ -35,7 +35,7 @@ ferari
 ufc
 ufl
 ffc
-syfi
+# syfi
 viper
 instant
 dolfin

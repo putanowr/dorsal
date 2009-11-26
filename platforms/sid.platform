@@ -25,7 +25,7 @@ default GMP_DIR=/usr
 # Define the packages this platform needs
 PACKAGES=(
 slepc
-swiginac
+# swiginac
 mtl
 trilinos
 fiat
@@ -33,7 +33,7 @@ ferari
 ufc
 ufl
 ffc
-syfi
+# syfi
 viper
 instant
 dolfin

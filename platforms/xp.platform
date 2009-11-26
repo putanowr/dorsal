@@ -36,17 +36,17 @@ scons
 petscwithoutmpi
 slepc
 gts
-cln
-ginac
-swiginac
+# cln
+# ginac
+# swiginac
 fiat
 ferari
 ufc
 ufl
 ffc
-syfi
-#vtk
-#viper
+# syfi
+# vtk
+# viper
 instant
 dolfin
 )

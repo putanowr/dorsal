@@ -26,9 +26,9 @@ default GMP_ARCH=x86_64-linux-gnu
 PACKAGES=(
 petsc
 slepc
-cln
-ginac
-swiginac
+# cln
+# ginac
+# swiginac
 gmp
 mtl
 trilinos
@@ -37,7 +37,7 @@ ferari
 ufc
 ufl
 ffc
-syfi
+# syfi
 viper
 instant
 dolfin

@@ -23,7 +23,7 @@ openmpi
 parmetis
 petsc
 slepc
-swiginac
+# swiginac
 gmp
 mtl
 scotch
@@ -32,7 +32,7 @@ ferari
 ufc
 ufl
 ffc
-syfi
+# syfi
 viper
 instant
 dolfin

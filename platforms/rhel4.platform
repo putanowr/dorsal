@@ -45,9 +45,9 @@ parmetis
 petsc
 slepc
 gts
-cln
-ginac
-swiginac
+# cln
+# ginac
+# swiginac
 suitesparsewithmetis
 gmp
 mtl
@@ -61,7 +61,7 @@ ferari
 ufc
 ufl 
 ffc
-syfi
+# syfi
 viper
 instant
 dolfin
