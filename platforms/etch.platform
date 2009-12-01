@@ -3,7 +3,7 @@
 # This build script assumes that you have the following packages
 # already installed via Debian's apt-get:
 #
-# sudo apt-get install g++ python2.5 python2.5-dev mercurial \
+# sudo apt-get install g++ python2.5 python2.5-dev bzr bzrtools \
 # libxml2-dev libgts-dev libboost-dev libcln-dev libginac-dev \
 # libgmp3-dev zlib1g-dev wget subversion pkg-config cmake \
 # libgl1-mesa-dev xorg-dev gfortran liblapack-dev

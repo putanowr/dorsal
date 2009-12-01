@@ -3,7 +3,7 @@
 # This build script assumes that you have the following packages
 # already installed via Ubuntu's apt-get:
 #
-# sudo apt-get install g++ scons mercurial libxml2-dev libgts-dev \
+# sudo apt-get install g++ scons bzr bzrtools libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libatlas-base-dev libparmetis-dev libscotch-dev subversion gfortran \
