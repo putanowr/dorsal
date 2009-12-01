@@ -8,7 +8,7 @@
 #
 # Devel > autoconf, automake, boost, boost-devel, cmake, doxygen gcc4,
 # gettext, gettext-devel, libtool, libxml2, libxml2-devel, make,
-# mercurial, pkg-config, swig
+# bzr, pkg-config, swig
 # Gnome > glib2, glib2-devel
 # Graphics > libnetpbm10, libnetpbm-devel
 # Math > SuiteSparse, libSuiteSparse-devel, gmp, libgmp-devel, lapack

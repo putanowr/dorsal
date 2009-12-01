@@ -38,7 +38,7 @@ default SCOTCH_ARCH=i686_pc_linux2
 # Define the packages this platform needs
 PACKAGES=(
 python
-mercurial
+bazaar
 scons
 numpy
 boost

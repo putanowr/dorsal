@@ -13,7 +13,7 @@
 #
 # Then run the following as root to install the actual packages:
 #
-# sudo zypper install -C mercurial subversion libxml2-devel \
+# sudo zypper install -C bzr subversion libxml2-devel \
 # gcc gcc-c++ openmpi-devel scons python-numpy swig wget boost-devel=1.36.0 \
 # vtk-python libatlas3-devel suitesparse-common-devel gmp-devel gts-devel \
 # libblas3 liblapack3 cln-devel libginac-devel python-devel
