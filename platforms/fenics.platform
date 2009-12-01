@@ -1,13 +1,18 @@
 # The core FEniCS packages
 
 # Once you have boostrapped the .platform file specific to your
-# environment, you can use this file to save time during subsequent
-# rebuilds by building only the fast-changing FEniCS project sources.
+# environment, you can use a file such as the following to save time
+# during subsequent rebuilds. It assumes that we only want to rebuild
+# the fast-changing FEniCS project sources on repeated builds.
 #
-# This build script will eventually be platform dependent, but it is
-# not there yet. For now, please open ./platforms/fenics.platform and
-# fiddle with the platform-specific variables so that they match your
-# platform.
+# Notice that this file is identical to leopard.platform (what I use
+# on my computer), with packages I don't want rebuilt prefixed with
+# 'skip:'.
+#
+# You can inform Dorsal you'd like it to use this platform by invoking
+# it in the following manner:
+#
+# ./dorsal.sh platforms/fenics.platform
 ##
 
 # Platform specific variables
@@ -17,20 +22,22 @@ default SCOTCH_ARCH=i686_mac_darwin8
 default UMFPACK_DIR=/sw
 default BOOST_DIR=/sw
 
-default PETSC_DIR=${INSTALL_PATH}
-default SLEPC_DIR=${INSTALL_PATH}
-default GMP_DIR=${INSTALL_PATH}
-default MTL4_DIR=${DOWNLOAD_PATH}/mtl4
-default TRILINOS_DIR=${INSTALL_PATH}
-default PARMETIS_DIR=${INSTALL_PATH}
-default SCOTCH_DIR=${INSTALL_PATH}
-
 export CC=gcc-4
 export CXX=g++-4
 export PKG_CONFIG_PATH=/sw/lib/pkgconfig
 
 # Define the packages this platform needs
 PACKAGES=(
+skip:parmetis
+skip:petsc
+skip:slepc
+# cln
+# ginac
+# swiginac
+skip:gmp
+skip:mtl
+skip:trilinos
+skip:scotch
 fiat
 ferari
 ufc
