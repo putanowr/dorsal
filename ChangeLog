@@ -1,3 +1,13 @@
+2009-12 Harish Narayanan <harish@simula.no>
+	* Added skip-based platform example
+	* Updated to recent versions of all packages
+2009-11 Andre Massing <massing@simula.no>
+	* Added initial support for cgal
+2009-11 Harish Narayanan <harish@simula.no>
+	* Polished support for fedora11
+	* Added support for bzr repositories
+	* Reflected recent move of fenics projects to launchpad
+	* Removed default building of syfi and its dependencies
 2009-11 Douglas N. Arnold <arnold@umn.edu>
 	* Added initial support for fedora11
 2009-10 Harish Narayanan <harish@simula.no>
