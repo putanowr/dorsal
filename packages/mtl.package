@@ -1,7 +1,8 @@
-NAME=mtl4
-SOURCE=https://svn.osl.iu.edu/tlc/trunk/mtl4/trunk
-PACKING=svn
+NAME=mtl4-beta-1-r6916
+SOURCE=http://osl.iu.edu/download/research/mtl/
+PACKING=.tar.gz
 BUILDCHAIN=custom
+EXTRACTSTO=mtl4
 
 package_specific_register () {
     export MTL4_DIR=${PWD}
