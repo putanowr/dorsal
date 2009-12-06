@@ -63,6 +63,13 @@ else
     SCONSOPTS="${SCONSOPTS} enableScotch=no"
 fi
 
+if [[ ${CGAL_DIR} ]]
+then
+    SCONSOPTS="${SCONSOPTS} enableCgal=yes withCgalDir=${CGAL_DIR}"
+else
+    SCONSOPTS="${SCONSOPTS} enableCgal=no"
+fi
+
 package_specific_setup () {
     export CC=mpicc
     export CXX=mpic++
