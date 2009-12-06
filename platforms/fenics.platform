@@ -38,6 +38,7 @@ skip:gmp
 skip:mtl
 skip:trilinos
 skip:scotch
+skip:cgal
 fiat
 ferari
 ufc
