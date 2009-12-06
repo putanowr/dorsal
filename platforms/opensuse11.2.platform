@@ -1,0 +1,42 @@
+# openSUSE 11.2
+
+# This build script assumes that you have the following packages
+# already installed via openSUSE's zypper. In order to install them,
+# first run the following to add the required repositories:
+#
+# sudo zypper addrepo http://download.opensuse.org/repositories/science/openSUSE_11.2/ Science
+# sudo zypper addrepo http://download.opensuse.org/repositories/Education/openSUSE_11.2/ Education
+# sudo zypper addrepo http://packman.unixheads.com/suse/11.2/ Packman
+#
+# Then, run the following to install the actual packages:
+#
+# sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
+# openmpi-devel scons python-devel python-numpy swig wget boost-devel \
+# vtk-python libatlas3-devel libblas3 liblapack3 suitesparse-common-devel \
+# gmp-devel gts-devel
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default GMP_DIR=/usr
+default SCOTCH_ARCH=i686_pc_linux2
+
+# Define the packages this platform needs
+PACKAGES=(
+parmetis
+petsc
+slepc
+mtl
+trilinos
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
+viper
+instant
+dolfin
+)

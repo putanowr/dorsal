@@ -252,7 +252,8 @@ guess_platform() {
 		case ${DESCRIPTION} in
 		    CentOS*\ 4*)	echo rhel4;;
 		    CentOS*\ 5*)	echo rhel5;;
-		    openSUSE\ 11.1*)	echo opensuse11;;
+		    openSUSE\ 11.1*)	echo opensuse11.1;;
+		    openSUSE\ 11.2*)	echo opensuse11.2;;
 		esac;;
 	esac
     fi
