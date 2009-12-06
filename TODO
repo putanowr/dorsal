@@ -8,10 +8,6 @@
   Feel free to contribute information for other platforms as well.
   Difficulty: Low       Urgency: High
 
-* Fix the VTK and Viper packages on rhel4 and rhel5
-  Fix Python compatibility and OpenMPI/SuiteSparse conflict on gutsy
-  Difficulty: Moderate  Urgency: High
-
 * Add (MD5/SHA1) check summing mechanism to the downloading routine
   (and corresponding hashes to the package files) to verify if
   downloaded files are sane.

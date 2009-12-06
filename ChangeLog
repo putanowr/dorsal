@@ -1,4 +1,6 @@
 2009-12 Harish Narayanan <harish@simula.no>
+	* Polished cgal package and added it to all platforms
+	* Added initial support for opensuse11.2
 	* Added skip-based platform example
 	* Updated to recent versions of all packages
 2009-11 Andre Massing <massing@simula.no>
@@ -49,7 +51,7 @@
 2009-03 Aron Wahlberg <aron.wahlberg@gmail.com>
 	* Improved support for tiger
 2009-03 Peter-Jan Randewijk <pjrandew@sun.ac.za>
-	* Added initial support for opensuse11
+	* Added initial support for opensuse11.1
 2009-02 Harish Narayanan <harish@simula.no>
 	* Added support for lenny
 	* Modified ufc package to account for new scons-based install
