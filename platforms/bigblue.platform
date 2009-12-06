@@ -22,6 +22,7 @@ gmp
 mtl
 numpy
 scipy
+cgal
 fiat
 ferari
 ufc

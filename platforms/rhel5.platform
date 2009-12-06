@@ -57,6 +57,7 @@ mtl
 trilinos
 scotch
 cmake
+cgal
 vtkdata
 vtk
 fiat

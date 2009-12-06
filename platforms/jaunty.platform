@@ -30,6 +30,7 @@ slepc
 # swiginac
 mtl
 trilinos
+cgal
 fiat
 ferari
 ufc

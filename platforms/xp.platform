@@ -36,6 +36,7 @@ scons
 petscwithoutmpi
 slepc
 gts
+cgal
 # cln
 # ginac
 # swiginac

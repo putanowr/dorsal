@@ -42,6 +42,7 @@ slepc
 mtl
 trilinos
 scotch
+cgal
 fiat
 ferari
 ufc

@@ -71,6 +71,7 @@ suitesparsewithmetis
 mtl
 trilinos
 scotch
+cgal
 fiat
 ferari
 ufc

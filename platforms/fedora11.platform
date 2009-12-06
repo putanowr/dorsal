@@ -27,6 +27,7 @@ slepc
 gmp
 mtl
 scotch
+cgal
 fiat
 ferari
 ufc
