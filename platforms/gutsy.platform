@@ -6,7 +6,7 @@
 # sudo apt-get install g++ bzr bzrtools libxml2-dev libgts-dev \
 # pkg-config python-dev python-numpy python-vtk atlas3-base-dev \
 # lapack3-dev libsuitesparse-dev libboost-dev wget libparmetis-dev \
-# subversion m4 gfortran-4.1
+# subversion m4 gfortran-4.1 cmake
 ##
 
 # Platform specific variables

@@ -13,7 +13,7 @@
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
 # openmpi-devel scons python-devel python-numpy swig wget boost-devel \
 # vtk-python libatlas3-devel libblas3 liblapack3 suitesparse-common-devel \
-# gmp-devel gts-devel
+# gmp-devel gts-devel cmake
 ##
 
 # Platform specific variables

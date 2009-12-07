@@ -16,7 +16,7 @@
 # sudo zypper install -C bzr subversion libxml2-devel \
 # gcc gcc-c++ openmpi-devel scons python-numpy swig wget boost-devel=1.36.0 \
 # vtk-python libatlas3-devel suitesparse-common-devel gmp-devel gts-devel \
-# libblas3 liblapack3 cln-devel libginac-devel python-devel
+# libblas3 liblapack3 cln-devel libginac-devel python-devel cmake
 # 
 # When you try to plot your results, SELinux might complain about
 # libmesa potentially attempting to do something evil. In order to
