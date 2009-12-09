@@ -40,14 +40,10 @@ fetch_dorsal() {
 
 # Set up the build configuration (using some sensible defaults)
 cfg_dorsal() {
-    export DOWNLOAD_PATH=${PREFIX}/src
-    export INSTALL_PATH=${PREFIX}/build
-    export PROCS=2
-    export STABLE_BUILD=true
-    echo "DOWNLOAD_PATH=${DOWNLOAD_PATH}"  > dorsal.cfg
-    echo "INSTALL_PATH=${INSTALL_PATH}"   >> dorsal.cfg
-    echo "PROCS=${PROCS}"                 >> dorsal.cfg
-    echo "STABLE_BUILD=${STABLE_BUILD}"   >> dorsal.cfg
+    echo "DOWNLOAD_PATH=${PREFIX}/src"   > dorsal.cfg
+    echo "INSTALL_PATH=${PREFIX}/build" >> dorsal.cfg
+    echo "PROCS=2"                      >> dorsal.cfg
+    echo "STABLE_BUILD=true"            >> dorsal.cfg
 }
 
 # Run the build script
