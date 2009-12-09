@@ -67,7 +67,6 @@ while :
     echo "-----------------------------------------------------------"
     echo ""
     echo -n "What would you like to do? [1-3]: "
-    echo ""
     read OPTION
     case ${OPTION} in
 	1)  echo "Please enter your preferred install path: ";
