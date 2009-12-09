@@ -56,15 +56,15 @@ run_dorsal() {
 while :
  do
     clear
-    echo "-----------------------------------------------------------"
-    echo "             Welcome to the FEniCS installer"
-    echo "-----------------------------------------------------------"
+    echo "-------------------------------------------------------------------------------"
+    echo "                     Welcome to the FEniCS installer"
+    echo "-------------------------------------------------------------------------------"
     echo ""
-    echo "      [1] Change the default install path [$(prettify_dir ${PREFIX})]"
-    echo "      [2] Install FEniCS!"
-    echo "      [3] Quit the installer"
+    echo "          [1] Change the default install path [$(prettify_dir ${PREFIX})]"
+    echo "          [2] Install FEniCS!"
+    echo "          [3] Quit the installer"
     echo ""
-    echo "-----------------------------------------------------------"
+    echo "-------------------------------------------------------------------------------"
     echo ""
     echo -n "What would you like to do? [1-3]: "
     read OPTION
