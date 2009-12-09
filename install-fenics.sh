@@ -68,8 +68,6 @@ while :
     echo "      [2] Install FEniCS!"
     echo "      [3] Quit the installer"
     echo ""
-    echo "Enter the appropriate menu choice"
-    echo ""
     echo "-----------------------------------------------------------"
     echo ""
     echo -n "What would you like to do? [1-3]: "
