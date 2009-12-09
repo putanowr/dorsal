@@ -54,33 +54,75 @@ run_dorsal() {
 
 
 while :
- do
-    clear
-    echo "-------------------------------------------------------------------------------"
-    echo "                     Welcome to the FEniCS installer"
-    echo "-------------------------------------------------------------------------------"
-    echo ""
-    echo "          [1] Change the default install path [$(prettify_dir ${PREFIX})]"
-    echo "          [2] Install FEniCS!"
-    echo "          [3] Quit the installer"
-    echo ""
-    echo "-------------------------------------------------------------------------------"
-    echo ""
-    echo -n "What would you like to do? [1-3]: "
-    read OPTION
-    case ${OPTION} in
-	1)  echo "Please enter your preferred install path: ";
-	    read PREFIX
-	    PREFIX=$(unprettify_dir ${PREFIX})
-	    ;;
-	2)  fetch_dorsal
-            cfg_dorsal
-	    run_dorsal
-	    ;;
-	3)  cd ${ORIG_DIR}
-	    exit 0
-	    ;;
-	*) ;;
-    esac
-    echo ""
+do
+
+    SELECTION1="Install FEniCS"
+    SELECTION2="Change installation path [$(prettify_dir ${PREFIX})]"
+    SELECTION3="Exit installer"
+
+    if [ -x /usr/bin/zenity ]; then
+
+        SELECTION=`/usr/bin/zenity \
+                   --width 350 --height 225 \
+                   --title "FEniCS Installer" \
+                   --text "Welcome to the FEniCS Installer" \
+                   --list --radiolist \
+                   --column Select \
+                   --column Action \
+                     True  "${SELECTION1}" \
+                     False "${SELECTION2}" \
+                     False "${SELECTION3}"`
+
+        case ${SELECTION} in
+	    "${SELECTION1}")
+                fetch_dorsal
+                cfg_dorsal
+	        run_dorsal
+                ;;
+            "${SELECTION2}")
+	        PREFIX=`zenity --title 'Select installation path' --file-selection --directory`
+                ;;
+            "${SELECTION3}")
+                cd ${ORIG_DIR}
+                exit 0
+                ;;
+            *)
+                echo "default"
+                ;;
+        esac
+
+    else
+
+        clear
+        echo "-------------------------------------------------------------------------------"
+        echo "                     Welcome to the FEniCS installer"
+        echo "-------------------------------------------------------------------------------"
+        echo ""
+        echo "          [1] ${SELECTION1}"
+        echo "          [2] ${SELECTION2}"
+        echo "          [3] ${SELECTION3}"
+        echo ""
+        echo "-------------------------------------------------------------------------------"
+        echo ""
+        echo -n "What would you like to do? [1-3]: "
+        read OPTION
+
+        case ${SELECTION} in
+	    1)  fetch_dorsal
+                cfg_dorsal
+	        run_dorsal
+	        ;;
+	    2)  echo "Please enter your preferred installation path: ";
+	        read PREFIX
+	        PREFIX=$(unprettify_dir ${PREFIX})
+	        ;;
+	    3)  cd ${ORIG_DIR}
+	        exit 0
+	        ;;
+	    *) ;;
+        esac
+        echo ""
+
+    fi
+
 done
