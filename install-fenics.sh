@@ -13,11 +13,6 @@ BOLD="\033[1m"
 
 ### Define helper functions ###
 
-prettify_dir() {
-   # Make a directory name more readable by replacing homedir with "~"
-   echo ${1/#$HOME\//~\/}
-}
-
 cecho() {
     # Display messages in a specified colour
     COL=$1; shift
