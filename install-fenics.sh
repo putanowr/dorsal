@@ -34,7 +34,7 @@ fetch_dorsal() {
     cd ${TMPDIR}
     cecho ${GOOD} "Fetching the FEniCS installer files"
     wget -N http://fenics.org/pub/software/dorsal/dorsal-${VERSION}.tar.gz
-    if [ ! -d "dorsal-${VERSION}" ]
+    if [ -d "dorsal-${VERSION}" ]
     then
 	rm -fr dorsal-${VERSION}
     fi
