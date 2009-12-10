@@ -107,7 +107,7 @@ do
         echo -n "What would you like to do? [1-3]: "
         read OPTION
 
-        case ${SELECTION} in
+        case ${OPTION} in
 	    1)  fetch_dorsal
                 cfg_dorsal
 	        run_dorsal
