@@ -7,8 +7,8 @@ export ORIG_DIR=`pwd`           # Store original directory, so we can
 				# return to it when finished
 
 # Colours for progress and error reporting
-BAD="\033[1;37;41m"
-GOOD="\033[1;37;42m"
+BAD="\033[1;31m"
+GOOD="\033[1;32m"
 BOLD="\033[1m"
 
 ### Define helper functions ###
@@ -41,7 +41,7 @@ fetch_dorsal() {
 # Set up the build configuration (using some sensible defaults)
 cfg_dorsal() {
     echo "DOWNLOAD_PATH=${PREFIX}/src"   > dorsal.cfg
-    echo "INSTALL_PATH=${PREFIX}/build" >> dorsal.cfg
+    echo "INSTALL_PATH=${PREFIX}"       >> dorsal.cfg
     echo "PROCS=2"                      >> dorsal.cfg
     echo "STABLE_BUILD=true"            >> dorsal.cfg
 }

@@ -7,8 +7,8 @@ set -a
 ### Define helper functions ###
 
 # Colours for progress and error reporting
-BAD="\033[1;37;41m"
-GOOD="\033[1;37;42m"
+BAD="\033[1;31m"
+GOOD="\033[1;32m"
 BOLD="\033[1m"
 
 prettify_dir() {
@@ -312,7 +312,12 @@ then
     else
 	echo "Building development versions of FEniCS projects."
     fi
-    cecho ${GOOD} "OK? Press enter to continue build, or ctrl-c to quit."
+    echo ""
+    cecho ${GOOD} "Please make sure you've read the instructions above and your system"
+    cecho ${GOOD} "is ready for installing FEniCS. We find it easiest to copy and paste"
+    cecho ${GOOD} "these instructions in another terminal window."
+    echo ""
+    cecho ${GOOD} "Once ready, hit enter to continue!"
     read
 else
     PLATFORM=$1
