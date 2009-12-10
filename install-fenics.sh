@@ -33,7 +33,7 @@ unprettify_dir() {
 fetch_dorsal() {
     cd ${TMPDIR}
     cecho ${GOOD} "Fetching the FEniCS installer files"
-    wget -N http://launchpad.net/dorsal/trunk/${VERSION}/+download/dorsal-${VERSION}.tar.gz
+    wget -N http://fenics.org/pub/software/dorsal/dorsal-current.tar.gz
     tar -xzf dorsal-${VERSION}.tar.gz
     cd dorsal-${VERSION}
 }
