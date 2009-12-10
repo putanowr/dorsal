@@ -19,6 +19,13 @@ cecho() {
     echo -e "${COL}$@\033[0m"
 }
 
+default () {
+    # Export a variable, if it is not already set
+    VAR="${1%%=*}"
+    VALUE="${1#*=}"
+    eval "[[ \$$VAR ]] || export $VAR='$VALUE'"
+}
+
 # Make a directory name more readable by replacing homedir with ~
 prettify_dir() {
    echo ${1/#$HOME\//~\/}
@@ -31,6 +38,7 @@ unprettify_dir() {
 
 # Fetch the latest released version of Dorsal
 fetch_dorsal() {
+    default TMPDIR=/tmp
     cd ${TMPDIR}
     cecho ${GOOD} "Fetching the FEniCS installer files"
     wget -N http://fenics.org/pub/software/dorsal/dorsal-${VERSION}.tar.gz
