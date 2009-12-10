@@ -296,23 +296,22 @@ then
 	echo "Correct usage: ./dorsal.sh platforms/foo.platform"
 	exit 1
     fi
-    cecho ${GOOD} "Building with ${PLATFORM}:"
+    cecho ${GOOD} "Building FEniCS for with ${PLATFORM}:"
+    echo "-------------------------------------------------------------------------------"
     # Show the initial comments in the platform file, as it often
     # contains instructions about packages that should be installed
     # first, etc. Remove first field '#' so that cut-and-paste of
     # e.g. apt-get commands is easy.
     awk '/^##/ {exit} {$1=""; print}' <${PLATFORM}
-    echo
-    echo "Download to: $(prettify_dir ${DOWNLOAD_PATH})"
-    echo "Install in:  $(prettify_dir ${INSTALL_PATH})"
-    echo
+    echo "Downloading files to: $(prettify_dir ${DOWNLOAD_PATH})"
+    echo "Installng projects in:  $(prettify_dir ${INSTALL_PATH})"
     if [ ${STABLE_BUILD} = true ]
     then
 	echo "Building stable point-releases of FEniCS projects."
     else
 	echo "Building development versions of FEniCS projects."
     fi
-    echo ""
+    echo "-------------------------------------------------------------------------------"
     cecho ${GOOD} "Please make sure you've read the instructions above and your system"
     cecho ${GOOD} "is ready for installing FEniCS. We find it easiest to copy and paste"
     cecho ${GOOD} "these instructions in another terminal window."
