@@ -190,7 +190,7 @@ package_build() {
 	declare -f package_specific_build >>dorsal_build
 	echo package_specific_build >>dorsal_build
     fi
-    
+
     # Log the build
     if [ ${BASH_VERSINFO} -ge 3 ]
     then
@@ -200,7 +200,7 @@ package_build() {
 	./dorsal_build
     fi
     quit_if_fail "There was a problem building ${NAME}."
-    
+
     # Carry out any package-specific post-build instructions
     package_specific_install
 }
@@ -303,8 +303,10 @@ then
     # first, etc. Remove first field '#' so that cut-and-paste of
     # e.g. apt-get commands is easy.
     awk '/^##/ {exit} {$1=""; print}' <${PLATFORM}
-    echo "Downloading files to: $(prettify_dir ${DOWNLOAD_PATH})"
-    echo "Installng projects in:  $(prettify_dir ${INSTALL_PATH})"
+    echo
+    echo "Downloading files to:   $(prettify_dir ${DOWNLOAD_PATH})"
+    echo "Installing projects in: $(prettify_dir ${INSTALL_PATH})"
+    echo
     if [ ${STABLE_BUILD} = true ]
     then
 	echo "Building stable point-releases of FEniCS projects."
