@@ -14,7 +14,7 @@ package_specific_setup () {
 
 package_specific_build () {
     # Any custom build instructions go here. This function is only
-    # usef if the 'custom' buildchain is defined.
+    # used if the 'custom' buildchain is defined.
 }
 
 package_specific_install () {
