@@ -293,7 +293,9 @@ then
     if ! [ -e ${PLATFORM} ]
     then
 	cecho ${BAD} "Error: Platform to build for not specified (and not automatically recognised)."
-	echo "Correct usage: ./dorsal.sh platforms/foo.platform"
+	echo "If you know the platform you are interested in (myplatform), please specify it directly, as:"
+	echo "./dorsal.sh platforms/myplatform.platform"
+	echo "If you'd like to learn more, refer to the file USAGE for detailed usage instructions."
 	exit 1
     fi
     cecho ${GOOD} "Building FEniCS for with ${PLATFORM}:"

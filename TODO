@@ -28,3 +28,6 @@
 * Sniff out 32/64 bit-ness of machines automatically to suitably set
   GMP_ARCH, SCOTCH_ARCH etc.
   Difficulty: Moderate	Urgency: High
+
+* Insert download links somewhere in the documentation
+  Difficulty: Trivial   Urgency: Moderate
