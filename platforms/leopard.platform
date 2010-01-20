@@ -53,7 +53,7 @@ gmp
 mtl
 trilinos
 scotch
-# cgal
+cgal
 fiat
 ferari
 ufc

@@ -3,8 +3,9 @@ SOURCE=http://gforge.inria.fr/frs/download.php/25109/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 
-package_specific_setup () { 
-    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
+package_specific_setup () {
+    patch --forward src/CGAL/KDS_Log.cpp < ${ORIG_DIR}/patches/cgal.patch || true
+    cmake -DWITH_CGAL_PDB=OFF -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
 }
 
 package_specific_register () {
