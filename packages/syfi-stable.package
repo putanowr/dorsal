@@ -1,4 +1,4 @@
 NAME=syfi-0.6.1
 SOURCE=http://launchpad.net/fenics-syfi/trunk/0.6.1/+download/
-PACKING=.tar.gz
+PACKING=.tgz
 
