@@ -1,4 +1,14 @@
+2010-02 Harish Narayanan <harish@simula.no>
+	* Updated to recent versions of all packages
+	* Added scientific python support to all platforms
+2010-01 Harish Narayanan <harish@simula.no>
+	* Fixed cgal error on leopard
+2009-12 Anders Logg <logg@simula.no>
+	* Added zenity support to the "one-click" installer
 2009-12 Harish Narayanan <harish@simula.no>
+	* Vastly improved documentation with the introduction of a small
+	  usage manual
+	* Added initial version of the "one-click" installer
 	* Polished cgal package and added it to all platforms
 	* Added initial support for opensuse11.2
 	* Added skip-based platform example
