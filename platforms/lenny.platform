@@ -7,7 +7,7 @@
 # pkg-config python-dev python-numpy python-vtk swig \
 # libsuitesparse-dev libboost-dev wget openmpi-bin libatlas-base-dev \
 # petsc-dev libparmetis-dev libgmp3-dev libscotch-dev libcln-dev \
-# libginac-dev gfortran liblapack-dev cmake
+# libginac-dev gfortran liblapack-dev cmake python-scientific
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.

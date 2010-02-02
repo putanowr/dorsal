@@ -40,6 +40,7 @@ cgal
 # cln
 # ginac
 # swiginac
+scientificpython
 fiat
 ferari
 ufc

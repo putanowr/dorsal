@@ -11,6 +11,7 @@
 # sudo port install wget autogen readline pkgconfig libxml2 libtool
 # gts gmp zlib python26 swig-python py26-numpy bzr bzrtools git-core
 # scons ginac boost +python26 vtk-devel +py26 suitesparse cmake
+# py26-scientific
 #
 # Before proceeding, you need to make sure that Python 2.6 installed
 # by MacPorts is the default one on your machine:

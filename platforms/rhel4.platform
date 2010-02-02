@@ -57,6 +57,7 @@ cmake
 cgal
 vtkdata
 vtk
+scientificpython
 fiat
 ferari
 ufc

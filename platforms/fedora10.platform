@@ -7,7 +7,7 @@
 # yum install -y redhat-lsb bzr bzrtools subversion libxml2-devel \
 # gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
 # vtk-python atlas-devel suitesparse-devel gts-devel blas-devel \
-# lapack-devel cln-devel ginac-devel python-devel cmake
+# lapack-devel cln-devel ginac-devel python-devel cmake ScientificPython
 #
 # When you try to plot your results, SELinux might complain about
 # libmesa potentially attempting to do something evil. In order to

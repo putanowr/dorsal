@@ -43,6 +43,7 @@ mtl
 trilinos
 scotch
 cgal
+scientificpython
 fiat
 ferari
 ufc

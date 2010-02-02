@@ -23,6 +23,7 @@ mtl
 numpy
 scipy
 cgal
+scientificpython
 fiat
 ferari
 ufc
