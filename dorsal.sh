@@ -287,7 +287,7 @@ default PROCS=1
 default STABLE_BUILD=true
 
 # Check if dorsal.sh was invoked correctly
-if [ $# -ne 1 ]
+if [ $# -eq 0 ]
 then
     PLATFORM=platforms/`guess_platform`.platform
     if ! [ -e ${PLATFORM} ]
@@ -322,8 +322,28 @@ then
     echo ""
     cecho ${GOOD} "Once ready, hit enter to continue!"
     read
-else
-    PLATFORM=$1
+elif [ $# -eq 1 ]
+then
+    PLATFORM=${1}
+elif [ $# -eq 2 ]
+then
+    # Check if the user wants to install a single package
+    if [ ${1} == "install-package" ]
+    then
+	PACKAGE=${2}
+        # Check if the package exists
+	if [ ! -e packages/${PACKAGE}.package ]
+	then
+	    cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
+	    exit 1
+	fi
+	PACKAGES=(${PACKAGE})
+	PLATFORM="platforms/.single"
+    else
+	echo "If you'd like to install a single package, please use the syntax:"
+	echo "./dorsal.sh install-package foo"
+	exit 1
+    fi
 fi
 
 # Make sure the requested platform exists
