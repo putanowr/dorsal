@@ -4,6 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_5.1/src
 PROCS=1
+TARGETS=('' 'ptscotch' 'install')
 
 package_specific_setup () {
     perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
