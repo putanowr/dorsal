@@ -5,9 +5,9 @@
 # during subsequent rebuilds. It assumes that we only want to rebuild
 # the fast-changing FEniCS project sources on repeated builds.
 #
-# Notice that this file is identical to leopard.platform (what I use
-# on my computer), with packages I don't want rebuilt prefixed with
-# 'skip:'.
+# Notice that this file is identical to snowleopard.platform (what I
+# use on my computer), with packages I don't want rebuilt prefixed
+# with 'skip:'.
 #
 # You can inform Dorsal you'd like it to use this platform by invoking
 # it in the following manner:
@@ -16,29 +16,23 @@
 ##
 
 # Platform specific variables
-default PETSC_ARCH=darwin9.2.0-cxx-opt
-default GMP_ARCH=none-apple-darwin
+default PETSC_ARCH=darwin10.0.0-cxx-opt
 default SCOTCH_ARCH=i686_mac_darwin8
-default UMFPACK_DIR=/sw
-default BOOST_DIR=/sw
+default BOOST_DIR=/opt/local
+default UMFPACK_DIR=/opt/local
+default CGAL_DIR=/opt/local
+default GMP_DIR=/opt/local
 
-export CC=gcc-4
-export CXX=g++-4
-export PKG_CONFIG_PATH=/sw/lib/pkgconfig
+export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:parmetis
 skip:petsc
 skip:slepc
-# cln
-# ginac
 # swiginac
-skip:gmp
 skip:mtl
-skip:trilinos
+# trilinos
 skip:scotch
-skip:cgal
 fiat
 ferari
 ufc
