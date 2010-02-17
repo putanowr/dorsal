@@ -44,7 +44,6 @@ openmpi
 parmetis
 petsc
 slepc
-gts
 # cln
 # ginac
 # swiginac
