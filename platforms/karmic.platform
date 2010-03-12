@@ -24,7 +24,8 @@ default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-petsc
+parmetis
+petscwithmumps
 slepc
 # ginac
 # swiginac
