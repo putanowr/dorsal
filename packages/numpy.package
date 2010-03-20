@@ -1,4 +1,4 @@
-NAME=numpy-1.4.0
+NAME=numpy-1.3.0
 SOURCE=http://downloads.sourceforge.net/numpy/
 PACKING=.tar.gz
 BUILDCHAIN=python
