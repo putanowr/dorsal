@@ -1,4 +1,21 @@
+2010-03 Harish Narayanan <harish@simula.no>
+	* Updated to recent versions of all packages
+2010-03 Krishna S. Rudraraju <rudraa@umich.edu>
+	* Fixed numpy link
+2010-03 Dimitris Tsarouchas <dt335@cam.ac.uk>
+	* Polished parallel support on karmic
+2010-03 Douglas N. Arnold <arnold@umn.edu>
+	* Polished support for fedora11
+	* Fixed gforge links
+2010-03 Aron Wahlberg <aron@simula.no>
+	* Fixed vtk on snowleopard
 2010-02 Harish Narayanan <harish@simula.no>
+	* Removed support for gts
+	* Modified the default installation location to be more elegant
+	* Added the ability to install single packages
+	* Enabled a parallel version of scotch
+	* Polished support for snowleopard
+	* Added package for MAdLib
 	* Updated to recent versions of all packages
 	* Added scientific python support to all platforms
 2010-01 Harish Narayanan <harish@simula.no>
