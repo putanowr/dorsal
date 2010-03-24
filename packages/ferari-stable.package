@@ -1,3 +1,3 @@
-NAME=FErari-0.0.2
-SOURCE=http://launchpad.net/ferari/trunk/0.0.2/+download/
+NAME=ferari-0.2.0
+SOURCE=http://launchpad.net/ferari/trunk/0.2.0/+download/
 PACKING=.tar.gz

@@ -1,4 +1,4 @@
-NAME=mercurial-1.4.3
+NAME=mercurial-1.5
 SOURCE=http://mercurial.selenic.com/release/
 PACKING=.tar.gz
 BUILDCHAIN=python
