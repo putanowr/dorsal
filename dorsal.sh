@@ -281,8 +281,8 @@ then
 fi
 
 # If any variables are missing, revert them to defaults
-default DOWNLOAD_PATH=${HOME}/Work/FEniCS
-default INSTALL_PATH=${HOME}/Work/FEniCS/build
+default DOWNLOAD_PATH=${HOME}/Work/FEniCS/src
+default INSTALL_PATH=${HOME}/Work/FEniCS
 default PROCS=1
 default STABLE_BUILD=true
 

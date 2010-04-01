@@ -4,7 +4,7 @@ Using, troubleshooting and extending Dorsal
  FEniCS Project with the help of Dorsal. It contains the following
  sections, which catalogue common use cases, provide information on
  troubleshooting common problems, and present a brief look at the
- design of Dorsal; should you want to extend it.
+ design of Dorsal, should you want to extend it.
 
   Basic usage
   Repeated builds
@@ -108,8 +108,9 @@ Using, troubleshooting and extending Dorsal
       )
 
       See the file fenics.platform for a an example of what I use on
-      my (Mac OS X Leopard) machine. Notice that this file is
-      identical to leopard.platform, with a few packages 'skip:'ped.
+      my (Mac OS X Snow Leopard) machine. Notice that this file is
+      identical to snowleopard.platform, with a few packages
+      'skip:'ped.
 
    4. Now, every time you wish to rebuild just the few packages you
       want to track, invoke Dorsal via:
@@ -124,7 +125,7 @@ Using, troubleshooting and extending Dorsal
 
   Another common requirement is tracking both stable releases (to get
   actual work done!) and development versions (to check out and
-  contribute new functionality) of FEniCS Project components.
+  contribute to new functionality) of FEniCS Project components.
 
   In order to achieve this, you:
 
@@ -132,8 +133,8 @@ Using, troubleshooting and extending Dorsal
       FEniCS Project components and install them in some convenient
       location. e.g.,
 
-      DOWNLOAD_PATH=${HOME}/Work/FEniCS/stable
-      INSTALL_PATH=${HOME}/Work/FEniCS/stable/build
+      DOWNLOAD_PATH=${HOME}/Work/FEniCS/stable/src
+      INSTALL_PATH=${HOME}/Work/FEniCS/stable
       STABLE_BUILD=true
 
    2. Invoke the build script by running:
@@ -144,8 +145,8 @@ Using, troubleshooting and extending Dorsal
       of FEniCS Project components and install them in another
       location. e.g.,
 
-      DOWNLOAD_PATH=${HOME}/Work/FEniCS/unstable
-      INSTALL_PATH=${HOME}/Work/FEniCS/unstable/build
+      DOWNLOAD_PATH=${HOME}/Work/FEniCS/unstable/src
+      INSTALL_PATH=${HOME}/Work/FEniCS/unstable
       STABLE_BUILD=false
 
    4. Invoke the build script once more by running:
