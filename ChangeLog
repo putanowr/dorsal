@@ -1,3 +1,6 @@
+2010-04 Joachim B Haga <jobh@simula.no>
+	* Added initial support for lucid
+	* Polished platform sniffing
 2010-03 Harish Narayanan <harish@simula.no>
 	* Updated to recent versions of all packages
 2010-03 Krishna S. Rudraraju <rudraa@umich.edu>

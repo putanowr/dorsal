@@ -157,12 +157,14 @@ package_build() {
 
     # Use the appropriate build system to compile and install the
     # package
+
     echo "#!/usr/bin/env bash" >dorsal_build
-    echo "set -e" >>dorsal_build
 
     # Write variables to file so that it can be run stand-alone
-    declare -x | grep '^[^!]*=' >>dorsal_build
-    chmod a+x dorsal_build
+    declare -x >>dorsal_build
+
+    # From this point in dorsal_build, errors are fatal
+    echo "set -e" >>dorsal_build
 
     if [ ${BUILDCHAIN} = "autotools" ]
     then
@@ -191,9 +193,10 @@ package_build() {
 	echo package_specific_build >>dorsal_build
     fi
 
-    # Log the build
+    chmod a+x dorsal_build
     if [ ${BASH_VERSINFO} -ge 3 ]
     then
+        # Log the build
 	set -o pipefail
 	./dorsal_build 2>&1 | tee build_log
     else
@@ -237,24 +240,20 @@ guess_platform() {
 	    10.6*)	echo snowleopard;;
 	esac
     elif [ -x /usr/bin/lsb_release ]; then
-	local CODENAME=$(lsb_release -c | cut -f 2-)
-	case ${CODENAME} in
-	    */sid)                      echo sid;;            # Debian unstable
-	    etch|lenny|squeeze)         echo ${CODENAME};;    # Debian stable
-	    gutsy|hardy|intrepid)	echo ${CODENAME};;    # Ubuntu (old)
-	    jaunty|karmic)		echo ${CODENAME};;    # Ubuntu
-	    Cambridge)                  echo fedora10;;
-	    Leonidas)                   echo fedora11;;
-	    Nahant*)                    echo rhel4;;
-	    Tikanga*)                   echo rhel5;;
-	    *)
-		local DESCRIPTION=$(lsb_release -d | cut -f 2-)
-		case ${DESCRIPTION} in
-		    CentOS*\ 4*)	echo rhel4;;
-		    CentOS*\ 5*)	echo rhel5;;
-		    openSUSE\ 11.1*)	echo opensuse11.1;;
-		    openSUSE\ 11.2*)	echo opensuse11.2;;
-		esac;;
+	local DISTRO=$(lsb_release -i -s)
+	local CODENAME=$(lsb_release -c -s)
+	local DESCRIPTION=$(lsb_release -d -s)
+	case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
+	    Ubuntu:*:*)			echo ${CODENAME};;
+	    Debian:*:*)			echo ${CODENAME#*/};;
+	    *:Cambridge:*)		echo fedora10;;
+	    *:Leonidas:*)		echo fedora11;;
+	    *:Nahant*:*)		echo rhel4;;
+	    *:Tikanga*:*)		echo rhel5;;
+	    *:*:CentOS*\ 4*)		echo rhel4;;
+	    *:*:CentOS*\ 5*)		echo rhel5;;
+	    *:*:openSUSE\ 11.1*)	echo opensuse11.1;;
+	    *:*:openSUSE\ 11.2*)	echo opensuse11.2;;
 	esac
     fi
 }

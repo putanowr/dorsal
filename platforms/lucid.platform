@@ -1,0 +1,44 @@
+# Ubuntu 10.4
+
+# This build script assumes that you have the following packages
+# already installed via Ubuntu's apt-get:
+#
+# sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
+# pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
+# libboost-dev libboost-program-options-dev wget openmpi-bin \
+# libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
+# libcln-dev subversion gfortran liblapack-dev autoconf cmake \
+# python-scientific libmpfr-dev libboost-{thread,filesystem}-dev
+#
+# Also, if you have multiple MPI libraries installed, make sure
+# "sudo update-alternatives --config mpi" is set to openmpi.
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-c-opt
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default SCOTCH_DIR=/usr
+default PARMETIS_DIR=/usr
+default GMP_DIR=/usr
+
+# Define the packages this platform needs
+PACKAGES=(
+parmetis
+petscwithmumps
+slepc
+# ginac
+# swiginac
+mtl
+trilinos
+cgal
+fiat
+ferari
+ufc
+ufl
+ffc
+# syfi
+viper
+instant
+dolfin
+)
