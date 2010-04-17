@@ -148,8 +148,23 @@ package_build() {
 	exit 1
     fi
 
+    if [ x"${CLEANBUILD}" = "xyes" ]
+    then
+       BUILDDIR=${BUILD_PATH}/${EXTRACTSTO}
+       SRCDIR=${DOWNLOAD_PATH}/${EXTRACTSTO}
+    else
+       BUILDDIR=${EXTRACTSTO}
+       SRCDIR=.
+    fi
+
+    # if build directory does not exists create one
+    if [ ! -d ${BUILDDIR} ]
+    then
+      mkdir -p ${BUILDDIR}
+    fi
+
     # Move to the build directory
-    cd ${EXTRACTSTO}
+    cd ${BUILDDIR}
 
     # Carry out any package-specific setup
     package_specific_setup
@@ -170,7 +185,7 @@ package_build() {
     then
 	if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
 	then
-	    ./configure ${CONFOPTS} --prefix=${INSTALL_PATH}
+	    ${SRCDIR}/configure ${CONFOPTS} --prefix=${INSTALL_PATH}
 	    quit_if_fail "There was a problem configuring build for ${NAME}."
 	fi
 	for target in "${TARGETS[@]}"
@@ -245,7 +260,7 @@ guess_platform() {
 	local DESCRIPTION=$(lsb_release -d -s)
 	case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
 	    Ubuntu:*:*)			echo ${CODENAME};;
-	    Debian:*:*)			echo ${CODENAME#*/};;
+	    Debian:*:*)			echo ${CODENAME};;
 	    *:Cambridge:*)		echo fedora10;;
 	    *:Leonidas:*)		echo fedora11;;
 	    *:Nahant*:*)		echo rhel4;;
@@ -280,24 +295,46 @@ then
 fi
 
 # If any variables are missing, revert them to defaults
+default PROJECT=FEniCS
 default DOWNLOAD_PATH=${HOME}/Work/FEniCS/src
 default INSTALL_PATH=${HOME}/Work/FEniCS
+default BUILD_PATH=${HOME}/Work/FEniCS/build
 default PROCS=1
 default STABLE_BUILD=true
+
+
+# Check if project was specified correctly
+if [ -d ${PROJECT} ]
+then
+  if [ -d ${PROJECT}/platforms -a -d ${PROJECT}/packages ]
+  then
+    cecho ${GOOD} "Found configuration for project ${PROJECT}."
+  else
+    cecho ${BAD} "No subdirectories 'platforms' and 'packages' in ${PROJECT}."
+    echo "Please make sure there exists proper project configuration directory."
+    exit 1
+  fi
+else
+  cecho ${BAD} "Error: No project configuration directory found for project ${PROJECT}."
+  echo "Please check if you have specified right project name in dorsal.cfg"
+  echo "Please check if you have directory called ${PROJECT}" 
+  echo "with subdirectories ${PROJECT}/platforms and ${PROJECT}/packages"
+  exit 1
+fi
 
 # Check if dorsal.sh was invoked correctly
 if [ $# -eq 0 ]
 then
-    PLATFORM=platforms/`guess_platform`.platform
+    PLATFORM=${PROJECT}/platforms/`guess_platform`.platform
     if ! [ -e ${PLATFORM} ]
     then
 	cecho ${BAD} "Error: Platform to build for not specified (and not automatically recognised)."
 	echo "If you know the platform you are interested in (myplatform), please specify it directly, as:"
-	echo "./dorsal.sh platforms/myplatform.platform"
+	echo "./dorsal.sh ${PROJECT}/platforms/myplatform.platform"
 	echo "If you'd like to learn more, refer to the file USAGE for detailed usage instructions."
 	exit 1
     fi
-    cecho ${GOOD} "Building FEniCS for with ${PLATFORM}:"
+    cecho ${GOOD} "Building ${PROJECT} for with ${PLATFORM}:"
     echo "-------------------------------------------------------------------------------"
     # Show the initial comments in the platform file, as it often
     # contains instructions about packages that should be installed
@@ -310,13 +347,13 @@ then
     echo
     if [ ${STABLE_BUILD} = true ]
     then
-	echo "Building stable point-releases of FEniCS projects."
+	echo "Building stable point-releases of ${PROJECT} projects."
     else
-	echo "Building development versions of FEniCS projects."
+	echo "Building development versions of ${PROJECT} projects."
     fi
     echo "-------------------------------------------------------------------------------"
     cecho ${GOOD} "Please make sure you've read the instructions above and your system"
-    cecho ${GOOD} "is ready for installing FEniCS. We find it easiest to copy and paste"
+    cecho ${GOOD} "is ready for installing ${PROJECT}. We find it easiest to copy and paste"
     cecho ${GOOD} "these instructions in another terminal window."
     echo ""
     cecho ${GOOD} "Once ready, hit enter to continue!"
@@ -331,13 +368,13 @@ then
     then
 	PACKAGE=${2}
         # Check if the package exists
-	if [ ! -e packages/${PACKAGE}.package ]
+	if [ ! -e ${PROJECT}/packages/${PACKAGE}.package ]
 	then
-	    cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
+	    cecho ${BAD} "${PROJECT}/packages/${PACKAGE}.package does not exist yet. Please create it."
 	    exit 1
 	fi
 	PACKAGES=(${PACKAGE})
-	PLATFORM="platforms/.single"
+	PLATFORM="${PROJECT}/platforms/.single"
     else
 	echo "If you'd like to install a single package, please use the syntax:"
 	echo "./dorsal.sh install-package foo"
@@ -360,6 +397,7 @@ default PYTHONVER=`python -c "import sys; print sys.version[:3]"`
 
 # Create necessary directories and set appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
+mkdir -p ${BUILD_PATH}
 mkdir -p ${INSTALL_PATH}/bin
 mkdir -p ${INSTALL_PATH}/lib
 mkdir -p ${INSTALL_PATH}/include
@@ -386,9 +424,9 @@ do
     fi
 
     # Check if the package exists
-    if [ ! -e packages/${PACKAGE}.package ]
+    if [ ! -e ${PROJECT}/packages/${PACKAGE}.package ]
     then
-	cecho ${BAD} "packages/${PACKAGE}.package does not exist yet. Please create it."
+	cecho ${BAD} "${PROJECT}/packages/${PACKAGE}.package does not exist yet. Please create it."
 	exit 1
     fi
 
@@ -400,6 +438,7 @@ do
     unset CONFOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
+    unset CLEANBUILD
     TARGETS=('' install)
     PROCS=${ORIG_PROCS}
 
@@ -410,13 +449,13 @@ do
     package_specific_register () { true; }
 
     # Fetch information pertinent to the package
-    source packages/${PACKAGE}.package
+    source ${PROJECT}/packages/${PACKAGE}.package
 
     # Turn to a stable version of the package if that's what the user
     # wants and it exists
-    if [ ${STABLE_BUILD} = true ] && [ -e packages/${PACKAGE}-stable.package ]
+    if [ ${STABLE_BUILD} = true ] && [ -e ${PROJECT}/packages/${PACKAGE}-stable.package ]
     then
-	source packages/${PACKAGE}-stable.package
+	source ${PROJECT}/packages/${PACKAGE}-stable.package
     fi
 
     # Ensure that the package file is sanely constructed
