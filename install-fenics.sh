@@ -52,8 +52,10 @@ fetch_dorsal() {
 
 # Set up the build configuration (using some sensible defaults)
 cfg_dorsal() {
-    echo "DOWNLOAD_PATH=${PREFIX}/src"   > dorsal.cfg
+    echo "PROJECT=FEniCS"               >  dorsal.cfg
+    echo "DOWNLOAD_PATH=${PREFIX}/src"  >> dorsal.cfg
     echo "INSTALL_PATH=${PREFIX}"       >> dorsal.cfg
+    echo "BUILD_PATH=${PREFIX}/build"   >> dorsal.cfg
     echo "PROCS=2"                      >> dorsal.cfg
     echo "STABLE_BUILD=true"            >> dorsal.cfg
 }
