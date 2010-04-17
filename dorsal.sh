@@ -248,6 +248,7 @@ guess_platform() {
 	    Debian:*:*)			echo ${CODENAME#*/};;
 	    *:Cambridge:*)		echo fedora10;;
 	    *:Leonidas:*)		echo fedora11;;
+	    *:Constantine:*)		echo fedora12;;
 	    *:Nahant*:*)		echo rhel4;;
 	    *:Tikanga*:*)		echo rhel5;;
 	    *:*:CentOS*\ 4*)		echo rhel4;;
