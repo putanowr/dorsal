@@ -8,13 +8,13 @@ TARGETS=('' 'ptscotch' 'install')
 
 package_specific_setup () {
     perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
+    perl -pi -e 's/^CCS.*= gcc/CCS  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
 }
 
 package_specific_install () {
-    cd ..
-    ln -sf ${PWD}/lib/* ${INSTALL_PATH}/lib/
-    ln -sf ${PWD}/include/* ${INSTALL_PATH}/include/
+    make install prefix=${INSTALL_PATH}
+    cp -f ../lib/*scotc*[^m].a ${INSTALL_PATH}/lib
 }
 
 package_specific_register () {
