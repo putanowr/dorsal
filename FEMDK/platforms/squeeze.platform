@@ -1,0 +1,29 @@
+# Debian GNU/Linux unstable
+
+# This build script assumes that you have the following packages
+# already installed via Debian's apt-get:
+#
+# sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
+# pkg-config python-dev python-numpy python-vtk swig \
+# libsuitesparse-dev libboost-dev wget openmpi-bin libatlas-base-dev \
+# petsc-dev libparmetis-dev libgmp3-dev libscotch-dev libcln-dev \
+# libginac-dev gfortran liblapack-dev cmake python-scientific libmpfr-dev
+#
+# Also, if you have multiple MPI libraries installed, make sure
+# "sudo update-alternatives --config mpi" is set to openmpi.
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-c-opt
+default PETSC_DIR=/usr/lib/petsc
+default UMFPACK_DIR=/usr
+default BOOST_DIR=/usr
+default SCOTCH_DIR=/usr
+default PARMETIS_DIR=/usr
+default GMP_DIR=/usr
+
+# Define the packages this platform needs
+PACKAGES=(
+swig
+skip:getfem
+)
