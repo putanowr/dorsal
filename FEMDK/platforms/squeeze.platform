@@ -24,6 +24,6 @@ default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-swig
-skip:getfem
+Board
+getfem
 )
