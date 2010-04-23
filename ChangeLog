@@ -1,3 +1,6 @@
+2010-04 Roman Putanowicz <putanowr@l5.pk.edu.pl>
+	* Added support for handling other projects than FEniCS
+	* Added support for separate build directories (CLEANBUILD variable)
 2010-04 Joachim B Haga <jobh@simula.no>
 	* Added initial support for lucid
 	* Polished platform sniffing

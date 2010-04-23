@@ -5,6 +5,8 @@ BUILDCHAIN=[autotools|python|scons|custom]
 EXTRACTSTO=barnotfoo
 CONFOPTS=""
 SCONSOPTS=""
+# If not specified CLEANBUILD default is "no"
+CLEANBUILD=[yes|no]
 TARGETS=('' install)
 
 package_specific_setup () {

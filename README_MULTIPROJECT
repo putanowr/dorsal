@@ -1,0 +1,16 @@
+This branch of dorsal has been enhanced to support multiple projects
+and out-of-source builds.
+
+In comparison to the main branch the changes consists of:
+
+1. The setup for each project (i.e. the directories platforms and packages)
+   now resides in separate directories named after project, e.g. FEniCS,
+   FEMDK and so on.
+2. The user chooses the project by setting the variable PROJECT in dorsal.cfg
+   If not set the default values is FEniCS
+3. There is support to configure and compile AutoTools driven packages 
+   in a separate directory. In dorsal.cfg there is BUILD_PATH variable
+   that specifies where is the top build directory. If package variable
+   CLEANBUILD is set to 'yes' then it will be built in a appropriate
+   subdirectory of BUILD_PATH. If not set the default value for CLEANBUILD
+   is 'no'.
