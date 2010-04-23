@@ -157,7 +157,7 @@ package_build() {
        SRCDIR=.
     fi
 
-    # if build directory does not exists create one
+    # Create build directory if it does not exist
     if [ ! -d ${BUILDDIR} ]
     then
       mkdir -p ${BUILDDIR}
@@ -275,16 +275,16 @@ guess_platform() {
 }
 
 guess_architecture() {
-  ARCH=unknown
   # Try to guess the architecture of the platform we are running on
+  ARCH=unknown
   if [ -x /usr/bin/uname -o -x /bin/uname ]
   then
   	ARCH=`uname -m`
   fi
 	case ${ARCH} in
-	    *_64) 	echo "64";;
-	    i?86)	  echo "32";;
-	    *)	echo $ARCH;;
+	    *_64) echo "64";;
+	    i?86) echo "32";;
+	    *)	  echo $ARCH;;
 	esac
 }
 
