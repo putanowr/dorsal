@@ -1,4 +1,4 @@
-# Debian GNU/Linux unstable
+# Debian GNU/Linux testing
 
 # This build script assumes that you have the following packages
 # already installed via Debian's apt-get:
@@ -25,4 +25,5 @@ default GMP_DIR=/usr
 # Define the packages this platform needs
 PACKAGES=(
 Board
+getfem
 )
