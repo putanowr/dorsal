@@ -1,6 +1,9 @@
 2010-04 Roman Putanowicz <putanowr@l5.pk.edu.pl>
-	* Added support for handling other projects than FEniCS
-	* Added support for separate build directories (CLEANBUILD variable)
+	* Generalised dorsal to handle projects other than FEniCS
+	* Added support for separate build directories
+2010-04 Harish Narayanan <harish@simula.no>
+	* Added initial support for fedora12
+	* Polished support for fedora11
 2010-04 Joachim B Haga <jobh@simula.no>
 	* Added initial support for lucid
 	* Polished platform sniffing
