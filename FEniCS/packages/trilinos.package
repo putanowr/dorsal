@@ -6,7 +6,7 @@ TARGETS=('' install clean)
 CONFOPTS="--enable-pytrilinos --enable-amesos --cache-file=config.cache --enable-mpi CC="mpicc" CXX="mpicxx" --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
 
 package_specific_setup () {
-    patch --forward packages/PyTrilinos/src/FILEstream.cpp < ${ORIG_DIR}/patches/trilinos.patch || true
+    patch --forward packages/PyTrilinos/src/FILEstream.cpp < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
 }
 
 package_specific_register () {
