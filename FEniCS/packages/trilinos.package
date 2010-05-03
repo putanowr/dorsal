@@ -3,7 +3,14 @@ SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 TARGETS=('' install clean)
-CONFOPTS="--enable-pytrilinos --enable-amesos --cache-file=config.cache --enable-mpi CC="mpicc" CXX="mpicxx" --with-cflags=-fPIC --with-cxxflags=-fPIC --with-fflags=-fPIC"
+CONFOPTS="--enable-shared --enable-default-packages --enable-epetra --enable-ml --enable-galeri \
+          --enable-teuchos --enable-amesos --enable-python --enable-pytrilinos \
+          --disable-export-makefiles --disable-examples --disable-tests --with-cflags=-fPIC \
+          --with-cxxflags=-fPIC --with-fflags=-fPIC --with-ldflags=-fPIC --with-ccflags=-fPIC \
+          --enable-mpi --with-mpi-compilers"
+
+# Old options not used
+#--cache-file=config.cache CC="mpicc" CXX="mpicxx"
 
 package_specific_setup () {
     patch --forward packages/PyTrilinos/src/FILEstream.cpp < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
