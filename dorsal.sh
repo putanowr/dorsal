@@ -52,7 +52,7 @@ package_fetch () {
 	# Only download tarballs that do not exist
 	if [ ! -e ${NAME}${PACKING} ]
 	then
-	    wget -c ${SOURCE}${NAME}${PACKING}
+	    wget --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
 	fi
     elif [ ${PACKING} = "hg" ]
     then
