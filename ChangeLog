@@ -1,3 +1,7 @@
+2010-05 Harish Narayanan <harish@simula.no>
+	* Removed ssl certificate checking
+2010-05 Anders Logg <logg@simula.no>
+	* Fixed bugs introduced by new directory structure
 2010-04 Roman Putanowicz <putanowr@l5.pk.edu.pl>
 	* Generalised dorsal to handle projects other than FEniCS
 	* Added support for separate build directories
