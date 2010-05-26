@@ -34,13 +34,13 @@ skip:armadillo
 skip:mtl
 # trilinos
 skip:scotch
-# fiat
-# ferari
-# ufc
-# ufl
-# ffc
+fiat
+ferari
+ufc
+ufl
+ffc
 # syfi
-# viper
-# instant
+viper
+instant
 dolfin
 )
