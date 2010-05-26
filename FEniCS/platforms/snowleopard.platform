@@ -35,6 +35,7 @@ export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 PACKAGES=(
 petsc
 slepc
+armadillo
 # swiginac
 mtl
 # trilinos

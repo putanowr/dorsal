@@ -3,7 +3,7 @@ SOURCE=lp:
 PACKING=bzr
 BUILDCHAIN=scons
 SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePython=yes
-withBoostDir=${BOOST_DIR}"
+withBoostDir=${BOOST_DIR} withArmadilloDir=${ARMADILLO_DIR}"
 TARGETS=(configure '' install)
 
 # Handle optional dependencies
@@ -68,13 +68,6 @@ then
     SCONSOPTS="${SCONSOPTS} enableCgal=yes withCgalDir=${CGAL_DIR}"
 else
     SCONSOPTS="${SCONSOPTS} enableCgal=no"
-fi
-
-if [[ ${ARMADILLO_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableArmadillo=yes withArmadilloDir=${ARMADILLO_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableArmadillo=no"
 fi
 
 package_specific_setup () {

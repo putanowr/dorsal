@@ -3,6 +3,12 @@ SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
 BUILDCHAIN=custom
 
+package_specific_build () {
+    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
+    make
+    make install
+}
+
 package_specific_register () {
-    export ARMADILLO_DIR=${PWD}
+    export ARMADILLO_DIR=${INSTALL_PATH}
 }
