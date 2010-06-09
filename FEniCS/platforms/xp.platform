@@ -23,18 +23,19 @@ default BOOST_DIR=/usr/include/boost-1_33_1
 export CC=gcc-4
 export CXX=g++-4
 
-ln -sf /usr/bin/gcc-4 $INSTALL_PATH/bin/cc
-ln -sf /usr/bin/g++-4 $INSTALL_PATH/bin/c++
+ln -sf /usr/bin/gcc-4 ${INSTALL_PATH}/bin/cc
+ln -sf /usr/bin/g++-4 ${INSTALL_PATH}/bin/c++
 
-export TEMP=$DOWNLOAD_PATH/tmp
-export TMP=$TEMP
-mkdir -p $TEMP
+export TEMP=${DOWNLOAD_PATH}/tmp
+export TMP=${TEMP}
+mkdir -p ${TEMP}
 
 # Define the packages this platform needs
 PACKAGES=(
 scons
 petscwithoutmpi
 slepc
+armadillo
 cgal
 # cln
 # ginac

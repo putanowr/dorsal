@@ -8,7 +8,8 @@
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
-# python-scientific libmpfr-dev libboost-{thread,filesystem}-dev
+# python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
+# libarmadillo-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.

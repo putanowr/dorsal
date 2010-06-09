@@ -28,6 +28,7 @@ PACKAGES=(
 parmetis
 petsc
 slepc
+armadillo
 mtl
 trilinos
 scotch

@@ -38,6 +38,7 @@ PACKAGES=(
 parmetis
 petsc
 slepc
+armadillo
 # swiginac
 mtl
 trilinos

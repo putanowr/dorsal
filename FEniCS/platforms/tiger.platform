@@ -70,6 +70,7 @@ PACKAGES=(
 parmetis
 petsc
 slepc
+armadillo
 # cln
 # ginac
 # swiginac

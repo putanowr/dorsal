@@ -8,7 +8,7 @@
 # gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
 # vtk-python atlas-devel suitesparse-devel blas-devel \
 # lapack-devel cln-devel ginac-devel python-devel cmake ScientificPython \
-# mpfr-devel
+# mpfr-devel armadillo-devel
 ##
 
 # Platform specific variables

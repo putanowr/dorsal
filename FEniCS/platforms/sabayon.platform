@@ -44,6 +44,7 @@ PACKAGES=(
 parmetis
 petscwithmumps
 slepc
+armadillo
 # ginac
 # swiginac
 mtl

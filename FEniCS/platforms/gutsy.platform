@@ -24,6 +24,7 @@ swig
 parmetis
 petsc
 slepc
+armadillo
 # cln
 # ginac
 # swiginac

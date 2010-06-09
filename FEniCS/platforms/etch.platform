@@ -7,7 +7,7 @@
 # libxml2-dev libboost-dev libcln-dev libginac-dev \
 # libgmp3-dev zlib1g-dev wget subversion pkg-config cmake \
 # libgl1-mesa-dev xorg-dev gfortran liblapack-dev python-scientific \
-# libmpfr-dev
+# libmpfr-dev libarmadillo-dev
 #
 # In order to default to Python 2.5, create the following symbolic
 # links (as root, in /usr/bin):
