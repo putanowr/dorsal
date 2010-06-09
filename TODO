@@ -19,3 +19,7 @@
 
 * Insert download links somewhere in the documentation
   Difficulty: Trivial   Urgency: Moderate
+
+* Update documentation to reflect new directory structure and current
+  state of supported platforms.
+  Difficulty: Trivial   Urgency: Moderate
