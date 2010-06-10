@@ -261,6 +261,7 @@ guess_platform() {
 	case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
 	    Ubuntu:*:*)			echo ${CODENAME};;
 	    Debian:*:*)			echo ${CODENAME};;
+	    Gentoo:*:*)			echo gentoo;;
 	    *:Cambridge:*)		echo fedora10;;
 	    *:Leonidas:*)		echo fedora11;;
 	    *:Constantine:*)		echo fedora12;;

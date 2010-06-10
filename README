@@ -15,7 +15,7 @@ Currently, Dorsal supports the following environments:
    openSUSE 11.1, 11.2                    (opensuse11.1, opensuse11.2)
    Red Hat Enterprise Linux 4, 5          (rhel4, rhel5)
    Ubuntu 8.10, 9.04, 9.10, 10.04 LTS     (intrepid, jaunty, karmic, lucid)
-   Sabayon (and Gentoo) Linux             (sabayon)
+   Gentoo (and Sabayon) Linux             (gentoo)
 
 If your favourite platform is not on the list above, let us know about
 it, and we can work together toward adding it.

@@ -1,4 +1,15 @@
-# Sabayon Linux 5.x
+# Gentoo Linux (and Sabayon Linux 5.x)
+#
+# Instructions specific to Gentoo Linux
+#
+# This build script assumes that you have the following packages
+# already installed via Gentoo's emerge:
+# 
+# USE='supernodal mpi metis cxx fortran threads' emerge -av \
+# suitesparse scientificpython openmpi scons bzr libxml2 numpy vtk \
+# swig boost scons bzr libxml2 numpy vtk swig boost 
+#
+# Instructions specific to Sabayon Linux 5.x
 #
 # If you are unfamiliar with mixing portage and equo under Sabayon,
 # please read:
@@ -8,8 +19,8 @@
 # This build script assumes that you have the following packages
 # already installed via Sabayon's equo:
 #
-# equo install --ask scons bzr libxml2 numpy vtk swig boost gmp cln \
-# lapack mpfr
+# equo install --ask scons bzr libxml2 numpy vtk swig boost \
+# gmp cln lapack mpfr
 #
 # You will also need to emerge these packages on top of the equo
 # command:
@@ -20,16 +31,8 @@
 # Should you run into a problem with UFC regarding Python paths,
 # ensure that the following environment variables are set:
 #
-# export PYTHONPATH=${PYTHONPATH}:${INSTALL_PATH}/lib64/python2.6/site-packages
-# export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${INSTALL_PATH}/lib
-#
-# This script should work unmodified for Gentoo, but it has not been
-# tested yet. Since Gentoo does not have access to equo, one needs to
-# use its package manager, emerge, to fetch the following:
-# 
-# USE='supernodal mpi metis cxx fortran threads' emerge -av suitesparse \
-# scientificpython openmpi scons bzr libxml2 numpy vtk swig boost scons \
-# bzr libxml2 numpy vtk swig boost
+# export PYTHONPATH=${PYTHONPATH}:${HOME}/Work/FEniCS/lib64/python2.6/site-packages
+# export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/Work/FEniCS/lib
 ##
 
 # Platform specific variables
