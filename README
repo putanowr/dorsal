@@ -10,11 +10,12 @@ various platforms.
 Currently, Dorsal supports the following environments:
 
    Debian GNU/Linux 4.0, 5.0, unstable    (etch, lenny, sid)
-   Fedora 10, 11                          (fedora10, fedora11)
+   Fedora 10, 11, 12                      (fedora10, fedora11, fedora12)
    Mac OS X 10.4, 10.5, 10.6              (tiger, leopard, snowleopard)
    openSUSE 11.1, 11.2                    (opensuse11.1, opensuse11.2)
    Red Hat Enterprise Linux 4, 5          (rhel4, rhel5)
-   Ubuntu 8.04 LTS, 8.10, 9.04, 9.10      (hardy, intrepid, jaunty, karmic)
+   Ubuntu 8.10, 9.04, 9.10, 10.04 LTS     (intrepid, jaunty, karmic, lucid)
+   Sabayon (and Gentoo) Linux             (sabayon)
 
 If your favourite platform is not on the list above, let us know about
 it, and we can work together toward adding it.

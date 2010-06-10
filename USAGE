@@ -39,7 +39,7 @@ Using, troubleshooting and extending Dorsal
       specify a known platform you are interested in (myplatform),
       invoke Dorsal via:
 
-      ./dorsal.sh platforms/myplatform.platform
+      ./dorsal.sh FEniCS/platforms/myplatform.platform
 
    4. Once you've completed these steps, hit enter to begin the
       installation!
@@ -115,7 +115,7 @@ Using, troubleshooting and extending Dorsal
    4. Now, every time you wish to rebuild just the few packages you
       want to track, invoke Dorsal via:
 
-      ./dorsal.sh platforms/myplatform.platform
+      ./dorsal.sh FEniCS/platforms/myplatform.platform
 
   Using Dorsal in this manner should save you a lot of time if you
   need to rebuild FEniCS often.
@@ -193,7 +193,7 @@ Using, troubleshooting and extending Dorsal
 
    4. Now, invoke Dorsal via:
 
-      ./dorsal.sh platforms/myplatform.platform
+      ./dorsal.sh FEniCS/platforms/myplatform.platform
 
 
  Troubleshooting and getting help
@@ -209,7 +209,7 @@ Using, troubleshooting and extending Dorsal
   automatically recognise it, try invoking Dorsal by specifying your
   platform manually:
 
-  ./dorsal.sh platforms/myplatform.platform
+  ./dorsal.sh FEniCS/platforms/myplatform.platform
 
   If you're having further difficulty, please contact us by e-mailing
   dorsal@lists.launchpad.net. We will try to help. Before writing to
@@ -259,7 +259,7 @@ Using, troubleshooting and extending Dorsal
 
   When you invoke Dorsal via:
 
-  ./dorsal.sh platforms/myplatform.platform
+  ./dorsal.sh FEniCS/platforms/myplatform.platform
 
   the build script sets any platform specific variables defined in
   myplatform.platform, and attempts to build and install each package
