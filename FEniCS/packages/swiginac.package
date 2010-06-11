@@ -1,5 +1,5 @@
-NAME=swiginac-1.5.1
-SOURCE=http://download.berlios.de/swiginac/
+NAME=swiginac-1.5.1.1
+SOURCE=http://prdownload.berlios.de/swiginac/
 PACKING=.tgz
 BUILDCHAIN=python
 
