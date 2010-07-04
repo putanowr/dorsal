@@ -19,3 +19,6 @@
 
 * Insert download links somewhere in the documentation
   Difficulty: Trivial   Urgency: Moderate
+
+* Move Trilinos package to 10.x branch
+  Difficulty: High      Urgency: Low

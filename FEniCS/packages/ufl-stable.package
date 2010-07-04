@@ -1,3 +1,3 @@
-NAME=ufl-0.5.2
-SOURCE=http://launchpad.net/ufl/trunk/0.5.2/+download/
+NAME=ufl-0.5.3
+SOURCE=http://launchpad.net/ufl/trunk/0.5.3/+download/
 PACKING=.tar.gz
