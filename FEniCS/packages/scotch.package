@@ -2,7 +2,7 @@ NAME=scotch_5.1.9
 SOURCE=https://gforge.inria.fr/frs/download.php/27250/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
-EXTRACTSTO=scotch_5.1/src
+EXTRACTSTO=scotch_5.1.9/src
 PROCS=1
 TARGETS=('' 'ptscotch' 'install')
 
