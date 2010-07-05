@@ -22,3 +22,6 @@
 
 * Move Trilinos package to 10.x branch
   Difficulty: High      Urgency: Low
+
+* Move PETSc package to 3.1x branch
+  Difficulty: Low       Urgency: Low

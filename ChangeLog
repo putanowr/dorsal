@@ -1,4 +1,11 @@
+2010-06 Harish Narayanan <harish@simula.no>
+	* Updated to recent versions of all packages
+        * Updated documentation
+2010-06 Alexander Jarosch <alex@alexj.at>
+	* Polished support for gentoo/sabayon
+        * Added initial support for gentoo/sabayon
 2010-05 Harish Narayanan <harish@simula.no>
+	* Added package for armadillo
 	* Removed ssl certificate checking
 2010-05 Anders Logg <logg@simula.no>
 	* Fixed bugs introduced by new directory structure
