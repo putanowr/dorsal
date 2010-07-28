@@ -4,7 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 
 package_specific_build () {
-    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
+    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} -DLIB_INSTALL_DIR=lib .
     make
     make install
 }
