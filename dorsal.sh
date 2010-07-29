@@ -265,6 +265,7 @@ guess_platform() {
 	    *:Cambridge:*)		echo fedora10;;
 	    *:Leonidas:*)		echo fedora11;;
 	    *:Constantine:*)		echo fedora12;;
+	    *:Goddard:*)                echo fedora13;; 
 	    *:Nahant*:*)		echo rhel4;;
 	    *:Tikanga*:*)		echo rhel5;;
 	    *:*:CentOS*\ 4*)		echo rhel4;;
