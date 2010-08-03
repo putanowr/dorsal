@@ -1,60 +1,45 @@
-# Mac OS X 10.5 with Fink
+# Mac OS X 10.5 with MacPorts
 
 # This build script assumes that you have installed Xcode.app and
 # X11.app from Mac OS's original install disc. This gives you access
 # to a recent gcc, among other things. In order to have easy access to
 # a lot of useful Free Software, this script also assumes you have
-# installed Fink (from http://www.finkproject.org/).
-
-# Via Fink, you need to install the following packages:
+# installed MacPorts (from http://www.macports.org/).
 #
-# fink install wget libtool libxml2 pkgconfig gcc44 openmpi \
-# openmpi-dev python25 vtk-py25 numpy-py25 bzr-py25 \
-# boost1.35.python25 boost1.35.nopython suitesparse scons swig \
-# autogen readline cmake scientificpython-py25
+# Via Macports, you need to install the following packages:
 #
-# Also, if you're running Fink with 'unstable' repositories enabled,
-# Fink might have installed Python 2.6 for you. Since many goodies
-# (Mercurial, PyVTK etc.) haven't yet made it to 2.6, you will need to
-# change a couple of symlinks to revert to Python 2.5 until they do. 
+# sudo port install wget autogen readline pkgconfig libxml2 libtool \
+# cgal gmp zlib python26 swig-python py26-numpy bzr bzrtools git-core \
+# scons ginac boost +python26 vtk-devel +python26 suitesparse \
+# py26-scientific
 #
-# cd /sw/bin
-# sudo ln -sf python2.5 python
-# sudo ln -sf python2.5-config python-config
+# Before proceeding, you need to make sure that Python 2.6 installed
+# by MacPorts is the default one on your machine:
 #
-# Finally, Parmetis requires malloc.h to compile. In order that it can
-# find it, you need to create another symlink.
-#
-# cd /usr/include
-# sudo ln -s malloc/malloc.h malloc.h
+# sudo port install python_select  
+# sudo python_select python26
 #
 ##
 
 # Platform specific variables
 default PETSC_ARCH=darwin9.2.0-cxx-opt
-default GMP_ARCH=none-apple-darwin
 default SCOTCH_ARCH=i686_mac_darwin8
-default UMFPACK_DIR=/sw
-default BOOST_DIR=/sw
+default BOOST_DIR=/opt/local
+default UMFPACK_DIR=/opt/local
+default CGAL_DIR=/opt/local
+default GMP_DIR=/opt/local
 
-export CC=gcc-4
-export CXX=g++-4
-export PKG_CONFIG_PATH=/sw/lib/pkgconfig
+export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
-parmetis
 petsc
 slepc
 armadillo
-# cln
-# ginac
 # swiginac
-gmp
 mtl
-trilinos
+# trilinos
 scotch
-cgal
 fiat
 ferari
 ufc
