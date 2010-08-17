@@ -245,7 +245,7 @@ guess_platform() {
     # Try to guess the name of the platform we're running on
     if [ -f /usr/bin/cygwin1.dll ]
     then
-	echo xp
+        echo xp
     elif [ -x /usr/bin/sw_vers ]
     then
 	local MACOSVER=$(sw_vers -productVersion)
@@ -341,6 +341,7 @@ then
 	echo "If you know the platform you are interested in (myplatform), please specify it directly, as:"
 	echo "./dorsal.sh ${PROJECT}/platforms/myplatform.platform"
 	echo "If you'd like to learn more, refer to the file USAGE for detailed usage instructions."
+	echo "Fedora/Redhat users may need to run 'yum install redhat-lsb' and then try dorsal.sh again."
 	exit 1
     fi
     cecho ${GOOD} "Building ${PROJECT} for with ${PLATFORM}:"
@@ -418,6 +419,14 @@ export PYTHONPATH=${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages:${PYTHONP
 export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}
 ORIG_PROCS=${PROCS}
 
+# Add some extra library paths for 64 bit machines
+guess_architecture
+if [ "$ARCH" == "x86_64" ]; then
+    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib64:${LD_LIBRARY_PATH}
+    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib64:${DYLD_LIBRARY_PATH}
+    export PYTHONPATH=${INSTALL_PATH}/lib64/python${PYTHONVER}/site-packages:${PYTHONPATH}
+fi
+
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
@@ -435,8 +444,8 @@ do
     # Check if the package exists
     if [ ! -e ${PROJECT}/packages/${PACKAGE}.package ]
     then
-	cecho ${BAD} "${PROJECT}/packages/${PACKAGE}.package does not exist yet. Please create it."
-	exit 1
+        cecho ${BAD} "${PROJECT}/packages/${PACKAGE}.package does not exist yet. Please create it."
+        exit 1
     fi
 
     # Reset package-specific variables
@@ -470,8 +479,8 @@ do
     # Ensure that the package file is sanely constructed
     if [ ! ${NAME} ] || [ ! ${SOURCE} ] || [ ! ${PACKING} ] || [ ! ${BUILDCHAIN} ]
     then
-	cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
-	exit 1
+        cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
+        exit 1
     fi
 
     if [ ${SKIP} = false ]
