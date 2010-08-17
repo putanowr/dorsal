@@ -4,20 +4,15 @@ PACKING=.tgz
 BUILDCHAIN=autotools
 
 package_specific_setup () {
-    if [ -z "${PETSC_ARCH_TEMP}" ]
-    then
-	export PETSC_ARCH_TEMP=${PETSC_ARCH}
-    fi
-    unset PETSC_ARCH
     export SLEPC_DIR=${PWD}
     ./config/configure.py --prefix=${INSTALL_PATH}
     export PETSC_ARCH=${PETSC_ARCH_TEMP}
 }
 
 package_specific_install () {
-    if [ -e ${INSTALL_PATH}/lib/${PETSC_ARCH} ]
+    if [ -e ${INSTALL_PATH}/${PETSC_ARCH}/lib ]
     then
-	ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/* ${INSTALL_PATH}/lib/
+      ln -sf ${INSTALL_PATH}/${PETSC_ARCH}/lib/* ${INSTALL_PATH}/lib/
     fi
 }
 
