@@ -1,4 +1,4 @@
-NAME=petsc-3.1
+NAME=petsc-3.1-p4
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
@@ -11,7 +11,7 @@ package_specific_setup () {
 package_specific_install () {
     if [ -e ${INSTALL_PATH}/lib/${PETSC_ARCH} ]
     then
-	ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/* ${INSTALL_PATH}/lib/
+        ln -sf ${INSTALL_PATH}/l${PETSC_ARCH}/lib/* ${INSTALL_PATH}/lib/
     fi
 }
 
