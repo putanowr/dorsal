@@ -16,7 +16,7 @@
 # Before proceeding, you need to make sure that Python 2.6 installed
 # by MacPorts is the default one on your machine:
 #
-# sudo port install python_select  
+# sudo port install python_select
 # sudo python_select python26
 #
 ##

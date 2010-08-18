@@ -16,7 +16,5 @@ package_specific_install () {
 }
 
 package_specific_register () {
-    export PETSC_DIR=${INSTALL_PATH}
-    export PETSC_ARCH_TEMP=${PETSC_ARCH}
-    unset PETSC_ARCH
+    export PETSC_DIR=${PWD}
 }
