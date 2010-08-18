@@ -268,11 +268,11 @@ guess_platform() {
       *:Goddard:*)          echo fedora13;;
       *:Nahant*:*)          echo rhel4;;
       *:Tikanga*:*)         echo rhel5;;
-      *:*:CentOS*\ 4*)      echo rhel4;;
-      *:*:CentOS*\ 5*)      echo rhel5;;
-      *:*:openSUSE\ 11.1*)  echo opensuse11.1;;
-      *:*:openSUSE\ 11.2*)  echo opensuse11.2;;
-      *:*:openSUSE\ 11.3*)  echo opensuse11.3;;
+      *:*:*CentOS*\ 4*)      echo rhel4;;
+      *:*:*CentOS*\ 5*)      echo rhel5;;
+      *:*:*openSUSE\ 11.1*)  echo opensuse11.1;;
+      *:*:*openSUSE\ 11.2*)  echo opensuse11.2;;
+      *:*:*openSUSE\ 11.3*)  echo opensuse11.3;;
     esac
   fi
 }
