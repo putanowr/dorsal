@@ -242,38 +242,39 @@ package_register() {
 }
 
 guess_platform() {
-    # Try to guess the name of the platform we're running on
-    if [ -f /usr/bin/cygwin1.dll ]
-    then
-        echo xp
-    elif [ -x /usr/bin/sw_vers ]
-    then
-	local MACOSVER=$(sw_vers -productVersion)
-	case ${MACOSVER} in
-	    10.4*) 	echo tiger;;
-	    10.5*)	echo leopard;;
-	    10.6*)	echo snowleopard;;
-	esac
-    elif [ -x /usr/bin/lsb_release ]; then
-	local DISTRO=$(lsb_release -i -s)
-	local CODENAME=$(lsb_release -c -s)
-	local DESCRIPTION=$(lsb_release -d -s)
-	case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
-	    Ubuntu:*:*)			echo ${CODENAME};;
-	    Debian:*:*)			echo ${CODENAME};;
-	    Gentoo:*:*)			echo gentoo;;
-	    *:Cambridge:*)		echo fedora10;;
-	    *:Leonidas:*)		echo fedora11;;
-	    *:Constantine:*)		echo fedora12;;
-	    *:Goddard:*)                echo fedora13;; 
-	    *:Nahant*:*)		echo rhel4;;
-	    *:Tikanga*:*)		echo rhel5;;
-	    *:*:CentOS*\ 4*)		echo rhel4;;
-	    *:*:CentOS*\ 5*)		echo rhel5;;
-	    *:*:openSUSE\ 11.1*)	echo opensuse11.1;;
-	    *:*:openSUSE\ 11.2*)	echo opensuse11.2;;
-	esac
-    fi
+  # Try to guess the name of the platform we're running on
+  if [ -f /usr/bin/cygwin1.dll ]
+  then
+      echo xp
+  elif [ -x /usr/bin/sw_vers ]
+  then
+    local MACOSVER=$(sw_vers -productVersion)
+    case ${MACOSVER} in
+      10.4*) 	echo tiger;;
+      10.5*)	echo leopard;;
+      10.6*)	echo snowleopard;;
+    esac
+  elif [ -x /usr/bin/lsb_release ]; then
+    local DISTRO=$(lsb_release -i -s)
+    local CODENAME=$(lsb_release -c -s)
+    local DESCRIPTION=$(lsb_release -d -s)
+    case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
+      Ubuntu:*:*)           echo ${CODENAME};;
+      Debian:*:*)           echo ${CODENAME};;
+      Gentoo:*:*)           echo gentoo;;
+      *:Cambridge:*)        echo fedora10;;
+      *:Leonidas:*)         echo fedora11;;
+      *:Constantine:*)      echo fedora12;;
+      *:Goddard:*)          echo fedora13;;
+      *:Nahant*:*)          echo rhel4;;
+      *:Tikanga*:*)         echo rhel5;;
+      *:*:CentOS*\ 4*)      echo rhel4;;
+      *:*:CentOS*\ 5*)      echo rhel5;;
+      *:*:openSUSE\ 11.1*)  echo opensuse11.1;;
+      *:*:openSUSE\ 11.2*)  echo opensuse11.2;;
+      *:*:openSUSE\ 11.3*)  echo opensuse11.3;;
+    esac
+  fi
 }
 
 guess_architecture() {
@@ -326,7 +327,7 @@ then
 else
   cecho ${BAD} "Error: No project configuration directory found for project ${PROJECT}."
   echo "Please check if you have specified right project name in dorsal.cfg"
-  echo "Please check if you have directory called ${PROJECT}" 
+  echo "Please check if you have directory called ${PROJECT}"
   echo "with subdirectories ${PROJECT}/platforms and ${PROJECT}/packages"
   exit 1
 fi
