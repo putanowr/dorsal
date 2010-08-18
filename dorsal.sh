@@ -242,38 +242,39 @@ package_register() {
 }
 
 guess_platform() {
-    # Try to guess the name of the platform we're running on
-    if [ -f /usr/bin/cygwin1.dll ]
-    then
-	echo xp
-    elif [ -x /usr/bin/sw_vers ]
-    then
-	local MACOSVER=$(sw_vers -productVersion)
-	case ${MACOSVER} in
-	    10.4*) 	echo tiger;;
-	    10.5*)	echo leopard;;
-	    10.6*)	echo snowleopard;;
-	esac
-    elif [ -x /usr/bin/lsb_release ]; then
-	local DISTRO=$(lsb_release -i -s)
-	local CODENAME=$(lsb_release -c -s)
-	local DESCRIPTION=$(lsb_release -d -s)
-	case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
-	    Ubuntu:*:*)			echo ${CODENAME};;
-	    Debian:*:*)			echo ${CODENAME};;
-	    Gentoo:*:*)			echo gentoo;;
-	    *:Cambridge:*)		echo fedora10;;
-	    *:Leonidas:*)		echo fedora11;;
-	    *:Constantine:*)		echo fedora12;;
-	    *:Goddard:*)                echo fedora13;; 
-	    *:Nahant*:*)		echo rhel4;;
-	    *:Tikanga*:*)		echo rhel5;;
-	    *:*:CentOS*\ 4*)		echo rhel4;;
-	    *:*:CentOS*\ 5*)		echo rhel5;;
-	    *:*:openSUSE\ 11.1*)	echo opensuse11.1;;
-	    *:*:openSUSE\ 11.2*)	echo opensuse11.2;;
-	esac
-    fi
+  # Try to guess the name of the platform we're running on
+  if [ -f /usr/bin/cygwin1.dll ]
+  then
+      echo xp
+  elif [ -x /usr/bin/sw_vers ]
+  then
+    local MACOSVER=$(sw_vers -productVersion)
+    case ${MACOSVER} in
+      10.4*) 	echo tiger;;
+      10.5*)	echo leopard;;
+      10.6*)	echo snowleopard;;
+    esac
+  elif [ -x /usr/bin/lsb_release ]; then
+    local DISTRO=$(lsb_release -i -s)
+    local CODENAME=$(lsb_release -c -s)
+    local DESCRIPTION=$(lsb_release -d -s)
+    case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
+      Ubuntu:*:*)           echo ${CODENAME};;
+      Debian:*:*)           echo ${CODENAME};;
+      Gentoo:*:*)           echo gentoo;;
+      *:Cambridge:*)        echo fedora10;;
+      *:Leonidas:*)         echo fedora11;;
+      *:Constantine:*)      echo fedora12;;
+      *:Goddard:*)          echo fedora13;;
+      *:Nahant*:*)          echo rhel4;;
+      *:Tikanga*:*)         echo rhel5;;
+      *:*:*CentOS*\ 4*)      echo rhel4;;
+      *:*:*CentOS*\ 5*)      echo rhel5;;
+      *:*:*openSUSE\ 11.1*)  echo opensuse11.1;;
+      *:*:*openSUSE\ 11.2*)  echo opensuse11.2;;
+      *:*:*openSUSE\ 11.3*)  echo opensuse11.3;;
+    esac
+  fi
 }
 
 guess_architecture() {
@@ -326,7 +327,7 @@ then
 else
   cecho ${BAD} "Error: No project configuration directory found for project ${PROJECT}."
   echo "Please check if you have specified right project name in dorsal.cfg"
-  echo "Please check if you have directory called ${PROJECT}" 
+  echo "Please check if you have directory called ${PROJECT}"
   echo "with subdirectories ${PROJECT}/platforms and ${PROJECT}/packages"
   exit 1
 fi
@@ -341,6 +342,7 @@ then
 	echo "If you know the platform you are interested in (myplatform), please specify it directly, as:"
 	echo "./dorsal.sh ${PROJECT}/platforms/myplatform.platform"
 	echo "If you'd like to learn more, refer to the file USAGE for detailed usage instructions."
+	echo "Fedora/Redhat users may need to run 'yum install redhat-lsb' and then try dorsal.sh again."
 	exit 1
     fi
     cecho ${GOOD} "Building ${PROJECT} for with ${PLATFORM}:"
@@ -418,6 +420,14 @@ export PYTHONPATH=${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages:${PYTHONP
 export PKG_CONFIG_PATH=${INSTALL_PATH}/lib/pkgconfig:${PKG_CONFIG_PATH}
 ORIG_PROCS=${PROCS}
 
+# Add some extra library paths for 64 bit machines
+guess_architecture
+if [ "$ARCH" == "x86_64" ]; then
+    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib64:${LD_LIBRARY_PATH}
+    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib64:${DYLD_LIBRARY_PATH}
+    export PYTHONPATH=${INSTALL_PATH}/lib64/python${PYTHONVER}/site-packages:${PYTHONPATH}
+fi
+
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
@@ -435,8 +445,8 @@ do
     # Check if the package exists
     if [ ! -e ${PROJECT}/packages/${PACKAGE}.package ]
     then
-	cecho ${BAD} "${PROJECT}/packages/${PACKAGE}.package does not exist yet. Please create it."
-	exit 1
+        cecho ${BAD} "${PROJECT}/packages/${PACKAGE}.package does not exist yet. Please create it."
+        exit 1
     fi
 
     # Reset package-specific variables
@@ -470,8 +480,8 @@ do
     # Ensure that the package file is sanely constructed
     if [ ! ${NAME} ] || [ ! ${SOURCE} ] || [ ! ${PACKING} ] || [ ! ${BUILDCHAIN} ]
     then
-	cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
-	exit 1
+        cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
+        exit 1
     fi
 
     if [ ${SKIP} = false ]
