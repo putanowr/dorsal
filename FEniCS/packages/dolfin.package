@@ -1,80 +1,13 @@
 NAME=dolfin
 SOURCE=lp:
 PACKING=bzr
-BUILDCHAIN=scons
-SCONSOPTS="enableDebug=0 enableOptimize=yes enableDemos=no enablePython=yes
-withBoostDir=${BOOST_DIR} withArmadilloDir=${ARMADILLO_DIR}"
-TARGETS=(configure '' install)
-
-# Handle optional dependencies
-if [[ ${UMFPACK_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableUmfpack=yes withUmfpackDir=${UMFPACK_DIR} enableCholmod=yes withCholmodDir=${UMFPACK_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableUmfpack=no enableCholmod=no"
-fi
-
-if [[ ${PETSC_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enablePetsc=yes withPetscDir=${PETSC_DIR} withPetscArch=${PETSC_ARCH}"
-else
-    SCONSOPTS="${SCONSOPTS} enablePetsc=no"
-fi
-
-if [[ ${SLEPC_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableSlepc=yes withSlepcDir=${SLEPC_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableSlepc=no"
-fi
-
-if [[ ${MTL4_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableMtl4=yes withMtl4Dir=${MTL4_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableMtl4=no"
-fi
-
-if [[ ${TRILINOS_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableTrilinos=yes withTrilinosDir=${TRILINOS_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableTrilinos=no"
-fi
-
-if [[ ${GMP_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableGmp=yes withGmpDir=${GMP_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableGmp=no"
-fi
-
-if [[ ${PARMETIS_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableParmetis=yes withParmetisDir=${PARMETIS_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableParmetis=no"
-fi
-
-if [[ ${SCOTCH_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableScotch=yes withScotchDir=${SCOTCH_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableScotch=no"
-fi
-
-if [[ ${CGAL_DIR} ]]
-then
-    SCONSOPTS="${SCONSOPTS} enableCgal=yes withCgalDir=${CGAL_DIR}"
-else
-    SCONSOPTS="${SCONSOPTS} enableCgal=no"
-fi
+BUILDCHAIN=cmake
 
 package_specific_setup () {
     export CC=mpicc
     export CXX=mpic++
     # Remove -Werror from CXXFLAGS
-    export CXXFLAGS="-Wall -pipe -ansi"
+    #export CXXFLAGS="-Wall -pipe -ansi"
 }
 
 package_specific_install () {

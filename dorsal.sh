@@ -201,6 +201,10 @@ package_build() {
 	do
 	    echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
 	done
+    elif [ ${BUILDCHAIN} = "cmake" ]
+    then
+        echo cmake . -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} >>dorsal_build
+        echo make install >>dorsal_build
     elif [ ${BUILDCHAIN} = "custom" ]
     then
         # Write the function definition to file
