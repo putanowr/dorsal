@@ -31,7 +31,7 @@ slepc
 # ginac
 # swiginac
 mtl
-trilinos
+# trilinos
 cgal
 fiat
 ferari
