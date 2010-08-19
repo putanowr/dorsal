@@ -9,7 +9,8 @@ package_specific_setup () {
         COPTFLAGS=-O2 \
         --with-debugging=0 --with-shared=1 --with-clanguage=cxx \
         --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR} \
-        --download-umfpack=1
+        --download-umfpack=1 \
+        --download-hypre=1 --download-mumps=1 --download-scalapack=1 --download-blacs=1
 }
 
 package_specific_install () {
