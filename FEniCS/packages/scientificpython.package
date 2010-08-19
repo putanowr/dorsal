@@ -2,3 +2,8 @@ NAME=ScientificPython-2.8
 SOURCE=http://sourcesup.cru.fr/frs/download.php/2309/
 PACKING=.tar.gz
 BUILDCHAIN=python
+
+package_specific_setup () {
+    patch --forward < ${ORIG_DIR}/FEniCS/patches/scientificpython.patch || true
+}
+

@@ -33,7 +33,7 @@ mtl
 #trilinos
 #scotch
 cgal
-#scientificpython
+scientificpython
 fiat
 #ferari
 ufc

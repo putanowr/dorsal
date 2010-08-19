@@ -1,0 +1,16 @@
+Only in ScientificPython-2.8_patched: build
+diff -crB ScientificPython-2.8/setup.py ScientificPython-2.8_patched/setup.py
+*** ScientificPython-2.8/setup.py	2008-10-28 13:31:44.000000000 +0000
+--- ScientificPython-2.8_patched/setup.py	2010-08-19 17:20:03.951704369 +0100
+***************
+*** 45,50 ****
+--- 45,53 ----
+                                   "Lib/site-packages/numpy/core/include")]
+      else:
+          arrayobject_h_include = [os.path.join(sys.prefix,
++                                   "lib64/python%s.%s/site-packages/numpy/core/include"
++                                   % sys.version_info [:2]),
++                                 os.path.join(sys.prefix,
+                                  "lib/python%s.%s/site-packages/numpy/core/include"
+                                  % sys.version_info [:2])]
+  
