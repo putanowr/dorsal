@@ -5,16 +5,19 @@ BUILDCHAIN=autotools
 
 package_specific_setup () {
     export PETSC_DIR=${PWD}
-    ./config/configure.py COPTFLAGS=-O3 --with-debugging=0 --with-shared=1 --with-clanguage=cxx --download-umfpack=1 --prefix=${INSTALL_PATH}
+    ./config/configure.py \
+        COPTFLAGS=-O2 \
+        --with-debugging=0 --with-shared=1 --with-clanguage=cxx \
+        --download-hypre=0 --download-umfpack=1 --download-mumps=0 \
+        --download-scalapack=0 --download-blacs=0 \
+        --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}
+    # missing: hypre, scalapak, blacs
 }
 
 package_specific_install () {
-    if [ -e ${INSTALL_PATH}/lib/${PETSC_ARCH} ]
-    then
-        ln -sf ${INSTALL_PATH}/lib/${PETSC_ARCH}/lib/* ${INSTALL_PATH}/lib/
-    fi
+    ln -sf ${PWD} ${INSTALL_PATH}/lib/petsc
 }
 
 package_specific_register () {
-    export PETSC_DIR=${PWD}
+    export PETSC_DIR=${INSTALL_PATH}/lib/petsc
 }

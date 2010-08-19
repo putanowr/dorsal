@@ -16,7 +16,7 @@ fi
 
 if [[ ${PETSC_DIR} ]]
 then
-    SCONSOPTS="${SCONSOPTS} enablePetsc=yes withPetscDir=${PETSC_DIR}"
+    SCONSOPTS="${SCONSOPTS} enablePetsc=yes withPetscDir=${PETSC_DIR} withPetscArch=${PETSC_ARCH}"
 else
     SCONSOPTS="${SCONSOPTS} enablePetsc=no"
 fi

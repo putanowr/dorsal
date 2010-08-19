@@ -10,17 +10,14 @@
 # Then, run the following to install the actual packages:
 #
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
-# openmpi-devel scons python-devel python-numpy swig wget boost-devel \
-# vtk-python libatlas3-devel libblas3 liblapack3 suitesparse-common-devel \
-# gmp-devel cmake cmake-gui umfpack-devel
+# openmpi-devel scons python-devel python-numpy python-numpy-devel swig wget \
+# boost-devel vtk-python liblapack3  libblas3 liblapack3 \
+# suitesparse-common-devel gmp-devel cmake cmake-gui umfpack-devel
 #
 # Note: openSUSE 11.3 is missing libatlas3-devel
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-#default UMFPACK_DIR=/usr
-#default BOOST_DIR=/usr
-#default GMP_DIR=/usr
 #default SCOTCH_ARCH=i686_pc_linux2
 
 #export CXX= /usr/lib64/mpi/gcc/openmpi/bin/mpicxx
