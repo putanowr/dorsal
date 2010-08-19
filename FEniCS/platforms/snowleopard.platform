@@ -34,19 +34,19 @@ export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 # Define the packages this platform needs
 PACKAGES=(
 petsc
-slepc
-armadillo
-# swiginac
-mtl
-# trilinos
-scotch
-fiat
-ferari
-ufc
-ufl
-ffc
-# syfi
-viper
-instant
-dolfin
+#slepc
+#armadillo
+## swiginac
+#mtl
+## trilinos
+#scotch
+#fiat
+#ferari
+#ufc
+#ufl
+#ffc
+## syfi
+#viper
+#instant
+#dolfin
 )
