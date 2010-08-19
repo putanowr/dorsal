@@ -11,7 +11,7 @@
 #
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
 # openmpi-devel scons python-devel python-numpy python-numpy-devel swig wget \
-# boost-devel vtk-python liblapack3  libblas3 liblapack3 \
+# boost-devel vtk-python liblapack3  libblas3 liblapack3 mpfr-devel \
 # suitesparse-common-devel gmp-devel cmake cmake-gui umfpack-devel
 #
 # Note: openSUSE 11.3 is missing libatlas3-devel
