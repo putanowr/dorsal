@@ -6,10 +6,17 @@ BUILDCHAIN=custom
 package_specific_setup () {
     perl -pi -e 's/\/lib/\/lib64/g' Makefile.in
     perl -pi -e 's/^OPTFLAGS =/OPTFLAGS = -fPIC/g' Makefile.in
+
+    # This is needed for MacOS (malloc.h is in /usr/include/sys).
+    # And it should only be used for ParMETIS, not METIS...
+    perl -pi -e 's/-I./-I. -I\/usr\/include\/sys/g' ParMETISLib/Makefile
 }
 
 package_specific_build() {
-    make default
+    cd METISLib; make
+    cd ..
+    cd ParMETISLib; make
+    cd ..
 }
 
 package_specific_install () {
