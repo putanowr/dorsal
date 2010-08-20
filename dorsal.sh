@@ -351,7 +351,7 @@ then
 	echo "If you'd like to learn more, refer to the file USAGE for detailed usage instructions."
 	exit 1
     fi
-    cecho ${GOOD} "Building ${PROJECT} for with ${PLATFORM}:"
+    cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
     echo "-------------------------------------------------------------------------------"
     # Show the initial comments in the platform file, as it often
     # contains instructions about packages that should be installed
