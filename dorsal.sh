@@ -269,15 +269,15 @@ guess_platform() {
     local CODENAME=$(lsb_release -c -s)
     local DESCRIPTION=$(lsb_release -d -s)
     case ${DISTRO}:${CODENAME}:${DESCRIPTION} in
-      Ubuntu:*:*)           echo ${CODENAME};;
-      Debian:*:*)           echo ${CODENAME};;
-      Gentoo:*:*)           echo gentoo;;
-      *:Cambridge:*)        echo fedora10;;
-      *:Leonidas:*)         echo fedora11;;
-      *:Constantine:*)      echo fedora12;;
-      *:Goddard:*)          echo fedora13;;
-      *:Nahant*:*)          echo rhel4;;
-      *:Tikanga*:*)         echo rhel5;;
+      Ubuntu:*:*)            echo ${CODENAME};;
+      Debian:*:*)            echo ${CODENAME};;
+      Gentoo:*:*)            echo gentoo;;
+      *:Cambridge:*)         echo fedora10;;
+      *:Leonidas:*)          echo fedora11;;
+      *:Constantine:*)       echo fedora12;;
+      *:Goddard:*)           echo fedora13;;
+      *:Nahant*:*)           echo rhel4;;
+      *:Tikanga*:*)          echo rhel5;;
       *:*:*CentOS*\ 4*)      echo rhel4;;
       *:*:*CentOS*\ 5*)      echo rhel5;;
       *:*:*openSUSE\ 11.1*)  echo opensuse11.1;;
@@ -294,11 +294,11 @@ guess_architecture() {
   then
   	ARCH=`uname -m`
   fi
-	case ${ARCH} in
-	    *_64) echo "64";;
-	    i?86) echo "32";;
-	    *)	  echo $ARCH;;
-	esac
+#	case ${ARCH} in
+#	    *_64) echo "64";;
+#	    i?86) echo "32";;
+#	    *)	  echo $ARCH;;
+#	esac
 }
 
 ### Start the build process ###
