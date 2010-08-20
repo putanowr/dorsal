@@ -1,19 +1,26 @@
-NAME=trilinos-9.0.3
+NAME=trilinos-10.4.0-Source
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
-TARGETS=('' install clean)
-CONFOPTS="--enable-shared --enable-default-packages --enable-epetra --enable-ml --enable-galeri \
-          --enable-teuchos --enable-amesos --enable-python --enable-pytrilinos \
-          --disable-export-makefiles --disable-examples --disable-tests --with-cflags=-fPIC \
-          --with-cxxflags=-fPIC --with-fflags=-fPIC --with-ldflags=-fPIC --with-ccflags=-fPIC \
-          --enable-mpi --with-mpi-compilers"
+BUILDCHAIN=custom
 
-# Old options not used
-#--cache-file=config.cache CC="mpicc" CXX="mpicxx"
-
-package_specific_setup () {
-    patch --forward packages/PyTrilinos/src/FILEstream.cpp < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
+package_specific_build () {
+    mkdir -p build
+    cd build
+    cmake \
+      -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON \
+      -D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
+      -D Trilinos_ENABLE_Fortran:BOOL=OFF \
+      -D Trilinos_ENABLE_TESTS:BOOL=OFF \
+      -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \
+      -D CMAKE_BUILD_TYPE:STRING=DEBUG \
+      -D BUILD_SHARED_LIBS:BOOL=ON \
+      -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos \
+      -D TPL_ENABLE_MPI:BOOL=ON \
+      -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
+      -D PyTrilinos_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
+      ..
+    make
+    make install
 }
 
 package_specific_register () {
