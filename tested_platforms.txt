@@ -1,0 +1,26 @@
+Dorsal has been tested by the developers on the below platforms.  Dorsal may
+work on platforms which are not listed, but has not been extensively tested.
+
+- OSX 10.6 (Snow Leopard)           [Testing in progress, Anders]
+- OSX 10.5 (Leopard)                [Testing in progress, ??]
+
+- Fedora 13 (32 bit)                [Testing in progress, Garth]
+- Fedora 13 (64 bit)                [Testing in progress, Garth]
+
+- openSUSE 11.3 (32 bit)            [Testing in progress, Garth]
+- openSUSE 11.3 (64 bit)            [Testing in progress, Garth]
+
+- Debian XXXXX                      [Testing in progress]
+
+- Ubuntu 10.04 (Lucid, 32 bit)      [Testing in progress]
+- Ubuntu 10.04 (Lucid, 64 bit)      [Testing in progress]
+
+- Ubuntu 10.10 (Maverick, 32 bit)   [Testing in progress]
+- Ubuntu 10.10 (Maverick, 64 bit)   [Testing in progress]
+
+- CentOS 5.5 (32 bit)               [Testing in progress]
+- CentOS 5.5 (64 bit)               [Testing in progress]
+* CentOS is derived from Red Hat Enterprise Linux (RHEL), so Dorsal should
+work on RHEL.
+
+
