@@ -203,8 +203,11 @@ package_build() {
         done
     elif [ ${BUILDCHAIN} = "cmake" ]
     then
-        echo cmake . -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} >>dorsal_build
-        echo make install >>dorsal_build
+        BUILD_DIR="./dorsal_build_dir"
+        echo mkdir -p ${BUILD_DIR} >>dorsal_build
+        echo cd ${BUILD_DIR} >>dorsal_build
+        echo cmake ../ -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} >>dorsal_build
+        echo make install -j ${PROCS} >>dorsal_build
     elif [ ${BUILDCHAIN} = "custom" ]
     then
         # Write the function definition to file

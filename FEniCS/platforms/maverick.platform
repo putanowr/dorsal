@@ -16,12 +16,7 @@
 ##
 
 # Platform specific variables
-default PETSC_ARCH=linux-gnu-cxx-opt
-#default UMFPACK_DIR=/usr
-#default BOOST_DIR=/usr
-#default SCOTCH_DIR=/usr
 default PARMETIS_DIR=/usr
-#default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -31,7 +26,7 @@ slepc
 # ginac
 # swiginac
 mtl
-# trilinos
+trilinos
 # cgal
 fiat
 # ferari
