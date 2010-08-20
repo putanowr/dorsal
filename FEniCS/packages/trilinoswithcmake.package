@@ -1,0 +1,28 @@
+NAME=trilinos-10.4.0-Source
+SOURCE=http://trilinos.sandia.gov/download/files/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+
+package_specific_build () {
+    mkdir -p build
+    cd build
+    cmake \
+      -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON \
+      -D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
+      -D Trilinos_ENABLE_Fortran:BOOL=OFF \
+      -D Trilinos_ENABLE_TESTS:BOOL=OFF \
+      -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \
+      -D CMAKE_BUILD_TYPE:STRING=DEBUG \
+      -D BUILD_SHARED_LIBS:BOOL=ON \
+      -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos \
+      -D TPL_ENABLE_MPI:BOOL=ON \
+      -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
+      -D PyTrilinos_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
+      ..
+    make
+    make install
+}
+
+package_specific_register () {
+    export TRILINOS_DIR=${INSTALL_PATH}
+}
