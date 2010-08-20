@@ -49,55 +49,55 @@ package_fetch () {
     # Fetch the package appropriately from its source
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
-	# Only download tarballs that do not exist
-	if [ ! -e ${NAME}${PACKING} ]
-	then
-	    wget --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
-	fi
+      # Only download tarballs that do not exist
+      if [ ! -e ${NAME}${PACKING} ]
+      then
+        wget --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
+      fi
     elif [ ${PACKING} = "hg" ]
     then
-	# Suitably clone or update hg repositories
-	if [ ! -d ${NAME} ]
-	then
-	    hg clone ${SOURCE}${NAME}
-	else
-	    cd ${NAME}
-	    hg pull --update
-	    cd ..
-	fi
+      # Suitably clone or update hg repositories
+      if [ ! -d ${NAME} ]
+      then
+        hg clone ${SOURCE}${NAME}
+      else
+        cd ${NAME}
+        hg pull --update
+        cd ..
+      fi
     elif [ ${PACKING} = "svn" ]
     then
-	# Suitably check out or update svn repositories
-	if [ ! -d ${NAME} ]
-	then
-	    svn co ${SOURCE} ${NAME}
-	else
-	    cd ${NAME}
-	    svn up
-	    cd ..
-	fi
+      # Suitably check out or update svn repositories
+      if [ ! -d ${NAME} ]
+      then
+  	    svn co ${SOURCE} ${NAME}
+      else
+        cd ${NAME}
+        svn up
+        cd ..
+      fi
     elif [ ${PACKING} = ".git" ]
     then
-	# Suitably clone or update git repositories
-	if [ ! -d ${NAME} ]
-	then
-	    git clone ${SOURCE}${NAME}${PACKING}
-	else
-	    cd ${NAME}
-	    git pull
-	    cd ..
-	fi
+      # Suitably clone or update git repositories
+      if [ ! -d ${NAME} ]
+      then
+        git clone ${SOURCE}${NAME}${PACKING}
+      else
+        cd ${NAME}
+        git pull
+        cd ..
+      fi
     elif [ ${PACKING} = "bzr" ]
     then
-	# Suitably branch or update bzr repositories
-	if [ ! -d ${NAME} ]
-	then
-	    bzr branch ${SOURCE}${NAME}
-	else
-	    cd ${NAME}
-	    bzr pull
-	    cd ..
-	fi
+      # Suitably branch or update bzr repositories
+      if [ ! -d ${NAME} ]
+      then
+        bzr branch ${SOURCE}${NAME}
+      else
+        cd ${NAME}
+        bzr pull
+        cd ..
+      fi
     fi
 
     # Quit with a useful message if something goes wrong
@@ -113,26 +113,26 @@ package_unpack() {
     # Only need to unpack tarballs
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
-	cecho ${GOOD} "Unpacking ${NAME}"
-	# Make sure the tarball was downloaded
-	if [ ! -e ${NAME}${PACKING} ]
-	then
-	    cecho ${BAD} "${NAME}${PACKING} does not exist. Please download first."
-	    exit 1
-	fi
-	# Set appropriate decompress flag
-	if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
-	then
-	    C="j"
-	else
-	    C="z"
-	fi
+      cecho ${GOOD} "Unpacking ${NAME}"
+      # Make sure the tarball was downloaded
+      if [ ! -e ${NAME}${PACKING} ]
+      then
+        cecho ${BAD} "${NAME}${PACKING} does not exist. Please download first."
+        exit 1
+      fi
+      # Set appropriate decompress flag
+      if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
+      then
+        C="j"
+      else
+        C="z"
+      fi
 
-	# Unpack the tarball only if it isn't already
-	if [ ! -d "${EXTRACTSTO}" ]
-	then
-	    tar x${C}f ${NAME}${PACKING}
-	fi
+      # Unpack the tarball only if it isn't already
+      if [ ! -d "${EXTRACTSTO}" ]
+      then
+        tar x${C}f ${NAME}${PACKING}
+      fi
     fi
 
     # Quit with a useful message if something goes wrong
@@ -144,8 +144,8 @@ package_build() {
     cecho ${GOOD} "Building ${NAME}"
     if [ ! -d "${EXTRACTSTO}" ]
     then
-	cecho ${BAD} "${EXTRACTSTO} does not exist -- please unpack first."
-	exit 1
+        cecho ${BAD} "${EXTRACTSTO} does not exist -- please unpack first."
+        exit 1
     fi
 
     if [ x"${CLEANBUILD}" = "xyes" ]
@@ -160,7 +160,7 @@ package_build() {
     # Create build directory if it does not exist
     if [ ! -d ${BUILDDIR} ]
     then
-      mkdir -p ${BUILDDIR}
+        mkdir -p ${BUILDDIR}
     fi
 
     # Move to the build directory
@@ -183,24 +183,24 @@ package_build() {
 
     if [ ${BUILDCHAIN} = "autotools" ]
     then
-	if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
-	then
-	    ${SRCDIR}/configure ${CONFOPTS} --prefix=${INSTALL_PATH}
-	    quit_if_fail "There was a problem configuring build for ${NAME}."
-	fi
-	for target in "${TARGETS[@]}"
-	do
-	    echo make -j ${PROCS} $target >>dorsal_build
-	done
+        if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
+        then
+            ${SRCDIR}/configure ${CONFOPTS} --prefix=${INSTALL_PATH}
+            quit_if_fail "There was a problem configuring build for ${NAME}."
+        fi
+        for target in "${TARGETS[@]}"
+        do
+            echo make -j ${PROCS} $target >>dorsal_build
+        done
     elif [ ${BUILDCHAIN} = "python" ]
     then
-	echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
+        echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
     elif [ ${BUILDCHAIN} = "scons" ]
     then
-	for target in "${TARGETS[@]}"
-	do
-	    echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
-	done
+        for target in "${TARGETS[@]}"
+        do
+            echo python `which scons` -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
+        done
     elif [ ${BUILDCHAIN} = "cmake" ]
     then
         echo cmake . -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} >>dorsal_build
@@ -208,18 +208,18 @@ package_build() {
     elif [ ${BUILDCHAIN} = "custom" ]
     then
         # Write the function definition to file
-	declare -f package_specific_build >>dorsal_build
-	echo package_specific_build >>dorsal_build
+        declare -f package_specific_build >>dorsal_build
+        echo package_specific_build >>dorsal_build
     fi
 
     chmod a+x dorsal_build
     if [ ${BASH_VERSINFO} -ge 3 ]
     then
         # Log the build
-	set -o pipefail
-	./dorsal_build 2>&1 | tee build_log
+        set -o pipefail
+            ./dorsal_build 2>&1 | tee build_log
     else
-	./dorsal_build
+            ./dorsal_build
     fi
     quit_if_fail "There was a problem building ${NAME}."
 
@@ -233,8 +233,8 @@ package_register() {
     default EXTRACTSTO=${NAME}
     if [ ! -d "${EXTRACTSTO}" ]
     then
-	cecho ${BAD} "${EXTRACTSTO} does not exist -- please install at least once."
-	exit 1
+        cecho ${BAD} "${EXTRACTSTO} does not exist -- please install at least once."
+        exit 1
     fi
 
     # Move to the package directory
@@ -362,9 +362,9 @@ then
     echo
     if [ ${STABLE_BUILD} = true ]
     then
-	echo "Building stable point-releases of ${PROJECT} projects."
+      echo "Building stable point-releases of ${PROJECT} projects."
     else
-	echo "Building development versions of ${PROJECT} projects."
+      echo "Building development versions of ${PROJECT} projects."
     fi
     echo "-------------------------------------------------------------------------------"
     cecho ${GOOD} "Please make sure you've read the instructions above and your system"
@@ -391,8 +391,8 @@ then
 	PACKAGES=(${PACKAGE})
 	PLATFORM="${PROJECT}/platforms/.single"
     else
-	echo "If you'd like to install a single package, please use the syntax:"
-	echo "./dorsal.sh install-package foo"
+      echo "If you'd like to install a single package, please use the syntax:"
+      echo "./dorsal.sh install-package foo"
 	exit 1
     fi
 fi
@@ -442,8 +442,8 @@ do
     SKIP=false
     if [ ${PACKAGE:0:5} = "skip:" ]
     then
-	SKIP=true
-	PACKAGE=${PACKAGE#skip:}
+      SKIP=true
+      PACKAGE=${PACKAGE#skip:}
     fi
 
     # Check if the package exists
@@ -478,7 +478,7 @@ do
     # wants and it exists
     if [ ${STABLE_BUILD} = true ] && [ -e ${PROJECT}/packages/${PACKAGE}-stable.package ]
     then
-	source ${PROJECT}/packages/${PACKAGE}-stable.package
+      source ${PROJECT}/packages/${PACKAGE}-stable.package
     fi
 
     # Ensure that the package file is sanely constructed
@@ -490,13 +490,13 @@ do
 
     if [ ${SKIP} = false ]
     then
-        # Fetch, unpack and build the current package
-	package_fetch
-	package_unpack
-	package_build
+      # Fetch, unpack and build the current package
+      package_fetch
+      package_unpack
+      package_build
     else
-        # Let the user know we're skipping the current package
-	cecho ${GOOD} "Skipping ${NAME}"
+      # Let the user know we're skipping the current package
+      cecho ${GOOD} "Skipping ${NAME}"
     fi
     package_register
 done

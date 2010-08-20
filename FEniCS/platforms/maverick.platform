@@ -1,9 +1,9 @@
-# Ubuntu 10.04
+# Ubuntu 10.10
 
 # This build script assumes that you have the following packages
 # already installed via Ubuntu's apt-get:
 #
-# sudo apt-get install g++ gfortran scons bzr bzrtools libxml2-dev \
+# sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin libopenmpi-dev \
 # libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
@@ -16,12 +16,12 @@
 ##
 
 # Platform specific variables
-default PETSC_ARCH=linux-gnu-c-opt
-default UMFPACK_DIR=/usr
-default BOOST_DIR=/usr
-default SCOTCH_DIR=/usr
+default PETSC_ARCH=linux-gnu-cxx-opt
+#default UMFPACK_DIR=/usr
+#default BOOST_DIR=/usr
+#default SCOTCH_DIR=/usr
 default PARMETIS_DIR=/usr
-default GMP_DIR=/usr
+#default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
