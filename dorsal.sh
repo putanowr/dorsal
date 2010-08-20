@@ -250,6 +250,9 @@ guess_platform() {
   if [ -f /usr/bin/cygwin1.dll ]
   then
       echo xp
+  elif [ -f /etc/fedora-release ]
+  then
+      echo `gawk '{if (match($0,/\((.*)\)/,f)) print f[1]}' /etc/fedora-release`
   elif [ -x /usr/bin/sw_vers ]
   then
     local MACOSVER=$(sw_vers -productVersion)
@@ -346,7 +349,6 @@ then
 	echo "If you know the platform you are interested in (myplatform), please specify it directly, as:"
 	echo "./dorsal.sh ${PROJECT}/platforms/myplatform.platform"
 	echo "If you'd like to learn more, refer to the file USAGE for detailed usage instructions."
-	echo "Fedora/Redhat users may need to run 'yum install redhat-lsb' and then try dorsal.sh again."
 	exit 1
     fi
     cecho ${GOOD} "Building ${PROJECT} for with ${PLATFORM}:"
