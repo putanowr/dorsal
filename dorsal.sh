@@ -255,7 +255,13 @@ guess_platform() {
       echo xp
   elif [ -f /etc/fedora-release ]
   then
-      echo `gawk '{if (match($0,/\((.*)\)/,f)) print f[1]}' /etc/fedora-release`
+      local FEDORANAME=`gawk '{if (match($0,/\((.*)\)/,f)) print f[1]}' /etc/fedora-release`
+      case ${FEDORANAME} in
+          Cambridge*)   echo fedora10;;
+          Leonidas*)    echo fedora11;;
+          Constantine*) echo fedora12;;
+          Goddard*)     echo fedora13;;
+      esac
   elif [ -x /usr/bin/sw_vers ]
   then
     local MACOSVER=$(sw_vers -productVersion)
@@ -272,10 +278,6 @@ guess_platform() {
       Ubuntu:*:*)            echo ${CODENAME};;
       Debian:*:*)            echo ${CODENAME};;
       Gentoo:*:*)            echo gentoo;;
-      *:Cambridge:*)         echo fedora10;;
-      *:Leonidas:*)          echo fedora11;;
-      *:Constantine:*)       echo fedora12;;
-      *:Goddard:*)           echo fedora13;;
       *:Nahant*:*)           echo rhel4;;
       *:Tikanga*:*)          echo rhel5;;
       *:*:*CentOS*\ 4*)      echo rhel4;;
