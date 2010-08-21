@@ -349,6 +349,7 @@ if [ $# -eq 0 ]
 then
     PLATFORM_SUPPORTED=${PROJECT}/platforms/supported/`guess_platform`.platform
     PLATFORM_CONTRIB=${PROJECT}/platforms/contrib/`guess_platform`.platform
+    PLATFORM_CONTRIB=${PROJECT}/platforms/deprecated/`guess_platform`.platform
     if [ -e ${PLATFORM_SUPPORTED} ]; then
         PLATFORM=${PLATFORM_SUPPORTED}
         cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
@@ -356,6 +357,10 @@ then
         PLATFORM=${PLATFORM_CONTRIB}
         cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
         cecho ${BOLD} "Warning: Platform is not officially supported but may still work!"
+    elif [ -e ${PLATFORM_DEPRECATED} ]; then
+        PLATFORM=${PLATFORM_DEPRECATED}
+        cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
+        cecho ${BAD} "Warning: Platform is deprecated and will be removed shortly but may still work!"
     else
 	cecho ${BAD} "Error: Platform to build for not specified (and not automatically recognised)."
 	echo "If you know the platform you are interested in (myplatform), please specify it directly, as:"
