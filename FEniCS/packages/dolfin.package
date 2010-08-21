@@ -13,5 +13,5 @@ package_specific_setup () {
 package_specific_install () {
     unset CXXFLAGS
     cecho ${BOLD} "Before rushing off to try the examples, don't forget to execute the following to set your environment:"
-    cecho ${BOLD} "source $(prettify_dir $PWD/dolfin.conf)"
+    cecho ${BOLD} "source $(prettify_dir ${INSTALL_PATH}/share/dolfin/dolfin.conf)"
 }

@@ -8,7 +8,7 @@ package_specific_build () {
     cd build
     cmake \
       -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON \
-      -D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
+      -D Trilinos_ENABLE_PyTrilinos:BOOL=OFF \
       -D Trilinos_ENABLE_Fortran:BOOL=OFF \
       -D Trilinos_ENABLE_TESTS:BOOL=OFF \
       -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \

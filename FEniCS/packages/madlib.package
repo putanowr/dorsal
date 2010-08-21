@@ -1,4 +1,0 @@
-NAME=madlib-1.3.0
-SOURCE=http://sites.uclouvain.be/madlib/sources/
-PACKING=.tgz
-BUILDCHAIN=autotools

@@ -33,21 +33,21 @@ export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:parmetis
-skip:petsc
-skip:slepc
-skip:armadillo
+parmetis
+petsc
+slepc
+armadillo
 # swiginac
-skip:mtl
-# trilinos
-skip:scotch
-skip:fiat
-skip:ferari
-skip:ufc
-skip:ufl
-skip:ffc
+mtl
+trilinos
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
 # syfi
-skip:viper
-skip:instant
+viper
+instant
 dolfin
 )
