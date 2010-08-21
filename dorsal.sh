@@ -348,13 +348,13 @@ fi
 if [ $# -eq 0 ]
 then
     PLATFORM_SUPPORTED=${PROJECT}/platforms/supported/`guess_platform`.platform
-    PLATFORM_CONTRIB=${PROJECT}/platforms/contrib/`guess_platform`.platform
+    PLATFORM_CONTRIBUTED=${PROJECT}/platforms/contributed/`guess_platform`.platform
     PLATFORM_DEPRECATED=${PROJECT}/platforms/deprecated/`guess_platform`.platform
     if [ -e ${PLATFORM_SUPPORTED} ]; then
         PLATFORM=${PLATFORM_SUPPORTED}
         cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
-    elif [ -e ${PLATFORM_CONTRIB} ]; then
-        PLATFORM=${PLATFORM_CONTRIB}
+    elif [ -e ${PLATFORM_CONTRIBUTED} ]; then
+        PLATFORM=${PLATFORM_CONTRIBUTED}
         cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
         cecho ${BOLD} "Warning: Platform is not officially supported but may still work!"
     elif [ -e ${PLATFORM_DEPRECATED} ]; then
