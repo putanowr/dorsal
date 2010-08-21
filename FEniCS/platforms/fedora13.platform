@@ -5,29 +5,33 @@
 # the following as root:
 #
 # yum install -y redhat-lsb bzr bzrtools subversion libxml2-devel \
-# gcc gcc-c++ openmpi-devel scons numpy swig wget boost-devel \
+# gcc gcc-c++ openmpi-devel openmpi numpy swig wget boost-devel \
 # vtk-python atlas-devel suitesparse-devel blas-devel \
 # lapack-devel cln-devel ginac-devel python-devel cmake ScientificPython \
-# mpfr-devel armadillo-devel
+# mpfr-devel armadillo-devel gmp-devel CGAL-devel scotch-devel
+#
+# You also need to point to an MPI version. On a 32-bit operating system, run
+#
+#    module load openmpi-i386 
+#
+# or on a 64-bit operating system, run
+#
+#    module load openmpi-x86_64
 ##
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-default UMFPACK_DIR=/usr
-default BOOST_DIR=/usr
-default SCOTCH_ARCH=i686_pc_linux2
+#default UMFPACK_DIR=/usr
+#default BOOST_DIR=/usr
+#default SCOTCH_ARCH=i686_pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
-openmpi
 parmetis
-petsc
+petscextra
 slepc
 # swiginac
-gmp
 mtl
-scotch
-cgal
 fiat
 ferari
 ufc
