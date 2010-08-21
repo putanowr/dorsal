@@ -8,7 +8,7 @@
 # gcc gcc-c++ openmpi-devel openmpi numpy swig wget boost-devel \
 # vtk-python atlas-devel suitesparse-devel blas-devel \
 # lapack-devel cln-devel ginac-devel python-devel cmake ScientificPython \
-# mpfr-devel armadillo-devel gmp-devel CGAL-devel scotch-devel
+# mpfr-devel armadillo-devel gmp-devel CGAL-devel
 #
 # You also need to point to an MPI version. On a 32-bit operating system, run
 #
@@ -17,28 +17,31 @@
 # or on a 64-bit operating system, run
 #
 #    module load openmpi-x86_64
+#
+# This must be set to build various libraries and to run DOLFIN.
 ##
+
+## Note: scotch with MPI is available as a Fedora package, but it hardwred
+##       to use mpich2, which causes some link difficulties.
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-#default UMFPACK_DIR=/usr
-#default BOOST_DIR=/usr
-#default SCOTCH_ARCH=i686_pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
-parmetis
-petscextra
-slepc
+skip:parmetis
+#scotch
+skip:petscextra
+skip:slepc
 # swiginac
-mtl
-fiat
-ferari
-ufc
-ufl
-ffc
+skip:mtl
+skip:fiat
+#ferari
+skip:ufc
+skip:ufl
+skip:ffc
 # syfi
-viper
-instant
+skip:viper
+skip:instant
 dolfin
 )
