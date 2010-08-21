@@ -19,7 +19,7 @@ do
     package=`basename ${packagefull} .package`
     if [[ "${package}" != *stable ]]
     then
-	grep -q ${package} ../FEniCS/platforms/*.platform \
+	grep -q ${package} ../FEniCS/platforms/*/*.platform \
 	    && cecho ${GOOD} ${package} "package is used." \
 	    || cecho ${BAD} ${package} "package is not used."
     fi
