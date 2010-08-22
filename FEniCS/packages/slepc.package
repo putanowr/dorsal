@@ -1,7 +1,10 @@
 NAME=slepc-3.1-p1
-SOURCE=http://www.grycap.upv.es/slepc/download/distrib/
 PACKING=.tgz
 BUILDCHAIN=autotools
+
+# SLEPc web archive not very reliable so download from mirror
+#SOURCE=http://www.grycap.upv.es/slepc/download/distrib/
+SOURCE=http://www.fenics.org/pub/software/contrib/
 
 package_specific_setup () {
     export SLEPC_DIR=${PWD}
