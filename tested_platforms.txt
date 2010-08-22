@@ -23,4 +23,6 @@ work on platforms which are not listed, but has not been extensively tested.
 * CentOS is derived from Red Hat Enterprise Linux (RHEL), so Dorsal should
 work on RHEL.
 
+Other things to fix:
 
+- Trilinos currently disabled
