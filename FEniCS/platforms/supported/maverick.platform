@@ -6,7 +6,7 @@
 # sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin libopenmpi-dev \
-# libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
+# libatlas-base-dev libparmetis-dev libgmp3-dev libptscotch-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
 # libarmadillo-dev libcgal-dev
@@ -16,18 +16,17 @@
 ##
 
 # Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
 default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-# parmetis
 petscextra
 slepc
 # ginac
 # swiginac
 mtl
-trilinos
-# cgal
+#trilinos
 fiat
 # ferari
 ufc
