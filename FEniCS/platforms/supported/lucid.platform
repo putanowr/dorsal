@@ -25,20 +25,20 @@ default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-petscextra
-slepc
+skip:petscextra
+skip:slepc
 # ginac
 # swiginac
-mtl
+skip:mtl
 ##trilinos
 # cgal
-fiat
+skip:fiat
 # ferari
-ufc
-ufl
-ffc
+skip:ufc
+skip:ufl
+skip:ffc
 # syfi
-viper
-instant
+skip:viper
+skip:instant
 dolfin
 )
