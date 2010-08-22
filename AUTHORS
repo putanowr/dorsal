@@ -3,11 +3,11 @@ Dorsal is written and maintained by:
   Harish Narayanan <harish@simula.no>
   http://home.simula.no/~harish/
 
-Major[1] contributors include:
+Major contributors ordered by number of commits include:
 
-  Joachim B. Haga       <jobh@simula.no>
-  Anders Logg           <logg@simula.no>
   Garth N. Wells        <gnw20@cam.ac.uk>
+  Anders Logg           <logg@simula.no>
+  Joachim B. Haga       <jobh@simula.no>
   Roman Putanowicz      <putanowr@l5.pk.edu.pl>
   Ilmar Wilbers         <ilmarw@simula.no>
 
@@ -24,17 +24,4 @@ Minor contributors in chronological order include:
   Alexander Jarosch     <alex@alexj.at>
   Johannes Ring         <johannr@simula.no>
 
-Missing credits? Tell us and we will fix it.
-
-[1] The following script is used to order the major
-authors/contributors to Dorsal:
-
-bzr log -n0 | grep 'committer:' | sed -e 's/^.*committer: //g' \
-| sed -e 's/<.*>//g' | sed 's/[ \t]*$//' \
-| sed -e 's/garth.*/Garth N. Wells/g' \
-| sed -e 's/gnw20.*/Garth N. Wells/g' \
-| sed -e 's/harish.*/Harish Narayanan/g' \
-| sed -e 's/hnarayan@.*/Harish Narayanan/g' \
-| sed -e 's/ilmar.*/Ilmar Wilbers/g' \
-| sed -e 's/logg.*/Anders Logg/g' \
-| sort | uniq -c | sort -k 2,2n -r | gawk '{print $2" "$3" "$4}'
+Missing credits? Tell us and we will fix it!
