@@ -13,7 +13,7 @@ work on platforms which are not listed, but has not been extensively tested.
 - Debian XXXXX                      [Testing in progress]
 
 - Ubuntu 10.04 (Lucid, 32 bit)      [Testing in progress]
-- Ubuntu 10.04 (Lucid, 64 bit)      [Testing in progress]
+- Ubuntu 10.04 (Lucid, 64 bit)      [works, except for Trilinos]
 
 - Ubuntu 10.10 (Maverick, 32 bit)   [Testing in progress]
 - Ubuntu 10.10 (Maverick, 64 bit)   [Testing in progress]
