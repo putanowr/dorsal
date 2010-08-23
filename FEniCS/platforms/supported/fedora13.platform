@@ -19,6 +19,8 @@
 # or on a 64-bit operating system, run:
 #
 # 'module load openmpi-x86_64'
+#
+# If you are using SELinux, you may need to disable it to run DOLFIN programs
 ##
 
 # Platform specific variables
