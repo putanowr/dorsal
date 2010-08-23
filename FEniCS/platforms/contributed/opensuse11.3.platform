@@ -18,10 +18,7 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-#default SCOTCH_ARCH=i686_pc_linux2
-
-#export CXX= /usr/lib64/mpi/gcc/openmpi/bin/mpicxx
-#export CC= /usr/lib64/mpi/gcc/openmpi/bin/mpicxx
+default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -31,7 +28,7 @@ slepc
 armadillo
 mtl
 #trilinos
-#scotch
+scotch
 cgal
 scientificpython
 fiat
