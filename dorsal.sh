@@ -291,16 +291,16 @@ guess_platform() {
 
 guess_architecture() {
   # Try to guess the architecture of the platform we are running on
-  ARCH=unknown
-  if [ -x /usr/bin/uname -o -x /bin/uname ]
-  then
-  	ARCH=`uname -m`
-  fi
-#	case ${ARCH} in
-#	    *_64) echo "64";;
-#	    i?86) echo "32";;
-#	    *)	  echo $ARCH;;
-#	esac
+    ARCH=unknown
+    if [ -x /usr/bin/uname -o -x /bin/uname ]
+    then
+	ARCH=`uname -m`
+    fi
+    case ${ARCH} in
+	*_64) echo "64";;
+	i?86) echo "32";;
+	*)    echo $ARCH;;
+    esac
 }
 
 ### Start the build process ###
