@@ -3,8 +3,27 @@
 
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
-   Mac OS X 10.4 (with Fink)     (tiger)   [Being tested]
-   Windows XP  (with Cygwin)        (xp)   [Being tested]
+
+- OSX 10.6 (Snow Leopard)           [Testing in progress, Anders]
+- OSX 10.5 (Leopard)                [Testing in progress, ??]
+
+- Fedora 13 (32 bit)                [Testing in progress, Garth]
+- Fedora 13 (64 bit)                [Testing in progress, Garth]
+
+- openSUSE 11.3 (32 bit)            [Testing in progress, Garth]
+- openSUSE 11.3 (64 bit)            [Testing in progress, Garth]
+
+- Debian XXXXX                      [Testing in progress]
+
+- Ubuntu 10.04 (Lucid, 32 bit)      [Testing in progress]
+- Ubuntu 10.04 (Lucid, 64 bit)      [works, except for Trilinos]
+
+- Ubuntu 10.10 (Maverick, 32 bit)   [Testing in progress]
+- Ubuntu 10.10 (Maverick, 64 bit)   [Testing in progress]
+
+- CentOS/RHEL 5.5 (32 bit)          [Testing in progress]
+- CentOS/RHEL 5.5 (64 bit)          [Testing in progress]
+
   Feel free to contribute information for other platforms as well.
   Difficulty: Low       Urgency: High
 
@@ -20,8 +39,5 @@
 * Insert download links somewhere in the documentation
   Difficulty: Trivial   Urgency: Moderate
 
-* Move Trilinos package to 10.x branch
-  Difficulty: High      Urgency: Low
-
-* Move PETSc package to 3.1x branch
-  Difficulty: Low       Urgency: Low
+* Reintroduce support for Trilinos after move to 10.x branch
+  Difficulty: Moderate  Urgency: Low
