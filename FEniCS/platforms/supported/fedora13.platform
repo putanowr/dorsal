@@ -21,25 +21,20 @@
 # This must be set to build various libraries and to run DOLFIN.
 ##
 
-## Note: SCOTCH with MPI is available as a Fedora package, but it hardwired to
-##       use mpich2, which causes some link difficulties if OpenMPI is used. 
-##       Therefore we build our own verson of SCOTCH.
-
-# Platform specific variables (SCOTCH variable is a trick - it is not 32/64 bit
-# specific).
+# Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=i686_pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
-scotch
 petscextra
 slepc
 # swiginac
 mtl
+scotch
 fiat
-# ferari
+ferari
 ufc
 ufl
 ffc
