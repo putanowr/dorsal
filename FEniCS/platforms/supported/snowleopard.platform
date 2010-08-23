@@ -30,24 +30,25 @@ default CGAL_DIR=/opt/local
 default GMP_DIR=/opt/local
 
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
+export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:parmetis
-skip:petsc
-skip:slepc
-skip:armadillo
+parmetis
+petsc
+slepc
+armadillo
 # swiginac
-skip:mtl
+mtl
 # trilinos
-skip:scotch
-skip:fiat
-skip:ferari
-skip:ufc
-skip:ufl
-skip:ffc
+scotch
+fiat
+ferari
+ufc
+ufl
+ffc
 # syfi
-skip:viper
-skip:instant
+viper
+instant
 dolfin
 )
