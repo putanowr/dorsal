@@ -20,7 +20,7 @@
 #
 # and start a new shell before running the Dorsal script for the first
 # time. You may even need to logout or restart.
-#
+##
 # Note: openSUSE 11.3 is missing libatlas3-devel
 
 # Platform specific variables
