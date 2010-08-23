@@ -14,6 +14,13 @@
 # boost-devel vtk-python liblapack3  libblas3 liblapack3 mpfr-devel \
 # suitesparse-common-devel gmp-devel cmake cmake-gui umfpack-devel
 #
+# Make sure to run
+#
+#    mpi-selector --set openmpi-1.3.2
+#
+# and start a new shell before running the Dorsal script for the first
+# time. You may even need to logout or restart.
+#
 # Note: openSUSE 11.3 is missing libatlas3-devel
 
 # Platform specific variables
