@@ -32,6 +32,7 @@ petscextra
 slepc
 # swiginac
 mtl
+# trilinos
 scotch
 fiat
 ferari
