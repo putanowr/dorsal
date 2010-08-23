@@ -1,44 +1,39 @@
 # Ubuntu 10.04
 
-# This build script assumes that you have the following packages
-# already installed via Ubuntu's apt-get:
+# This build script assumes that you have several packages already
+# installed installed via Ubuntu's apt-get using the following
+# command:
 #
-# sudo apt-get install g++ gfortran scons bzr bzrtools libxml2-dev \
+# sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin libopenmpi-dev \
-# libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
+# libatlas-base-dev libparmetis-dev libgmp3-dev libptscotch-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
-# libarmadillo-dev libcgal-dev
+# libarmadillo-dev libcgal-dev libginac-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
 ##
 
 # Platform specific variables
-default PETSC_ARCH=linux-gnu-c-opt
-default UMFPACK_DIR=/usr
-default BOOST_DIR=/usr
-default SCOTCH_DIR=/usr
+default PETSC_ARCH=linux-gnu-cxx-opt
 default PARMETIS_DIR=/usr
-default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:petscextra
-skip:slepc
-# ginac
+petsc
+slepc
 # swiginac
-skip:mtl
-##trilinos
-# cgal
-skip:fiat
-# ferari
-skip:ufc
-skip:ufl
-skip:ffc
+mtl
+# trilinos
+fiat
+ferari
+ufc
+ufl
+ffc
 # syfi
-skip:viper
-skip:instant
+viper
+instant
 dolfin
 )
