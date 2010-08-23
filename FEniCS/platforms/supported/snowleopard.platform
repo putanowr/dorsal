@@ -35,7 +35,7 @@ export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
-petsc
+petsccore
 slepc
 armadillo
 # swiginac
