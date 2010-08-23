@@ -1,24 +1,23 @@
 # Fedora 13
 
-# This build script assumes that you have the following packages
-# already installed via Fedora's yum. In order to install them, run
-# the following as root:
+# This build script assumes that you have several packages already
+# installed installed via Fedora's yum using the following command:
 #
-# yum install -y redhat-lsb bzr bzrtools subversion libxml2-devel \
-# gcc gcc-c++ openmpi-devel openmpi numpy swig wget boost-devel \
-# vtk-python atlas-devel suitesparse-devel blas-devel \
-# lapack-devel cln-devel ginac-devel python-devel cmake ScientificPython \
-# mpfr-devel armadillo-devel gmp-devel CGAL-devel
+# su -c 'yum install -y redhat-lsb bzr bzrtools subversion \
+# libxml2-devel gcc gcc-c++ openmpi-devel openmpi numpy swig wget \
+# boost-devel vtk-python atlas-devel suitesparse-devel blas-devel \
+# lapack-devel cln-devel ginac-devel python-devel cmake \
+# ScientificPython mpfr-devel armadillo-devel gmp-devel CGAL-devel'
 #
-# You also need to point to an MPI version. On a 32-bit operating system, run
+# Also, if you have multiple MPI libraries installed, make sure the
+# appropriate version is selected. For this, on a 32-bit operating
+# system, run:
 #
-#    module load openmpi-i386 
+# su -c 'module load openmpi-i386'
 #
-# or on a 64-bit operating system, run
+# or on a 64-bit operating system, run:
 #
-#    module load openmpi-x86_64
-#
-# This must be set to build various libraries and to run DOLFIN.
+# su -c 'module load openmpi-x86_64'
 ##
 
 # Platform specific variables

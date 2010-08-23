@@ -1,7 +1,8 @@
 # Ubuntu 10.10
 
-# This build script assumes that you have the following packages
-# already installed via Ubuntu's apt-get:
+# This build script assumes that you have several packages already
+# installed installed via Ubuntu's apt-get using the following
+# command:
 #
 # sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
