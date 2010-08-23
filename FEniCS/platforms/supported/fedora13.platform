@@ -22,7 +22,7 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-default SCOTCH_ARCH=i686_pc_linux2
+default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -32,7 +32,7 @@ slepc
 # swiginac
 mtl
 # trilinos
-#scotch
+scotch
 fiat
 ferari
 ufc

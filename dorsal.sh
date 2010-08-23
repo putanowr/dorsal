@@ -296,11 +296,6 @@ guess_architecture() {
     then
 	ARCH=`uname -m`
     fi
-    case ${ARCH} in
-	*_64) echo "64";;
-	i?86) echo "32";;
-	*)    echo $ARCH;;
-    esac
 }
 
 ### Start the build process ###
