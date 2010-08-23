@@ -9,7 +9,7 @@ TARGETS=('' 'ptscotch')
 package_specific_setup () {
     if [ ${SCOTCH_ARCH} == "pc_linux2" ]
     then
-	SCOTCH_ARCH=$(echo $ARCH|sed 's/_/-/g')_${SCOTCH_ARCH}
+        SCOTCH_ARCH=$(echo $ARCH|sed 's/_/-/g')_${SCOTCH_ARCH}
     fi
     perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCS.*= gcc/CCS  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
