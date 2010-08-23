@@ -4,7 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_5.1.9/src
 PROCS=1
-TARGETS=('' 'ptscotch' 'install')
+TARGETS=('' 'ptscotch')
 
 package_specific_setup () {
     if [ ${SCOTCH_ARCH} == "pc_linux2" ]
