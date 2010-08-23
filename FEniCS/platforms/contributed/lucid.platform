@@ -18,6 +18,7 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=i686_pc_linux2
 default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
