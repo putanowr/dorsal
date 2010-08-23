@@ -13,11 +13,11 @@
 # appropriate version is selected. For this, on a 32-bit operating
 # system, run:
 #
-# su -c 'module load openmpi-i386'
+# 'module load openmpi-i386'
 #
 # or on a 64-bit operating system, run:
 #
-# su -c 'module load openmpi-x86_64'
+# 'module load openmpi-x86_64'
 ##
 
 # Platform specific variables
