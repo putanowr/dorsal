@@ -4,7 +4,7 @@
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
 
-- OSX 10.6 (Snow Leopard)           [Works perfectly  (Anders)]
+- OSX 10.6 (Snow Leopard)           [Testing in progress (Anders)]
 - OSX 10.5 (Leopard)                [Testing in progress, ??]
 
 - Fedora 13 (32 bit)                [Testing in progress, Garth]
@@ -16,7 +16,7 @@
 - Debian XXXXX                      [Testing in progress]
 
 - Ubuntu 10.04 (Lucid, 32 bit)      [Testing in progress]
-- Ubuntu 10.04 (Lucid, 64 bit)      [works, except for Trilinos]
+- Ubuntu 10.04 (Lucid, 64 bit)      [Work perfectly (Anders)]
 
 - Ubuntu 10.10 (Maverick, 32 bit)   [Testing in progress]
 - Ubuntu 10.10 (Maverick, 64 bit)   [Testing in progress]
