@@ -11,7 +11,7 @@ package_specific_setup () {
     then
         SCOTCH_ARCH=$(echo $ARCH|sed 's/_/-/g')_${SCOTCH_ARCH}
     fi
-    perl -pi -e 's/^CFLAGS\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
+    perl -pi -e 's/^CFLAGS\t\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCS.*= gcc/CCS  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCD.*= gcc/CCD  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
