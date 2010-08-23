@@ -26,20 +26,20 @@ default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
-# parmetis
-# petscextra
-# slepc
-# # swiginac
-# mtl
-# # trilinos
+parmetis
+petscextra
+slepc
+# swiginac
+mtl
+# trilinos
 scotch
-# fiat
-# ferari
-# ufc
-# ufl
-# ffc
-# # syfi
-# viper
-# instant
-# dolfin
+fiat
+ferari
+ufc
+ufl
+ffc
+# syfi
+viper
+instant
+dolfin
 )
