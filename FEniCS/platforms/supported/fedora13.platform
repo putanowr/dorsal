@@ -32,7 +32,7 @@ slepc
 # swiginac
 mtl
 # trilinos
-scotch
+#scotch
 fiat
 ferari
 ufc
