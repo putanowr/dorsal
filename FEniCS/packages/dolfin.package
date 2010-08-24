@@ -3,15 +3,7 @@ SOURCE=lp:
 PACKING=bzr
 BUILDCHAIN=cmake
 
-package_specific_setup () {
-    export CC=mpicc
-    export CXX=mpic++
-    # Remove -Werror from CXXFLAGS
-    #export CXXFLAGS="-Wall -pipe -ansi"
-}
-
 package_specific_install () {
-    unset CXXFLAGS
     echo
     cecho ${BOLD} "DOLFIN has now been installed in $(prettify_dir ${INSTALL_PATH})/."
     cecho ${BOLD} "The DOLFIN demos can be found in the following directory:"
