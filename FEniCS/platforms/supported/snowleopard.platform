@@ -10,7 +10,7 @@
 #
 # sudo port install wget autogen readline pkgconfig libxml2 libtool \
 # cgal gmp zlib python26 swig-python py26-numpy bzr bzrtools git-core \
-# scons ginac boost +python26 vtk-devel +python26 suitesparse \
+# ginac boost +python26 vtk-devel +python26 suitesparse \
 # py26-scientific cppunit
 #
 # Before proceeding, you need to make sure that Python 2.6 installed
