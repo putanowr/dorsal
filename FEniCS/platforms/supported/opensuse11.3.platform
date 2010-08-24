@@ -10,9 +10,9 @@
 # Then, run the following to install the actual packages:
 #
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
-# openmpi-devel scons python-devel python-numpy python-numpy-devel swig wget \
+# openmpi-devel python-devel python-numpy python-numpy-devel swig wget \
 # boost-devel vtk-python liblapack3  libblas3 liblapack3 mpfr-devel \
-# suitesparse-common-devel gmp-devel cmake cmake-gui umfpack-devel
+# suitesparse-common-devel gmp-devel cmake umfpack-devel
 #
 # Make sure to run
 #

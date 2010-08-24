@@ -7,11 +7,11 @@
 - OSX 10.6 (Snow Leopard)           [Testing in progress (Anders)]
 - OSX 10.5 (Leopard)                [Testing in progress, ??]
 
-- Fedora 13 (32 bit)                [Testing in progress, Garth]
-- Fedora 13 (64 bit)                [Testing in progress, Garth]
+- Fedora 13 (32 bit)                [Work perfectly (Garth)]
+- Fedora 13 (64 bit)                [Work perfectly (Garth)]
 
-- openSUSE 11.3 (32 bit)            [Testing in progress, Garth]
-- openSUSE 11.3 (64 bit)            [Testing in progress, Garth]
+- openSUSE 11.3 (32 bit)            [Work perfectly (Garth)]
+- openSUSE 11.3 (64 bit)            [Work perfectly (Garth)]
 
 - Debian XXXXX                      [Testing in progress]
 
