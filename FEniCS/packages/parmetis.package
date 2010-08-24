@@ -13,9 +13,9 @@ package_specific_setup () {
 }
 
 package_specific_build() {
-    cd METISLib; make
+    cd METISLib; make -j ${PROCS}
     cd ..
-    cd ParMETISLib; make
+    cd ParMETISLib; make -j ${PROCS}
     cd ..
 }
 

@@ -18,7 +18,7 @@ package_specific_setup () {
 }
 
 package_specific_install () {
-    make install prefix=${INSTALL_PATH}
+    make install -j ${PROCS} prefix=${INSTALL_PATH}
     cp -f ../lib/*scotc*[^m].a ${INSTALL_PATH}/lib
 }
 
