@@ -26,15 +26,15 @@ PACKAGES=(
 scotch
 petsc
 slepc
-# swiginac
+# swiginac  # (untested)
 mtl
-# trilinos
+# trilinos  # (works but takes a long time to build)
 fiat
 ferari
 ufc
 ufl
 ffc
-# syfi
+# syfi      # (untested)
 viper
 instant
 dolfin

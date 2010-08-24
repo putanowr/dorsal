@@ -38,16 +38,16 @@ parmetis
 petsccore
 slepc
 armadillo
-# swiginac
+# swiginac  # (untested)
 mtl
-# trilinos
+# trilinos  # (link error)
 scotch
 fiat
 ferari
 ufc
 ufl
 ffc
-# syfi
+# syfi      # (untested)
 viper
 instant
 dolfin
