@@ -12,7 +12,7 @@ package_specific_build () {
       -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
       -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos \
       -D Trilinos_ENABLE_ALL_PACKAGES:BOOL=ON \
-      -D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
+      #-D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
       -D Trilinos_ENABLE_Fortran:BOOL=OFF \
       -D Trilinos_ENABLE_TESTS:BOOL=OFF \
       -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \
