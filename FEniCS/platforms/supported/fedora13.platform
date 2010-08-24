@@ -14,13 +14,14 @@
 # appropriate version is selected. For this, on a 32-bit operating
 # system, run:
 #
-# 'module load openmpi-i386'
+# module load openmpi-i386
 #
 # or on a 64-bit operating system, run:
 #
-# 'module load openmpi-x86_64'
+# module load openmpi-x86_64
 #
-# If you are using SELinux, you may need to disable it to run DOLFIN programs
+# If you are using SELinux, you may need to disable it to run DOLFIN
+# programs.
 ##
 
 # Platform specific variables
