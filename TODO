@@ -39,5 +39,3 @@
 * Insert download links somewhere in the documentation
   Difficulty: Trivial   Urgency: Moderate
 
-* Reintroduce support for Trilinos after move to 10.x branch
-  Difficulty: Moderate  Urgency: Low
