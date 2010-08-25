@@ -4,10 +4,10 @@
 # installed installed via Ubuntu's apt-get using the following
 # command:
 #
-# sudo apt-get install g++ bzr bzrtools libxml2-dev \
-# pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
-# libboost-dev libboost-program-options-dev wget openmpi-bin libopenmpi-dev \
-# libatlas-base-dev libparmetis-dev libgmp3-dev
+# sudo apt-get install g++ bzr bzrtools libxml2-dev pkg-config \
+# python-dev python-numpy python-vtk swig libsuitesparse-dev \
+# libboost-dev libboost-program-options-dev wget openmpi-bin \
+# libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
 # libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev
@@ -26,15 +26,15 @@ PACKAGES=(
 scotch
 petsc
 slepc
-# swiginac  # (untested)
+# swiginac
 mtl
-# trilinos  # (works but takes a long time to build)
+# trilinos
 fiat
 ferari
 ufc
 ufl
 ffc
-# syfi      # (untested)
+# syfi
 viper
 instant
 dolfin
