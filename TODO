@@ -4,7 +4,7 @@
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
 
-- OSX 10.6 (Snow Leopard)           [Testing in progress (Anders)]
+- OSX 10.6 (Snow Leopard)           [Works perfectly (Anders)]
 - OSX 10.5 (Leopard)                [Testing in progress, ??]
 
 - Fedora 13 (32 bit)                [Work perfectly (Garth)]

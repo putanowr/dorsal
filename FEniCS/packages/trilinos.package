@@ -12,7 +12,7 @@ package_specific_build () {
       -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
       -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos \
       -D Trilinos_ENABLE_ALL_PACKAGES:BOOL=ON \
-      -D Trilinos_ENABLE_PyTrilinos:BOOL=OFF \
+      #-D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
       -D Trilinos_ENABLE_Fortran:BOOL=OFF \
       -D Trilinos_ENABLE_TESTS:BOOL=OFF \
       -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \
@@ -20,19 +20,6 @@ package_specific_build () {
       -D BUILD_SHARED_LIBS:BOOL=ON \
       -D TPL_ENABLE_MPI:BOOL=ON \
       ../
-    #cmake \
-    #  -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON \
-    #  -D Trilinos_ENABLE_PyTrilinos:BOOL=OFF \
-    #  -D Trilinos_ENABLE_Fortran:BOOL=OFF \
-    #  -D Trilinos_ENABLE_TESTS:BOOL=OFF \
-    #  -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \
-    #  -D CMAKE_BUILD_TYPE:STRING=DEBUG \
-    #  -D BUILD_SHARED_LIBS:BOOL=ON \
-    #  -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos \
-    #  -D TPL_ENABLE_MPI:BOOL=ON \
-    #  -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
-    #  -D PyTrilinos_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
-    #  ..
     make -j ${PROCS}
     make install
 }
