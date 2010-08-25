@@ -10,9 +10,9 @@
 # Then, run the following to install the actual packages:
 #
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
-# openmpi-devel python-devel python-numpy python-numpy-devel swig wget \
-# boost-devel vtk-python liblapack3  libblas3 liblapack3 mpfr-devel \
-# suitesparse-common-devel gmp-devel cmake umfpack-devel
+# openmpi-devel python-devel python-numpy python-numpy-devel swig \
+# wget boost-devel vtk-python liblapack3 libblas3 liblapack3 \
+# mpfr-devel suitesparse-common-devel gmp-devel cmake umfpack-devel
 #
 # Make sure to run
 #
@@ -21,7 +21,6 @@
 # and start a new shell before running the Dorsal script for the first
 # time. You may even need to logout or restart.
 ##
-# Note: openSUSE 11.3 is missing libatlas3-devel
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
@@ -33,16 +32,18 @@ parmetis
 petsc
 slepc
 armadillo
+# swiginac
 mtl
-#trilinos
+# trilinos
 scotch
 cgal
 scientificpython
 fiat
-#ferari
+ferari
 ufc
 ufl
 ffc
+# syfi
 viper
 instant
 dolfin
