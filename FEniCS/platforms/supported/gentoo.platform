@@ -1,0 +1,33 @@
+# Gentoo Linux
+#
+# This build script assumes that you have several packages already
+# installed via Gentoo's emerge using the following command. Some of
+# these might need to be unmasked. See Gentoo documentation on how to
+# unmask masked packages (Hint: /etc/portage/package.keywords/) 
+#
+# emerge -av swig numpy scientificpython boost openmpi bzr cmake cgal \
+# vtk parmetis scotch
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default PARMETIS_DIR=/usr
+
+# Define the packages this platform needs
+PACKAGES=(
+petsc
+slepc
+armadillo
+# swiginac
+# mtl
+# trilinos
+fiat
+ferari
+ufc
+ufl
+ffc
+# syfi
+viper
+instant
+dolfin
+)
