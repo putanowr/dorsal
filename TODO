@@ -8,24 +8,19 @@
 - OSX 10.5 (Leopard)                [Testing in progress, ??]
 
 - Fedora 13 (32 bit)                [Works perfectly (Garth)]
-- Fedora 13 (64 bit)                [Work perfectly (Garth)]
+- Fedora 13 (64 bit)                [Works perfectly (Garth)]
 
 - openSUSE 11.3 (32 bit)            [Works perfectly (Garth)]
 - openSUSE 11.3 (64 bit)            [Works perfectly (Garth)]
 
-- Debian Lenny (32 bit)             [Testing in progress]
-- Debian Lenny (64 bit)             [Testing in progress]
-- Debian Squeeze (32 bit)           [Testing in progress]
-- Debian Squeeze (64 bit)           [Testing in progress]
+- Debian Squeeze/Testing (32 bit)   [Testing in progress]
+- Debian Squeeze/Testing (64 bit)   [Testing in progress]
 
 - Ubuntu 10.04 (Lucid, 32 bit)      [Works perfectly (Garth)]
 - Ubuntu 10.04 (Lucid, 64 bit)      [Works perfectly (Anders)]
 
 - Ubuntu 10.10 (Maverick, 32 bit)   [Testing in progress]
 - Ubuntu 10.10 (Maverick, 64 bit)   [Testing in progress]
-
-- CentOS/RHEL 5.5 (32 bit)          [Testing in progress]
-- CentOS/RHEL 5.5 (64 bit)          [Testing in progress]
 
   Feel free to contribute information for other platforms as well.
   Difficulty: Low       Urgency: High
