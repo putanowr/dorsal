@@ -14,7 +14,7 @@
 - openSUSE 11.3 (64 bit)            [Works perfectly (Garth)]
 
 - Debian Squeeze/Testing (32 bit)   [Testing in progress]
-- Debian Squeeze/Testing (64 bit)   [Testing in progress]
+- Debian Squeeze/Testing (64 bit)   [Works perfectly (Garth)]
 
 - Ubuntu 10.04 (Lucid, 32 bit)      [Works perfectly (Garth)]
 - Ubuntu 10.04 (Lucid, 64 bit)      [Works perfectly (Anders)]
@@ -36,4 +36,3 @@
 
 * Insert download links somewhere in the documentation
   Difficulty: Trivial   Urgency: Moderate
-
