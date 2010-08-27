@@ -4,8 +4,12 @@
 * Test Dorsal on the following platforms and correct the package lists
   if necessary.
 
-- OSX 10.6 (Snow Leopard)           [Works perfectly (Anders)]
-- OSX 10.5 (Leopard)                [Testing in progress, ??]
+- Debian squeeze/testing (32 bit)   [Testing in progress]
+- Debian squeeze/Testing (64 bit)   [Works perfectly (Garth)]
+- Debian sid/unstable    (32 bit)   [Testing in progress]
+- Debian sid/unstable    (64 bit)   [Works perfectly (Garth)]
+
+- Gentoo 13 (64 bit)                [Works perfectly (Marie)]
 
 - Fedora 13 (32 bit)                [Works perfectly (Garth)]
 - Fedora 13 (64 bit)                [Works perfectly (Garth)]
@@ -13,8 +17,8 @@
 - openSUSE 11.3 (32 bit)            [Works perfectly (Garth)]
 - openSUSE 11.3 (64 bit)            [Works perfectly (Garth)]
 
-- Debian Squeeze/Testing (32 bit)   [Testing in progress]
-- Debian Squeeze/Testing (64 bit)   [Works perfectly (Garth)]
+- OSX 10.6 (Snow Leopard)           [Works perfectly (Anders)]
+- OSX 10.5 (Leopard)                [Testing in progress, ??]
 
 - Ubuntu 10.04 (Lucid, 32 bit)      [Works perfectly (Garth)]
 - Ubuntu 10.04 (Lucid, 64 bit)      [Works perfectly (Anders)]
