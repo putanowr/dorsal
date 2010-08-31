@@ -1,6 +1,6 @@
 2010-08 Marie E. Rognes <meg@simula.no>
 	* Polished support for gentoo
-2010-08 Harish Narayanan <harish@simula.no>
+2010-08 Harish Narayanan <hnarayanan@gmail.com>
 	* Added support for fedora machines without redhat-lsb
 	* Added scripts for auto-generating author lists and listing
 	  unused packages and patches
