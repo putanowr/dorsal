@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set default values of some useful variables
-export VERSION="current"          # Latest released Dorsal version
+export VERSION="0.7.2"          # Latest released Dorsal version
 export PREFIX=${HOME}/local     # Default download/install location
 export ORIG_DIR=`pwd`           # Store original directory, so we can
 				# return to it when finished
@@ -41,12 +41,12 @@ fetch_dorsal() {
     default TMPDIR=/tmp
     cd ${TMPDIR}
     cecho ${GOOD} "Fetching the FEniCS installer files"
-    wget -N http://fenics.org/pub/software/dorsal/dorsal-${VERSION}.tar.gz
+    wget -N http://launchpad.net/dorsal/trunk/${VERSION}/+download/dorsal-${VERSION}.tar.bz2
     if [ -d "dorsal-${VERSION}" ]
     then
 	rm -fr dorsal-${VERSION}
     fi
-    tar -xzf dorsal-${VERSION}.tar.gz
+    tar -xjf dorsal-${VERSION}.tar.bz2
     cd dorsal-${VERSION}
 }
 
