@@ -4,6 +4,7 @@
 	* Added support for fedora machines without redhat-lsb
 	* Added scripts for auto-generating author lists and listing
 	  unused packages and patches
+	* Removed several unused packages
 	* Fixed bugs related to new platform file placements
 	* Added support for 32/64-bit architecture-independent builds
 	* Fixed python crashing bug introduced by cmake on darwin
