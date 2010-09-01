@@ -3,7 +3,7 @@
 # This build script assumes that you have several packages already
 # installed via Gentoo's emerge using the following command. Some of
 # these might need to be unmasked. See Gentoo documentation on how to
-# unmask masked packages. (Hint: /etc/portage/package.keywords/) 
+# unmask masked packages. (Hint: /etc/portage/package.keywords/)
 #
 # emerge -av swig numpy scientificpython boost openmpi bzr cmake cgal \
 # vtk parmetis scotch
@@ -22,7 +22,7 @@ armadillo
 # mtl
 # trilinos
 fiat
-ferari
+# ferari
 ufc
 ufl
 ffc

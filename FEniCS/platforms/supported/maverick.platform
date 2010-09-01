@@ -29,7 +29,7 @@ slepc
 mtl
 # trilinos
 fiat
-ferari
+# ferari
 ufc
 ufl
 ffc

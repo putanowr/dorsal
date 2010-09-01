@@ -38,7 +38,7 @@ mtl
 # trilinos
 scotch
 fiat
-ferari
+# ferari
 ufc
 ufl
 ffc

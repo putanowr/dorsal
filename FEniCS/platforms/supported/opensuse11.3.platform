@@ -39,7 +39,7 @@ scotch
 cgal
 scientificpython
 fiat
-ferari
+# ferari
 ufc
 ufl
 ffc
