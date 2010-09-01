@@ -2,21 +2,3 @@ NAME=dolfin
 SOURCE=lp:
 PACKING=bzr
 BUILDCHAIN=cmake
-
-package_specific_install () {
-    echo
-    cecho ${BOLD} "DOLFIN has now been installed in $(prettify_dir ${INSTALL_PATH})/."
-    cecho ${BOLD} "The DOLFIN demos can be found in the following directory:"
-    echo
-    echo "    $(prettify_dir ${INSTALL_PATH}/share/dolfin/demo/)"
-    echo
-    cecho ${BOLD} "Before rushing off to try the demos, don't forget to update"
-    cecho ${BOLD} "your environment variables. You can do this by issuing the"
-    cecho ${BOLD} "following command:"
-    echo
-    echo "    source $(prettify_dir ${INSTALL_PATH}/share/dolfin/dolfin.conf)"
-    echo
-    cecho ${BOLD} "For future reference, we recommend that you add this command"
-    cecho ${BOLD} "to your configuration (.bashrc, .profile or similar)."
-    echo
-}
