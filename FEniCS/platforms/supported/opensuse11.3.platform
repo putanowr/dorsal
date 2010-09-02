@@ -12,7 +12,8 @@
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
 # openmpi-devel python-devel python-numpy python-numpy-devel swig \
 # wget boost-devel vtk-python liblapack3 libblas3 liblapack3 \
-# mpfr-devel suitesparse-common-devel gmp-devel cmake umfpack-devel
+# mpfr-devel suitesparse-common-devel gmp-devel cmake umfpack-devel \
+# libumfpack5
 #
 # Make sure to run
 #
