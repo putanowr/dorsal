@@ -1,9 +1,10 @@
 # Ubuntu 9.10
 
-# This build script assumes that you have the following packages
-# already installed via Ubuntu's apt-get:
+# This build script assumes that you have several packages already
+# installed installed via Ubuntu's apt-get using the following
+# command:
 #
-# sudo apt-get install g++ scons bzr bzrtools libxml2-dev \
+# sudo apt-get install g++ bzr bzrtools libxml2-dev \
 # pkg-config python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libatlas-base-dev libparmetis-dev libgmp3-dev libscotch-dev \
@@ -15,25 +16,22 @@
 ##
 
 # Platform specific variables
-default PETSC_ARCH=linux-gnu-c-opt
-default UMFPACK_DIR=/usr
-default BOOST_DIR=/usr
-default SCOTCH_DIR=/usr
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
 default PARMETIS_DIR=/usr
-default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
-petscwithmumps
+petsc
 slepc
 # ginac
 # swiginac
 mtl
-trilinos
+# trilinos
 cgal
 fiat
-ferari
+# ferari
 ufc
 ufl
 ffc
