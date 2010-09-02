@@ -10,6 +10,8 @@
 	* Fixed python crashing bug introduced by cmake on darwin
 	* Fixed breakages introduced in snowleopard
 	* Removed (nonexistent) support for xp
+	* Updated documentation to reflect new directory structure
+	* Updated the "one-click" installer
 2010-08 Johannes Ring <johannr@simula.no>
 	* Added patch for scientificpython to help it detect numpy
 	* Modified trilinos package to account for the new cmake-based
@@ -26,6 +28,7 @@
 	* Resumed mirroring files hosted on unstable servers
 	* Polished support for maverick
 	* Tested and corrected breakages in different platforms
+	* Updated to recent versions of all fenics packages
 2010-08 Garth N. Wells <gnw20@cam.ac.uk>
 	* Updated to petsc/slepc 3.1x
 	* Broke many things through several hasty changes
