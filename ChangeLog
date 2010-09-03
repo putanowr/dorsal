@@ -1,3 +1,5 @@
+2010-09-03 Garth N. Wells <gnw20@cam.ac.uk>
+	* Updated to slepc to 3.1-p2
 2010-08 Marie E. Rognes <meg@simula.no>
 	* Polished support for gentoo
 2010-08 Harish Narayanan <hnarayanan@gmail.com>
@@ -22,7 +24,6 @@
 	* Fixed breakages introduced in snowleopard
 	* Fixed missing malloc.h bug in parmetis
 	* Modified dolfin package to account for new cmake-based install
-	* Added initial support for maverick
 	* Split platform files into supported, contributed and deprecated
 	* Fixed breakages introduced in ubuntu platforms
 	* Resumed mirroring files hosted on unstable servers
@@ -32,6 +33,7 @@
 2010-08 Garth N. Wells <gnw20@cam.ac.uk>
 	* Updated to petsc/slepc 3.1x
 	* Broke many things through several hasty changes
+	* Added initial support for maverick
 	* Added initial support for opensuse11.3
 	* Added lib64 to library search path on 64bit machines
 	* Added out-of-source build support to cmake
@@ -40,7 +42,7 @@
 	* Polished support for opensuse11.3
 	* Removed scons requirement from supported platform files
 	* Added initial support for squeeze
-	* Tested and corrected breakages in different platforms	
+	* Tested and corrected breakages in different platforms
 2010-07 Douglas N. Arnold <arnold@umn.edu>
 	* Added initial support for fedora13
 2010-07 Patrick Riesen <priesen@student.ethz.ch>
@@ -130,7 +132,7 @@
 	* Matched FEniCS package versions to Automatic Augustin
 2009-06 Harish Narayanan <harish@simula.no>
 	* Moved to the new DOLFIN build sequence
-2009-05 Joachim B Haga <jobh@simula.no>	
+2009-05 Joachim B Haga <jobh@simula.no>
 	* Fixed patching sequence to ensure patches don't fail after the
 	  first application
 2009-05 Harish Narayanan <harish@simula.no>
@@ -174,7 +176,7 @@
 	* Support for parallel make/scons
 	* Improved slepc/petsc packages to avoid the need
 	  for manually setting LD_LIBRARY_PATH
-	* Display platfom-specific instructions as part of 
+	* Display platfom-specific instructions as part of
 	  the build process
 2008-10 Harish Narayanan <harish@simula.no>
 	* Automatically probe for system python version
@@ -186,7 +188,7 @@
 	* Removed the need for gfortran (in mpi, petsc,
 	  suitesparse)
 	* Added support for custom configuration options
-	* Added colour progress/error reporting	
+	* Added colour progress/error reporting
 	* Updated to recent versions of all packages
 2008-09 Ilmar Wilbers <ilmarw@simula.no>
 	* Added support for intrepid
