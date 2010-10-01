@@ -3,7 +3,7 @@ PACKING=.tgz
 BUILDCHAIN=autotools
 
 # SLEPc web archive not very reliable so download from mirror
-SOURCE=http://www.fenics.org/pub/software/contrib/
+SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 
 package_specific_setup () {
     export SLEPC_DIR=${PWD}
