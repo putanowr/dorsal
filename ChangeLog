@@ -1,8 +1,22 @@
-2010-09-03 Garth N. Wells <gnw20@cam.ac.uk>
-	* Updated to slepc to 3.1-p2
+2010-10 Harish Narayanan <hnarayanan@gmail.com>
+	* Updated fenics.org to fenicsproject.org to reflect move
+2010-09 Anders Logg <logg@simula.no>
+	* Polished support for snowleopard
+	* Updated to recent versions of all fenics packages
+2010-09 Garth N. Wells <gnw20@cam.ac.uk>
+	* Updated to slepc 3.1-p2
+2010-09 Harish Narayanan <hnarayanan@gmail.com>
+	* Updated documentation to reflect new directory structure
+	* Updated the "one-click" installer
+	* Polished support for snowleopard
+	* Updated cmake builds to respect CONFOPTS
+2010-08 Garth N. Wells <gnw20@cam.ac.uk>
+	* Moved lenny to deprecated
+	* Moved sid to supported
 2010-08 Marie E. Rognes <meg@simula.no>
 	* Polished support for gentoo
 2010-08 Harish Narayanan <hnarayanan@gmail.com>
+	* Polished support for snowleopard
 	* Added support for fedora machines without redhat-lsb
 	* Added scripts for auto-generating author lists and listing
 	  unused packages and patches
