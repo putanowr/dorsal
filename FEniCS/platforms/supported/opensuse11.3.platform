@@ -6,6 +6,8 @@
 #
 # sudo zypper addrepo http://download.opensuse.org/repositories/science/openSUSE_11.3/ Science
 # sudo zypper addrepo http://download.opensuse.org/repositories/Education/openSUSE_11.3/ Education
+# sudo zypper addrepo http://download.opensuse.org/repositories/Education:/Salome:/Factory/openSUSE_11.3/ Education_Salome
+# sudo zypper addrepo http://download.opensuse.org/repositories/openSUSE:/Factory:/Contrib/openSUSE_11.3 Factory_Contrib
 #
 # Then, run the following to install the actual packages:
 #
@@ -13,7 +15,7 @@
 # openmpi-devel python-devel python-numpy python-numpy-devel swig \
 # wget boost-devel vtk-python liblapack3 libblas3 liblapack3 \
 # mpfr-devel suitesparse-common-devel gmp-devel cmake umfpack-devel \
-# libumfpack5
+# libumfpack5 CGAL-devel scotch-devel libatlas3-devel
 #
 # Make sure to run
 #
@@ -36,8 +38,6 @@ armadillo
 # swiginac
 mtl
 # trilinos
-scotch
-cgal
 scientificpython
 fiat
 # ferari
