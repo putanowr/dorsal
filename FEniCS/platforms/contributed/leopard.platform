@@ -10,30 +10,27 @@
 #
 # sudo port install wget autogen readline pkgconfig libxml2 libtool \
 # cgal gmp zlib python26 swig-python py26-numpy bzr bzrtools git-core \
-# scons ginac boost +python26 vtk-devel +python26 suitesparse \
-# py26-scientific
+# ginac boost +python26 vtk-devel +python26 suitesparse \
+# py26-scientific cppunit
 #
 # Before proceeding, you need to make sure that Python 2.6 installed
 # by MacPorts is the default one on your machine:
 #
-# sudo port install python_select  
+# sudo port install python_select
 # sudo python_select python26
-#
 ##
 
 # Platform specific variables
 default PETSC_ARCH=darwin9.2.0-cxx-opt
 default SCOTCH_ARCH=i686_mac_darwin8
-default BOOST_DIR=/opt/local
-default UMFPACK_DIR=/opt/local
-default CGAL_DIR=/opt/local
-default GMP_DIR=/opt/local
 
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
+export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
-petsc
+parmetis
+petsccore
 slepc
 armadillo
 # swiginac
@@ -41,7 +38,7 @@ mtl
 # trilinos
 scotch
 fiat
-ferari
+# ferari
 ufc
 ufl
 ffc
