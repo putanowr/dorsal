@@ -5,7 +5,7 @@ BUILDCHAIN=custom
 EXTRACTSTO=mtl4
 
 package_specific_build () {
-    cp boost ${INSTALL_PATH}/include -r
+    cp -r boost ${INSTALL_PATH}/include
 }
 
 package_specific_register () {
