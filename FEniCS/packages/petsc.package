@@ -7,7 +7,7 @@ package_specific_setup () {
     export PETSC_DIR=${PWD}
     ./config/configure.py \
         COPTFLAGS=-O2 \
-        --prefix=${INSTALL_PATH}
+        --prefix=${INSTALL_PATH} \
         --with-debugging=0 --with-shared=1 --with-clanguage=cxx \
         --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR} \
         --download-umfpack=1 \
