@@ -20,8 +20,8 @@ package_specific_build() {
 }
 
 package_specific_install () {
-    ln -sf ${PWD}/*.a ${INSTALL_PATH}/lib/
-    ln -sf ${PWD}/*.h ${INSTALL_PATH}/include/
+    cp ${PWD}/*.a ${INSTALL_PATH}/lib/
+    cp ${PWD}/*.h ${INSTALL_PATH}/include/
 }
 
 package_specific_register () {

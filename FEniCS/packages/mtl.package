@@ -4,6 +4,10 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 EXTRACTSTO=mtl4
 
+package_specific_build () {
+    cp boost ${INSTALL_PATH}/include -r
+}
+
 package_specific_register () {
-    export MTL4_DIR=${PWD}
+    export MTL4_DIR=${INSTALL_PATH}
 }
