@@ -1,8 +1,13 @@
 NAME=armadillo-1.0.0
 SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
-BUILDCHAIN=cmake
-CONFOPTS=-DLIB_INSTALL_DIR=lib
+BUILDCHAIN=custom
+
+package_specific_build () {
+    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} -DLIB_INSTALL_DIR=lib .
+    make  -j ${PROCS}
+    make install
+}
 
 package_specific_register () {
     export ARMADILLO_DIR=${INSTALL_PATH}
