@@ -35,7 +35,7 @@ slepc
 armadillo
 # swiginac
 mtl
-# trilinos
+trilinos
 scotch
 fiat
 # ferari
