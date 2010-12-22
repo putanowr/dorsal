@@ -1,7 +1,7 @@
 NAME=foo-x.y.z
 SOURCE=http://foo.org/downloads/foo/
 PACKING=[.tar.gz|.tar.bz2|.tbz2|.tgz|hg|svn|.git|bzr]
-BUILDCHAIN=[autotools|python|scons|custom]
+BUILDCHAIN=[autotools|python|scons|cmake|custom]
 EXTRACTSTO=barnotfoo
 CONFOPTS=""
 SCONSOPTS=""
