@@ -37,7 +37,7 @@ slepc
 armadillo
 # swiginac
 mtl
-# trilinos
+trilinos
 scientificpython
 fiat
 # ferari

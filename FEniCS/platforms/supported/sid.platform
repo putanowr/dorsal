@@ -29,7 +29,7 @@ petsc
 slepc
 # swiginac
 mtl
-# trilinos
+trilinos
 fiat
 # ferari
 ufc

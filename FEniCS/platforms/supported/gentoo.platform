@@ -20,7 +20,7 @@ slepc
 armadillo
 # swiginac
 # mtl
-# trilinos
+trilinos
 fiat
 # ferari
 ufc
