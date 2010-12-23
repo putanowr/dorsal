@@ -261,6 +261,7 @@ guess_platform() {
           Leonidas*)    echo fedora11;;
           Constantine*) echo fedora12;;
           Goddard*)     echo fedora13;;
+          Laughlin*)    echo fedora14;;
       esac
   elif [ -x /usr/bin/sw_vers ]
   then
