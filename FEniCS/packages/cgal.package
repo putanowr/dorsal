@@ -1,10 +1,9 @@
-NAME=CGAL-3.6.1
-SOURCE=https://gforge.inria.fr/frs/download.php/27222/
+NAME=CGAL-3.7
+SOURCE=https://gforge.inria.fr/frs/download.php/27641/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 
 package_specific_setup () {
-    patch --forward src/CGAL/KDS_Log.cpp < ${ORIG_DIR}/FEniCS/patches/cgal.patch || true
     cmake -DWITH_CGAL_PDB=OFF -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
 }
 
