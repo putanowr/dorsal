@@ -3,12 +3,10 @@
 # This build script assumes that you have several packages already
 # installed installed via Fedora's yum using the following command:
 #
-# su -c 'yum install -y wget bzr bzrtools subversion pkgconfig \
-# libxml2-devel gcc gcc-c++ openmpi-devel openmpi numpy swig \
-# boost-devel vtk-python atlas-devel suitesparse-devel blas-devel \
-# lapack-devel cln-devel ginac-devel python-devel cmake \
-# ScientificPython mpfr-devel armadillo-devel gmp-devel CGAL-devel \
-# cppunit-devel'
+# su -c 'yum install -y wget bzr bzrtools pkgconfig \
+# libxml2-devel gcc gcc-c++ openmpi-devel openmpi numpy swig boost-devel \
+# atlas-devel blas-devel lapack-devel python-devel cmake mpfr-devel \
+# gmp-devel cppunit-devel'
 #
 # Also, if you have multiple MPI libraries installed, make sure the
 # appropriate version is selected. For this, on a 32-bit operating
