@@ -32,25 +32,18 @@ default SCOTCH_ARCH=pc_linux2
 PACKAGES=(
 cmake
 parmetis
-petsc
+petscwithml
 slepc
 armadillo
-# cln
-# ginac
-# swiginac
-# suitesparsewithmetis
 trilinos
 scotch
 cgal
-#vtkdata
-#vtk
 scientificpython
 fiat
 ferari
 ufc
-ufl 
+ufl
 ffc
-#viper
 instant
 dolfin
 )
