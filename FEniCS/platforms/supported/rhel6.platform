@@ -29,11 +29,11 @@ default SCOTCH_ARCH=pc_linux2
 PACKAGES=(
 cmake
 parmetis
+scotch
+trilinos
 petscwithml
 slepc
 armadillo
-trilinos
-scotch
 cgal
 scientificpython
 fiat
