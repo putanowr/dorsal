@@ -5,11 +5,18 @@ BUILDCHAIN=autotools
 
 package_specific_setup () {
     export PETSC_DIR=${PWD}
+
+    if [[ $TRILINOS_DIR ]]; then
+       ML_ARGS="--with-ml=1 --with-ml-lib=${TRILINOS_DIR}/lib/libml.so
+                --with-ml-include=${TRILINOS_DIR}/include/trilinos"
+    fi
+
     ./config/configure.py \
         COPTFLAGS=-O2 \
         --prefix=${INSTALL_PATH} \
         --with-debugging=0 --with-shared=1 --with-clanguage=cxx \
         --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR} \
+	${ML_ARGS} \
         --download-umfpack=1 \
         --download-hypre=1 \
         --download-mumps=1 --download-scalapack=1 --download-blacs=1 \

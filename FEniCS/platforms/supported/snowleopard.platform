@@ -30,12 +30,12 @@ export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
+trilinos
 petsccore
 slepc
 armadillo
 # swiginac
 mtl
-trilinos
 scotch
 fiat
 # ferari

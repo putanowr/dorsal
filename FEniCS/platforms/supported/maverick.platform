@@ -23,11 +23,11 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+trilinos
 petsc
 slepc
 # swiginac
 mtl
-trilinos
 fiat
 # ferari
 ufc

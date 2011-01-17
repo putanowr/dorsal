@@ -65,12 +65,12 @@ numpy
 swig
 openmpi
 parmetis
+trilinos
 petsc
 slepc
 # swiginac
 suitesparsewithmetis
 mtl
-trilinos
 scotch
 cgal
 fiat

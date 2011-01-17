@@ -36,12 +36,12 @@ default SCOTCH_ARCH=i686_pc_linux2
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
+trilinos
 petsc
 slepc
 armadillo
 # swiginac
 mtl
-trilinos
 scotch
 cgal
 scientificpython

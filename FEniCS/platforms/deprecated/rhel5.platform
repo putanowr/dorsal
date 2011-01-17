@@ -43,12 +43,12 @@ export LD_LIBRARY_PATH=${OMPI_DIR}/lib:${LD_LIBRARY_PATH}
 # Define the packages this platform needs
 PACKAGES=(
 parmetis
+# trilinos
 petsc
 slepc
 armadillo
 # swiginac
 mtl
-# trilinos
 scotch
 cgal
 scientificpython
