@@ -172,21 +172,22 @@ package_build() {
 
     # Use the appropriate build system to compile and install the
     # package
+    for cmd_file in dorsal_configure dorsal_build; do
+	echo "#!/usr/bin/env bash" >${cmd_file}
+	chmod a+x ${cmd_file}
 
-    echo "#!/usr/bin/env bash" >dorsal_build
+        # Write variables to files so that they can be run stand-alone
+	declare -x >>${cmd_file}
 
-    # Write variables to file so that it can be run stand-alone
-    declare -x >>dorsal_build
-
-    # From this point in dorsal_build, errors are fatal
-    echo "set -e" >>dorsal_build
+        # From this point in dorsal_*, errors are fatal
+	echo "set -e" >>${cmd_file}
+    done
 
     if [ ${BUILDCHAIN} = "autotools" ]
     then
-        if [ ! -e Makefile ] && [ ! -e makefile ] && [ ! -e GNUmakefile ]
+        if [ -f ${SRCDIR}/configure ]
         then
-            ${SRCDIR}/configure ${CONFOPTS} --prefix=${INSTALL_PATH}
-            quit_if_fail "There was a problem configuring build for ${NAME}."
+	    echo ${SRCDIR}/configure ${CONFOPTS} --prefix=${INSTALL_PATH} >>dorsal_configure
         fi
         for target in "${TARGETS[@]}"
         do
@@ -204,10 +205,13 @@ package_build() {
     elif [ ${BUILDCHAIN} = "cmake" ]
     then
         BUILD_DIR="./dorsal_build_dir"
-        echo mkdir -p ${BUILD_DIR} >>dorsal_build
-        echo cd ${BUILD_DIR} >>dorsal_build
-        echo cmake ../ ${CONFOPTS} -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} >>dorsal_build
-        echo make install -j ${PROCS} >>dorsal_build
+        echo mkdir -p ${BUILD_DIR} >>dorsal_configure
+        echo cd ${BUILD_DIR} >>dorsal_configure
+        echo cmake ${CONFOPTS} -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} ../ >>dorsal_configure
+        for target in "${TARGETS[@]}"
+        do
+            echo make -C ${BUILD_DIR} -j ${PROCS} $target >>dorsal_build
+        done
     elif [ ${BUILDCHAIN} = "custom" ]
     then
         # Write the function definition to file
@@ -215,19 +219,15 @@ package_build() {
         echo package_specific_build >>dorsal_build
     fi
 
-    chmod a+x dorsal_build
-    if [ ${BASH_VERSINFO} -ge 3 ]
-    then
-        # Log the build
-        set -o pipefail
-            ./dorsal_build 2>&1 | tee build_log
-    else
-            ./dorsal_build
-    fi
+    ./dorsal_configure
+    quit_if_fail "There was a problem configuring ${NAME}."
+
+    ./dorsal_build
     quit_if_fail "There was a problem building ${NAME}."
 
     # Carry out any package-specific post-build instructions
     package_specific_install
+    quit_if_fail "There was a problem in post-build instructions for ${NAME}."
 }
 
 package_register() {
