@@ -191,7 +191,7 @@ package_build() {
         fi
         for target in "${TARGETS[@]}"
         do
-            echo make -j ${PROCS} $target >>dorsal_build
+            echo make ${MAKEOPTS} -j ${PROCS} $target >>dorsal_build
         done
     elif [ ${BUILDCHAIN} = "python" ]
     then
@@ -210,7 +210,7 @@ package_build() {
         echo cmake ${CONFOPTS} -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} ../ >>dorsal_configure
         for target in "${TARGETS[@]}"
         do
-            echo make -C ${BUILD_DIR} -j ${PROCS} $target >>dorsal_build
+            echo make -C ${BUILD_DIR} ${MAKEOPTS} -j ${PROCS} $target >>dorsal_build
         done
     elif [ ${BUILDCHAIN} = "custom" ]
     then
@@ -473,6 +473,7 @@ do
     unset PACKING
     unset BUILDCHAIN
     unset CONFOPTS
+    unset MAKEOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
     unset CLEANBUILD
