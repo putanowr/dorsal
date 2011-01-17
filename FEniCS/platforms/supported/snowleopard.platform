@@ -9,15 +9,15 @@
 # Via Macports, you need to install the following packages:
 #
 # sudo port install wget autogen readline pkgconfig libxml2 libtool \
-# cgal gmp zlib python26 swig-python py26-numpy bzr bzrtools git-core \
-# ginac boost +python26 vtk-devel +python26 suitesparse \
-# py26-scientific cppunit
+# cgal gmp zlib python27 swig-python py27-numpy bzr bzrtools git-core \
+# ginac boost +python27 vtk-devel +python27 suitesparse \
+# py27-scientific cppunit
 #
-# Before proceeding, you need to make sure that Python 2.6 installed
+# Before proceeding, you need to make sure that Python 2.7 installed
 # by MacPorts is the default one on your machine:
 #
 # sudo port install python_select
-# sudo python_select python26
+# sudo python_select python27
 ##
 
 # Platform specific variables
