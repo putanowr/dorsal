@@ -1,4 +1,4 @@
-# Fedora 14
+# Fedora 13
 
 # This build script assumes that you have several packages already
 # installed installed via Fedora's yum using the following command:
