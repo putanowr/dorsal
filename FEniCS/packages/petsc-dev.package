@@ -1,10 +1,10 @@
-NAME=petsc-3.1-p7
-SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
-PACKING=.tar.gz
+NAME=petsc-dev
+SOURCE=http://petsc.cs.iit.edu/petsc/petsc-dev
+PACKING=hg
 BUILDCHAIN=autotools
 
 CONFOPTS="COPTFLAGS=-O2
-        --with-debugging=0 --with-shared=1 --with-clanguage=cxx
+        --with-debugging=0 --with-shared-libraries=1 --with-clanguage=cxx
         --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}"
 
 for external_pkg in umfpack hypre mumps scalapack blacs pastix scotch; do
@@ -16,7 +16,6 @@ if [ "${TRILINOS_DIR}" ]; then
               --with-ml-lib=${TRILINOS_DIR}/lib/libml.so
               --with-ml-include=${TRILINOS_DIR}/include/trilinos"
 fi
-
 
 package_specific_setup () {
     export PETSC_DIR=${PWD}

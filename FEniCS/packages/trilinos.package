@@ -1,28 +1,19 @@
 NAME=trilinos-10.6.2-Source
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
-BUILDCHAIN=custom
+BUILDCHAIN=cmake
 
-package_specific_build () {
-    mkdir -p build
-    cd build
-    cmake \
-      -D CMAKE_CXX_COMPILER:FILEPATH=mpicxx \
-      -D CMAKE_C_COMPILER:FILEPATH=mpicc \
-      -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
-      -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos \
-      -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON \
-      -D Trilinos_ENABLE_PyTrilinos:BOOL=ON \
-      -D Trilinos_ENABLE_Fortran:BOOL=OFF \
-      -D Trilinos_ENABLE_TESTS:BOOL=OFF \
-      -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF \
-      -D CMAKE_BUILD_TYPE:STRING=Release \
-      -D BUILD_SHARED_LIBS:BOOL=ON \
-      -D TPL_ENABLE_MPI:BOOL=ON \
-      ../
-    make -j ${PROCS}
-    make install
-}
+CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
+          -D CMAKE_C_COMPILER:FILEPATH=mpicc
+          -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos
+          -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON
+          -D Trilinos_ENABLE_PyTrilinos:BOOL=ON
+          -D Trilinos_ENABLE_Fortran:BOOL=OFF
+          -D Trilinos_ENABLE_TESTS:BOOL=OFF
+          -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF
+          -D CMAKE_BUILD_TYPE:STRING=Release
+          -D BUILD_SHARED_LIBS:BOOL=ON
+          -D TPL_ENABLE_MPI:BOOL=ON"
 
 package_specific_register () {
     export TRILINOS_DIR=${INSTALL_PATH}

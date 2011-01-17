@@ -24,13 +24,13 @@ default GMP_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+trilinos
 petsc
 slepc
 # cln
 # ginac
 # swiginac
 mtl
-trilinos
 cgal
 fiat
 ferari

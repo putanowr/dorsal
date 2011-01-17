@@ -11,7 +11,7 @@
 # libptscotch-dev libcln-dev subversion gfortran liblapack-dev \
 # autoconf cmake python-scientific libmpfr-dev libarmadillo-dev \
 # libcgal-dev libboost-{thread,filesystem}-dev libginac-dev \
-# libcppunit-dev'
+# libcppunit-dev flex'
 #
 # You will need to enable non-free repositories.
 #
@@ -25,11 +25,11 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+trilinos
 petsc
 slepc
 # swiginac
 mtl
-trilinos
 fiat
 # ferari
 ufc

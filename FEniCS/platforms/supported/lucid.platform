@@ -10,7 +10,7 @@
 # libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
-# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev
+# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
@@ -23,11 +23,11 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+trilinos
 petsc
 slepc
 # swiginac
 mtl
-trilinos
 scotch
 fiat
 # ferari

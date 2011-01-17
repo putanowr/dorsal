@@ -1,24 +1,15 @@
-NAME=slepc-3.1-p5
+NAME=slepc-3.1-p4
 PACKING=.tgz
-BUILDCHAIN=custom
+BUILDCHAIN=autotools
 
 # SLEPc web archive not very reliable so download from mirror
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 
+MAKEOPTS="PETSC_ARCH=installed-petsc"
+
 package_specific_setup () {
     patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true
     export SLEPC_DIR=${PWD}
-    ./config/configure.py --prefix=${INSTALL_PATH}
-}
-
-package_specific_build () {
-    export PETSC_ARCH=installed-petsc
-    make -j ${PROCS}
-}
-
-package_specific_install () {
-    export PETSC_ARCH=installed-petsc
-    make install
 }
 
 package_specific_register () {

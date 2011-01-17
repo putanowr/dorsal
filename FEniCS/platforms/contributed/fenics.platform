@@ -25,12 +25,12 @@ export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 # Define the packages this platform needs
 PACKAGES=(
 skip:parmetis
+# trilinos
 skip:petsccore
 skip:slepc
 skip:armadillo
 # swiginac
 skip:mtl
-# trilinos
 skip:scotch
 fiat
 ferari

@@ -22,6 +22,7 @@ openmpi
 scons
 swig
 parmetis
+trilinos
 petsc
 slepc
 armadillo
@@ -30,7 +31,6 @@ armadillo
 # swiginac
 gmp
 mtl
-trilinos
 scotch
 cgal
 fiat

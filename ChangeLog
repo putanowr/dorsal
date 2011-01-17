@@ -1,6 +1,3 @@
-2011-01 Garth N. Wells <gnw20@cam.ac.uk>
-  * Add support for RHEL6/ScientificLinux6
-  * Updates for PETSc, SCOTCH, Boost, CMake
 2010-12 Garth N. Wells <gnw20@cam.ac.uk>
   * Add support for Fedora 14
   * Enable Trilinos for all supported platforms

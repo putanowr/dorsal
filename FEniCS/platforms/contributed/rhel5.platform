@@ -45,6 +45,7 @@ boost
 swig
 openmpi
 # parmetis
+trilinos
 petsc
 slepc
 armadillo
@@ -54,7 +55,6 @@ armadillo
 # suitesparsewithmetis
 gmp
 mtl
-trilinos
 scotch
 cmake
 cgal
