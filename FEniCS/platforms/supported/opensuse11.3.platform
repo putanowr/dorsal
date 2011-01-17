@@ -15,7 +15,7 @@
 # openmpi-devel python-devel python-numpy python-numpy-devel swig \
 # wget boost-devel vtk-python liblapack3 libblas3 liblapack3 \
 # mpfr-devel suitesparse-common-devel gmp-devel cmake umfpack-devel \
-# libumfpack5 CGAL-devel scotch-devel libatlas3-devel
+# libumfpack5 CGAL-devel scotch-devel libatlas3-devel flex
 #
 # Make sure to run
 #

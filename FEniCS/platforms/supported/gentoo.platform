@@ -6,7 +6,7 @@
 # unmask masked packages. (Hint: /etc/portage/package.keywords/)
 #
 # emerge -av swig numpy scientificpython boost openmpi bzr cmake cgal \
-# vtk parmetis scotch
+# vtk parmetis scotch flex
 ##
 
 # Platform specific variables

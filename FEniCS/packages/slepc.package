@@ -5,7 +5,7 @@ BUILDCHAIN=autotools
 # SLEPc web archive not very reliable so download from mirror
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 
-MAKEOPTS="PETSC_ARCH=arch-installed-petsc"
+MAKEOPTS="PETSC_ARCH=installed-petsc"
 
 package_specific_setup () {
     patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true

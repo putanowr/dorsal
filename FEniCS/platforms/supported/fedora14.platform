@@ -8,7 +8,7 @@
 # boost-devel vtk-python atlas-devel suitesparse-devel blas-devel \
 # lapack-devel cln-devel ginac-devel python-devel cmake \
 # ScientificPython mpfr-devel armadillo-devel gmp-devel CGAL-devel \
-# cppunit-devel'
+# cppunit-devel flex'
 #
 # Also, if you have multiple MPI libraries installed, make sure the
 # appropriate version is selected. For this, on a 32-bit operating
