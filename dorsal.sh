@@ -281,6 +281,7 @@ guess_platform() {
       Gentoo:*:*)            echo gentoo;;
       *:Nahant*:*)           echo rhel4;;
       *:Tikanga*:*)          echo rhel5;;
+      Scientific:Carbon*:*)  echo rhel6;;
       *:*:*CentOS*\ 4*)      echo rhel4;;
       *:*:*CentOS*\ 5*)      echo rhel5;;
       *:*:*openSUSE\ 11.1*)  echo opensuse11.1;;
