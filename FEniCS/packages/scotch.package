@@ -14,6 +14,7 @@ package_specific_setup () {
     perl -pi -e 's/^CFLAGS\t\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCS.*= gcc/CCS  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCD.*= gcc/CCD  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
+    perl -pi -e 's/-DSCOTCH_PTHREAD//g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
 }
 
