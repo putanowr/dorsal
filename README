@@ -14,7 +14,7 @@ Currently, Dorsal supports the following environments:
    Ubuntu 10.04 LTS, 10.10
    openSUSE 11.3
    Red Hat Enterprise Linux 6
-   Debian GNU/Linux Unstable, Testing
+   Debian GNU/Linux 6.0, Unstable
    Mac OS X 10.6 (with MacPorts)
 
 If your favourite platform is not on the list above, let us know about

@@ -1,4 +1,4 @@
-# Debian GNU/Linux Squeeze (Testing)
+# Debian GNU/Linux 6.0
 
 # This build script assumes that you have several packages already
 # installed installed via Debian's apt-get using the following
@@ -8,10 +8,9 @@
 # python-dev python-numpy python-vtk swig libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
-# libptscotch-dev libcln-dev subversion gfortran liblapack-dev \
-# autoconf cmake python-scientific libmpfr-dev libarmadillo-dev \
-# libcgal-dev libboost-{thread,filesystem}-dev libginac-dev \
-# libcppunit-dev flex'
+# libcln-dev subversion gfortran liblapack-dev autoconf cmake \
+# python-scientific libmpfr-dev libarmadillo-dev libcgal-dev \
+# libboost-{thread,filesystem}-dev libginac-dev libcppunit-dev flex'
 #
 # You will need to enable non-free repositories.
 #
