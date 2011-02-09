@@ -1,16 +1,16 @@
 2011-01 Garth N. Wells <gnw20@cam.ac.uk>
-  * Add support for RHEL6/ScientificLinux6
-  * Updates for PETSc, SCOTCH, Boost, CMake
+	* Add support for RHEL6/ScientificLinux6
+	* Updates for PETSc, SCOTCH, Boost, CMake
 2010-12 Garth N. Wells <gnw20@cam.ac.uk>
-  * Add support for Fedora 14
-  * Enable Trilinos for all supported platforms
-  * Update PETSc and Trilinos versions
+	* Add support for Fedora 14
+	* Enable Trilinos for all supported platforms
+	* Update PETSc and Trilinos versions
 2010-11 Garth N. Wells <gnw20@cam.ac.uk>
-  * Add download PaStiX (multi-threaded LU) to PETSc
-  * Update PETSc and Trilinos versions
+	* Add download PaStiX (multi-threaded LU) to PETSc
+	* Update PETSc and Trilinos versions
 2010-10 Harish Narayanan <hnarayanan@gmail.com>
 	* Updated fenics.org to fenicsproject.org to reflect move
-  * Update SLEPc version
+	* Update SLEPc version
 2010-09 Anders Logg <logg@simula.no>
 	* Polished support for snowleopard
 	* Updated to recent versions of all fenics packages
