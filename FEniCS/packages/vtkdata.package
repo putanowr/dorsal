@@ -1,4 +1,4 @@
-NAME=vtkdata-5.6.0
+NAME=vtkdata-5.6.1
 SOURCE=http://www.vtk.org/files/release/5.6/
 PACKING=.tar.gz
 BUILDCHAIN=custom

@@ -1,4 +1,5 @@
-NAME=Python-2.6.5
-SOURCE=http://python.org/ftp/python/2.6.5/
+VERSION=2.7.1
+NAME=Python-${VERSION}
+SOURCE=http://www.python.org/ftp/python/${VERSION}/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools

@@ -1,4 +1,4 @@
-NAME=openmpi-1.4.2
+NAME=openmpi-1.4.3
 SOURCE=http://www.open-mpi.org/software/ompi/v1.4/downloads/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
