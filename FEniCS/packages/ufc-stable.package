@@ -1,3 +1,4 @@
-NAME=ufc-1.4.2
-SOURCE=http://launchpad.net/ufc/trunk/1.4.2/+download/
+VERSION=1.4.2
+NAME=ufc-${VERSION}
+SOURCE=http://launchpad.net/ufc/trunk/${VERSION}/+download/
 PACKING=.tar.gz

@@ -1,3 +1,4 @@
-NAME=viper-0.4.6
-SOURCE=http://launchpad.net/fenics-viper/trunk/0.4.6/+download/
+VERSION=0.4.6
+NAME=viper-${VERSION}
+SOURCE=http://launchpad.net/fenics-viper/trunk/${VERSION}/+download/
 PACKING=.tar.gz
