@@ -3,7 +3,7 @@
 # This build script assumes that you have several packages already
 # installed installed via Fedora's yum using the following command:
 #
-# su -c 'yum install -y wget bzr bzrtools subversion \
+# su -c 'yum install -y redhat-lsb bzr bzrtools subversion \
 # libxml2-devel gcc gcc-c++ openmpi-devel openmpi numpy swig wget \
 # boost-devel vtk-python atlas-devel suitesparse-devel blas-devel \
 # lapack-devel cln-devel ginac-devel python-devel cmake \
