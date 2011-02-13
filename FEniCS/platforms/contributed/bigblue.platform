@@ -16,7 +16,7 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-petscwithmumps
+petsc
 slepc
 gmp
 mtl
