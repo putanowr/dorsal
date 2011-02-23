@@ -1,4 +1,4 @@
-VERSION=0.9.9
+VERSION=0.9.10
 NAME=dolfin-${VERSION}
 SOURCE=http://launchpad.net/dolfin/trunk/${VERSION}/+download/
 PACKING=.tar.gz

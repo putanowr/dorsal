@@ -1,4 +1,4 @@
-VERSION=0.9.4
+VERSION=0.9.9
 NAME=ffc-${VERSION}
 SOURCE=http://launchpad.net/ffc/trunk/${VERSION}/+download/
 PACKING=.tar.gz

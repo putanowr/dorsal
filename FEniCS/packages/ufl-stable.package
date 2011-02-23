@@ -1,4 +1,4 @@
-VERSION=0.5.4
+VERSION=0.9.0
 NAME=ufl-${VERSION}
 SOURCE=http://launchpad.net/ufl/trunk/${VERSION}/+download/
 PACKING=.tar.gz
