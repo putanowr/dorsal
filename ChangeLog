@@ -1,16 +1,50 @@
+2011-02 Anders Logg <logg@simula.no>
+	* Polished support for bigblue
+2011-02 Johannes Ring <johannr@simula.no>
+	* Made maverick similar to lucid
+	* Fixed link to stable ufc
+2011-02 Harish Narayanan <hnarayanan@gmail.com>
+	* Updated swig version
+	* Polished support for sid and squeeze
+	* Made fedora13 and fedora14 identical
+	* Updated to recent versions of peripheral packages
+	* Simplified stable fenics packages
+	* Polished support for snowleopard
+	* Updated to recent versions of all fenics packages
+2011-01 Johannes Ring <johannr@simula.no>
+	* Fixed scotch package on debian and snowleopard
+	* Made sid and squeeze identical
+2011-01 Joachim B Haga <jobh@simula.no>
+	* Converted petsc, slepc and trilinos to standard build chains
+	* Added support for separate dorsal_configure and dorsal_build
+	  output
+	* Polished ML support in petsc
+	* Added support for running dolfin in valgrind
+2011-01 Harish Narayanan <hnarayanan@gmail.com>
+	* Moved snowleopard to python27
+2011-01 Johan Hake <hake@simula.no>
+	* Added ml support to petsc package
 2011-01 Garth N. Wells <gnw20@cam.ac.uk>
-	* Add support for RHEL6/ScientificLinux6
-	* Updates for PETSc, SCOTCH, Boost, CMake
+	* Addded support for rhel6 (and scientificlinux6)
+	* Updated petsc, scotch, boost, cmake and cgal packages
+2010-12 Johannes Ring <johannr@simula.no>
+	* Removed run time path information from dolfin build
+2010-12 Harish Narayanan <hnarayanan@gmail.com>
+	* Fixed bugs in  petsc and mtl4 packages
+	* Made wget smarter about downloading files from flaky URLs
+	* Added generic cmake build option
+2010-12 Gerd Wachsmuth <gerd.wachsmuth@mathematik.tu-chemnitz.de>
+	* Install actual files instead of making symlinks
 2010-12 Garth N. Wells <gnw20@cam.ac.uk>
-	* Add support for Fedora 14
-	* Enable Trilinos for all supported platforms
-	* Update PETSc and Trilinos versions
+	* Added support for fedora14
+	* Enabled trilinos for all supported platforms
+	* Updated petsc and trilinos versions
 2010-11 Garth N. Wells <gnw20@cam.ac.uk>
-	* Add download PaStiX (multi-threaded LU) to PETSc
-	* Update PETSc and Trilinos versions
+	* Added pastix (multi-threaded LU) support to petsc
+	* Updated petsc and trilinos versions
 2010-10 Harish Narayanan <hnarayanan@gmail.com>
 	* Updated fenics.org to fenicsproject.org to reflect move
-	* Update SLEPc version
+	* Updated slepc version
 2010-09 Anders Logg <logg@simula.no>
 	* Polished support for snowleopard
 	* Updated to recent versions of all fenics packages
