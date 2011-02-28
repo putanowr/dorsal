@@ -25,7 +25,7 @@
 2011-01 Johan Hake <hake@simula.no>
 	* Added ml support to petsc package
 2011-01 Garth N. Wells <gnw20@cam.ac.uk>
-	* Addded support for rhel6 (and scientificlinux6)
+	* Added support for rhel6 (and scientificlinux6)
 	* Updated petsc, scotch, boost, cmake and cgal packages
 2010-12 Johannes Ring <johannr@simula.no>
 	* Removed run time path information from dolfin build
