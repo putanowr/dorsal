@@ -1,5 +1,0 @@
-NAME=swig-1.3.40
-SOURCE=http://downloads.sourceforge.net/swig/
-PACKING=.tar.gz
-BUILDCHAIN=autotools
-CLEANBUILD=yes
