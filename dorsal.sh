@@ -317,10 +317,11 @@ fi
 default PROJECT=FEniCS
 default DOWNLOAD_PATH=${HOME}/Work/FEniCS/src
 default INSTALL_PATH=${HOME}/Work/FEniCS
-default BUILD_PATH=${HOME}/Work/FEniCS/build
 default PROCS=1
 default STABLE_BUILD=true
 
+# Set build path
+default BUILD_PATH=${INSTALL_PATH}/build
 
 # Check if project was specified correctly
 if [ -d ${PROJECT} ]
