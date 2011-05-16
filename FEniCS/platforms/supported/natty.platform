@@ -1,4 +1,4 @@
-# Ubuntu 11.04 (Natty Narwhal)
+# Ubuntu 11.04
 
 # This build script assumes that you have several packages already
 # installed installed via Ubuntu's apt-get using the following
@@ -12,15 +12,15 @@
 # libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
-# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex
+# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex \
+# libptscotch-dev
 #
-# If you have multiple MPI libraries installed, make sure
+# Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
 ##
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-default SCOTCH_ARCH=pc_linux2
 default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
@@ -30,7 +30,6 @@ petsc
 slepc
 # swiginac
 mtl
-# scotch
 fiat
 # ferari
 ufc
