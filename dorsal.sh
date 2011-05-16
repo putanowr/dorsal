@@ -148,14 +148,8 @@ package_build() {
         exit 1
     fi
 
-    if [ x"${CLEANBUILD}" = "xyes" ]
-    then
-       BUILDDIR=${BUILD_PATH}/${EXTRACTSTO}
-       SRCDIR=${DOWNLOAD_PATH}/${EXTRACTSTO}
-    else
-       BUILDDIR=${EXTRACTSTO}
-       SRCDIR=.
-    fi
+    BUILDDIR=${EXTRACTSTO}
+    SRCDIR=.
 
     # Create build directory if it does not exist
     if [ ! -d ${BUILDDIR} ]
@@ -320,9 +314,6 @@ default INSTALL_PATH=${HOME}/Work/FEniCS
 default PROCS=1
 default STABLE_BUILD=true
 
-# Set build path
-default BUILD_PATH=${INSTALL_PATH}/build
-
 # Check if project was specified correctly
 if [ -d ${PROJECT} ]
 then
@@ -478,7 +469,6 @@ do
     unset MAKEOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
-    unset CLEANBUILD
     TARGETS=('' install)
     PROCS=${ORIG_PROCS}
 
