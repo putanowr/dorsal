@@ -419,7 +419,6 @@ default PYTHONVER=`python -c "import sys; print sys.version[:3]"`
 
 # Create necessary directories and set appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
-mkdir -p ${BUILD_PATH}
 mkdir -p ${INSTALL_PATH}/bin
 mkdir -p ${INSTALL_PATH}/lib
 mkdir -p ${INSTALL_PATH}/include
