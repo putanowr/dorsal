@@ -1,4 +1,4 @@
-# Ubuntu 11.04 (Natty Narwhal)
+# Ubuntu 11.04
 
 # This build script assumes that you have several packages already
 # installed installed via Ubuntu's apt-get using the following
@@ -14,7 +14,7 @@
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
 # libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex
 #
-# If you have multiple MPI libraries installed, make sure
+# Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
 ##
 
@@ -25,13 +25,13 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:trilinos
-skip:petsc
-skip:slepc
+trilinos
+petsc
+slepc
 # swiginac
-skip:mtl
-skip:scotch
-skip:fiat
+mtl
+scotch
+fiat
 # ferari
 ufc
 ufl
