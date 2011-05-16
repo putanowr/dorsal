@@ -10,4 +10,4 @@ platforms/*test.platform
 packages/*test.package
 
 # Local configuration
-local.cfg
+local*.cfg
