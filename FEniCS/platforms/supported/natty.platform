@@ -25,13 +25,13 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:trilinos
-skip:petsc
-skip:slepc
+trilinos
+petsc
+slepc
 # swiginac
-skip:mtl
-skip:scotch
-skip:fiat
+mtl
+# scotch
+fiat
 # ferari
 ufc
 ufl

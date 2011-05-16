@@ -1,4 +1,4 @@
-NAME=armadillo-1.0.0
+NAME=armadillo-1.2.0
 SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
 BUILDCHAIN=custom
