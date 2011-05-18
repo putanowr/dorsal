@@ -6,8 +6,8 @@ RE:.*\#.*\#$
 .DS_Store
 
 # Temporary files for testing
-platforms/*test.platform
-packages/*test.package
+FEniCS/platforms/*/*test.platform
+FEniCA/packages/test.package
 
 # Local configuration
 local*.cfg
