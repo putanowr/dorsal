@@ -192,12 +192,9 @@ package_build() {
         echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
     elif [ ${BUILDCHAIN} = "scons" ]
     then
-	SCONS_EXECUTABLE=$(which scons)
-	quit_if_fail "Unable to locate SCons."
-
         for target in "${TARGETS[@]}"
         do
-            echo python ${SCONS_EXECUTABLE} -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
+            echo scons -j ${PROCS} ${SCONSOPTS} prefix=${INSTALL_PATH} $target >>dorsal_build
         done
     elif [ ${BUILDCHAIN} = "cmake" ]
     then
