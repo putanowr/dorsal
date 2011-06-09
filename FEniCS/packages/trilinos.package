@@ -15,6 +15,10 @@ CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
           -D BUILD_SHARED_LIBS:BOOL=ON
           -D TPL_ENABLE_MPI:BOOL=ON"
 
+if [ -x "${SWIG_EXECUTABLE}" ]; then
+    CONFOPTS="${CONFOPTS} -D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}"
+fi
+
 package_specific_register () {
     export TRILINOS_DIR=${INSTALL_PATH}
 }
