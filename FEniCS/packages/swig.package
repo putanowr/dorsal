@@ -2,3 +2,7 @@ NAME=swig-2.0.3
 SOURCE=http://downloads.sourceforge.net/swig/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
+
+package_specific_register () {
+    export SWIG_EXECUTABLE=${INSTALL_PATH}/bin/swig
+}

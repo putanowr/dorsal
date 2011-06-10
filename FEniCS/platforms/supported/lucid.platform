@@ -1,16 +1,16 @@
 # Ubuntu 10.04 LTS
 
 # This build script assumes that you have several packages already
-# installed installed via Ubuntu's apt-get using the following
-# command:
+# installed via Ubuntu's apt-get using the following command:
 #
 # sudo apt-get install g++ bzr bzrtools libxml2-dev pkg-config \
-# python-dev python-numpy python-vtk swig libsuitesparse-dev \
+# python-dev python-numpy python-vtk libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
-# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex
+# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex \
+# libpcre3-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
@@ -23,6 +23,7 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+swig
 trilinos
 petsc
 slepc

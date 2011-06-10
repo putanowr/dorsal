@@ -1,16 +1,16 @@
 # Debian GNU/Linux 6.0
 
 # This build script assumes that you have several packages already
-# installed installed via Debian's apt-get using the following
-# command:
+# installed via Debian's apt-get using the following command:
 #
 # su -c 'apt-get install g++ bzr bzrtools libxml2-dev pkg-config \
-# python-dev python-numpy python-vtk swig libsuitesparse-dev \
+# python-dev python-numpy python-vtk libsuitesparse-dev \
 # libboost-dev libboost-program-options-dev wget openmpi-bin \
 # libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
 # libcln-dev subversion gfortran liblapack-dev autoconf cmake \
 # python-scientific libmpfr-dev libarmadillo-dev libcgal-dev \
-# libboost-{thread,filesystem}-dev libginac-dev libcppunit-dev flex'
+# libboost-{thread,filesystem}-dev libginac-dev libcppunit-dev flex \
+# libpcre3-dev'
 #
 # You will need to enable non-free repositories.
 #
@@ -25,6 +25,7 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+swig
 trilinos
 petsc
 slepc

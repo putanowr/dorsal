@@ -1,8 +1,7 @@
 # Ubuntu 11.04
 
 # This build script assumes that you have several packages already
-# installed installed via Ubuntu's apt-get using the following
-# commands:
+# installed via Ubuntu's apt-get using the following commands:
 #
 # sudo apt-get remove swig
 #

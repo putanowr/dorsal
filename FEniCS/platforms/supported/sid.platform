@@ -1,8 +1,7 @@
 # Debian GNU/Linux Sid (Unstable)
 
 # This build script assumes that you have several packages already
-# installed installed via Debian's apt-get using the following
-# command:
+# installed via Debian's apt-get using the following command:
 #
 # su -c 'apt-get install g++ bzr bzrtools libxml2-dev pkg-config \
 # python-dev python-numpy python-vtk swig libsuitesparse-dev \
