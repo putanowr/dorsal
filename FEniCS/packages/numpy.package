@@ -1,4 +1,4 @@
-NAME=numpy-1.5.1
+NAME=numpy-1.6.0
 SOURCE=http://downloads.sourceforge.net/numpy/
 PACKING=.tar.gz
 BUILDCHAIN=python
@@ -7,4 +7,8 @@ package_specific_setup () {
     echo "[atlas]" > site.cfg
     echo "library_dirs = ${LAPACKANDBLAS_DIR}" >> site.cfg
     echo "atlas_libs = lapack, blas" >> site.cfg
+}
+
+package_specific_register () {
+    ln -s ${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages/numpy/core/include/numpy ${INSTALL_PATH}/include/python${PYTHONVER}
 }

@@ -17,9 +17,7 @@
 # su -c 'yum install -y libtool libxml2 libxml2-devel pkgconfig \
 # lapack-devel blas-devel gcc gcc-c++ gcc-gfortran subversion \
 # zlib-devel openssl-devel glib2-devel bzip2-devel libXt-devel \
-# libX11-devel bzr scons numpy boost-devel swig openmpi-devel \
-# python26-devel gmp-devel suitesparse-devel cmake cln-devel \
-# ginac-devel vtk-devel vtk-python' 
+# libX11-devel' 
 #
 # Also, if you're having difficulty building SuiteSparse, you may need
 # to run (as root):
@@ -29,33 +27,42 @@
 
 # Platform specific variables
 default UMFPACK_DIR=/usr
-#default PYTHONVER=2.6
+default PYTHONVER=2.7
 default PETSC_ARCH=linux-gnu-cxx-op
 default GMP_DIR=/usr
 default SCOTCH_ARCH=pc_linux2
 
-#alias python='python2.6'
-export OMPI_DIR=/usr/lib64/openmpi/1.4-gcc
-export PATH=${OMPI_DIR}/bin:${PATH}
-echo ${PATH}
-export LD_LIBRARY_PATH=${OMPI_DIR}/lib:${LD_LIBRARY_PATH}
-
 # Define the packages this platform needs
 PACKAGES=(
+python
+numpy
+scipy
+ipython
+scientificpython
+sympy
+matplotlib
+cmake
+scons
+bazaar
+vtk
+swig
+openmpi
+boost
+suitesparsewithmetis
 parmetis
-# trilinos
+trilinos
 petsc
 slepc
+cppunit
 armadillo
 # swiginac
 mtl
 scotch
 cgal
-scientificpython
 fiat
-ferari
+# ferari
 ufc
-ufl 
+ufl
 ffc
 # syfi
 viper

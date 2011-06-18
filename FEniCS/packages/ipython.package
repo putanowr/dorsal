@@ -1,0 +1,7 @@
+http://ipython.scipy.org/dist/0.10.2/ipython-0.10.2.tar.gz
+VERSION=0.10.2
+NAME=ipython-$VERSION
+SOURCE=http://ipython.scipy.org/dist/$VERSION/
+PACKING=.tar.gz
+BUILDCHAIN=python
+
