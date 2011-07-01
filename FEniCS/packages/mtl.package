@@ -1,5 +1,5 @@
-NAME=mtl4-beta-1-r6916
-SOURCE=http://osl.iu.edu/download/research/mtl/
+NAME=MTL-4.0.8246-Linux
+SOURCE=https://simunova.zih.tu-dresden.de/mtl4/dwtable/
 PACKING=.tar.gz
 BUILDCHAIN=custom
 EXTRACTSTO=mtl4
