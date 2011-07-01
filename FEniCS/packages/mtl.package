@@ -2,7 +2,6 @@ NAME=MTL-4.0.8246-Linux
 SOURCE=https://simunova.zih.tu-dresden.de/mtl4/dwtable/
 PACKING=.tar.gz
 BUILDCHAIN=custom
-EXTRACTSTO=mtl4
 
 package_specific_build () {
     cp -r boost ${INSTALL_PATH}/include
