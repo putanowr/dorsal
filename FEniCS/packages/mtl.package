@@ -4,7 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=custom
 
 package_specific_build () {
-    cp -r boost ${INSTALL_PATH}/include
+    cp -r usr/ ${INSTALL_PATH}
 }
 
 package_specific_register () {
