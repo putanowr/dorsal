@@ -8,7 +8,7 @@
 # libboost-{filesystem,iostreams,program-options,thread}-dev \
 # libcgal-dev libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev \
-# libpcre3-dev libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
+# libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion \
 # wget'
 #
