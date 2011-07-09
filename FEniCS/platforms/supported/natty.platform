@@ -5,14 +5,14 @@
 #
 # sudo apt-get remove swig
 #
-# sudo apt-get install g++ bzr bzrtools libxml2-dev pkg-config \
-# python-dev python-numpy python-vtk swig2.0 libsuitesparse-dev \
-# libboost-dev libboost-program-options-dev wget openmpi-bin \
-# libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
-# libcln-dev subversion gfortran liblapack-dev autoconf cmake \
-# python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
-# libarmadillo-dev libcgal-dev libginac-dev libcppunit-dev flex \
-# libptscotch-dev
+# sudo apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
+# libarmadillo-dev libatlas-base-dev libboost-dev \
+# libboost-{filesystem,iostreams,program-options,thread}-dev \
+# libcgal-dev libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
+# liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
+# libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
+# python-dev python-numpy python-scientific python-vtk subversion swig2.0 \
+# wget
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
