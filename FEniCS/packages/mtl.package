@@ -1,6 +1,6 @@
-NAME=MTL-4.0.8300-Linux
+NAME=MTL-4.0.8368-Linux
 SOURCE=https://simunova.zih.tu-dresden.de/mtl4/dwtable/
-PACKING=.tar.gz
+PACKING=.tar.bz2
 BUILDCHAIN=custom
 
 package_specific_build () {
