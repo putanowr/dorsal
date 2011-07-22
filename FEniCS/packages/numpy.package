@@ -10,5 +10,5 @@ package_specific_setup () {
 }
 
 package_specific_register () {
-    ln -s ${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages/numpy/core/include/numpy ${INSTALL_PATH}/include/python${PYTHONVER}
+    ln -sf ${INSTALL_PATH}/lib/python${PYTHONVER}/site-packages/numpy/core/include/numpy ${INSTALL_PATH}/include/python${PYTHONVER}
 }
