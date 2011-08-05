@@ -1,13 +1,19 @@
 NAME=vtk-5.6.1
 SOURCE=http://www.vtk.org/files/release/5.6/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
+BUILDCHAIN=cmake
 EXTRACTSTO=VTK
 PROCS=1
 
+CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
+          -D BUILD_TESTING:BOOL=OFF
+          -D BUILD_SHARED_LIBS:BOOL=ON
+          -D VTK_WRAP_PYTHON:BOOL=ON
+          -D VTK_USE_TK:BOOL=ON
+          -D VTK_USE_GL2PS:BOOL=ON"
+
 package_specific_setup () {
     chmod 600 Utilities/vtktiff/tif_fax3sm.c
-    ccmake .
 }
 
 package_specific_register () {
