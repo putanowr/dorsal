@@ -31,7 +31,7 @@ cmake
 parmetis
 scotch
 trilinos
-petscwithml
+petsc
 slepc
 armadillo
 cgal
