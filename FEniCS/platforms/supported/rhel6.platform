@@ -19,6 +19,16 @@
 #
 # If you are using SELinux, you may need to disable it to run DOLFIN
 # programs.
+#
+# If you are using Scientific Linux, you need to add
+# /usr/lib/openmpi/lib to LD_LIBRARY_PATH:
+#
+# export LD_LIBRARY_PATH=/usr/lib/openmpi/lib:{LD_LIBRARY_PATH}
+#
+# In order for Viper to find VTK, you need to manually set the
+# following environment variable:
+#
+# export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.6:${LD_LIBRARY_PATH}
 ##
 
 # Platform specific variables
@@ -28,6 +38,8 @@ default SCOTCH_ARCH=pc_linux2
 # Define the packages this platform needs
 PACKAGES=(
 cmake
+vtkdata
+vtk
 parmetis
 scotch
 trilinos
@@ -41,6 +53,7 @@ ferari
 ufc
 ufl
 ffc
+viper
 instant
 dolfin
 )
