@@ -12,6 +12,10 @@ CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
           -D VTK_USE_TK:BOOL=ON
           -D VTK_USE_GL2PS:BOOL=ON"
 
+if [ -d "${VTK_DATA_ROOT}" ]; then
+    CONFOPTS="${CONFOPTS} -D VTK_DATA_ROOT:PATH=${VTK_DATA_ROOT}"
+fi
+
 package_specific_setup () {
     chmod 600 Utilities/vtktiff/tif_fax3sm.c
 }
