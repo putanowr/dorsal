@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -a
 
-# This is Dorsal. Refer to the files README and COPYING for more
-# information about it as well as terms of distribution.
+# This is Dorsal. Refer to the files README and COPYING.lesser for
+# more information about it as well as terms of distribution.
 
 ### Define helper functions ###
 

@@ -1,32 +1,9 @@
 * Introduce automatic dependency resolution.
   Difficulty: High      Urgency: Low
 
-* Test Dorsal on the following platforms and correct the package lists
-  if necessary.
-
-- Debian squeeze/testing (32 bit)   [Testing in progress]
-- Debian squeeze/Testing (64 bit)   [Works perfectly (Garth)]
-- Debian sid/unstable    (32 bit)   [Testing in progress]
-- Debian sid/unstable    (64 bit)   [Works perfectly (Garth)]
-
-- Gentoo 13 (64 bit)                [Works perfectly (Marie)]
-
-- Fedora 13 (32 bit)                [Works perfectly (Garth)]
-- Fedora 13 (64 bit)                [Works perfectly (Garth)]
-
-- openSUSE 11.3 (32 bit)            [Works perfectly (Garth)]
-- openSUSE 11.3 (64 bit)            [Works perfectly (Garth)]
-
-- OSX 10.6 (Snow Leopard)           [Works perfectly (Anders)]
-- OSX 10.5 (Leopard)                [Testing in progress, ??]
-
-- Ubuntu 10.04 (Lucid, 32 bit)      [Works perfectly (Garth)]
-- Ubuntu 10.04 (Lucid, 64 bit)      [Works perfectly (Anders)]
-
-- Ubuntu 10.10 (Maverick, 32 bit)   [Testing in progress]
-- Ubuntu 10.10 (Maverick, 64 bit)   [Testing in progress]
-
-  Feel free to contribute information for other platforms as well.
+* Test Dorsal on supported platforms and correct the package lists if
+  necessary. Feel free to contribute information for other platforms
+  as well.
   Difficulty: Low       Urgency: High
 
 * Add (MD5/SHA1) check summing mechanism to the downloading routine
