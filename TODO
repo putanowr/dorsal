@@ -15,5 +15,12 @@
   GMP_ARCH, SCOTCH_ARCH etc.
   Difficulty: Moderate	Urgency: High
 
-* Insert download links somewhere in the documentation
+* Insert download links somewhere in the documentation.
   Difficulty: Trivial   Urgency: Moderate
+
+* Introduce mechanism to update package lists.
+  Difficulty: Moderate	Urgency: Low
+
+* Add the ability to "clean" a build. This could be as simple as
+  cleaning the dorsal_build folder, or something more complex.
+  Difficulty: Moderate	Urgency: Low
