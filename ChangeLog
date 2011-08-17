@@ -1,3 +1,5 @@
+2011-08 Johannes Ring <johannr@simula.no>
+	* Updated to recent versions of all fenics packages
 2011-05 Harish Narayanan <hnarayanan@gmail.com>
 	* Changed distribution license to GNU Lesser General Public
 	  Licence Version 3

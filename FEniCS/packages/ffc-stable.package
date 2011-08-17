@@ -1,4 +1,4 @@
-VERSION=0.9.10
+VERSION=1.0-beta
 NAME=ffc-${VERSION}
 SOURCE=http://launchpad.net/ffc/trunk/${VERSION}/+download/
 PACKING=.tar.gz
