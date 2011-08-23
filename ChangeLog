@@ -26,8 +26,19 @@
 	  Licence Version 3
 	* Incorporated Johannes' madlib build instructions
 	* Generalised paths to easier allow for different projects
+	* Removed unnecessary additions introduced by femdk support
+	* Polished support for natty
 2011-05 Garth N. Wells <gnw20@cam.ac.uk>
-	* Updated to recent versions of all fenics packages
+	* Updated to recent versions of all packages
+	* Fixed scotch package
+2011-05 Anders Logg <logg@simula.no>
+	* Added support for natty
+2011-04 Harish Narayanan <hnarayanan@gmail.com>
+	* Added Andre's suggested fix for Mac OS X gfortran petsc
+	compilation error
+2011-03 Harish Narayanan <hnarayanan@gmail.com>
+	* Removed unused slepc patch
+	* Removed support for femdk
 2011-02 Anders Logg <logg@simula.no>
 	* Polished support for bigblue
 2011-02 Johannes Ring <johannr@simula.no>
