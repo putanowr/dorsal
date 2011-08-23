@@ -1,4 +1,4 @@
-NAME=scipy-0.8.0b1
+NAME=scipy-0.9.0
 SOURCE=http://downloads.sourceforge.net/scipy/
 PACKING=.tar.gz
 BUILDCHAIN=python

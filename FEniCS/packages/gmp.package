@@ -1,4 +1,4 @@
-NAME=gmp-5.0.1
+NAME=gmp-5.0.2
 SOURCE=ftp://ftp.gnu.org/gnu/gmp/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
