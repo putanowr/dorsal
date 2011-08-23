@@ -1,8 +1,33 @@
+2011-08 Harish Narayanan <hnarayanan@gmail.com>
+	* Updated to recent versions of peripheral packages
+	* Cached recent MTL4 source on fenicsproject.org
+2011-08 Benjamin Kehlet <benjamik@simula.no>
+	* Reported bugs in few packages
 2011-08 Johannes Ring <johannr@simula.no>
 	* Updated to recent versions of all fenics packages
+	* Polished support for rhel6
+	* Allowed vtk to build without human interaction
+	* Fixed parmetis download link
+2011-07 Harish Narayanan <hnarayanan@gmail.com>
+	* Fixed bug in numpy package
+	* Added boost iostream to all debian and ubuntu platforms
+	* Fixed parmetis download link
+	* Fixed swig support by building it manually on some platforms
+2011-07 Benjamin Kehlet <benjamik@simula.no>
+	* Added pcre package
+2011-06 Johan Hake <hake@simula.no>
+	* Polished support for rhel5
+2011-06 Johannes Ring <johannr@simula.no>
+	* Fixed bug in suitesparse with metis package
+	* Debugged swig support on different platforms
+	* Updated syfi to build with cmake instead of scons
 2011-05 Harish Narayanan <hnarayanan@gmail.com>
 	* Changed distribution license to GNU Lesser General Public
 	  Licence Version 3
+	* Incorporated Johannes' madlib build instructions
+	* Generalised paths to easier allow for different projects
+2011-05 Garth N. Wells <gnw20@cam.ac.uk>
+	* Updated to recent versions of all fenics packages
 2011-02 Anders Logg <logg@simula.no>
 	* Polished support for bigblue
 2011-02 Johannes Ring <johannr@simula.no>

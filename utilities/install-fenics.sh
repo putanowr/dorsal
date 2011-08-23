@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Set default values of some useful variables
-export VERSION="0.8.2"          # Latest released Dorsal version
+export VERSION="1.0-beta"       # Latest released Dorsal version
 export PREFIX=${HOME}/local     # Default download/install location
 export ORIG_DIR=`pwd`           # Store original directory, so we can
 				# return to it when finished
