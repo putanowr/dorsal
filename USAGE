@@ -80,7 +80,7 @@ Using, troubleshooting and extending Dorsal
       (system.platform) in the platforms folder. Call it, say,
       myplatform.platform.
 
-      cd platforms
+      cd FEniCS/platforms/supported
       cp system.platform myplatform.platform
 
    3. Open myplatform.platform in your favourite text editor, and
@@ -107,10 +107,9 @@ Using, troubleshooting and extending Dorsal
       dolfin
       )
 
-      See the file fenics.platform for a an example of what I use on
-      my (Mac OS X Snow Leopard) machine. Notice that this file is
-      identical to snowleopard.platform, with a few packages
-      'skip:'ped.
+      See the file fenics.platform for an example of what I use on my
+      (Mac OS X Snow Leopard) machine. Notice that this file is
+      identical to snowleopard.platform, with a few packages 'skip:'ped.
 
    4. Now, every time you wish to rebuild just the few packages you
       want to track, invoke Dorsal via:
@@ -239,12 +238,12 @@ Using, troubleshooting and extending Dorsal
   a copy of it, and try to modify it to suit your needs.
 
   In order to inform Dorsal how to build each package, we introduce
-  package files. Package files have the suffix `.package' and live in
-  the `packages' folder. These files specify several package details,
-  including where the package should be downloaded from, how it is
-  packed, what buildchain it uses, any package-specific build
-  instructions if needed etc. A superset of these attributes are
-  documented in packages/template.package.
+  package files. Not surprisingly, package files have the suffix
+  `.package' and live in the `packages' folder. These files specify
+  several package details, including where the package should be
+  downloaded from, how it is packed, what buildchain it uses, any
+  package-specific build instructions if needed, etc. A superset of
+  these attributes are documented in packages/template.package.
 
   If you are interested in adding support for a new package, take a
   look at packages/template.package, as well as other related packages
