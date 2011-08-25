@@ -4,7 +4,7 @@
 # installed via Fedora's yum using the following command:
 #
 # su -c 'yum install -y wget bzr pkgconfig libxml2-devel gcc gcc-c++ \
-# openmpi-devel openmpi numpy swig boost-devel atlas-devel blas-devel \
+# openmpi-devel openmpi numpy boost-devel atlas-devel blas-devel \
 # lapack-devel python-devel cmake mpfr-devel gmp-devel cppunit-devel'
 #
 # Also, if you have multiple MPI libraries installed, make sure the
@@ -32,6 +32,7 @@ default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
+swig
 cmake
 vtkdata
 vtk
