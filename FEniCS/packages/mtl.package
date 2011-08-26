@@ -4,7 +4,7 @@ PACKING=.tar.bz2
 BUILDCHAIN=custom
 
 package_specific_build () {
-    cp -r usr/ ${INSTALL_PATH}
+    cp -r usr/* ${INSTALL_PATH}
 }
 
 package_specific_register () {
