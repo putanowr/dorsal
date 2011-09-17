@@ -27,9 +27,9 @@ export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
 # Platform specific setup
-for cmd in /opt/local/bin/openmpi*
+for CMD in /opt/local/bin/openmpi*
 do
-    ln -sf ${cmd} ${INSTALL_PATH}/bin/`basename ${cmd} | cut -b 5-`
+    ln -sf ${CMD} ${INSTALL_PATH}/bin/`basename ${CMD} | cut -b 5-`
 done
 
 # Define the packages this platform needs
