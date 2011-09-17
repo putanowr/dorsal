@@ -1,9 +1,9 @@
 # Mac OS X 10.7 with MacPorts
 
 # This build script assumes that you have installed Xcode.app from the
-# Mac App Store. This gives you access to a recent gcc, among other 
+# Mac App Store. This gives you access to a recent gcc, among other
 # things. In order to have easy access to a lot of useful Free Software,
-# this script also assumes you have installed MacPorts 
+# this script also assumes you have installed MacPorts
 # (from http://www.macports.org/).
 #
 # Via Macports, you need to install the following packages:
@@ -25,6 +25,15 @@ default SCOTCH_ARCH=i686_mac_darwin8
 
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
+
+# Platform specific setup
+ln -sf /opt/local/bin/openmpic++ ${INSTALL_PATH}/bin/mpic++
+ln -sf /opt/local/bin/openmpicc  ${INSTALL_PATH}/bin/mpicc
+ln -sf /opt/local/bin/openmpicxx ${INSTALL_PATH}/bin/mpicxx
+ln -sf /opt/local/bin/openmpiexe ${INSTALL_PATH}/bin/mpiexe
+ln -sf /opt/local/bin/openmpif77 ${INSTALL_PATH}/bin/mpif77
+ln -sf /opt/local/bin/openmpif90 ${INSTALL_PATH}/bin/mpif90
+ln -sf /opt/local/bin/openmpirun ${INSTALL_PATH}/bin/mpirun
 
 # Define the packages this platform needs
 PACKAGES=(
