@@ -27,6 +27,9 @@ export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
 # Platform specific setup
+if [ ! -d "${INSTALL_PATH}/bin" ]; then
+    mkdir -p ${INSTALL_PATH}/bin
+fi
 for CMD in /opt/local/bin/openmpi*
 do
     ln -sf ${CMD} ${INSTALL_PATH}/bin/`basename ${CMD} | cut -b 5-`
