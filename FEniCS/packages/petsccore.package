@@ -10,6 +10,7 @@ CONFOPTS="COPTFLAGS=-O2
           --download-umfpack=1"
 
 package_specific_setup () {
+    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/petsc.patch || true
     export PETSC_DIR=${PWD}
 }
 
