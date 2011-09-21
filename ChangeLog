@@ -1,3 +1,11 @@
+2011-09 Harish Narayanan <hnarayanan@gmail.com>
+	* Incorporated Richard Katz's suggested port_select syntax change
+	* Added patch to compile petsc as a shared library on lion
+	* Polished support for lion
+2011-09 Fredrik Valdmanis <fredva@ifi.uio.no>
+	* Added initial support for lion
+2011-08 Garth N. Wells <gnw20@cam.ac.uk>
+	* Added initial support for oneiric
 2011-08 Harish Narayanan <hnarayanan@gmail.com>
 	* Updated to recent versions of peripheral packages
 	* Cached recent MTL4 source on fenicsproject.org
@@ -8,6 +16,7 @@
 	* Polished support for rhel6
 	* Allowed vtk to build without human interaction
 	* Fixed parmetis download link
+	* Fixed bug in mtl package
 2011-07 Harish Narayanan <hnarayanan@gmail.com>
 	* Fixed bug in numpy package
 	* Added boost iostream to all debian and ubuntu platforms
