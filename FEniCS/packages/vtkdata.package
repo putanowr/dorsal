@@ -1,5 +1,5 @@
-NAME=vtkdata-5.6.1
-SOURCE=http://www.vtk.org/files/release/5.6/
+NAME=vtkdata-5.8.0
+SOURCE=http://www.vtk.org/files/release/5.8/
 PACKING=.tar.gz
 BUILDCHAIN=custom
 EXTRACTSTO=VTKData
