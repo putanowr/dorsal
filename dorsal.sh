@@ -256,6 +256,7 @@ guess_platform() {
           Constantine*) echo fedora12;;
           Goddard*)     echo fedora13;;
           Laughlin*)    echo fedora14;;
+          Lovelock*)    echo fedora15;;
       esac
   elif [ -x /usr/bin/sw_vers ]
   then
@@ -282,6 +283,7 @@ guess_platform() {
       *:*:*openSUSE\ 11.1*)  echo opensuse11.1;;
       *:*:*openSUSE\ 11.2*)  echo opensuse11.2;;
       *:*:*openSUSE\ 11.3*)  echo opensuse11.3;;
+      *:*:*openSUSE\ 11.4*)  echo opensuse11.4;;
     esac
   fi
 }
