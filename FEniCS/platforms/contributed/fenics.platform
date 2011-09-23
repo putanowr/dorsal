@@ -12,11 +12,11 @@
 # You can inform Dorsal you'd like it to use this platform by invoking
 # it in the following manner:
 #
-# ./dorsal.sh platforms/fenics.platform
+# ./dorsal.sh platforms/contributed/fenics.platform
 ##
 
 # Platform specific variables
-default PETSC_ARCH=darwin10.0.0-cxx-opt
+default PETSC_ARCH=darwin11.1.0-cxx-opt
 default SCOTCH_ARCH=i686_mac_darwin8
 
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
