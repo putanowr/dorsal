@@ -1,0 +1,50 @@
+--- trilinos-10.4.0.dfsg.orig/packages/pamgen/src/uns_inline_decomp.h
++++ trilinos-10.4.0.dfsg/packages/pamgen/src/uns_inline_decomp.h
+@@ -1,6 +1,7 @@
+ #ifndef uns_inline_decompH
+ #define uns_inline_decompH
+ 
++#include <cstddef>
+ #include <list>
+ #include <vector>
+ #include "topology_enum.h"
+--- trilinos-10.4.0.dfsg.orig/packages/mesquite/src/QualityMetric/PMeanPMetric.hpp
++++ trilinos-10.4.0.dfsg/packages/mesquite/src/QualityMetric/PMeanPMetric.hpp
+@@ -36,6 +36,7 @@
+ #include "Mesquite.hpp"
+ #include "Exponent.hpp"
+ 
++#include <cstddef>
+ #include <vector>
+ 
+ namespace MESQUITE_NS {
+--- trilinos-10.4.0.dfsg.orig/packages/mesquite/src/QualityMetric/TMP/TargetMetricUtil.hpp
++++ trilinos-10.4.0.dfsg/packages/mesquite/src/QualityMetric/TMP/TargetMetricUtil.hpp
+@@ -34,6 +34,7 @@
+ #define MSQ_TARGET_METRIC_UTIL_HPP
+ 
+ #include "Mesquite.hpp"
++#include <cstddef>
+ #include <vector>
+ 
+ namespace MESQUITE_NS {
+--- trilinos-10.4.0.dfsg.orig/packages/mesquite/src/ObjectiveFunction/ObjectiveFunction.hpp
++++ trilinos-10.4.0.dfsg/packages/mesquite/src/ObjectiveFunction/ObjectiveFunction.hpp
+@@ -45,6 +45,7 @@
+ 
+ #include "Mesquite.hpp"
+ 
++#include <cstddef>
+ #include <list>
+ #include <vector>
+ 
+--- trilinos-10.4.0.dfsg.orig/packages/teuchos/src/Teuchos_ConfigDefs.hpp
++++ trilinos-10.4.0.dfsg/packages/teuchos/src/Teuchos_ConfigDefs.hpp
+@@ -60,6 +60,7 @@
+ #  define HAVE_COMPLEX
+ #endif
+ 
++#include <cstddef>
+ #include <cstdio>
+ #include <cstdarg>
+ #include <cerrno>
