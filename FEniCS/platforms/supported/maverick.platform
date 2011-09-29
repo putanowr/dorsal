@@ -4,13 +4,12 @@
 # installed via Ubuntu's apt-get using the following command:
 #
 # sudo apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
-# libarmadillo-dev libatlas-base-dev libboost-dev \
-# libboost-{filesystem,iostreams,program-options,thread}-dev \
+# libarmadillo-dev libatlas-base-dev \
 # libcgal-dev libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libpcre3-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion \
-# wget
+# wget libbz2-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
@@ -23,6 +22,7 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
+boost
 swig
 trilinos
 petsc
