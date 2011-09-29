@@ -5,9 +5,13 @@ BUILDCHAIN=custom
 
 package_specific_build () {
     ./bootstrap.sh --prefix=${INSTALL_PATH}
-    ./bjam --without-mpi install
+    echo "using mpi ;" > user-config.jam
+    ./b2 --user-config=user-config.jam --build-dir=dorsal_build_dir link=shared install
 }
 
 package_specific_register () {
-    export BOOST_DIR=${INSTALL_PATH}
+    export BOOST_ROOT=${INSTALL_PATH}
+    export BOOST_INCLUDEDIR=${INSTALL_PATH}/include
+    export BOOST_LIBRARYDIR=${INSTALL_PATH}/lib
+    export BOOST_USE_MULTITHREADED=OFF
 }
