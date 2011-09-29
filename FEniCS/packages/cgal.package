@@ -1,11 +1,11 @@
 NAME=CGAL-3.8
 SOURCE=https://gforge.inria.fr/frs/download.php/28500/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
+BUILDCHAIN=cmake
 
-package_specific_setup () {
-    cmake -DWITH_CGAL_PDB=OFF -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
-}
+CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
+          -D BUILD_SHARED_LIBS:BOOL=ON
+          -D WITH_CGAL_PDB:BOOL=OFF"
 
 package_specific_register () {
     export CGAL_DIR=${INSTALL_PATH}
