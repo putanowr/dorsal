@@ -1,4 +1,4 @@
-NAME=trilinos-10.6.4-Source
+NAME=trilinos-10.8.0-Source
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=cmake
@@ -18,10 +18,6 @@ CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
 if [ -x "${SWIG_EXECUTABLE}" ]; then
     CONFOPTS="${CONFOPTS} -D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}"
 fi
-
-package_specific_setup () {
-    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
-}
 
 package_specific_register () {
     export TRILINOS_DIR=${INSTALL_PATH}
