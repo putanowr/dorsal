@@ -216,7 +216,7 @@ package_build() {
     ./dorsal_configure 2>&1 | tee dorsal_configure.log
     quit_if_fail "There was a problem configuring ${NAME}."
 
-    ./dorsal_build  2>&1 | tee dorsal_build.log
+    ./dorsal_build 2>&1 | tee dorsal_build.log
     quit_if_fail "There was a problem building ${NAME}."
 
     # Carry out any package-specific post-build instructions
