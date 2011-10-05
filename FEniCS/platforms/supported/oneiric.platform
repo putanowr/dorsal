@@ -22,7 +22,7 @@ default PARMETIS_DIR=/usr
 
 # Define the packages this platform needs
 PACKAGES=(
-# trilinos
+trilinos
 petsc
 slepc
 # swiginac
