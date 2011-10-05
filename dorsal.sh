@@ -213,10 +213,10 @@ package_build() {
         echo package_specific_build >>dorsal_build
     fi
 
-    ./dorsal_configure
+    ./dorsal_configure 2>&1 | tee dorsal_configure.log
     quit_if_fail "There was a problem configuring ${NAME}."
 
-    ./dorsal_build
+    ./dorsal_build  2>&1 | tee dorsal_build.log
     quit_if_fail "There was a problem building ${NAME}."
 
     # Carry out any package-specific post-build instructions
@@ -312,8 +312,8 @@ fi
 
 # If any variables are missing, revert them to defaults
 default PROJECT=FEniCS
-default DOWNLOAD_PATH=${HOME}/Work/FEniCS/src
-default INSTALL_PATH=${HOME}/Work/FEniCS
+default DOWNLOAD_PATH=${HOME}/Work/${PROJECT}/src
+default INSTALL_PATH=${HOME}/Work/${PROJECT}
 default PROCS=1
 default STABLE_BUILD=true
 
