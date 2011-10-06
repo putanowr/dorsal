@@ -213,10 +213,22 @@ package_build() {
         echo package_specific_build >>dorsal_build
     fi
 
-    ./dorsal_configure 2>&1 | tee dorsal_configure.log
+    if [ ${BASH_VERSINFO} -ge 3 ]
+    then
+	set -o pipefail
+	./dorsal_configure 2>&1 | tee dorsal_configure.log
+    else
+	./dorsal_configure
+    fi
     quit_if_fail "There was a problem configuring ${NAME}."
 
-    ./dorsal_build 2>&1 | tee dorsal_build.log
+    if [ ${BASH_VERSINFO} -ge 3 ]
+    then
+	set -o pipefail
+	./dorsal_build 2>&1 | tee dorsal_build.log
+    else
+	./dorsal_build
+    fi
     quit_if_fail "There was a problem building ${NAME}."
 
     # Carry out any package-specific post-build instructions
