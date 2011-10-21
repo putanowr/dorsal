@@ -20,8 +20,17 @@
 default PETSC_ARCH=linux-gnu-cxx-opt
 default PARMETIS_DIR=/usr
 
+# If you want to enable GPGPU computing, the following is required:
+# 1: A CUDA compatible GPU
+# 2: NVIDIA Developer drivers and CUDA toolkit must be installed
+# 3: Comment in the below variable and make sure it is set to the directory 
+#    in which you have installed the CUDA toolkit.
+#default CUDA_DIR=/usr/local/cuda
+
 # Define the packages this platform needs
 PACKAGES=(
+#cusp
+#thrust
 trilinos
 petsc
 slepc
