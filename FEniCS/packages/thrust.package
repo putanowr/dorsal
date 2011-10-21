@@ -1,0 +1,12 @@
+NAME=thrust
+SOURCE=https://code.google.com/p/
+PACKING=hg
+BUILDCHAIN=custom
+
+package_specific_build () {
+    # Do nothing
+}
+
+package_specific_register () {
+    export THRUST_DIR=${DOWNLOAD_PATH}
+}
