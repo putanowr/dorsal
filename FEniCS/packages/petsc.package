@@ -1,13 +1,13 @@
-NAME=petsc-3.1-p8
+NAME=petsc-3.2-p3
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 
 CONFOPTS="COPTFLAGS=-O2
-        --with-debugging=0 --with-shared=1 --with-clanguage=cxx
+        --with-debugging=0 --with-shared-libraries=1 --with-clanguage=cxx
         --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}"
 
-for external_pkg in umfpack hypre mumps scalapack blacs pastix scotch; do
+for external_pkg in umfpack hypre mumps scalapack blacs pastix ptscotch scotch; do
     CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
 done
 
@@ -17,6 +17,10 @@ if [ "${TRILINOS_DIR}" ]; then
               --with-ml-include=${TRILINOS_DIR}/include/trilinos"
 fi
 
+if [ "${CUDA_DIR}" -a "${CUSP_DIR}" -a "${THRUST_DIR}]; then
+    CONFOPTS="${CONFOPTS} --with-cuda=1 --with-cuda-dir=${CUDA_DIR}
+    --with-cusp=1 --with-cusp-dir=${CUSP_DIR}/cusp
+    --with-thrust=1 --with-thrust-dir=${THRUST_DIR}/thrust"
 
 package_specific_setup () {
     export PETSC_DIR=${PWD}
