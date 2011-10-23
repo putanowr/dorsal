@@ -1,12 +1,14 @@
-# Ubuntu 11.10
+# Ubuntu 11.04
 
 # This build script assumes that you have several packages already
 # installed via Ubuntu's apt-get using the following commands:
 #
-# sudo apt-get install bzr bzrtools cmake flex g++ gfortran \
+# sudo apt-get remove swig
+#
+# sudo apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
 # libarmadillo-dev libatlas-base-dev libboost-dev \
 # libboost-{filesystem,iostreams,mpi,program-options,thread}-dev \
-# libcgal-dev libcln-dev libcppunit-dev libginac-dev \
+# libcgal-dev libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig2.0 \
@@ -19,9 +21,19 @@
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default PARMETIS_DIR=/usr
+default SWIG_EXECUTABLE=/usr/bin/swig2.0
+
+# If you want to enable GPGPU computing, the following is required:
+# 1: A CUDA compatible GPU
+# 2: NVIDIA Developer drivers and CUDA toolkit must be installed
+# 3: Comment in the below variable and make sure it is set to the directory 
+#    in which you have installed the CUDA toolkit.
+default CUDA_DIR=/home/fredva/local/cuda
 
 # Define the packages this platform needs
 PACKAGES=(
+thrust
+cusp
 trilinos
 petsc
 slepc
@@ -35,5 +47,5 @@ ffc
 # syfi
 viper
 instant
-dolfin
+#dolfin
 )
