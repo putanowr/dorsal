@@ -1,5 +1,5 @@
-NAME=gpu
-SOURCE=lp:~fredva/dolfin/
+NAME=dolfin-gpu
+SOURCE=lp:\~fredva/dolfin/
 PACKING=bzr
 BUILDCHAIN=cmake
 CONFOPTS="-DCMAKE_SKIP_RPATH:BOOL=ON -DCGAL_DISABLE_ROUNDING_MATH_CHECK:BOOL=ON"
