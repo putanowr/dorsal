@@ -1,4 +1,4 @@
-VERSION=1.0-beta
+VERSION=1.0-beta2
 NAME=dolfin-${VERSION}
 SOURCE=http://launchpad.net/dolfin/trunk/${VERSION}/+download/
 PACKING=.tar.gz
