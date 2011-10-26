@@ -1,4 +1,4 @@
-NAME=petsc-3.2-p3
+NAME=petsc-3.2-p4
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
