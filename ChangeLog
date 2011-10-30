@@ -1,7 +1,32 @@
+2011-10 Johannes Ring <johannr@simula.no>
+	* Added libboost-mpi-dev to newer ubuntu and debian platforms
+2011-10 Andre Massing <massing@simula.no>
+	* Updated cgal package
+2011-10 Joachim B Haga <jobh@simula.no>
+	* Polish logging of individual package configure
+	* Updated syfi package
+2011-10 Harish Narayanan <hnarayanan@gmail.com>
+	* Added logging of individual package configure
+	* Updated to recent versions of all fenics packages
+2011-10 Garth N. Wells <gnw20@cam.ac.uk>
+	* Updated trilinos package
+	* Polished support for oneiric
+	* Updated scotch package
+2011-09 Johannes Ring <johannr@simula.no>
+	* Added mpi support to boost package
+	* Fixed boost mpi support on older ubuntu and debian platforms
+	* Updated cgal package to cmake
+2011-09 Michele Marcionelli <michele.marcionelli@math.ethz.ch>
+	* Added initial support for fedora15
+	* Added patch to help trilinos compilation
+2011-09 Andre Massing <massing@simula.no>
+	* Added initial support for opensuse11.4
 2011-09 Harish Narayanan <hnarayanan@gmail.com>
 	* Incorporated Richard Katz's suggested port_select syntax change
 	* Added patch to compile petsc as a shared library on lion
 	* Polished support for lion
+	* Updated vtk package
+	* Added boost mpi to lion add snowleopard
 2011-09 Fredrik Valdmanis <fredva@ifi.uio.no>
 	* Added initial support for lion
 2011-08 Garth N. Wells <gnw20@cam.ac.uk>
