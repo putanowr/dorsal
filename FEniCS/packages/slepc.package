@@ -1,12 +1,11 @@
-NAME=slepc-3.1-p6
+NAME=slepc-3.2-p0
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
-PACKING=.tgz
+PACKING=.tar.gz
 BUILDCHAIN=autotools
 
-MAKEOPTS="PETSC_ARCH=installed-petsc"
+MAKEOPTS="PETSC_ARCH=arch-installed-petsc"
 
 package_specific_setup () {
-    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true
     export SLEPC_DIR=${PWD}
 }
 
