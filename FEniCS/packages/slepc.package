@@ -1,12 +1,12 @@
-NAME=slepc-dev
-SOURCE=http://www.grycap.upv.es/slepc/svn/trunk
-PACKING=svn
+NAME=slepc-3.2-p0
+SOURCE=http://www.grycap.upv.es/slepc/download/distrib/slepc-3.2-p0
+PACKING=.tar.gz
 BUILDCHAIN=autotools
 
-MAKEOPTS="PETSC_ARCH=arch-installed-petsc"
+MAKEOPTS="PETSC_ARCH=installed-petsc"
 
 package_specific_setup () {
-    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true
+    #patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true
     export SLEPC_DIR=${PWD}
 }
 
