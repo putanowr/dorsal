@@ -5,12 +5,11 @@ BUILDCHAIN=autotools
 
 CONFOPTS="COPTFLAGS=-O2
           --prefix=${INSTALL_PATH}
-          --with-debugging=0 --with-shared=1 --with-clanguage=cxx --with-fc=0
-          --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}
+          --with-debugging=0 --with-shared-libraries=1 --with-clanguage=cxx
+          --with-fc=0 --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}
           --download-umfpack=1"
 
 package_specific_setup () {
-    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/petsc.patch || true
     export PETSC_DIR=${PWD}
 }
 
