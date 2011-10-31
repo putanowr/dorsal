@@ -35,7 +35,6 @@ default CUDA_DIR=/home/fredva/local/cuda
 
 # Define the packages this platform needs
 PACKAGES=(
-thrust
 cusp
 trilinos
 petsc

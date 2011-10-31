@@ -36,7 +36,6 @@ INSTALL_PATH=/home/fredva/local/no-gpu-fenics
 
 # Define the packages this platform needs
 PACKAGES=(
-#thrust
 #cusp
 trilinos
 petsc
