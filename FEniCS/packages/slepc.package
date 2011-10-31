@@ -6,6 +6,7 @@ BUILDCHAIN=autotools
 MAKEOPTS="PETSC_ARCH=arch-installed-petsc"
 
 package_specific_setup () {
+    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true
     export SLEPC_DIR=${PWD}
 }
 
