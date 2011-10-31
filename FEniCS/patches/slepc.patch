@@ -1,0 +1,13 @@
+--- slepc-3.2-p0.orig/config/configure.py	2011-10-30 13:35:28.251244043 +0100
++++ slepc-3.2-p0/config/configure.py	2011-10-30 13:35:48.971244049 +0100
+@@ -268,8 +268,8 @@
+   cmake = open(os.sep.join([confdir,'SLEPcConfig.cmake']),'w')
+ except:
+   sys.exit('ERROR: cannot create CMake configuration file in ' + confdir)
+-if prefixinstall and os.path.isfile(os.sep.join([prefixdir,'include','slepc.h'])):
+-  sys.exit('ERROR: prefix directory ' + prefixdir + ' contains files from a previous installation')
++#if prefixinstall and os.path.isfile(os.sep.join([prefixdir,'include','slepc.h'])):
++#  sys.exit('ERROR: prefix directory ' + prefixdir + ' contains files from a previous installation')
+ 
+ # Create temporary directory and makefile for running tests
+ try:
