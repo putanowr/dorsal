@@ -9,7 +9,7 @@
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libpcre3-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion \
-# wget libbz2-dev
+# wget bison libbz2-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
