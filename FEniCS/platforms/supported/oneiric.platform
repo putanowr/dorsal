@@ -5,12 +5,12 @@
 #
 # sudo apt-get install bzr bzrtools cmake flex g++ gfortran \
 # libarmadillo-dev libatlas-base-dev libboost-dev \
-# libboost-{filesystem,iostreams,mpi,program-options,thread}-dev \
+# libboost-{filesystem,iostreams,mpi,program-options,thread,math1.46}-dev \
 # libcgal-dev libcln-dev libcppunit-dev libginac-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig2.0 \
-# wget bison
+# wget bison libhwloc-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
