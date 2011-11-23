@@ -19,6 +19,7 @@
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
 default PARMETIS_DIR=/usr
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
