@@ -5,7 +5,7 @@
 #
 # sudo apt-get install bzr bzrtools cmake flex g++ gfortran \
 # libarmadillo-dev libatlas-base-dev libboost-dev \
-# libboost-{filesystem,iostreams,mpi,program-options,thread,math1.46}-dev \
+# libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
 # libcgal-dev libcln-dev libcppunit-dev libginac-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
