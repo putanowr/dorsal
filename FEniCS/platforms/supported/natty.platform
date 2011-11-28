@@ -22,6 +22,7 @@
 default PETSC_ARCH=linux-gnu-cxx-opt
 default PARMETIS_DIR=/usr
 default SWIG_EXECUTABLE=/usr/bin/swig2.0
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
