@@ -7,12 +7,12 @@
 #
 # sudo apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
 # libarmadillo-dev libatlas-base-dev libboost-dev \
-# libboost-{filesystem,iostreams,mpi,program-options,thread}-dev \
+# libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
 # libcgal-dev libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig2.0 \
-# wget
+# wget bison
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
@@ -22,23 +22,16 @@
 default PETSC_ARCH=linux-gnu-cxx-opt
 default PARMETIS_DIR=/usr
 default SWIG_EXECUTABLE=/usr/bin/swig2.0
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
-
-DOWNLOAD_PATH=/home/fredva/local/no-gpu-fenics/src
-INSTALL_PATH=/home/fredva/local/no-gpu-fenics
-
-# If you want to enable GPGPU computing, the following is required:
-# 1: A CUDA compatible GPU
-# 2: NVIDIA Developer drivers and CUDA toolkit must be installed
-# 3: Comment in the below variable and make sure it is set to the directory 
-#    in which you have installed the CUDA toolkit.
-#default CUDA_DIR=/home/fredva/local/cuda
+DOWNLOAD_PATH=/home/fredva/local/extra-fenics-builds/no-gpu/src
+INSTALL_PATH=/home/fredva/local/extra-fenics-builds/no-gpu
 
 # Define the packages this platform needs
 PACKAGES=(
 #cusp
 trilinos
-petsc
+petsc-debug
 slepc
 # swiginac
 mtl
