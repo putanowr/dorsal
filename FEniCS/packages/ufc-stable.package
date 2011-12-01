@@ -1,4 +1,4 @@
-VERSION=2.0.3
+VERSION=2.0.4
 NAME=ufc-${VERSION}
 SOURCE=http://launchpad.net/ufc/trunk/${VERSION}/+download/
 PACKING=.tar.gz

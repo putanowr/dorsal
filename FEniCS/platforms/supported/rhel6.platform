@@ -5,25 +5,27 @@
 #
 # su -c 'yum install -y wget bzr pkgconfig libxml2-devel gcc gcc-c++ \
 # openmpi-devel openmpi numpy boost-devel atlas-devel blas-devel \
-# lapack-devel python-devel cmake mpfr-devel gmp-devel cppunit-devel'
+# lapack-devel python-devel cmake mpfr-devel gmp-devel cppunit-devel \
+# boost-openmpi boost-openmpi-devel'
 #
-# Also, if you have multiple MPI libraries installed, make sure the
-# appropriate version is selected. For this, on a 32-bit operating
-# system, run:
+# You also need to manually change a few settings so that
+# Dorsal can find the appropriate versions of different programs and
+# libraries.
+#
+# The commands for this on a 32-bit machine are:
 #
 # module load openmpi-i386
+# export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:${LD_LIBRARY_PATH}
+# export BOOST_LIBRARYDIR=/usr/lib/openmpi/lib
 #
-# or on a 64-bit operating system, run:
+# And on a 64-bit machine are:
 #
 # module load openmpi-x86_64
+# export LD_LIBRARY_PATH=/usr/lib64:${INSTALL_PATH}/lib/vtk-5.8:${LD_LIBRARY_PATH}
+# export BOOST_LIBRARYDIR=/usr/lib64/openmpi/lib
 #
-# If you are using SELinux, you may need to disable it to run DOLFIN
-# programs.
-#
-# In order for Viper to find VTK, you need to manually set the
-# following environment variable:
-#
-# export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.6:${LD_LIBRARY_PATH}
+# In addition, if you are using SELinux, you may need to disable it or
+# tweak its setting to run DOLFIN programs.
 ##
 
 # Platform specific variables

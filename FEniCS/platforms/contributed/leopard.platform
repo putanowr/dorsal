@@ -9,7 +9,7 @@
 # Via Macports, you need to install the following packages:
 #
 # sudo port install wget autogen readline pkgconfig libxml2 libtool \
-# cgal gmp zlib python26 swig-python py26-numpy bzr bzrtools git-core \
+# cgal gmp zlib python26 py26-numpy bzr bzrtools git-core \
 # ginac boost +python26 vtk-devel +python26 suitesparse \
 # py26-scientific cppunit
 #
@@ -28,6 +28,7 @@ export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
+swig
 parmetis
 # trilinos
 petsccore

@@ -4,5 +4,17 @@ PACKING=.tar.gz
 BUILDCHAIN=python
 
 package_specific_setup () {
-    perl -pi -e 's/<umfpack/<suitesparse\/umfpack/g' scipy/sparse/linalg/dsolve/umfpack/umfpack.i
+    if [ ! -z "${UMFPACK_DIR}" ]; then
+	cat > .numpy-site.cfg << EOF
+[amd]
+library_dirs = ${UMFPACK_DIR}/lib
+include_dirs = ${UMFPACK_DIR}/include/suitesparse
+amd_libs = amd
+
+[umfpack]
+library_dirs = ${UMFPACK_DIR}/lib
+include_dirs = ${UMFPACK_DIR}/include/suitesparse
+umfpack_libs = umfpack
+EOF
+    fi
 }
