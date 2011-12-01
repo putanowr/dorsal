@@ -1,0 +1,39 @@
+NAME=petsc-3.2-p5
+SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+
+CONFOPTS="COPTFLAGS=-O2
+        --with-debugging=1 --with-shared-libraries=1 --with-clanguage=cxx
+        --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}"
+
+for external_pkg in umfpack hypre mumps scalapack blacs ptscotch scotch; do
+    CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
+done
+
+if [ "${TRILINOS_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-ml=1
+              --with-ml-lib=${TRILINOS_DIR}/lib/libml.so
+              --with-ml-include=${TRILINOS_DIR}/include/trilinos"
+fi
+
+if [ "${CUDA_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-cuda=1 --with-cuda-dir=${CUDA_DIR}"
+fi
+
+if [ "${CUSP_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-cusp=1 --with-cusp-dir=${CUSP_DIR}/cusp-library"
+fi
+
+if [ "${THRUST_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-thrust=1 --with-thrust-dir=${THRUST_DIR}/thrust"
+fi
+
+package_specific_setup () {
+    export PETSC_DIR=${PWD}
+}
+
+package_specific_register () {
+    export PETSC_DIR=${INSTALL_PATH}
+    unset PETSC_ARCH
+}
