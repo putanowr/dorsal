@@ -108,8 +108,6 @@ package_unpack() {
     # First make sure we're in the right directory before unpacking
     cd ${DOWNLOAD_PATH}
 
-    default EXTRACTSTO=${NAME}
-
     # Only need to unpack tarballs
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
     then
@@ -212,7 +210,9 @@ package_build() {
         declare -f package_specific_build >>dorsal_build
         echo package_specific_build >>dorsal_build
     fi
+    echo "touch dorsal_successful_build" >> dorsal_build
 
+    # Run the generated build scripts
     if [ ${BASH_VERSINFO} -ge 3 ]
     then
 	set -o pipefail
@@ -239,7 +239,6 @@ package_build() {
 package_register() {
     # Get ready to set environment variables related to the package
     cd ${DOWNLOAD_PATH}
-    default EXTRACTSTO=${NAME}
     if [ ! -d "${EXTRACTSTO}" ]
     then
         cecho ${BAD} "${EXTRACTSTO} does not exist -- please install at least once."
@@ -461,13 +460,12 @@ do
     # Return to the main Dorsal directory
     cd ${ORIG_DIR}
 
-    # Skip building this package if the user requests for it
+    # Skip building this package if the user requests it
     SKIP=false
-    if [ ${PACKAGE:0:5} = "skip:" ]
-    then
-      SKIP=true
-      PACKAGE=${PACKAGE#skip:}
-    fi
+    case ${PACKAGE} in
+	skip:*) SKIP=true;  PACKAGE=${PACKAGE#*:};;
+	once:*) SKIP=maybe; PACKAGE=${PACKAGE#*:};;
+    esac
 
     # Check if the package exists
     if [ ! -e ${PROJECT}/packages/${PACKAGE}.package ]
@@ -505,10 +503,18 @@ do
     fi
 
     # Ensure that the package file is sanely constructed
-    if [ ! ${NAME} ] || [ ! ${SOURCE} ] || [ ! ${PACKING} ] || [ ! ${BUILDCHAIN} ]
+    if [ ! "${NAME}" ] || [ ! "${SOURCE}" ] || [ ! "${PACKING}" ] || [ ! "${BUILDCHAIN}" ]
     then
         cecho ${BAD} "${PACKAGE}.package is not properly formed. Please check that all necessary variables are defined."
         exit 1
+    fi
+
+    # Most packages extract to a directory named after the package
+    default EXTRACTSTO=${NAME}
+
+    if [ ${SKIP} = maybe ] && [ ! -f ${DOWNLOAD_PATH}/${EXTRACTSTO}/dorsal_successful_build ]
+    then
+	SKIP=false
     fi
 
     if [ ${SKIP} = false ]
