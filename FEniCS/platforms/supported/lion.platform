@@ -17,6 +17,12 @@
 # by MacPorts is the default one on your machine:
 #
 # sudo port select python python27
+#
+# If you run into compilation errors when trying out the Python FEniCS
+# programs, please make sure the following environment variable is set
+# first:
+#
+# export CC=/usr/bin/gcc
 ##
 
 # Platform specific variables
