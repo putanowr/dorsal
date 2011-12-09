@@ -1,5 +1,5 @@
 NAME=scotch_5.1.12b
-SOURCE=https://gforge.inria.fr/frs/download.php/28977/
+SOURCE=http://fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_5.1.12/src
