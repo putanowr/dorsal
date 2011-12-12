@@ -10,7 +10,7 @@
 # ScientificPython mpfr-devel armadillo-devel gmp-devel CGAL-devel \
 # cppunit-devel flex'
 #
-# Also, if you have multiple MPI libraries installed, make sure the
+# If you have multiple MPI libraries installed, make sure the
 # appropriate version is selected. For this, on a 32-bit operating
 # system, run:
 #
@@ -20,8 +20,14 @@
 #
 # module load openmpi-x86_64
 #
-# If you are using SELinux, you may need to disable it to run DOLFIN
-# programs.
+# After Dorsal has completed, please make sure the following
+# environment variable is set before running any Python DOLFIN
+# programs:
+#
+# export BOOST_DIR=${INSTALL_PATH}
+#
+# Also, if you are using SELinux, you may need to disable it to run
+# DOLFIN programs.
 ##
 
 # Platform specific variables
@@ -30,6 +36,7 @@ default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
+boost
 parmetis
 trilinos
 petsc
