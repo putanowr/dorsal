@@ -5,7 +5,7 @@
 #
 # su -c 'yum install -y redhat-lsb bzr bzrtools subversion \
 # libxml2-devel gcc gcc-c++ openmpi-devel openmpi numpy swig wget \
-# boost-devel vtk-python atlas-devel suitesparse-devel blas-devel \
+# vtk-python atlas-devel suitesparse-devel blas-devel \
 # lapack-devel cln-devel ginac-devel python-devel cmake \
 # ScientificPython mpfr-devel armadillo-devel gmp-devel CGAL-devel \
 # cppunit-devel flex'
