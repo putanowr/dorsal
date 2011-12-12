@@ -10,7 +10,7 @@
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig \
-# wget bison'
+# wget bison python-netcdf'
 #
 # You will need to enable non-free repositories.
 #
