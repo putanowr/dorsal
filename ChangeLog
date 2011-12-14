@@ -1,3 +1,33 @@
+2011-12 Johannes Ring <johannr@simula.no>
+	* Updated to 1.0.0 versions all fenics packages
+	* Polished support for squeeze, sid, lucid, maverick and snow
+          leopard
+	* Polished petsc package
+2011-12 Harish Narayanan <hnarayanan@gmail.com>
+	* Updated to recent versions of peripheral packages
+	* Mirrored cgal and scotch locally because upstream server is
+          flaky
+	* Polished support for lion
+	* Polished support for all fedora platforms
+	* Build full petsc on lion
+2011-12 Joachim B Haga <jobh@simula.no>
+	* Added ability to install dependencies 'once:'
+2011-11 Harish Narayanan <hnarayanan@gmail.com>
+	* Polished support for snow leopard and lion
+	* Polished support for oneiric
+	* Removed troublesome pastix from petsc package
+2011-11 Johan Hake <hake@simula.no>
+	* Refined trilinos package
+2011-11 Johannes Ring <johannr@simula.no>
+	* Added bison packages for debian-based platforms
+	* Updated to recent versions of all fenics packages
+	* Added libboost-math-dev to some platforms
+	* Fixed trilinos and scipy packages not finding umfpack on some
+          platforms
+2011-10 Fredrik Valdmanis <fredva@ifi.uio.no>
+	* Added patch for petsc/slepc 3.2
+2011-10 Douglas N. Arnold <arnold@umn.edu>
+	* Polished support for rhel6
 2011-10 Johannes Ring <johannr@simula.no>
 	* Added libboost-mpi-dev to newer ubuntu and debian platforms
 2011-10 Andre Massing <massing@simula.no>
@@ -8,6 +38,8 @@
 2011-10 Harish Narayanan <hnarayanan@gmail.com>
 	* Added logging of individual package configure
 	* Updated to recent versions of all fenics packages
+	* Updated petsc and slepc to 3.2
+	* Updated dolfin download path to reflect new branching policy
 2011-10 Garth N. Wells <gnw20@cam.ac.uk>
 	* Updated trilinos package
 	* Polished support for oneiric
