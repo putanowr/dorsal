@@ -48,7 +48,7 @@ swig
 cgal
 parmetis
 # trilinos
-petsccore
+petsc
 slepc
 armadillo
 # swiginac
