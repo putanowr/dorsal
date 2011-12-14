@@ -16,6 +16,7 @@
 	* Polished support for snow leopard and lion
 	* Polished support for oneiric
 	* Removed troublesome pastix from petsc package
+	* Stopped supporting gentoo
 2011-11 Johan Hake <hake@simula.no>
 	* Refined trilinos package
 2011-11 Johannes Ring <johannr@simula.no>
