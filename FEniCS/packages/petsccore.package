@@ -10,7 +10,7 @@ CONFOPTS="COPTFLAGS=-O2
 
 package_specific_build () {
     ./configure --prefix=${INSTALL_PATH} ${CONFOPTS}
-    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH}
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH} all
 }
 
 package_specific_install () {
