@@ -10,17 +10,23 @@
 #
 # sudo port install wget autogen readline pkgconfig libxml2 libtool \
 # gmp zlib python27 py27-numpy bzr bzrtools git-core \
-# ginac boost +python27 +openmpi cgal vtk5 +python27 -x11 -tcltk \
+# ginac vtk5 +python27 -x11 -tcltk \
 # suitesparse py27-scientific cppunit
 #
 # Before proceeding, you need to make sure that Python 2.7 installed
 # by MacPorts is the default one on your machine:
 #
 # sudo port select python python27
+#
+# After Dorsal has completed, please make sure the following
+# environment variable is set before running any Python FEniCS
+# programs:
+#
+# export BOOST_DIR=${INSTALL_PATH}
 ##
 
 # Platform specific variables
-default PETSC_ARCH=darwin10.0.0-cxx-opt
+default PETSC_ARCH=arch-darwin-cxx-opt
 default SCOTCH_ARCH=i686_mac_darwin8
 default UMFPACK_INCLUDE_DIR=/opt/local/include/ufsparse
 
@@ -29,12 +35,14 @@ export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
 # Define the packages this platform needs
 PACKAGES=(
+boost
 swig
 parmetis
 # trilinos
 petsccore
 slepc
 armadillo
+cgal
 # swiginac
 mtl
 scotch

@@ -1,16 +1,20 @@
 NAME=petsc-3.2-p5
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
+BUILDCHAIN=custom
 
 CONFOPTS="COPTFLAGS=-O2
-          --prefix=${INSTALL_PATH}
-          --with-debugging=0 --with-shared-libraries=1 --with-clanguage=cxx
-          --with-fc=0 --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}
-          --download-umfpack=1"
+        --with-debugging=0 --with-shared-libraries=1 --with-clanguage=cxx
+        --with-fc=0 --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}
+        --download-umfpack=1"
 
-package_specific_setup () {
-    export PETSC_DIR=${PWD}
+package_specific_build () {
+    ./configure --prefix=${INSTALL_PATH} ${CONFOPTS}
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH}
+}
+
+package_specific_install () {
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH} install
 }
 
 package_specific_register () {
