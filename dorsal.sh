@@ -295,6 +295,7 @@ guess_platform() {
       *:*:*openSUSE\ 11.2*)  echo opensuse11.2;;
       *:*:*openSUSE\ 11.3*)  echo opensuse11.3;;
       *:*:*openSUSE\ 11.4*)  echo opensuse11.4;;
+      *:*:*openSUSE\ 12.1*)  echo opensuse12.1;;
     esac
   fi
 }
