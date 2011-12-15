@@ -1,0 +1,52 @@
+# openSUSE 12.1
+
+# This build script assumes that you have the following packages
+# already installed via openSUSE's zypper. In order to install them,
+# first run the following to add the required repositories:
+#
+# sudo zypper addrepo http://download.opensuse.org/repositories/science/openSUSE_12.1/ Science
+# sudo zypper addrepo http://download.opensuse.org/repositories/Education/openSUSE_12.1/ Education
+#
+# Then, run the following to install the actual packages:
+#
+# sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
+# openmpi-devel python-devel python-numpy python-numpy-devel \
+# wget boost-devel python-vtk liblapack3 libblas3 liblapack3 \
+# mpfr-devel suitesparse-common-devel cmake umfpack-devel \
+# libumfpack5 libatlas3-devel flex swig python-Sphinx bison
+#
+# Make sure to run
+#
+#    mpi-selector --set openmpi-1.4.3
+#
+# and start a new shell before running the Dorsal script for the first
+# time. You may even need to logout or restart.
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
+
+# Define the packages this platform needs
+PACKAGES=(
+parmetis
+trilinos
+petsc
+slepc
+armadillo
+# swiginac
+mtl
+scotch
+cgal
+scientificpython
+fiat
+# ferari
+ufc
+ufl
+ffc
+# syfi
+viper
+instant
+dolfin
+)
