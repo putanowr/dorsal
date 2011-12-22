@@ -1,8 +1,11 @@
+2011-12 Garth N. Wells <gnw20@cam.ac.uk>
+	* Added initial support for opensuse12.1
 2011-12 Johannes Ring <johannr@simula.no>
 	* Updated to 1.0.0 versions all fenics packages
 	* Polished support for squeeze, sid, lucid, maverick and snow
           leopard
 	* Polished petsc package
+	* Polished support for all fedora platforms
 2011-12 Harish Narayanan <hnarayanan@gmail.com>
 	* Updated to recent versions of peripheral packages
 	* Mirrored cgal and scotch locally because upstream server is
@@ -10,6 +13,7 @@
 	* Polished support for lion
 	* Polished support for all fedora platforms
 	* Build full petsc on lion
+	* Updated trilinos package
 2011-12 Joachim B Haga <jobh@simula.no>
 	* Added ability to install dependencies 'once:'
 2011-11 Harish Narayanan <hnarayanan@gmail.com>
