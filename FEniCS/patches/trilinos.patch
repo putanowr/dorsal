@@ -1,0 +1,14 @@
+diff -Nru trilinos-10.8.5-Source.orig/packages/PyTrilinos/src/CMakeLists.txt trilinos-10.8.5-Source/packages/PyTrilinos/src/CMakeLists.txt
+--- trilinos-10.8.5-Source.orig/packages/PyTrilinos/src/CMakeLists.txt	2012-01-11 14:38:15.000000000 +0100
++++ trilinos-10.8.5-Source/packages/PyTrilinos/src/CMakeLists.txt	2012-01-11 14:40:30.000000000 +0100
+@@ -191,6 +191,10 @@
+   PROPERTIES LINK_FLAGS "${EXTRA_LINK_ARGS}"
+   )
+ 
++if (APPLE)
++  TARGET_LINK_LIBRARIES(pytrilinos ${PYTHON_LIBRARIES})
++endif()
++
+ #
+ # Define the PyTrilinos swig setup
+ SET(CMAKE_SWIG_FLAGS "")
