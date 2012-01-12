@@ -47,7 +47,7 @@ PACKAGES=(
 swig
 cgal
 parmetis
-# trilinos
+trilinos
 petsc
 slepc
 armadillo
