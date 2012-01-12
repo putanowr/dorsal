@@ -26,7 +26,7 @@ export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 PACKAGES=(
 skip:swig
 skip:parmetis
-# trilinos
+skip:trilinos
 skip:petsccore
 skip:slepc
 skip:armadillo
