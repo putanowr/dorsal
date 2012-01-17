@@ -1,0 +1,18 @@
+# Mac OS X 10.6 with MacPorts
+
+##
+
+export CC=gcc-mp-4.4
+export CXX=g++-mp-4.4
+export FC=gfortran-mp-4.4
+export F77=${FC}
+export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
+export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
+
+# Define the packages this platform needs
+PACKAGES=(
+dune-common
+#dune-grid
+dune-istl
+#dune-localfunctions
+)

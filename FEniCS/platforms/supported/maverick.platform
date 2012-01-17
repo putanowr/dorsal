@@ -13,6 +13,12 @@
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
+#
+# After Dorsal has completed, please make sure the following
+# environment variable is set before running any Python FEniCS
+# programs:
+#
+# export BOOST_DIR=${INSTALL_PATH}
 ##
 
 # Platform specific variables

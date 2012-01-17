@@ -1,5 +1,5 @@
 NAME=CGAL-3.9
-SOURCE=https://gforge.inria.fr/frs/download.php/29125/
+SOURCE=http://fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
 BUILDCHAIN=cmake
 

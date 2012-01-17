@@ -1,0 +1,18 @@
+NAME=deal.II-7.1.0
+SOURCE=http://www.dealii.org/download/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+EXTRACTSTO=deal.II
+
+package_specific_setup () {
+    ./configure --enable-mpi \
+	--enable-shared --disable-threads \
+	--with-umfpack=${UMFPACK_INCLUDE_DIR} \
+	--with-blas=/opt/local \
+	--with-petsc-arch= \
+	--with-metis=${PARMETIS_DIR}
+}
+
+package_specific_build () {
+    make optimize
+}
