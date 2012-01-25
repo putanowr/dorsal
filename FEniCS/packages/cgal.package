@@ -5,7 +5,10 @@ BUILDCHAIN=cmake
 
 CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
           -D BUILD_SHARED_LIBS:BOOL=ON
-          -D WITH_CGAL_PDB:BOOL=OFF"
+          -D WITH_CGAL_Core:BOOL=OFF
+          -D WITH_CGAL_ImageIO:BOOL=OFF
+          -D WITH_CGAL_Qt3:BOOL=OFF
+          -D WITH_CGAL_Qt4:BOOL=OFF"
 
 package_specific_register () {
     export CGAL_DIR=${INSTALL_PATH}
