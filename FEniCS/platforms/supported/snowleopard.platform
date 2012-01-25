@@ -39,12 +39,12 @@ done
 # Define the packages this platform needs
 PACKAGES=(
 swig
+cgal
 parmetis
 trilinos
 petsc
 slepc
 armadillo
-cgal
 # swiginac
 mtl
 scotch
