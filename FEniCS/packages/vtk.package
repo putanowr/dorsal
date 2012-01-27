@@ -21,6 +21,6 @@ package_specific_setup () {
 }
 
 package_specific_register () {
-    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.6:${LD_LIBRARY_PATH}
-    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.6:${DYLD_LIBRARY_PATH}
+    export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:${LD_LIBRARY_PATH}
+    export DYLD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:${DYLD_LIBRARY_PATH}
 }
