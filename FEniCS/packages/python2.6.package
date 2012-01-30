@@ -1,7 +1,0 @@
-VERSION=2.6.2
-NAME=Python-${VERSION}
-SOURCE=http://www.python.org/ftp/python/${VERSION}/
-PACKING=.tar.bz2
-BUILDCHAIN=autotools
-
-CONFOPTS="--enable-shared"
