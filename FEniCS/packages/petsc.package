@@ -30,6 +30,7 @@ if [ "${THRUST_DIR}" ]; then
 fi
 
 package_specific_setup () {
+    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/petsc.patch || true
     export PETSC_DIR=${PWD}
 }
 
