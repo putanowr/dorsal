@@ -30,6 +30,7 @@ INSTALL_PATH=/home/fredva/local/extra-fenics-builds/no-gpu
 # Define the packages this platform needs
 PACKAGES=(
 #cusp
+cgal
 trilinos
 petsc-debug
 slepc

@@ -38,6 +38,7 @@ default CUDA_DIR=/home/fredva/local/cuda
 PACKAGES=(
 cusp
 thrust
+cgal
 trilinos
 petsc
 slepc
