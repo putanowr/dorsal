@@ -1,36 +1,43 @@
 # Ubuntu 9.10
 
 # This build script assumes that you have several packages already
-# installed installed via Ubuntu's apt-get using the following
-# command:
+# installed via Ubuntu's apt-get using the following command:
 #
-# sudo apt-get install g++ bzr bzrtools libxml2-dev pkg-config \
-# python-dev python-numpy python-vtk swig libsuitesparse-dev \
-# libboost-dev libboost-program-options-dev wget openmpi-bin \
-# libopenmpi-dev libatlas-base-dev libparmetis-dev libgmp3-dev \
-# libcln-dev subversion gfortran liblapack-dev autoconf cmake \
-# python-scientific libmpfr-dev libboost-{thread,filesystem}-dev \
-# libarmadillo-dev libcppunit-dev
+# sudo apt-get install autoconf bzr bzrtools flex g++ gfortran \
+# libarmadillo-dev libatlas-base-dev \
+# libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
+# liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libpcre3-dev \
+# libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
+# python-dev python-numpy python-scientific python-vtk subversion \
+# wget bison libbz2-dev
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.
+#
+# After Dorsal has completed, please make sure the following
+# environment variable is set before running any Python FEniCS
+# programs:
+#
+# export BOOST_DIR=${INSTALL_PATH}
 ##
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
 default PARMETIS_DIR=/usr
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
-parmetis
-# trilinos
+cmake
+boost
+cgal
+swig
+trilinos
 petsc
 slepc
-# ginac
 # swiginac
 mtl
-cgal
 scotch
 fiat
 # ferari
