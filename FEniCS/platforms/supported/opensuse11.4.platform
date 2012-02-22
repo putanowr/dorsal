@@ -12,8 +12,8 @@
 # sudo zypper install -C lsb bzr subversion libxml2-devel gcc gcc-c++ \
 # openmpi-devel python-devel python-numpy python-numpy-devel \
 # wget boost-devel python-vtk liblapack3 libblas3 liblapack3 \
-# mpfr-devel suitesparse-common-devel gmp-devel cmake umfpack-devel \
-# libumfpack5 scotch-devel libatlas3-devel flex libhdf5-devel
+# mpfr-devel suitesparse-devel cmake umfpack-devel \
+# libumfpack5 libatlas3-devel flex bison libbz2-devel
 #
 # Do an OneClickInstall via the commandline to install newest sphinx version:
 #
@@ -21,7 +21,7 @@
 #
 # Do an OneClickInstall via the commandline to install a 2.0 swig version:
 #
-# sudo /sbin/OCICLI http://software.opensuse.org/ymp/devel:tools:building:swig/openSUSE_11.4/swig.ymp
+# sudo /sbin/OCICLI http://software.opensuse.org/ymp/devel:tools:building/openSUSE_11.4/swig.ymp
 # sudo zypper mr --priority 110 devel\:tools\:building\:swig
 #
 # Reset repo priorities
@@ -34,14 +34,23 @@
 #
 # and start a new shell before running the Dorsal script for the first
 # time. You may even need to logout or restart.
+#
+# After Dorsal has completed, please make sure the following
+# environment variable is set before running any Python FEniCS
+# programs:
+#
+# export BOOST_DIR=${INSTALL_PATH}
 ##
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
+default BLAS_LIBRARIES="/usr/lib64/libblas.so;/usr/lib64/atlas/libcblas.a;/usr/lib64/atlas/libatlas.a"
 
 # Define the packages this platform needs
 PACKAGES=(
+boost
 parmetis
 trilinos
 petsc
@@ -49,6 +58,7 @@ slepc
 armadillo
 # swiginac
 mtl
+scotch
 cgal
 scientificpython
 fiat
