@@ -122,7 +122,7 @@ package_unpack() {
       # Unpack the archive only if it isn't already
       if [ ! -d "${EXTRACTSTO}" ]
       then
-	# Unpack the archive in accordance with its packing
+        # Unpack the archive in accordance with its packing
         if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
         then
           tar xjf ${NAME}${PACKING}
