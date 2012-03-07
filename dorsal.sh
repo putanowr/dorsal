@@ -47,9 +47,9 @@ package_fetch () {
     cecho ${GOOD} "Fetching ${NAME}"
 
     # Fetch the package appropriately from its source
-    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".zip" ]
     then
-      # Only download tarballs that do not exist
+      # Only download archives that do not exist
       if [ ! -e ${NAME}${PACKING} ]
       then
         wget --retry-connrefused --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
@@ -108,28 +108,31 @@ package_unpack() {
     # First make sure we're in the right directory before unpacking
     cd ${DOWNLOAD_PATH}
 
-    # Only need to unpack tarballs
-    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ]
+    # Only need to unpack archives
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".zip" ]
     then
       cecho ${GOOD} "Unpacking ${NAME}"
-      # Make sure the tarball was downloaded
+      # Make sure the archive was downloaded
       if [ ! -e ${NAME}${PACKING} ]
       then
         cecho ${BAD} "${NAME}${PACKING} does not exist. Please download first."
         exit 1
       fi
-      # Set appropriate decompress flag
-      if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
-      then
-        C="j"
-      else
-        C="z"
-      fi
 
-      # Unpack the tarball only if it isn't already
+      # Unpack the archive only if it isn't already
       if [ ! -d "${EXTRACTSTO}" ]
       then
-        tar x${C}f ${NAME}${PACKING}
+	# Unpack the archive in accordance with its packing
+        if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
+        then
+          tar xjf ${NAME}${PACKING}
+        elif [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tgz" ]
+        then
+          tar xzf ${NAME}${PACKING}
+        elif [ ${PACKING} = ".zip" ]
+        then
+          unzip ${NAME}${PACKING}
+	fi
       fi
     fi
 
