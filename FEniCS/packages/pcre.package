@@ -1,4 +1,4 @@
-NAME=pcre-8.13
-SOURCE=ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/
+NAME=pcre-8.21
+SOURCE=http://downloads.sourceforge.net/pcre/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
