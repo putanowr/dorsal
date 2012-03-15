@@ -1,29 +1,37 @@
-# Ubuntu 8.04 (Specific for the bigblue cluster at Simula)
+# Ubuntu 10.04 (Specific for the bigblue cluster at Simula)
 
 # This build script is tailored for a specific cluster at my research
 # lab. Some packages that have been globally installed by other people
 # are repeated for reasons to do with PBS and how it treats
 # environment variables.
+#
+# After Dorsal has completed, please make sure the following
+# environment variable is set before running any Python FEniCS
+# programs:
+#
+# export BOOST_DIR=${INSTALL_PATH}
 ##
 
 # Platform specific variables
-default PETSC_ARCH=linux-gnu-c-opt
-default GMP_ARCH=x86_64-linux-gnu
-default UMFPACK_DIR=/usr
-default BOOST_DIR=/usr
-default SCOTCH_DIR=/usr
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
 default PARMETIS_DIR=/usr
+default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
+boost
+swig
+trilinos
 petsc
 slepc
-gmp
+scotch
+armadillo
 mtl
-numpy
-scipy
+# numpy
+# scipy
 cgal
-scientificpython
+# scientificpython
 fiat
 ferari
 ufc
