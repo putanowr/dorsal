@@ -20,6 +20,10 @@
 #
 # module load openmpi-x86_64
 #
+# If the module command is not available, run:
+#
+# . /etc/profile
+#
 # After Dorsal has completed, please make sure the following
 # environment variable is set before running any Python DOLFIN
 # programs:
