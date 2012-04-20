@@ -194,6 +194,39 @@ Using, troubleshooting and extending Dorsal
 
       ./dorsal.sh FEniCS/platforms/supported/myplatform.platform
 
+ Installing FEniCS with CUDA support
+
+  Dorsal can build PETSc with support for CUDA, using the Cusp and Thrust
+  libraries. This enables DOLFIN to use PETSc's interfacing to Cusp for GPU
+  acceleration of the solution of linear systems. Before builing with Dorsal, 
+  you must manually install CUDA and verify the installation. Instructions
+  are provided at NVIDIA's webpages: www.nvidia.com.
+  
+  After instaling CUDA, do the following to have Dorsal build PETSc
+  with CUDA support:
+
+   1. Set the variable CUDA_DIR, either in your environment:
+
+       export CUDA_DIR=<path to cuda install> (default /usr/local/cuda)
+
+      or in the .platform file corresponding to your system:
+     
+       default CUDA_DIR=<path to cuda install>
+
+   2. Add "cusp" to the list of packages to install in your the .platform-file
+      corresponding to your system. It's important to add "cusp" before "petsc",
+      like this:
+
+      PACKAGES=(
+      cusp
+      ...
+      petsc
+      ...
+      dolfin
+      )
+
+   3. Invoke dorsal.sh as usual.
+
 
  Troubleshooting and getting help
 
