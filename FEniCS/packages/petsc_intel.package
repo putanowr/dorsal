@@ -1,0 +1,38 @@
+NAME=petsc-3.1-p8
+SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+
+MKLINCLUDE=/soft/intel/mkl/10.3.6.233/composer_xe_2011_sp1.6.233/mkl/include
+MKLLIBS="' -lmkl_rt'"
+
+CONFOPTS="COPTFLAGS='-O2 -i8 -fPIC -DMPICH_IGNORE_CXX_SEEK -m64 -DMKL_ILP64 -openmp -lpthread'
+        --with-debugging=0 --with-shared=1 --with-clanguage=cxx
+	--with-parmetis=1 
+	--with-parmetis-include=${PARMETIS_DIR}/include 
+	--with-parmetis-lib=[${PARMETIS_DIR}/lib/libparmetis.a,${PARMETIS_DIR}/lib/libmetis.a]
+	--with-blas=1
+	--with-blas-include=${MKLINCLUDE}
+	--with-blas-lib=${MKLLIBS}
+	--with-lapack=1
+	--with-lapack-include=${MKLINCLUDE}
+	--with-lapack-lib=${MKLLIBS}"
+
+for external_pkg in hypre mumps pastix scalapack blacs scotch; do
+    CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
+done
+
+if [ "${TRILINOS_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-ml=1
+              --with-ml-lib=${TRILINOS_DIR}/lib/libml.so
+              --with-ml-include=${TRILINOS_DIR}/include/trilinos"
+fi
+
+package_specific_setup () {
+    export PETSC_DIR=${PWD}
+}
+
+package_specific_register () {
+    export PETSC_DIR=${INSTALL_PATH}
+    unset PETSC_ARCH
+}
