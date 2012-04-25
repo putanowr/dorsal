@@ -1,0 +1,41 @@
+# Written by Lizao Li <lixx1445@umn.edu>
+# Tested FEniCS on the Itasca cluster (https://www.msi.umn.edu/hardware/itasca/)
+# No root privilige is required
+# Changelog
+# Version 1.0 - Sep 30, 2011. First smooth build 
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+
+# Define the packages this platform needs
+PACKAGES=(
+sqlite
+libxml2
+ipython
+cmake
+boost
+pcre
+swig
+blas
+lapack
+suitesparsewithmetis_OpenMPI
+parmetis
+trilinos
+petsc
+slepc
+armadillo
+cgal
+gmp
+mpfr
+mtl
+scientificpython
+fiat
+ufc
+ufl
+ffc
+instant
+vtk
+viper
+dolfin
+)
