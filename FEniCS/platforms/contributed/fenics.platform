@@ -27,14 +27,13 @@ export CXX=/usr/bin/g++
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:swig
 skip:cgal
 skip:parmetis
 skip:trilinos
 skip:petsccore
 skip:slepc
 skip:armadillo
-# swiginac
+# skip:swiginac
 skip:mtl
 skip:scotch
 fiat
