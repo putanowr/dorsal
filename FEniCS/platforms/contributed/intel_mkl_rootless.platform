@@ -1,0 +1,47 @@
+# Written by Lizao Li <lixx1445@umn.edu>
+# Tested on the Itasca cluster (https://www.msi.umn.edu/hardware/itasca/)
+# Compiler: Intel Compiler 12.1.6.233
+# MKL: Intel MKL 10.3.6.233
+# MPI: Intel MPI 4.0.0.028
+# Set up environment:
+#   module load intel/12.1.6.233 mkl/10.3.6.233 impi/4.0.0.028/intel
+
+# No root privilige is required
+# Changelog
+# Version 1.0 - Oct 10, 2001. First smooth build. All the demo tested successfully running in parallel.
+
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+
+# Define the packages this platform needs
+PACKAGES=(
+libxml2
+sqlite
+python
+ipython
+cmake
+pcre
+swig
+boost
+parmetis
+numpy_intel
+trilinos_intel
+petsc_intel
+slepc
+armadillo
+gmp
+mpfr
+cgal
+mtl
+scientificpython
+fiat
+ufc
+ufl
+ffc
+instant
+vtk
+viper
+dolfin_intel
+)

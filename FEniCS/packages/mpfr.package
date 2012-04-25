@@ -1,0 +1,16 @@
+VERSION=2.2.0
+NAME=mpfr-${VERSION}
+SOURCE=http://www.mpfr.org/mpfr-2.2.0/
+PACKING=.tar.bz2
+BUILDCHAIN=custom
+
+package_specific_build () {
+    if [ ! -e patches ]
+    then
+	wget http://www.mpfr.org/mpfr-2.2.0/patches
+    fi    
+    patch -N -Z -p1 < patches
+    ./configure --prefix=${INSTALL_PATH}
+    make -j ${PROCS}
+    make install
+}
