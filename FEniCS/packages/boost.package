@@ -6,7 +6,7 @@ BUILDCHAIN=custom
 CONFOPTS=""
 
 if [ ! -z "${BZIP2_DIR}" ]; then
-    CONFOPTS="${B2OPTS}
+    CONFOPTS="${CONFOPTS}
               -sNO_BZIP2=0
               -sBZIP2_BINARY=bz2
               -sBZIP2_INCLUDE=${BZIP2_DIR}/include
