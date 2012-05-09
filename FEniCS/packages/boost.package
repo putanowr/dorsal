@@ -3,10 +3,20 @@ SOURCE=http://downloads.sourceforge.net/boost/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
 
+CONFOPTS=""
+
+if [ ! -z "${BZIP2_DIR}" ]; then
+    CONFOPTS="${B2OPTS}
+              -sNO_BZIP2=0
+              -sBZIP2_BINARY=bz2
+              -sBZIP2_INCLUDE=${BZIP2_DIR}/include
+              -sBZIP2_LIBPATH=${BZIP2_DIR}/lib"
+fi
+
 package_specific_build () {
     ./bootstrap.sh --prefix=${INSTALL_PATH}
     echo "using mpi ;" > user-config.jam
-    ./b2 --user-config=user-config.jam --build-dir=dorsal_build_dir link=shared install
+    ./b2 --user-config=user-config.jam --build-dir=dorsal_build_dir link=shared install ${CONFOPTS}
 }
 
 package_specific_register () {
