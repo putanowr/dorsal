@@ -3,8 +3,6 @@ SOURCE=http://downloads.sourceforge.net/boost/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
 
-CONFOPTS=""
-
 if [ ! -z "${BZIP2_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
               -sNO_BZIP2=0
