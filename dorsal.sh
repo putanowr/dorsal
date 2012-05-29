@@ -47,7 +47,7 @@ package_fetch () {
     cecho ${GOOD} "Fetching ${NAME}"
 
     # Fetch the package appropriately from its source
-    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".zip" ]
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".tar.xz" ] || [ ${PACKING} = ".zip" ]
     then
       # Only download archives that do not exist
       if [ ! -e ${NAME}${PACKING} ]
@@ -109,7 +109,7 @@ package_unpack() {
     cd ${DOWNLOAD_PATH}
 
     # Only need to unpack archives
-    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".zip" ]
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".tar.xz" ] || [ ${PACKING} = ".zip" ]
     then
       cecho ${GOOD} "Unpacking ${NAME}"
       # Make sure the archive was downloaded
@@ -129,6 +129,9 @@ package_unpack() {
         elif [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tgz" ]
         then
           tar xzf ${NAME}${PACKING}
+        elif [ ${PACKING} = ".tar.xz" ]
+        then
+          tar xJf ${NAME}${PACKING}
         elif [ ${PACKING} = ".zip" ]
         then
           unzip ${NAME}${PACKING}
