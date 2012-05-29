@@ -10,7 +10,11 @@ package_specific_build () {
 	wget http://www.mpfr.org/mpfr-2.2.0/patches
     fi    
     patch -N -Z -p1 < patches
-    ./configure --prefix=${INSTALL_PATH}
+    ./configure --prefix=${INSTALL_PATH} --enable-shared=yes
     make -j ${PROCS}
     make install
+}
+
+package_specific_register () {
+    export MPFR_DIR=${INSTALL_PATH}
 }
