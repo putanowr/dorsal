@@ -1,0 +1,53 @@
+# Tested FEniCS on the Stallo cluster (http://docs.notur.no/uit/stallo_documentation)
+# No root priviliges required.
+# Set up environment:
+#   module unload intel-compiler/11.1 python openmpi
+#   module load openmpi/1.4.4_gnu gcc/4.6.20120210
+#
+# After Dorsal has completed, make sure the following
+# environment variables are set (for instance in ~/.bashrc):
+#
+# export BOOST_DIR=${INSTALL_PATH}
+# export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:${LD_LIBRARY_PATH}
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+default CMAKE_PREFIX_PATH=${INSTALL_PATH}
+
+# Define the packages this platform needs
+PACKAGES=(
+sqlite
+libxml2
+python
+ipython
+numpy
+cmake
+bzip2
+boost
+pcre
+swig
+blas
+lapack
+suitesparsewithmetis_OpenMPI
+scipy
+parmetis
+# trilinos
+petsc
+slepc
+armadillo
+gmp
+mpfr
+cgal
+mtl
+scientificpython
+fiat
+ufc
+ufl
+ffc
+instant
+vtk
+viper
+dolfin
+)
