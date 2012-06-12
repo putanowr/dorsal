@@ -1,4 +1,4 @@
-NAME=trilinos-10.6.4-Source
+NAME=trilinos-10.10.2-Source
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=cmake
