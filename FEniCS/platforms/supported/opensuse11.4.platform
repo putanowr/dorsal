@@ -13,7 +13,7 @@
 # openmpi-devel python-devel python-numpy python-numpy-devel \
 # wget boost-devel python-vtk liblapack3 libblas3 liblapack3 \
 # mpfr-devel suitesparse-devel cmake umfpack-devel \
-# libumfpack5 libatlas3-devel flex bison libbz2-devel
+# libumfpack5 libatlas3-devel flex bison libbz2-devel python-ply
 #
 # Do an OneClickInstall via the commandline to install newest sphinx version:
 #

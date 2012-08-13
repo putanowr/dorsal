@@ -10,7 +10,7 @@
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig2.0 \
-# wget bison libhwloc-dev
+# wget bison libhwloc-dev python-ply
 #
 # Also, if you have multiple MPI libraries installed, make sure
 # "sudo update-alternatives --config mpi" is set to openmpi.

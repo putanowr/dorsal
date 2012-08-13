@@ -6,7 +6,7 @@
 # su -c 'yum install -y wget bzr pkgconfig libxml2-devel gcc gcc-c++ \
 # openmpi-devel openmpi numpy boost-devel atlas-devel blas-devel \
 # lapack-devel python-devel cmake mpfr-devel gmp-devel cppunit-devel \
-# boost-openmpi boost-openmpi-devel'
+# boost-openmpi boost-openmpi-devel python-ply'
 #
 # You also need to manually change a few settings so that
 # Dorsal can find the appropriate versions of different programs and

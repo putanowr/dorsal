@@ -10,7 +10,7 @@
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libpcre3-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion \
-# wget bison'
+# wget bison python-ply'
 #
 # You will need to enable non-free repositories.
 #

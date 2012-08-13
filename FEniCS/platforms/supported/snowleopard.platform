@@ -11,7 +11,7 @@
 # sudo port install wget autogen readline pkgconfig libxml2 libtool \
 # gmp zlib python27 py27-numpy bzr bzrtools git-core \
 # ginac boost +python27 +openmpi vtk5 +python27 -x11 -tcltk \
-# suitesparse py27-scientific cppunit openmpi pcre
+# suitesparse py27-scientific cppunit openmpi pcre py27-ply
 #
 # Before proceeding, you need to make sure that Python 2.7 installed
 # by MacPorts is the default one on your machine:
