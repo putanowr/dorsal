@@ -1,7 +1,29 @@
-diff -Nru trilinos-10.8.5-Source.orig/packages/PyTrilinos/src/CMakeLists.txt trilinos-10.8.5-Source/packages/PyTrilinos/src/CMakeLists.txt
---- trilinos-10.8.5-Source.orig/packages/PyTrilinos/src/CMakeLists.txt	2012-01-11 14:38:15.000000000 +0100
-+++ trilinos-10.8.5-Source/packages/PyTrilinos/src/CMakeLists.txt	2012-01-11 14:40:30.000000000 +0100
-@@ -191,6 +191,10 @@
+diff -Nru trilinos-10.10.2-Source.orig/cmake/TPLs/FindTPLUMFPACK.cmake trilinos-10.10.2-Source/cmake/TPLs/FindTPLUMFPACK.cmake
+--- trilinos-10.10.2-Source.orig/cmake/TPLs/FindTPLUMFPACK.cmake	2012-08-20 11:44:01.342944260 +0200
++++ trilinos-10.10.2-Source/cmake/TPLs/FindTPLUMFPACK.cmake	2012-08-20 11:46:33.750938869 +0200
+@@ -55,7 +55,14 @@
+ 
+ INCLUDE(TribitsTplDeclareLibraries)
+ 
+-TRIBITS_TPL_DECLARE_LIBRARIES( UMFPACK
+-  REQUIRED_HEADERS umfpack.h amd.h UFconfig.h
+-  REQUIRED_LIBS_NAMES umfpack amd
+-  )
++if (APPLE)
++  TRIBITS_TPL_DECLARE_LIBRARIES( UMFPACK
++    REQUIRED_HEADERS umfpack.h amd.h UFconfig.h
++    REQUIRED_LIBS_NAMES umfpack amd SuiteSparse
++    )
++else()
++  TRIBITS_TPL_DECLARE_LIBRARIES( UMFPACK
++    REQUIRED_HEADERS umfpack.h amd.h UFconfig.h
++    REQUIRED_LIBS_NAMES umfpack amd
++    )
++endif()
+diff -Nru trilinos-10.10.2-Source.orig/packages/PyTrilinos/src/CMakeLists.txt trilinos-10.10.2-Source/packages/PyTrilinos/src/CMakeLists.txt
+--- trilinos-10.10.2-Source.orig/packages/PyTrilinos/src/CMakeLists.txt	2012-08-20 11:44:01.794944245 +0200
++++ trilinos-10.10.2-Source/packages/PyTrilinos/src/CMakeLists.txt	2012-08-20 11:52:26.454926395 +0200
+@@ -195,6 +195,10 @@
    PROPERTIES LINK_FLAGS "${EXTRA_LINK_ARGS}"
    )
  
