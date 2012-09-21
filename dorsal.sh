@@ -283,6 +283,7 @@ guess_platform() {
       10.5*)	echo leopard;;
       10.6*)	echo snowleopard;;
       10.7*)    echo lion;;
+      10.8*)    echo mountainlion;;
     esac
   elif [ -x /usr/bin/lsb_release ]; then
     local DISTRO=$(lsb_release -i -s)

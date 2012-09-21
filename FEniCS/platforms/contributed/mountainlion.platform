@@ -1,0 +1,69 @@
+# Mac OS X 10.8 with MacPorts
+
+# This build script assumes that you have installed Xcode.app from the
+# Mac App Store. This gives you access to a recent gcc, among other
+# things. In order to have easy access to a lot of useful Free Software,
+# this script also assumes you have installed MacPorts
+# (from http://www.macports.org/).
+#
+# Via Macports, you need to install the following packages:
+#
+# sudo port install wget autogen readline pkgconfig libxml2 libtool \
+# gmp zlib python27 py27-numpy bzr bzrtools git-core \
+# ginac boost +python27 +openmpi vtk5 +python27 -x11 -tcltk \
+# suitesparse py27-scientific cppunit openmpi pcre swig-python py27-ply
+#
+# Before proceeding, you need to make sure that Python 2.7 installed
+# by MacPorts is the default one on your machine:
+#
+# sudo port select python python27
+#
+# If you run into compilation errors when trying out Python FEniCS
+# programs, please make sure the following environment variable is set
+# first:
+#
+# export CC=/usr/bin/gcc
+# export CXX=/usr/bin/g++
+##
+
+# Platform specific variables
+default PETSC_ARCH=darwin12.2.0-cxx-opt
+default SCOTCH_ARCH=i686_mac_darwin8
+default UMFPACK_INCLUDE_DIR=/opt/local/include/ufsparse
+
+export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
+export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
+
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
+# Platform specific setup
+if [ ! -d "${INSTALL_PATH}/bin" ]; then
+    mkdir -p ${INSTALL_PATH}/bin
+fi
+for CMD in /opt/local/bin/openmpi*
+do
+    ln -sf ${CMD} ${INSTALL_PATH}/bin/`basename ${CMD} | cut -b 5-`
+done
+
+# Define the packages this platform needs
+PACKAGES=(
+cgal
+parmetis
+# trilinos
+# petsc
+# slepc
+armadillo
+# swiginac
+mtl
+scotch
+fiat
+# ferari
+ufc
+ufl
+ffc
+# syfi
+viper
+instant
+dolfin
+)
