@@ -1,0 +1,84 @@
+# Ubuntu 12.04 (Precise Pangolin) "HPC build"
+
+# This is an unsupported build for FEniCS developers and users who
+# want to get the most out of their hardware. In contrast to other
+# configurations, this configuration will try to build many packages
+# from source, rather than relying on Debian/Ubuntu packages which
+# often do not perform as well as libraries compiled from source.
+#
+# Before running this script, you need to take the following steps:
+#
+# 1. Remove packages that will be built from source:
+#
+#    sudo apt-get remove \
+#      libblas* \
+#      liblapack* \
+#      libscalapack* \
+#      libatlas* \
+#      libsuitesparse* \
+#      openmpi* libopenmpi* \
+#      mpich* libmpich* \
+#      libboost* \
+#      libcgal* \
+#      libparmetis* \
+#      libscotch*
+#
+# 2. Remove packages that might have gotten installed as part of
+#    the original installation of the removed packages:
+#
+#    sudo apt-get autoremove
+#
+# 3. Install packages we do need:
+#
+#    sudo apt-get install \
+#      wget bzr bzrtools subversion cmake pkg-config \
+#      flex bison g++ gfortran \
+#      libcln-dev libcppunit-dev libxml2-dev libhwloc-dev \
+#      python-dev python-numpy swig \
+#
+#    Note that this step will pull in the FORTRAN packages for BLAS
+#    and LAPACK (libblas3gf liblapack3gf) but those will not affect
+#    the build of the rest of the toolchain.
+#
+# 4. Plug in the power supply of your laptop (no kidding!). This is
+#    important for the tuning of ATLAS.
+#
+# Notes from Garth below, clean up later:
+#
+#  Most important is ATLAS for BLAS (if MKL is not available)
+#
+#    http://math-atlas.sourceforge.net/
+#
+#  I use v3.10. It can take a long time to build, and can be tricky (e.g.
+#  it won't build if the CPU clock frequency is being dynamically
+#  controlled).
+#- Build LAPACK to use ATLAS BLAS
+#- Build latest OpenMPI with support for threads turned on. MPICH2
+#  works fine too.
+#- Build Boost so that Boost.MPI uses the manually installed MPI
+#- Install CGAL to use the manually installed Boost
+#- Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
+#  pull in MPI)
+#- Build VTK (so that the Ubuntu version doesn't pull in MPI)
+#- Build HDF5 with parallel suppport  (so that the Ubuntu version
+#  doesn't pull in MPI)
+#- Build SCOTCH and PaStiX with support for 64 bit integers
+#- Build PETSc, SLEPc and Trilinos, linking to the above libraries.
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+
+# Define the packages this platform needs
+PACKAGES=(
+atlas
+#trilinos
+#petsc
+#slepc
+#fiat
+#ufc
+#ufl
+#ffc
+#instant
+#dolfin
+)
