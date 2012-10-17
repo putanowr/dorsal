@@ -16,17 +16,26 @@ package_specific_build () {
     echo "It looks like your machine has $NUM_CORES cores and that the maximum"
     echo "CPU frequency is $MAX_FREQ."
     echo
-    echo "I will try to scale up all your cores to full speed. Make sure that"
-    echo "your power cable is plugged in and press any key to continue..."
+    echo "Make sure that your power cable is plugged in and that you have"
+    echo "dsiabled CPU throttling in BIOS. Press any key to continue."
     read
+    echo "ok fine. I can now try to scale up all your cores to full speed (by"
+    echo "issuing the appropriate cpufreq-set and cpufreq-selector commands)."
+    echo
+    read -p "Do you want me to try to scale up your cores? (y/n) "
 
     # Iterate over cores and change frequency
-    for i in $CORES; do
-        echo "Adjusting frequency for core $i"
-        sudo cpufreq-set -c $i -u $MAX_FREQ
-        sudo cpufreq-selector -g performance -c $i
-    done
+    if [ "$REPLY" == "y" ]; then
+        for i in $CORES; do
+            echo "Adjusting frequency for core $i"
+            sudo cpufreq-set -c $i -u $MAX_FREQ
+            sudo cpufreq-selector -g performance -c $i
+        done
+    fi
+
     echo
+    echo "ok fine. Now keep your fingers crossed and press any key to continue."
+    read
 
     # Create and enter build directory
     mkdir -p build
