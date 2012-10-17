@@ -6,31 +6,43 @@ EXTRACTSTO=ATLAS
 
 package_specific_build () {
 
-    # Determine the number of cores and maximum frequency
-    CORES=`grep processor /proc/cpuinfo | sort | awk '{print $3}'`
-    NUM_CORES=`grep processor /proc/cpuinfo | sort | tail -1 | awk '{print $3}'`
-    MAX_FREQ=`cpufreq-info | grep limits | awk '{print $6$7}' | tail -1`
-    CPU_MHZ=`cat /proc/cpuinfo | grep "cpu MHz" | awk '{print $4}' | cut -d'.' -f1 | tail -1`
-
     echo
-    echo "It looks like your machine has $NUM_CORES cores and that the maximum"
-    echo "CPU frequency is $MAX_FREQ."
+    echo "Make sure that your power cable is plugged in and that you have disabled"
+    echo "CPU throttling in BIOS. On Intel machines (like Lenovo Thinkpads), this"
+    echo "can be achieved by disabling 'Intel Speedstep Technology' in BIOS."
     echo
-    echo "Make sure that your power cable is plugged in and that you have"
-    echo "dsiabled CPU throttling in BIOS. Press any key to continue."
+    echo "On some machines, messing with the BIOS may not be necessary and you may"
+    echo "instead try to adjust the CPU frequency dynamically."
+    echo
+    echo "Press any key to continue."
     read
-    echo "ok fine. I can now try to scale up all your cores to full speed (by"
-    echo "issuing the appropriate cpufreq-set and cpufreq-selector commands)."
+    echo "I can try to scale up all your cores to full speed by issuing the appropriate"
+    echo "cpufreq-set and cpufreq-selector commands. If you have already disabled"
+    echo "throttling completely in BIOS, you should say no here."
     echo
     read -p "Do you want me to try to scale up your cores? (y/n) "
 
-    # Iterate over cores and change frequency
+    # Try to change CPU frequency
     if [ "$REPLY" == "y" ]; then
+
+        # Determine number of cores and frequency
+        CORES=`grep processor /proc/cpuinfo | sort | awk '{print $3}'`
+        NUM_CORES=`grep processor /proc/cpuinfo | sort | tail -1 | awk '{print $3}'`
+        MAX_FREQ=`cpufreq-info | grep limits | awk '{print $6$7}' | tail -1`
+
+        echo
+        echo "It looks like your machine has $NUM_CORES cores and that the maximum"
+        echo "CPU frequency is $MAX_FREQ."
+        echo
+
+        echo
+        echo "Adjusting CPU frequency and governor. Be patient, this may take some time."
         for i in $CORES; do
             echo "Adjusting frequency for core $i"
             sudo cpufreq-set -c $i -u $MAX_FREQ
             sudo cpufreq-selector -g performance -c $i
         done
+
     fi
 
     echo
@@ -40,6 +52,9 @@ package_specific_build () {
     # Create and enter build directory
     mkdir -p build
     cd build
+
+    # Determine CPU frequency
+    CPU_MHZ=`cat /proc/cpuinfo | grep "cpu MHz" | awk '{print $4}' | cut -d'.' -f1 | tail -1`
 
     # Configure ATLAS
     ../configure -b 64 -D c -DPentiumCPS=$CPU_MHZ --prefix=$INSTALL_PATH --with-netlib-lapack-tarfile=../lapack-3.4.2.tgz
