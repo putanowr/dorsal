@@ -14,8 +14,6 @@ package_specific_build () {
     echo "On some machines, messing with the BIOS may not be necessary and you may"
     echo "instead try to adjust the CPU frequency dynamically."
     echo
-    echo "Press any key to continue."
-    read
     echo "I can try to scale up all your cores to full speed by issuing the appropriate"
     echo "cpufreq-set and cpufreq-selector commands. If you have already disabled"
     echo "throttling completely in BIOS, you should say no here."
@@ -59,10 +57,21 @@ package_specific_build () {
     # Configure ATLAS
     ../configure -b 64 -D c -DPentiumCPS=$CPU_MHZ --prefix=$INSTALL_PATH --with-netlib-lapack-tarfile=../lapack-3.4.2.tgz
 
+    # Build
+    make build
+
+    # Check
+    make check
+    make ptcheck
+    make time
+
+    # Install
+    make install
 }
 
 package_specific_install () {
-    echo "FIXME: install"
+    echo "Nothing to do here, install handled by ATLAS."
+    echo "There may be warnings for shared libraries but should be ok."
 }
 
 package_specific_register () {
