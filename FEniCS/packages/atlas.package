@@ -55,7 +55,9 @@ package_specific_build () {
     CPU_MHZ=`cat /proc/cpuinfo | grep "cpu MHz" | awk '{print $4}' | cut -d'.' -f1 | tail -1`
 
     # Configure ATLAS
-    ../configure -b 64 -D c -DPentiumCPS=$CPU_MHZ --prefix=$INSTALL_PATH --with-netlib-lapack-tarfile=../lapack-3.4.2.tgz
+    ../configure -b 64 -D c -DPentiumCPS=$CPU_MHZ --shared \
+      --prefix=$INSTALL_PATH \
+      --with-netlib-lapack-tarfile=../lapack-3.4.2.tgz
 
     # Build
     make build
@@ -71,7 +73,6 @@ package_specific_build () {
 
 package_specific_install () {
     echo "Nothing to do here, install handled by ATLAS."
-    echo "There may be warnings for shared libraries but should be ok."
 }
 
 package_specific_register () {
