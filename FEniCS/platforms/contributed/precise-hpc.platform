@@ -42,17 +42,9 @@
 #
 # 4. Plug in the power supply of your laptop (no kidding!). This is
 #    important for the tuning of ATLAS.
-#
-# Notes from Garth below, clean up later:
-#
-#  Most important is ATLAS for BLAS (if MKL is not available)
-#
-#    http://math-atlas.sourceforge.net/
-#
-#  I use v3.10. It can take a long time to build, and can be tricky (e.g.
-#  it won't build if the CPU clock frequency is being dynamically
-#  controlled).
-#- Build LAPACK to use ATLAS BLAS
+
+#- Most important is ATLAS for BLAS (if MKL is not available): CHECK
+#- Build LAPACK to use ATLAS BLAS: CHECK (handled as part of ATLAS build)
 #- Build latest OpenMPI with support for threads turned on. MPICH2
 #  works fine too.
 #- Build Boost so that Boost.MPI uses the manually installed MPI

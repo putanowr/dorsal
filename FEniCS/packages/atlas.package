@@ -1,3 +1,5 @@
+# ATLAS package. This package also provides LAPACK.
+
 NAME=atlas3.10.0-with-lapack-3.4.2
 SOURCE=http://fenicsproject.org/pub/software/contrib/
 PACKING=.tar.bz2
