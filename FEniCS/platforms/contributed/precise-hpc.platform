@@ -5,48 +5,76 @@
 # configurations, this configuration will try to build many packages
 # from source, rather than relying on Debian/Ubuntu packages which
 # often do not perform as well as libraries compiled from source.
-#
-# Before running this script, you need to take the following steps:
-#
-# 1. Remove packages that will be built from source:
-#
-#    sudo apt-get remove \
-#      libblas* \
-#      liblapack* \
-#      libscalapack* \
-#      libatlas* \
-#      libsuitesparse* \
-#      openmpi* libopenmpi* \
-#      mpich* libmpich* \
-#      libboost* \
-#      libcgal* \
-#      libparmetis* \
-#      libscotch*
-#
-# 2. Remove packages that might have gotten installed as part of
-#    the original installation of the removed packages:
-#
-#    sudo apt-get autoremove
-#
-# 3. Install packages we do need:
-#
-#    sudo apt-get install \
-#      wget bzr bzrtools subversion cmake pkg-config \
-#      flex bison g++ gfortran \
-#      libcln-dev libcppunit-dev libxml2-dev libhwloc-dev \
-#      python-dev python-numpy swig \
-#
-#    Note that this step will pull in the FORTRAN packages for BLAS
-#    and LAPACK (libblas3gf liblapack3gf) but those will not affect
-#    the build of the rest of the toolchain.
-#
-# 4. Plug in the power supply of your laptop (no kidding!). This is
-#    important for the tuning of ATLAS.
+##
 
-#- Most important is ATLAS for BLAS (if MKL is not available): CHECK
-#- Build LAPACK to use ATLAS BLAS: CHECK (handled as part of ATLAS build)
+# Dorsal diplays the installation instructions only when autodetecting
+# the platform, not when invoking it explicitly, and this config will
+# never be autodetected. We therefore display the instructions
+# explicitly here so they will always be displayed.
+
+echo """
+Before running this script, you need to take the following steps:
+
+1. Remove packages that will be built from source:
+
+   sudo apt-get remove
+     libblas* liblapack* libscalapack* libatlas* libsuitesparse* \\
+     openmpi* libopenmpi* mpich* libmpich* libboost* \\
+     libcgal* libparmetis* libscotch*
+
+2. Remove packages that might have gotten installed as part of the
+   original installation of the removed packages:
+
+   sudo apt-get autoremove
+
+3. Install packages we do need:
+
+   sudo apt-get install \\
+     wget bzr bzrtools subversion cmake pkg-config \\
+     flex bison g++ gfortran \\
+     libcln-dev libcppunit-dev libxml2-dev libhwloc-dev libbz2-dev \\
+     python-dev python-numpy swig
+
+   Note that this step will pull in the FORTRAN packages for BLAS and
+   LAPACK (libblas3gf liblapack3gf) but those will not affect the
+   build of the rest of the toolchain.
+
+4. Make sure your machine is ready for the ATLAS install.
+
+   - Plug in the power supply of your laptop (no kidding!).
+
+   - Make sure CPU throttling is disabled.
+
+     On Intel machines (like Lenovo Thinkpads), this can be achieved
+     by disabling 'Intel Speedstep Technology' in BIOS. It's enough to
+     disable it during installation. It can be enabled later to
+     improve battery life during normal operation.
+
+     On some machines, messing with the BIOS may not be necessary and
+     you may instead try to adjust the CPU frequency dynamically by
+     the cpufreq-set and cpufreq-selector commands.
+
+     If you want to have the CPU frequency automatically adjusted as
+     part of running this script, please set the CPU_SCALING variable:
+
+     export CPU_SCALING=yes
+
+     If you have already disabled CPU throttling in BIOS, you should
+     NOT set this variable.
+"""
+
+# Increase chance of above instructions not being ignored
+echo -e "\033[1;31m!!! READ THE ABOVE INSTRUCTIONS CAREFULLY BEFORE PROCEEDING !!!\033[0m"
+echo
+read -p "Press any key to continue"
+
+#- Most important is ATLAS for BLAS (if MKL is not available)
+#   CHECK: added atlas.package
+#- Build LAPACK to use ATLAS BLAS
+#   CHECK: handled as part of ATLAS build
 #- Build latest OpenMPI with support for threads turned on. MPICH2
-#  works fine too.
+#  works fine too
+#   CHECK: using existing openmpi.package
 #- Build Boost so that Boost.MPI uses the manually installed MPI
 #- Install CGAL to use the manually installed Boost
 #- Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
@@ -56,7 +84,6 @@
 #  doesn't pull in MPI)
 #- Build SCOTCH and PaStiX with support for 64 bit integers
 #- Build PETSc, SLEPc and Trilinos, linking to the above libraries.
-##
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
@@ -64,9 +91,17 @@ default PETSC_ARCH=linux-gnu-cxx-opt
 # Define the packages this platform needs
 PACKAGES=(
 atlas
-#trilinos
+#openmpi
+#boost
+#cgal
+#parmetis
+#scotch
+#vtk
+#hdf5
+#pastix
 #petsc
 #slepc
+#trilinos
 #fiat
 #ufc
 #ufl
