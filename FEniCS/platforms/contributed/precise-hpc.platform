@@ -77,11 +77,12 @@ read -p "Press any key to continue"
 #  works fine too
 #   CHECK: using existing openmpi.package
 #- Build Boost so that Boost.MPI uses the manually installed MPI
-    CHECK: using existing boost.package, did it detect MPI???
+#   CHECK: using existing boost.package, did it detect MPI???
 #- Install CGAL to use the manually installed Boost
-    CHECK: using existing cgal.package
+#   CHECK: using existing cgal.package
 #- Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
 #  pull in MPI)
+#   CHECK: using existing vtk.package
 #- Build VTK (so that the Ubuntu version doesn't pull in MPI)
 #- Build HDF5 with parallel suppport  (so that the Ubuntu version
 #  doesn't pull in MPI)
@@ -100,8 +101,8 @@ skip:boost
 skip:cgal
 skip:parmetis
 skip:scotch
-vtk
-#hdf5
+skip:vtk
+hdf5
 #pastix
 #petsc
 #slepc
