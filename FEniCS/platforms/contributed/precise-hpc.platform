@@ -33,7 +33,8 @@ Before running this script, you need to take the following steps:
      wget bzr bzrtools subversion cmake pkg-config \\
      flex bison g++ gfortran \\
      libcln-dev libcppunit-dev libxml2-dev libhwloc-dev libbz2-dev \\
-     python-dev python-numpy swig
+     python-dev python-numpy swig \\
+     tcl-dev tk-dev
 
    Note that this step will pull in the FORTRAN packages for BLAS and
    LAPACK (libblas3gf liblapack3gf) but those will not affect the
@@ -76,7 +77,9 @@ read -p "Press any key to continue"
 #  works fine too
 #   CHECK: using existing openmpi.package
 #- Build Boost so that Boost.MPI uses the manually installed MPI
+    CHECK: using existing boost.package, did it detect MPI???
 #- Install CGAL to use the manually installed Boost
+    CHECK: using existing cgal.package
 #- Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
 #  pull in MPI)
 #- Build VTK (so that the Ubuntu version doesn't pull in MPI)
@@ -87,16 +90,17 @@ read -p "Press any key to continue"
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
 skip:atlas
 skip:openmpi
-#boost
-#cgal
-#parmetis
-#scotch
-#vtk
+skip:boost
+skip:cgal
+skip:parmetis
+skip:scotch
+vtk
 #hdf5
 #pastix
 #petsc
