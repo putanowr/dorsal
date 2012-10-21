@@ -23,7 +23,7 @@ default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 # Define the packages this platform needs
 PACKAGES=(
 #cusp
-#trilinos
+trilinos
 petsc
 slepc
 # swiginac
