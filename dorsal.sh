@@ -462,9 +462,17 @@ if [ "$ARCH" == "x86_64" ]; then
     export PYTHONPATH=${INSTALL_PATH}/lib64/python${PYTHONVER}/site-packages:${PYTHONPATH}
 fi
 
+# Reset timings
+TIMINGS=""
+
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
+    echo "CHECK: $PACKAGE"
+
+    # Start timer
+    TIC="$(date +%s%N)"
+
     # Return to the main Dorsal directory
     cd ${ORIG_DIR}
 
@@ -525,6 +533,7 @@ do
 	SKIP=false
     fi
 
+    # Fetch, unpack and build package
     if [ ${SKIP} = false ]
     then
       # Fetch, unpack and build the current package
@@ -536,6 +545,15 @@ do
       cecho ${GOOD} "Skipping ${NAME}"
     fi
     package_register
+
+    # Store timing
+    TOC="$(($(date +%s%N)-TIC))"
+    TIMINGS="$TIMINGS"$"\n""$PACKAGE: $((TOC/1000000000)) s"
+
 done
 
+# Display a summary
 cecho ${GOOD} "Build finished."
+echo
+echo "Summary of timings:"
+echo -e "$TIMINGS"
