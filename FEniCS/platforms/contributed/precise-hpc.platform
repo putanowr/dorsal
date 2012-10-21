@@ -69,25 +69,28 @@ echo -e "\033[1;31m!!! READ THE ABOVE INSTRUCTIONS CAREFULLY BEFORE PROCEEDING !
 echo
 read -p "Press any key to continue"
 
-#- Most important is ATLAS for BLAS (if MKL is not available)
-#   CHECK: added atlas.package
-#- Build LAPACK to use ATLAS BLAS
-#   CHECK: handled as part of ATLAS build
-#- Build latest OpenMPI with support for threads turned on. MPICH2
-#  works fine too
-#   CHECK: using existing openmpi.package
-#- Build Boost so that Boost.MPI uses the manually installed MPI
-#   CHECK: using existing boost.package, did it detect MPI???
-#- Install CGAL to use the manually installed Boost
-#   CHECK: using existing cgal.package
-#- Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
-#  pull in MPI)
-#   CHECK: using existing vtk.package
-#- Build VTK (so that the Ubuntu version doesn't pull in MPI)
-#- Build HDF5 with parallel suppport  (so that the Ubuntu version
-#  doesn't pull in MPI)
-#- Build SCOTCH and PaStiX with support for 64 bit integers
-#- Build PETSc, SLEPc and Trilinos, linking to the above libraries.
+#(x) Most important is ATLAS for BLAS (if MKL is not available)
+#    CHECK: added atlas.package
+#(x) Build LAPACK to use ATLAS BLAS
+#    CHECK: handled as part of ATLAS build
+#(x) Build latest OpenMPI with support for threads turned on. MPICH2
+#    works fine too
+#    CHECK: using existing openmpi.package
+#(x) Build Boost so that Boost.MPI uses the manually installed MPI
+#    CHECK: using existing boost.package, did it detect MPI???
+#(x) Install CGAL to use the manually installed Boost
+#    CHECK: using existing cgal.package
+#(x) Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
+#    pull in MPI)
+#    CHECK: using existing parmetis.package
+#(x) Build VTK (so that the Ubuntu version doesn't pull in MPI)
+#    CHECK: using existing vtk.package
+#(!) Build HDF5 with parallel suppport  (so that the Ubuntu version
+#    doesn't pull in MPI)
+#(x) CHECK: added hdf5.package
+#(!) Build SCOTCH with support for 64 bit integers
+#(!) Build PaStiX with support for 64 bit integers
+#(!) Build PETSc, SLEPc and Trilinos, linking to the above libraries.
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt

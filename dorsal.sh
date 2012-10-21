@@ -548,7 +548,7 @@ do
 
     # Store timing
     TOC="$(($(date +%s%N)-TIC))"
-    TIMINGS="$TIMINGS"$"\n""$PACKAGE: "$"\t\t""$((TOC/1000000000)) s"
+    TIMINGS="$TIMINGS"$"\n""$PACKAGE: ""$((TOC/1000000000)) s"
 
 done
 

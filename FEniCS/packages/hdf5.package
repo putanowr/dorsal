@@ -1,0 +1,22 @@
+NAME=hdf5-1.8.9
+SOURCE=http://www.hdfgroup.org/ftp/HDF5/current/src/
+PACKING=.tar.bz2
+BUILDCHAIN=custom
+
+package_specific_build () {
+
+    # Download and apply patch
+    if [ ! -e cmake_patch.txt ]
+    then
+        wget http://www.hdfgroup.org/ftp/HDF5/current/src/cmake_patch.txt
+        patch -N -Z -p0 < cmake_patch.txt
+    fi
+
+    # Configure and build
+    mkdir -p dorsal_build_dir
+    cd dorsal_build_dir
+    cmake ${CONFOPTS} -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} ..
+    make ${MAKEOPTS} -j ${PROCS}
+    make install
+
+}
