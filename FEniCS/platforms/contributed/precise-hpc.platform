@@ -90,8 +90,8 @@ default PETSC_ARCH=linux-gnu-cxx-opt
 
 # Define the packages this platform needs
 PACKAGES=(
-atlas
-#openmpi
+skip:atlas
+openmpi
 #boost
 #cgal
 #parmetis

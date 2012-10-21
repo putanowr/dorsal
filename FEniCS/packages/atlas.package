@@ -33,10 +33,6 @@ package_specific_build () {
 
     fi
 
-    echo
-    echo "ok fine. Now keep your fingers crossed and press any key to continue."
-    read
-
     # Create and enter build directory
     mkdir -p build
     cd build
