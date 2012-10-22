@@ -105,8 +105,8 @@ skip:cgal
 skip:parmetis
 skip:scotch
 skip:vtk
-skip:hdf5
-pastix
+hdf5
+#pastix
 #petsc
 #slepc
 #trilinos
