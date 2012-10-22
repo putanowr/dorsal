@@ -12,6 +12,9 @@ package_specific_build () {
         patch -N -Z -p0 < cmake_patch.txt
     fi
 
+    # FIXME: Building without parallel support for now since turning it on
+    # FIXME: leads to an error: /usr/bin/ld: unrecognized option '--export-dynamic;'
+
     # Configure and build
     mkdir -p dorsal_build_dir
     cd dorsal_build_dir

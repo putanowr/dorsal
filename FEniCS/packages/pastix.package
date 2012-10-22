@@ -2,7 +2,32 @@ NAME=pastix_release_3725
 SOURCE=https://gforge.inria.fr/frs/download.php/30920/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
+PASTIX_PATH=${INSTALL_PATH}/lib/pastix
 
 package_specific_build () {
-    echo FIXME
+
+    # Note: Copying, then building (not copying after build) so
+    # pastix-conf will not be confused
+
+    # Copy everything to source
+    rm -rf  ${PASTIX_PATH}
+    cd ..
+    cp -r ${NAME} ${PASTIX_PATH}
+
+    # Copy config file
+    cd ${PASTIX_PATH}/src
+    cp config/LINUX-GNU.in config.in.orig
+
+    # Modify config file
+    \rm -f config.in
+    cat config.in.orig | sed s/32/64/ > config.in
+
+    # Build
+    make
+
+}
+
+package_specific_register () {
+    export PASTIX_INCLUDE_DIRS=${PASTIX_PATH}/install
+    export PASTIX_LIBRARIES=${PASTIX_PATH}/install
 }
