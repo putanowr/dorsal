@@ -468,8 +468,6 @@ TIMINGS=""
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
-    echo "CHECK: $PACKAGE"
-
     # Start timer
     TIC="$(date +%s%N)"
 
@@ -553,6 +551,7 @@ do
 done
 
 # Display a summary
+echo
 cecho ${GOOD} "Build finished."
 echo
 echo "Summary of timings:"
