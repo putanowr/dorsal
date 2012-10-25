@@ -465,11 +465,20 @@ fi
 # Reset timings
 TIMINGS=""
 
+# The Unix date command does not work with nanoseconds, so use
+# the GNU date instead. This is available in the 'coreutils' package
+# from MacPorts.
+if [ "$(which gdate)" = 0 ]; then 
+    DATE_CMD=$(which gdate)
+else
+    DATE_CMD=$(which date)
+fi
+
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
     # Start timer
-    TIC="$(date +%s%N)"
+    TIC="$(${DATE_CMD} +%s%N)"
 
     # Return to the main Dorsal directory
     cd ${ORIG_DIR}
@@ -545,7 +554,7 @@ do
     package_register
 
     # Store timing
-    TOC="$(($(date +%s%N)-TIC))"
+    TOC="$(($(${DATE_CMD} +%s%N)-TIC))"
     TIMINGS="$TIMINGS"$"\n""$PACKAGE: ""$((TOC/1000000000)) s"
 
 done
