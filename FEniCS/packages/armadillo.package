@@ -3,8 +3,17 @@ SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
 BUILDCHAIN=custom
 
+CONFOPTS="-D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH}
+	  -D INSTALL_LIB_DIR:STRING=lib"
+
+if [ ! -z "${ATLAS_DIR}" ]; then
+    CONFOPTS="${CONFOPTS}
+              -D LAPACK_LIBRARY:FILEPATH=${ATLAS_DIR}/lib/liblapack.a
+              -D BLAS_LIBRARY:FILEPATH=${ATLAS_DIR}/lib/libatlas.a"
+fi
+
 package_specific_build () {
-    cmake -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} -DINSTALL_LIB_DIR=lib .
+    cmake ${CONFOPTS} .
     make  -j ${PROCS}
     make install
 }

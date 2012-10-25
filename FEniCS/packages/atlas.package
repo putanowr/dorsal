@@ -62,5 +62,8 @@ package_specific_install () {
 }
 
 package_specific_register () {
-    echo "FIXME: register"
+    export ATLAS_DIR=${INSTALL_PATH}
+
+    # This is important for building Trilinos
+    export BLAS_LIBRARY_NAMES="cblas f77blas atlas"
 }

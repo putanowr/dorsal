@@ -15,3 +15,9 @@ fi
 if [ ! -z "${BLAS_LIBRARIES}" ]; then
     CONFOPTS="${CONFOPTS} -D BLAS_LIBRARIES:FILEPATH=\"${BLAS_LIBRARIES}\""
 fi
+
+if [ ! -z "${ATLAS_DIR}" ]; then
+    CONFOPTS="${CONFOPTS}
+              -D LAPACK_LIBRARIES=${ATLAS_DIR}/lib/liblapack.a
+              -D BLAS_LIBRARIES=\"${ATLAS_DIR}/lib/libcblas.a;${ATLAS_DIR}/lib/libf77blas.a;${ATLAS_DIR}/lib/libatlas.a\""
+fi
