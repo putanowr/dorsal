@@ -33,7 +33,7 @@ Before running this script, you need to take the following steps:
      wget bzr bzrtools subversion cmake pkg-config \\
      flex bison g++ gfortran \\
      libcln-dev libcppunit-dev libxml2-dev libhwloc-dev libbz2-dev \\
-     python-dev python-numpy swig \\
+     python-dev python-numpy python-scientific swig \\
      tcl-dev tk-dev
 
    Note that this step will pull in the FORTRAN packages for BLAS and
