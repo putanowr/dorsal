@@ -109,13 +109,14 @@ skip:vtk
 skip:hdf5
 skip:armadillo
 skip:pastix
+skip:suitesparsewithmetis
 trilinos
 skip:petsc-hpc
-slepc
+#slepc
 skip:fiat
 skip:ufc
 skip:ufl
 skip:ffc
 skip:instant
-dolfin
+#dolfin
 )
