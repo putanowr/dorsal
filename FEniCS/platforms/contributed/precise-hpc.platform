@@ -69,54 +69,30 @@ echo -e "\033[1;31m!!! READ THE ABOVE INSTRUCTIONS CAREFULLY BEFORE PROCEEDING !
 echo
 read -p "Press any key to continue"
 
-#(x) Most important is ATLAS for BLAS (if MKL is not available)
-#    CHECK: added atlas.package
-#(x) Build LAPACK to use ATLAS BLAS
-#    CHECK: handled as part of ATLAS build
-#(x) Build latest OpenMPI with support for threads turned on. MPICH2
-#    works fine too
-#    CHECK: using existing openmpi.package
-#(x) Build Boost so that Boost.MPI uses the manually installed MPI
-#    CHECK: using existing boost.package, did it detect MPI???
-#(x) Install CGAL to use the manually installed Boost
-#    CHECK: using existing cgal.package
-#(x) Build latest METIS and ParMETIS (Ubuntu ParMETIS is broken, and it
-#    pull in MPI)
-#    CHECK: using existing parmetis.package
-#(x) Build VTK (so that the Ubuntu version doesn't pull in MPI)
-#    CHECK: using existing vtk.package
-#(!) Build HDF5 with parallel suppport  (so that the Ubuntu version
-#    doesn't pull in MPI)
-#(x) CHECK: added hdf5.package
-     FIXME: not working with parallel config
-#(!) Build SCOTCH with support for 64 bit integers
-#(!) Build PaStiX with support for 64 bit integers
-#(!) Build PETSc, SLEPc and Trilinos, linking to the above libraries.
-
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:atlas
-skip:openmpi
-skip:boost
-skip:cgal
-skip:parmetis
-skip:scotch
-skip:vtk
-skip:hdf5
-skip:armadillo
-skip:pastix
-skip:suitesparsewithmetis
+atlas
+openmpi
+boost
+cgal
+parmetis
+scotch
+vtk
+hdf5
+armadillo
+pastix
+suitesparsewithmetis
 trilinos
-skip:petsc-hpc
-#slepc
-skip:fiat
-skip:ufc
-skip:ufl
-skip:ffc
-skip:instant
-#dolfin
+petsc-hpc
+slepc
+fiat
+ufc
+ufl
+ffc
+instant
+dolfin
 )
