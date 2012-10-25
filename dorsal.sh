@@ -468,9 +468,8 @@ TIMINGS=""
 # The Unix date command does not work with nanoseconds, so use
 # the GNU date instead. This is available in the 'coreutils' package
 # from MacPorts.
-if [ "$(which gdate)" = 0 ]; then 
-    DATE_CMD=$(which gdate)
-else
+DATE_CMD=$(which gdate)
+if [ $? != 0 ]; then
     DATE_CMD=$(which date)
 fi
 
