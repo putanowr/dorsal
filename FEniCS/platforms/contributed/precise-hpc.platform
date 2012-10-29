@@ -34,7 +34,7 @@ Before running this script, you need to take the following steps:
      flex bison g++ gfortran \\
      libcln-dev libcppunit-dev libxml2-dev libhwloc-dev libbz2-dev \\
      python-dev python-numpy python-scientific swig \\
-     tcl-dev tk-dev
+     tcl-dev tk-dev libgmp-dev libmpfr-dev libxt-dev libgl1-mesa-dev
 
    Note that this step will pull in the FORTRAN packages for BLAS and
    LAPACK (libblas3gf liblapack3gf) but those will not affect the
@@ -72,6 +72,7 @@ read -p "Press any key to continue"
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
+default PASTIX_ARCH=i686_pc_linux
 
 # Define the packages this platform needs
 PACKAGES=(
@@ -85,7 +86,7 @@ vtk
 hdf5
 armadillo
 pastix
-suitesparsewithmetis
+suitesparse
 trilinos
 petsc-hpc
 slepc
