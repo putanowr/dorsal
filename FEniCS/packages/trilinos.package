@@ -16,14 +16,18 @@ CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
           -D TPL_ENABLE_MPI:BOOL=ON
           -D TPL_ENABLE_UMFPACK:BOOL=ON"
 
-if [ ! -z "${BLAS_LIBRARY_NAMES}" ]; then
-    CONFOPTS="${CONFOPTS} -D BLAS_LIBRARY_NAMES=${BLAS_LIBRARY_NAMES}"
+if [ ! -z "${ATLAS_DIR}" ]; then
+    CONFOPTS="${CONFOPTS}
+              -D BLAS_LIBRARY_NAMES=\"cblas;f77blas;atlas\"
+              -D BLAS_LIBRARY_DIRS=${ATLAS_DIR}
+              -D LAPACK_LIBRARY_DIRS=${ATLAS_DIR}"
 fi
 
 if [ ! -z "${UMFPACK_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
               -D UMFPACK_INCLUDE_DIRS=${UMFPACK_DIR}/include/suitesparse
-              -D UMFPACK_LIBRARY_DIRS=${UMFPACK_DIR}/lib"
+              -D UMFPACK_LIBRARY_DIRS=${UMFPACK_DIR}/lib
+              -D UMFPACK_LIBRARY_NAMES=\"umfpack;cholmod;camd;ccolamd;colamd;amd;suitesparseconfig\""
 elif [ ! -z "${UMFPACK_INCLUDE_DIR}" ]; then
     CONFOPTS="${CONFOPTS} -D UMFPACK_INCLUDE_DIRS=${UMFPACK_INCLUDE_DIR}"
 fi
