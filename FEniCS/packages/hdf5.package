@@ -4,7 +4,6 @@ PACKING=.tar.bz2
 BUILDCHAIN=custom
 
 package_specific_build () {
-
     # Download and apply patch
     if [ ! -e cmake_patch.txt ]
     then
@@ -12,14 +11,23 @@ package_specific_build () {
         patch -N -Z -p0 < cmake_patch.txt
     fi
 
-    # FIXME: Building without parallel support for now since turning it on
-    # FIXME: leads to an error: /usr/bin/ld: unrecognized option '--export-dynamic;'
+    # Configure
+    mkdir -p build
+    cd build
+    cmake -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
+          -D BUILD_SHARED_LIBS:BOOL=ON \
+          -D HDF5_ENABLE_PARALLEL:BOOL=ON \
+          ..
+    
+    # Fix problem with error: /usr/bin/ld: unrecognized option '--export-dynamic;'
+    sed -i 's/dynamic;/dynamic/' src/CMakeFiles/H5detect.dir/link.txt
+    sed -i 's/dynamic;/dynamic/' src/CMakeFiles/H5make_libsettings.dir/link.txt
 
-    # Configure and build
-    ./configure --with-pthread --enable-unsupported --enable-shared \
-                --enable-production=yes --disable-sharedlib-rpath \
-                --enable-parallel=yes
+    # Build and install
     make ${MAKEOPTS} -j ${PROCS}
     make install
+}
 
+package_specific_register () {
+    export HDF5_DIR=${INSTALL_PATH}
 }
