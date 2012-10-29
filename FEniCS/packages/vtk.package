@@ -3,7 +3,6 @@ SOURCE=http://www.vtk.org/files/release/5.8/
 PACKING=.tar.gz
 BUILDCHAIN=cmake
 EXTRACTSTO=VTK
-PROCS=1
 
 CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
           -D BUILD_TESTING:BOOL=OFF
