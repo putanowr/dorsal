@@ -355,6 +355,7 @@ export PATH=\$CMAKE_PREFIX_PATH/bin:\$PATH
 export PYTHONPATH=\$CMAKE_PREFIX_PATH/lib/python2.7/site-packages:\$PYTHONPATH
 export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib:\$LD_LIBRARY_PATH
 export PKG_CONFIG_PATH=\$CMAKE_PREFIX_PATH/lib/pkgconfig:\$PKG_CONFIG_PATH
+export MANPATH=\$CMAKE_PREFIX_PATH/share/man:$MANPATH
 
 # Extra paths that we may want to remove from here
 export BOOST_DIR=\$CMAKE_PREFIX_PATH
