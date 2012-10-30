@@ -17,7 +17,7 @@ Before running this script, you need to take the following steps:
 
 1. Remove packages that will be built from source:
 
-   sudo apt-get remove
+   sudo apt-get remove \\
      libblas* liblapack* libscalapack* libatlas* libsuitesparse* \\
      openmpi* libopenmpi* mpich* libmpich* libboost* \\
      libcgal* libparmetis* libscotch*
