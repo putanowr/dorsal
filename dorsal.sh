@@ -329,6 +329,42 @@ guess_architecture() {
     fi
 }
 
+generate_fenics_conf() {
+    # Generate configuration file for building against FEniCS installation
+
+    mkdir -p $INSTALL_PATH/etc
+    CONFIG_FILE=$INSTALL_PATH/etc/fenics.conf
+    rm -f $CONFIG_FILE
+    echo "
+# Source this file to set up your environment for building against FEniCS
+
+# Standard paths
+export CMAKE_PREFIX_PATH=/home/logg/scratch/fenics
+export PATH=\$CMAKE_PREFIX_PATH/bin:\$PATH
+export PYTHONPATH=\$CMAKE_PREFIX_PATH/lib/python2.7/site-packages:\$PYTHONPATH
+export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib:\$LD_LIBRARY_PATH
+export PKG_CONFIG_PATH=\$CMAKE_PREFIX_PATH/lib/pkgconfig:\$PKG_CONFIG_PATH
+
+# Extra paths that we may want to remove from here
+export BOOST_DIR=\$CMAKE_PREFIX_PATH
+export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
+" >> $CONFIG_FILE
+
+    echo
+    echo "FEniCS has now been installed in"
+    echo
+    cecho ${GOOD} "    ${INSTALL_PATH}"
+    echo
+    echo "To update your environment variables, run the following command:"
+    echo
+    cecho ${GOOD} "    source $CONFIG_FILE"
+    echo
+    echo "For future reference, we recommend that you add this command to your"
+    echo "configuration (.bashrc, .profile or similar)."
+    echo
+
+}
+
 ### Start the build process ###
 
 export ORIG_DIR=`pwd`
@@ -586,3 +622,8 @@ cecho ${GOOD} "Build finished."
 echo
 echo "Summary of timings:"
 echo -e "$TIMINGS"
+
+# Generate FEniCS config file if we're building FEniCS
+if [ ${PROJECT} = "FEniCS" ]; then
+    generate_fenics_conf
+fi
