@@ -1,0 +1,106 @@
+# Ubuntu 12.10 (Quantal Quetzal) "HPC build"
+
+# This is an unsupported build for FEniCS developers and users who
+# want to get the most out of their hardware. In contrast to other
+# configurations, this configuration will try to build many packages
+# from source, rather than relying on Debian/Ubuntu packages which
+# often do not perform as well as libraries compiled from source.
+##
+
+# Dorsal diplays the installation instructions only when autodetecting
+# the platform, not when invoking it explicitly, and this config will
+# never be autodetected. We therefore display the instructions
+# explicitly here so they will always be displayed.
+
+echo """
+Before running this script, you need to take the following steps:
+
+1. Remove packages that will be built from source:
+
+   sudo apt-get remove \\
+     libblas* liblapack* libscalapack* libatlas* libsuitesparse* \\
+     openmpi* libopenmpi* mpich* libmpich* libboost* \\
+     libcgal* libparmetis* libscotch*
+
+2. Remove packages that might have gotten installed as part of the
+   original installation of the removed packages:
+
+   sudo apt-get autoremove
+
+3. Install packages we do need:
+
+   sudo apt-get install \\
+     wget bzr bzrtools subversion cmake pkg-config \\
+     flex bison g++ gfortran \\
+     libcln-dev libcppunit-dev libxml2-dev libhwloc-dev libbz2-dev \\
+     python-dev python-numpy python-scientific python-netcdf swig \\
+     tcl-dev tk-dev libgmp-dev libmpfr-dev libxt-dev libgl1-mesa-dev \\
+     python-ply
+
+   Note that this step will pull in the FORTRAN packages for BLAS and
+   LAPACK (libblas3gf liblapack3gf) but those will not affect the
+   build of the rest of the toolchain.
+
+4. Make sure your machine is ready for the ATLAS install.
+
+   - Plug in the power supply of your laptop (no kidding!).
+
+   - Make sure CPU throttling is disabled.
+
+     On Intel machines (like Lenovo Thinkpads), this can be achieved
+     by disabling 'Intel Speedstep Technology' in BIOS. It's enough to
+     disable it during installation. It can be enabled later to
+     improve battery life during normal operation.
+
+     On some machines, messing with the BIOS may not be necessary and
+     you may instead try to adjust the CPU frequency dynamically by
+     the cpufreq-set and cpufreq-selector commands.
+
+     If you want to have the CPU frequency automatically adjusted as
+     part of running this script, please set the CPU_SCALING variable:
+
+     export CPU_SCALING=yes
+
+     If you have already disabled CPU throttling in BIOS, you should
+     NOT set this variable.
+
+After Dorsal has completed, make sure to set the following environment
+variables before running any Python FEniCS programs:
+
+     export BOOST_DIR=${INSTALL_PATH}
+     export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:\${LD_LIBRARY_PATH}
+"""
+
+# Increase chance of above instructions not being ignored
+echo -e "\033[1;31m!!! READ THE ABOVE INSTRUCTIONS CAREFULLY BEFORE PROCEEDING !!!\033[0m"
+echo
+read -p "Press any key to continue"
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+default PASTIX_ARCH=i686_pc_linux
+
+# Define the packages this platform needs
+PACKAGES=(
+atlas
+openmpi
+boost
+cgal
+parmetis
+scotch
+vtk
+hdf5
+armadillo
+pastix
+suitesparse
+trilinos
+petsc-hpc
+slepc
+fiat
+ufc
+ufl
+ffc
+instant
+dolfin
+)
