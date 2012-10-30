@@ -63,6 +63,12 @@ Before running this script, you need to take the following steps:
 
      If you have already disabled CPU throttling in BIOS, you should
      NOT set this variable.
+
+After Dorsal has completed, make sure to set the following environment
+variables before running any Python FEniCS programs:
+
+     export BOOST_DIR=${INSTALL_PATH}
+     export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:\${LD_LIBRARY_PATH}
 """
 
 # Increase chance of above instructions not being ignored
