@@ -52,7 +52,19 @@ package_fetch () {
       # Only download archives that do not exist
       if [ ! -e ${NAME}${PACKING} ]
       then
-        wget --retry-connrefused --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
+        if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ]
+        then
+          wget --retry-connrefused --no-check-certificate --server-response -c ${SOURCE}${NAME}${PACKING}
+        else
+          wget --retry-connrefused --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
+        fi
+      fi
+
+      # Download again when using snapshots and unstable packages, but
+      # only when the timestamp has changed
+      if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ]
+      then
+        wget --timestamping --retry-connrefused --no-check-certificate ${SOURCE}${NAME}${PACKING}
       fi
     elif [ ${PACKING} = "hg" ]
     then
@@ -119,8 +131,9 @@ package_unpack() {
         exit 1
       fi
 
-      # Unpack the archive only if it isn't already
-      if [ ! -d "${EXTRACTSTO}" ]
+      # Unpack the archive only if it isn't already or when using
+      # snapshots and unstable packages
+      if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ] || [ ! -d "${EXTRACTSTO}" ]
       then
         # Unpack the archive in accordance with its packing
         if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tbz2" ]
@@ -335,6 +348,7 @@ default DOWNLOAD_PATH=${HOME}/Work/${PROJECT}/src
 default INSTALL_PATH=${HOME}/Work/${PROJECT}
 default PROCS=1
 default STABLE_BUILD=true
+default USE_SNAPSHOTS=false
 
 # Check if project was specified correctly
 if [ -d ${PROJECT} ]
@@ -393,7 +407,12 @@ then
     then
       echo "Building stable point-releases of ${PROJECT} projects."
     else
-      echo "Building development versions of ${PROJECT} projects."
+	if [ ${USE_SNAPSHOTS} = true ]
+	then
+	    echo "Building development versions of ${PROJECT} projects (using snapshots)."
+	else
+	    echo "Building development versions of ${PROJECT} projects."
+	fi
     fi
     echo "-------------------------------------------------------------------------------"
     cecho ${GOOD} "Please make sure you've read the instructions above and your system"
@@ -522,6 +541,9 @@ do
     if [ ${STABLE_BUILD} = true ] && [ -e ${PROJECT}/packages/${PACKAGE}-stable.package ]
     then
       source ${PROJECT}/packages/${PACKAGE}-stable.package
+    elif [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ] && [ -e ${PROJECT}/packages/${PACKAGE}-snapshot.package ]
+    then
+      source ${PROJECT}/packages/${PACKAGE}-snapshot.package
     fi
 
     # Ensure that the package file is sanely constructed
