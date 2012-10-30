@@ -4,12 +4,23 @@ set -a
 # This is Dorsal. Refer to the files README and COPYING.lesser for
 # more information about it as well as terms of distribution.
 
-### Define helper functions ###
+# The Unix date command does not work with nanoseconds, so use
+# the GNU date instead. This is available in the 'coreutils' package
+# from MacPorts.
+DATE_CMD=$(which gdate)
+if [ $? != 0 ]; then
+    DATE_CMD=$(which date)
+fi
+
+# Start global timer
+TIC_GLOBAL="$(${DATE_CMD} +%s%N)"
 
 # Colours for progress and error reporting
 BAD="\033[1;31m"
 GOOD="\033[1;32m"
 BOLD="\033[1m"
+
+### Define helper functions ###
 
 prettify_dir() {
    # Make a directory name more readable by replacing homedir with "~"
@@ -520,14 +531,6 @@ fi
 # Reset timings
 TIMINGS=""
 
-# The Unix date command does not work with nanoseconds, so use
-# the GNU date instead. This is available in the 'coreutils' package
-# from MacPorts.
-DATE_CMD=$(which gdate)
-if [ $? != 0 ]; then
-    DATE_CMD=$(which date)
-fi
-
 # Fetch and build individual packages
 for PACKAGE in ${PACKAGES[@]}
 do
@@ -616,9 +619,12 @@ do
 
 done
 
+# Stop global timer
+TOC_GLOBAL="$(($(${DATE_CMD} +%s%N)-TIC_GLOBAL))"
+
 # Display a summary
 echo
-cecho ${GOOD} "Build finished."
+cecho ${GOOD} "Build finished in $((TOC_GLOBAL/1000000000)) seconds."
 echo
 echo "Summary of timings:"
 echo -e "$TIMINGS"
