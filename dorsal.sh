@@ -343,8 +343,8 @@ guess_architecture() {
 generate_fenics_conf() {
     # Generate configuration file for building against FEniCS installation
 
-    mkdir -p $INSTALL_PATH/etc
-    CONFIG_FILE=$INSTALL_PATH/etc/fenics.conf
+    mkdir -p $INSTALL_PATH/share/fenics
+    CONFIG_FILE=$INSTALL_PATH/share/fenics/fenics.conf
     rm -f $CONFIG_FILE
     echo "
 # Source this file to set up your environment for building against FEniCS
