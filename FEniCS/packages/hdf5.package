@@ -18,7 +18,7 @@ package_specific_build () {
           -D BUILD_SHARED_LIBS:BOOL=ON \
           -D HDF5_ENABLE_PARALLEL:BOOL=ON \
           ..
-    
+
     # Fix problem with error: /usr/bin/ld: unrecognized option '--export-dynamic;'
     sed -i 's/dynamic;/dynamic/' src/CMakeFiles/H5detect.dir/link.txt
     sed -i 's/dynamic;/dynamic/' src/CMakeFiles/H5make_libsettings.dir/link.txt
@@ -30,4 +30,8 @@ package_specific_build () {
 
 package_specific_register () {
     export HDF5_DIR=${INSTALL_PATH}
+
+    # This is an ugly hack and should be fixed somewhere else (in DOLFIN)
+    ln -s ${INSTALL_PATH}/lib/libhdf5.so.1.8.9 ${INSTALL_PATH}/lib/libhdf5.1.8.9.so
+
 }
