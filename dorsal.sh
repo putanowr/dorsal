@@ -350,7 +350,7 @@ generate_fenics_conf() {
 # Source this file to set up your environment for building against FEniCS
 
 # Standard paths
-export CMAKE_PREFIX_PATH=/home/logg/scratch/fenics
+export CMAKE_PREFIX_PATH=${INSTALL_PATH}
 export PATH=\$CMAKE_PREFIX_PATH/bin:\$PATH
 export PYTHONPATH=\$CMAKE_PREFIX_PATH/lib/python2.7/site-packages:\$PYTHONPATH
 export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib:\$LD_LIBRARY_PATH
