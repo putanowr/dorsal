@@ -34,6 +34,7 @@ default SCOTCH_ARCH=pc_linux2
 
 # Define the packages this platform needs
 PACKAGES=(
+pcre
 swig
 cmake
 vtkdata
