@@ -1,4 +1,4 @@
-NAME=trilinos-10.12.2-Source
+NAME=trilinos-11.0.3-Source
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
 BUILDCHAIN=cmake
@@ -36,9 +36,10 @@ if [ -x "${SWIG_EXECUTABLE}" ]; then
     CONFOPTS="${CONFOPTS} -D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}"
 fi
 
-package_specific_setup () {
-    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
-}
+# FIXME: Is this patch still needed on OS X?
+#package_specific_setup () {
+#    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
+#}
 
 package_specific_register () {
     export TRILINOS_DIR=${INSTALL_PATH}
