@@ -8,13 +8,19 @@ CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
           -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos
           -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON
           -D Trilinos_ENABLE_PyTrilinos:BOOL=ON
-          -D Trilinos_ENABLE_Fortran:BOOL=OFF
           -D Trilinos_ENABLE_TESTS:BOOL=OFF
           -D Trilinos_ENABLE_EXAMPLES:BOOL=OFF
           -D CMAKE_BUILD_TYPE:STRING=Release
           -D BUILD_SHARED_LIBS:BOOL=ON
           -D TPL_ENABLE_MPI:BOOL=ON
           -D TPL_ENABLE_UMFPACK:BOOL=ON"
+
+GFORTRAN_EXECUTABLE=$(which gfortran)
+if [ ! -z "${GFORTRAN_EXECUTABLE}" ]; then
+    CONFOPTS="${CONFOPTS} -D Trilinos_ENABLE_Fortran:BOOL=ON"
+else
+    CONFOPTS="${CONFOPTS} -D Trilinos_ENABLE_Fortran:BOOL=OFF"
+fi
 
 if [ ! -z "${ATLAS_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
