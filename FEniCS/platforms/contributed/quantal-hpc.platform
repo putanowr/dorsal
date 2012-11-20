@@ -31,10 +31,10 @@ Before running this script, you need to take the following steps:
 
    sudo apt-get install \\
      wget bzr bzrtools subversion cmake pkg-config \\
-     flex bison g++ gfortran \\
-     libcln-dev libcppunit-dev libxml2-dev libhwloc-dev libbz2-dev \\
-     python-dev python-numpy python-scientific python-netcdf swig \\
-     tcl-dev tk-dev libgmp-dev libmpfr-dev libxt-dev libgl1-mesa-dev \\
+     flex bison g++ gfortran libcln-dev libcppunit-dev \\
+     libxml2-dev libhwloc-dev libbz2-dev \\
+     python-dev python-netcdf swig tcl-dev tk-dev libgmp-dev \\
+     libmpfr-dev libxt-dev libgl1-mesa-dev \\
      python-ply
 
    Note that this step will pull in the FORTRAN packages for BLAS and
@@ -78,6 +78,8 @@ default PASTIX_ARCH=i686_pc_linux
 # Define the packages this platform needs
 PACKAGES=(
 atlas
+numpy
+scipy
 openmpi
 boost
 cgal
@@ -91,6 +93,7 @@ suitesparse
 trilinos
 petsc-hpc
 slepc
+scientificpython
 fiat
 ufc
 ufl
