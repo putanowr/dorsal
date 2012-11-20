@@ -358,8 +358,9 @@ export PKG_CONFIG_PATH=\$CMAKE_PREFIX_PATH/lib/pkgconfig:\$PKG_CONFIG_PATH
 export MANPATH=\$CMAKE_PREFIX_PATH/share/man:$MANPATH
 
 # Extra paths that we may want to remove from here
-export BOOST_DIR=\$CMAKE_PREFIX_PATH
-export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
+# FIXME: This is only needed when we build Boost and VTK
+#export BOOST_DIR=\$CMAKE_PREFIX_PATH
+#export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
 " >> $CONFIG_FILE
 
     echo
