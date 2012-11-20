@@ -2,7 +2,7 @@
 # relying less on PETSc for building and instead using packages
 # installed from source.
 
-NAME=petsc-3.3-p3
+NAME=petsc-3.3-p4
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
@@ -13,9 +13,7 @@ CONFOPTS="COPTFLAGS=-O2
           --with-debugging=0 --with-shared-libraries=1
           --with-clanguage=cxx --with-c-support=1"
 
-for external_pkg in hypre; do
-    CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
-done
+EXTERNAL_PACKAGES="hypre mumps scalapack blacs"
 
 if [ "${TRILINOS_DIR}" ]; then
     CONFOPTS="${CONFOPTS} --with-ml=1
@@ -31,16 +29,22 @@ if [ "${PARMETIS_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
               --with-metis=1 --with-metis-dir=${PARMETIS_DIR}
               --with-parmetis=1 --with-parmetis-dir=${PARMETIS_DIR}"
+else
+    EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} metis parmetis"
 fi
 
 if [ "${SCOTCH_DIR}" ]; then
     CONFOPTS="${CONFOPTS} --with-ptscotch=1 --with-ptscotch-dir=${SCOTCH_DIR}"
+else
+    EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} scotch ptscotch"
 fi
 
 if [ "${UMFPACK_DIR}" ]; then
     CONFOPTS="${CONFOPTS} --with-umfpack=1
               --with-umfpack-include=${UMFPACK_DIR}/include/suitesparse
               --with-umfpack-lib=[${UMFPACK_DIR}/lib/libumfpack.a,${UMFPACK_DIR}/lib/libcholmod.a,${UMFPACK_DIR}/lib/libcamd.a,${UMFPACK_DIR}/lib/libccolamd.a,${UMFPACK_DIR}/lib/libcolamd.a,${UMFPACK_DIR}/lib/libamd.a,${UMFPACK_DIR}/lib/libsuitesparseconfig.a]"
+else
+    EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} umfpack"
 fi
 
 if [ "${CUDA_DIR}" ] && [ "${CUSP_DIR}" ]; then
@@ -48,6 +52,10 @@ if [ "${CUDA_DIR}" ] && [ "${CUSP_DIR}" ]; then
     --with-cusp=1 --with-cusp-dir=${CUSP_DIR}
     --with-thrust=1 --with-thrust-dir=${CUDA_DIR}/include"
 fi
+
+for external_pkg in ${EXTERNAL_PACKAGES}; do
+    CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
+done
 
 package_specific_register () {
     export PETSC_DIR=${INSTALL_PATH}
