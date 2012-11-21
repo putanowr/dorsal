@@ -35,7 +35,7 @@ Before running this script, you need to take the following steps:
      libxml2-dev libhwloc-dev libbz2-dev \\
      python-dev python-netcdf swig tcl-dev tk-dev libgmp-dev \\
      libmpfr-dev libxt-dev libgl1-mesa-dev \\
-     python-ply
+     python-ply libqt4-dev
 
    Note that this step will pull in the FORTRAN packages for BLAS and
    LAPACK (libblas3gf liblapack3gf) but those will not affect the
@@ -85,7 +85,7 @@ boost
 cgal
 parmetis
 scotch
-vtk
+vtkwithqt
 hdf5
 armadillo
 pastix
