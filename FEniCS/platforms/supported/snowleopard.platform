@@ -22,7 +22,6 @@
 # Platform specific variables
 default PETSC_ARCH=arch-darwin-cxx-opt
 default SCOTCH_ARCH=i686_mac_darwin8
-default UMFPACK_INCLUDE_DIR=/opt/local/include/ufsparse
 
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
