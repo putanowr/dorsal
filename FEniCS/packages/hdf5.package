@@ -25,6 +25,6 @@ package_specific_register () {
     export HDF5_DIR=${INSTALL_PATH}
 
     # This is an ugly hack and should be fixed somewhere else (in DOLFIN)
-    ln -s ${INSTALL_PATH}/lib/libhdf5.so.1.8.9 ${INSTALL_PATH}/lib/libhdf5.1.8.9.so
+    ln -sf ${INSTALL_PATH}/lib/libhdf5.so.1.8.9 ${INSTALL_PATH}/lib/libhdf5.1.8.9.so
 
 }
