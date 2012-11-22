@@ -354,14 +354,24 @@ export CMAKE_PREFIX_PATH=${INSTALL_PATH}
 export PATH=\$CMAKE_PREFIX_PATH/bin:\$PATH
 export PYTHONPATH=\$CMAKE_PREFIX_PATH/lib/python2.7/site-packages:\$PYTHONPATH
 export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib:\$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib:\$DYLD_LIBRARY_PATH
 export PKG_CONFIG_PATH=\$CMAKE_PREFIX_PATH/lib/pkgconfig:\$PKG_CONFIG_PATH
 export MANPATH=\$CMAKE_PREFIX_PATH/share/man:$MANPATH
-
-# Extra paths that we may want to remove from here
-# FIXME: This is only needed when we build Boost and VTK
-#export BOOST_DIR=\$CMAKE_PREFIX_PATH
-#export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
 " >> $CONFIG_FILE
+
+    for PACKAGE in ${PACKAGES[@]}
+    do
+	case ${PACKAGE} in
+            *boost) echo "
+export BOOST_DIR=\$CMAKE_PREFIX_PATH
+" >> $CONFIG_FILE;;
+	    *vtk | *vtkwithqt) echo "
+# FIXME: This needs to be updated when the VTK version is changed
+export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$DYLD_LIBRARY_PATH
+" >> $CONFIG_FILE;;
+	esac
+    done
 
     echo
     echo "FEniCS has now been installed in"
