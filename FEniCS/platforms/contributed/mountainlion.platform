@@ -49,12 +49,11 @@ done
 PACKAGES=(
 cgal
 parmetis
-# trilinos
-# petsc
-# slepc
+trilinos
+petsc
+slepc
 armadillo
 # swiginac
-mtl
 scotch
 fiat
 # ferari
