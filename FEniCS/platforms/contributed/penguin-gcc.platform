@@ -1,0 +1,45 @@
+# Tested on Penguin Computing services (http://www.penguincomputing.com)
+# Set up environment:
+#
+#   module load python/2.7.2 numpy/1.6.1 scipy/0.10.1 openmpi/gnu/1.6
+#
+# No root priviliges required.
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+default PASTIX_ARCH=i686_pc_linux
+default ATLAS_DIR=/usr/lib64/atlas
+default PYTHON_INCLUDE_DIR=/opt/python/2.7.2/include/python2.7
+default PYTHON_LIBRARY=/opt/python/2.7.2/lib/libpython2.7.so
+default CMAKE_PREFIX_PATH=${INSTALL_PATH}
+
+# Define the packages this platform needs
+PACKAGES=(
+ply
+cmake
+boost
+pcre
+swig
+gmp
+mpfr
+cgal
+parmetis
+scotch
+#vtkwithqt
+#hdf5
+armadillo
+pastix
+suitesparse
+trilinos
+petsc-hpc
+slepc
+scientificpython
+fiat
+ufc
+ufl
+ffc
+instant
+dolfin
+)
