@@ -1,0 +1,4 @@
+NAME=uflacs
+SOURCE=lp:
+PACKING=bzr
+BUILDCHAIN=python
