@@ -17,7 +17,9 @@ CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
 
 GFORTRAN_EXECUTABLE=$(which gfortran)
 if [ ! -z "${GFORTRAN_EXECUTABLE}" ]; then
-    CONFOPTS="${CONFOPTS} -D Trilinos_ENABLE_Fortran:BOOL=ON"
+    CONFOPTS="${CONFOPTS}
+              -D Trilinos_ENABLE_Fortran:BOOL=ON
+              -D CMAKE_Fortran_COMPILER:FILEPATH=mpif90"
 else
     CONFOPTS="${CONFOPTS} -D Trilinos_ENABLE_Fortran:BOOL=OFF"
 fi
