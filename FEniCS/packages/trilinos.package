@@ -44,6 +44,14 @@ if [ -x "${SWIG_EXECUTABLE}" ]; then
     CONFOPTS="${CONFOPTS} -D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}"
 fi
 
+if [ ! -z "${PYTHON_INCLUDE_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} -D PYTHON_INCLUDE_DIR:PATH=${PYTHON_INCLUDE_DIR}"
+fi
+
+if [ ! -z "${PYTHON_LIBRARY}" ]; then
+    CONFOPTS="${CONFOPTS} -D PYTHON_LIBRARY:PATH=${PYTHON_LIBRARY}"
+fi
+
 package_specific_setup () {
     patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/trilinos.patch || true
 }
