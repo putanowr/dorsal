@@ -1,4 +1,4 @@
-NAME=armadillo-2.2.2
+NAME=armadillo-3.2.3
 SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
 BUILDCHAIN=custom
@@ -11,6 +11,14 @@ if [ ! -z "${ATLAS_DIR}" ]; then
               -D LAPACK_LIBRARY:FILEPATH=${ATLAS_DIR}/lib/liblapack.a
               -D BLAS_LIBRARY:FILEPATH=${ATLAS_DIR}/lib/libatlas.a"
 fi
+
+package_specific_setup() {
+    # Apply patch to prevent Armadillo from picking up MKL
+    # when ATLAS_DIR is defined
+    if [ ! -z "${ATLAS_DIR}" ]; then
+	patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/armadillo_no_mkl.patch || true
+    fi
+}
 
 package_specific_build () {
     cmake ${CONFOPTS} .
