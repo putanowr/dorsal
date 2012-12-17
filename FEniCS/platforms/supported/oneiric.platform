@@ -4,7 +4,7 @@
 # installed via Ubuntu's apt-get using the following commands:
 #
 # sudo apt-get install bzr bzrtools cmake flex g++ gfortran \
-# libarmadillo-dev libatlas-base-dev libboost-dev \
+# libatlas-base-dev libboost-dev \
 # libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
 # libcgal-dev libcln-dev libcppunit-dev libginac-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libptscotch-dev \
@@ -23,6 +23,7 @@ default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
+armadillo
 trilinos
 petsc
 slepc

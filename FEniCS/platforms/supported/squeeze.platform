@@ -4,7 +4,7 @@
 # installed via Debian's apt-get using the following command:
 #
 # su -c 'apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
-# libarmadillo-dev libatlas-base-dev libboost-dev \
+# libatlas-base-dev libboost-dev \
 # libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
 # libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libpcre3-dev \
@@ -26,6 +26,7 @@ default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
+armadillo
 cgal
 swig
 trilinos
