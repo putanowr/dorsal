@@ -1,4 +1,4 @@
-NAME=armadillo-3.2.3
+NAME=armadillo-3.6.1
 SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
 BUILDCHAIN=custom
