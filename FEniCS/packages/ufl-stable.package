@@ -1,4 +1,4 @@
-VERSION=1.0.0
+VERSION=1.1.0
 NAME=ufl-${VERSION}
-SOURCE=http://launchpad.net/ufl/1.0.x/${VERSION}/+download/
+SOURCE=http://launchpad.net/ufl/1.1.x/${VERSION}/+download/
 PACKING=.tar.gz
