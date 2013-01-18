@@ -1,31 +1,17 @@
 NAME=hdf5-1.8.10
 SOURCE=http://www.hdfgroup.org/ftp/HDF5/current/src/
 PACKING=.tar.bz2
-BUILDCHAIN=custom
+BUILDCHAIN=autotools
 
-package_specific_build () {
-    # Configure
-    mkdir -p build
-    cd build
-    cmake -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} \
-          -D BUILD_SHARED_LIBS:BOOL=ON \
-          -D HDF5_ENABLE_PARALLEL:BOOL=ON \
-          ..
-
-    # Fix problem with error: /usr/bin/ld: unrecognized option '--export-dynamic;'
-    sed -i 's/dynamic;/dynamic/' src/CMakeFiles/H5detect.dir/link.txt
-    sed -i 's/dynamic;/dynamic/' src/CMakeFiles/H5make_libsettings.dir/link.txt
-
-    # Build and install
-    make ${MAKEOPTS} -j ${PROCS}
-    make install
-}
+CONFOPTS="--with-pthread
+          --enable-unsupported
+          --enable-shared
+          --enable-production=yes
+          --disable-sharedlib-rpath
+          --enable-parallel=yes
+          --enable-largefile=yes
+          --with-default-api-version=v18"
 
 package_specific_register () {
     export HDF5_DIR=${INSTALL_PATH}
-
-    # This is an ugly hack and should be fixed somewhere else (in DOLFIN)
-    VERSION=`echo $NAME | cut -d'-' -f2`
-    ln -sf ${INSTALL_PATH}/lib/libhdf5.so.${VERSION} ${INSTALL_PATH}/lib/libhdf5.${VERSION}.so
-
 }
