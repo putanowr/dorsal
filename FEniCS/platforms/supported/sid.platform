@@ -5,12 +5,12 @@
 #
 # su -c 'apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
 # libarmadillo-dev libatlas-base-dev libboost-dev \
-# libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
-# libcgal-dev libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
-# liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev \
+# libboost-{filesystem,iostreams,mpi,program-options,thread,math,timer,chrono}-dev \
+# libcgal-dev libcln-dev libcppunit-dev libginac-dev \
+# liblapack-dev libmpfr-dev libopenmpi-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig \
-# wget bison python-netcdf python-ply'
+# wget bison libhwloc-dev python-ply libvtk5-dev python-netcdf'
 #
 # You will need to enable non-free repositories.
 #
@@ -20,25 +20,21 @@
 
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
-default SCOTCH_ARCH=pc_linux2
-default PARMETIS_DIR=/usr
 default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
+parmetis
 trilinos
 petsc
 slepc
 # swiginac
-mtl
-scotch
 fiat
 # ferari
 ufc
 ufl
 ffc
 # syfi
-viper
 instant
 dolfin
 )

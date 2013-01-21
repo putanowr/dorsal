@@ -7,10 +7,10 @@
 # libatlas-base-dev libboost-dev \
 # libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
 # libcln-dev libcppunit-dev libginac-dev libgmp3-dev \
-# liblapack-dev libmpfr-dev libopenmpi-dev libparmetis-dev libpcre3-dev \
+# liblapack-dev libmpfr-dev libopenmpi-dev libpcre3-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion \
-# wget bison python-ply'
+# wget bison python-ply libvtk5-dev'
 #
 # You will need to enable non-free repositories.
 #
@@ -21,12 +21,12 @@
 # Platform specific variables
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
-default PARMETIS_DIR=/usr
 default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
 armadillo
+parmetis
 cgal
 swig
 trilinos
