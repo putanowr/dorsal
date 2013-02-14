@@ -45,7 +45,6 @@ petsc
 slepc
 armadillo
 # swiginac
-mtl
 scotch
 fiat
 # ferari

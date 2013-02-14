@@ -36,7 +36,6 @@ petsc
 slepc
 armadillo
 # swiginac
-mtl
 scotch
 cgal
 scientificpython

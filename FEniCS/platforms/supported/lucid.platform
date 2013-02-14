@@ -37,7 +37,6 @@ trilinos
 petsc
 slepc
 # swiginac
-mtl
 scotch
 fiat
 # ferari

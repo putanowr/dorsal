@@ -37,7 +37,6 @@ petsc
 slepc
 armadillo
 # swiginac
-mtl
 scientificpython
 fiat
 # ferari
