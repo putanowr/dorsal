@@ -2,7 +2,7 @@
 # relying less on PETSc for building and instead using packages
 # installed from source.
 
-NAME=petsc-3.3-p3
+NAME=petsc-3.3-p6
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
 BUILDCHAIN=autotools

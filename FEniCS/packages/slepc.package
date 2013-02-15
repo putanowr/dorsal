@@ -1,4 +1,4 @@
-NAME=slepc-3.3-p2
+NAME=slepc-3.3-p3
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
