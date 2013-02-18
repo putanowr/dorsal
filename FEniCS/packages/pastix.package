@@ -1,5 +1,5 @@
-NAME=pastix_release_3725
-SOURCE=https://gforge.inria.fr/frs/download.php/30920/
+NAME=pastix_release_4030
+SOURCE=https://gforge.inria.fr/frs/download.php/32044/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
 
