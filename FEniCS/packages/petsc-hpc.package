@@ -34,7 +34,9 @@ else
 fi
 
 if [ "${SCOTCH_DIR}" ]; then
-    CONFOPTS="${CONFOPTS} --with-ptscotch=1 --with-ptscotch-dir=${SCOTCH_DIR}"
+    CONFOPTS="${CONFOPTS} --with-ptscotch=1
+                          --with-ptscotch-include=${SCOTCH_DIR}/include
+                          --with-ptscotch-lib=[${SCOTCH_DIR}/lib/libptesmumps.a,${SCOTCH_DIR}/lib/libptscotch.a,${SCOTCH_DIR}/lib/libptscotcherr.a,${SCOTCH_DIR}/lib/libscotch.a,${SCOTCH_DIR}/lib/libscotcherr.a]"
 else
     EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} scotch ptscotch"
 fi
