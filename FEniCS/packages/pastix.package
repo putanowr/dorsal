@@ -265,6 +265,9 @@ EOF
     # Build and install
     make -j ${PROCS}
     make install
+
+    # Workaround for bug in 4030 release
+    sed -i 's/u_int64_t/uint64_t/g' ${INSTALL_PATH}/include/pastix.h
 }
 
 package_specific_register () {
