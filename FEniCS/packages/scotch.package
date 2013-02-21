@@ -4,7 +4,7 @@ PACKING=.tar.gz
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_6.0.0_esmumps/src
 PROCS=1
-TARGETS=('' 'ptscotch')
+TARGETS=('' 'ptscotch' 'ptesmumps')
 
 package_specific_setup () {
     if [ ${SCOTCH_ARCH} == "pc_linux2" ]
@@ -14,7 +14,13 @@ package_specific_setup () {
     perl -pi -e 's/^CFLAGS\t\t=/CFLAGS  = -fPIC/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCS.*= gcc/CCS  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
     perl -pi -e 's/^CCD.*= gcc/CCD  = mpicc/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
-    perl -pi -e 's/-DSCOTCH_PTHREAD//g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
+    if [ ${SCOTCH_ARCH} == "i686_mac_darwin8" ]
+    then
+	# Darwin does not have a pthread_barrier_t implementation
+	perl -pi -e 's/-DSCOTCH_PTHREAD/-DCOMMON_PTHREAD_BARRIER/g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
+    else
+	perl -pi -e 's/-DSCOTCH_PTHREAD//g' Make.inc/Makefile.inc.${SCOTCH_ARCH}
+    fi
     ln -sf Make.inc/Makefile.inc.${SCOTCH_ARCH} Makefile.inc
 }
 
