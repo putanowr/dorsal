@@ -365,12 +365,12 @@ export CMAKE_PREFIX_PATH=\$INSTALL_PATH:\$CMAKE_PREFIX_PATH
     do
 	case ${PACKAGE} in
             *boost) echo "
-export BOOST_DIR=\$CMAKE_PREFIX_PATH
+export BOOST_DIR=\$INSTALL_PATH
 " >> $CONFIG_FILE;;
 	    *vtk | *vtkwithqt) echo "
 # FIXME: This needs to be updated when the VTK version is changed
-export LD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
-export DYLD_LIBRARY_PATH=\$CMAKE_PREFIX_PATH/lib/vtk-5.8:\$DYLD_LIBRARY_PATH
+export LD_LIBRARY_PATH=\$INSTALL_PATH/lib/vtk-5.8:\$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=\$INSTALL_PATH/lib/vtk-5.8:\$DYLD_LIBRARY_PATH
 " >> $CONFIG_FILE;;
 	esac
     done
