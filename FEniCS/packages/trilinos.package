@@ -26,11 +26,11 @@ else
     CONFOPTS="${CONFOPTS} -D Trilinos_ENABLE_Fortran:BOOL=OFF"
 fi
 
-if [ ! -z "${ATLAS_DIR}" ]; then
+if [ ! -z "${ATLAS_LIB_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
               -D BLAS_LIBRARY_NAMES=\"cblas;f77blas;atlas\"
-              -D BLAS_LIBRARY_DIRS=${ATLAS_DIR}
-              -D LAPACK_LIBRARY_DIRS=${ATLAS_DIR}"
+              -D BLAS_LIBRARY_DIRS=${ATLAS_LIB_DIR}
+              -D LAPACK_LIBRARY_DIRS=${ATLAS_LIB_DIR}"
 fi
 
 if [ ! -z "${UMFPACK_DIR}" ]; then

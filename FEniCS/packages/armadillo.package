@@ -6,16 +6,16 @@ BUILDCHAIN=custom
 CONFOPTS="-D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH}
 	  -D INSTALL_LIB_DIR:STRING=lib"
 
-if [ ! -z "${ATLAS_DIR}" ]; then
+if [ ! -z "${ATLAS_LIB_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
-              -D LAPACK_LIBRARY:FILEPATH=${ATLAS_DIR}/lib/liblapack.a
-              -D BLAS_LIBRARY:FILEPATH=${ATLAS_DIR}/lib/libatlas.a"
+              -D LAPACK_LIBRARY:FILEPATH=${ATLAS_LIB_DIR}/liblapack.a
+              -D BLAS_LIBRARY:FILEPATH=${ATLAS_LIB_DIR}/libatlas.a"
 fi
 
 package_specific_setup() {
     # Apply patch to prevent Armadillo from picking up MKL
-    # when ATLAS_DIR is defined
-    if [ ! -z "${ATLAS_DIR}" ]; then
+    # when ATLAS_LIB_DIR is defined
+    if [ ! -z "${ATLAS_LIB_DIR}" ]; then
 	patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/armadillo_no_mkl.patch || true
     fi
 }

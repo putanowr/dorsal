@@ -4,12 +4,11 @@ PACKING=.tar.gz
 BUILDCHAIN=python
 
 package_specific_setup () {
-    if [ ! -z "${ATLAS_DIR}" ]; then
-
-echo "
+    if [ ! -z "${ATLAS_LIB_DIR}" ]; then
+	echo "
 [DEFAULT]
-library_dirs = ${ATLAS_DIR}/lib
-include_dirs = ${ATLAS_DIR}/local/include
+library_dirs = ${ATLAS_LIB_DIR}
+include_dirs = ${ATLAS_DIR}/include
 
 [blas_opt]
 libraries = f77blas, cblas, atlas
@@ -19,14 +18,12 @@ libraries = lapack, f77blas, cblas, atlas
 " > site.cfg
 
     elif [ ! -z "${LAPACKANDBLAS_DIR}" ]; then
-	
-echo "
+	echo "
 [atlas]
 library_dirs = ${LAPACKANDBLAS_DIR}
 atlas_libs = lapack, blas
 " > site.cfg
     fi
-
 }
 
 package_specific_register () {

@@ -63,6 +63,7 @@ package_specific_install () {
 
 package_specific_register () {
     export ATLAS_DIR=${INSTALL_PATH}
+    export ATLAS_LIB_DIR=${INSTALL_PATH}/lib
 
     # This is important for building Trilinos
     export BLAS_LIBRARY_NAMES="cblas f77blas atlas"

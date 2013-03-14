@@ -29,10 +29,10 @@ TBB =
 CLEAN = *.o *.obj *.ln *.bb *.bbg *.da *.tcov *.gcov gmon.out *.bak *.d *.gcda *.gcno
 EOF
 
-    if [ ! -z "${ATLAS_DIR}" ]; then
+    if [ ! -z "${ATLAS_LIB_DIR}" ]; then
         cat >> SuiteSparse_config/SuiteSparse_config.mk << EOF
-BLAS = -L${ATLAS_DIR}/lib -lcblas -lf77blas -latlas
-LAPACK = -L${ATLAS_DIR}/lib -llapack
+BLAS = -L${ATLAS_LIB_DIR} -lcblas -lf77blas -latlas
+LAPACK = -L${ATLAS_LIB_DIR} -llapack
 EOF
     else
         cat >> SuiteSparse_config/SuiteSparse_config.mk << EOF

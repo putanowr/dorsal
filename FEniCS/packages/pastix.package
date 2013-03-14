@@ -16,9 +16,9 @@ package_specific_build () {
     #VERSIONINT="_int32"
     #CCTYPES="-DFORCE_INT32 -DINTSSIZE32"
 
-    if [ "${ATLAS_DIR}" ]; then
-        BLAS_HOME="${ATLAS_DIR}"
-        BLASLIB="-L${ATLAS_DIR} -lcblas -lf77blas -latlas"
+    if [ "${ATLAS_LIB_DIR}" ]; then
+        BLAS_HOME="${ATLAS_LIB_DIR}"
+        BLASLIB="-L${ATLAS_LIB_DIR} -lcblas -lf77blas -latlas"
     elif [ "${BLAS_DIR}" ]; then
 	BLAS_HOME="${BLAS_DIR}"
         BLASLIB="-L${BLAS_DIR} -lblas"

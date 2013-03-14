@@ -21,8 +21,8 @@ if [ "${TRILINOS_DIR}" ]; then
               --with-ml-include=${TRILINOS_DIR}/include/trilinos"
 fi
 
-if [ "${ATLAS_DIR}" ]; then
-    CONFOPTS="${CONFOPTS} --with-blas-lapack-dir=${ATLAS_DIR}"
+if [ "${ATLAS_LIB_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-blas-lapack-dir=${ATLAS_LIB_DIR}"
 fi
 
 if [ "${PARMETIS_DIR}" ]; then

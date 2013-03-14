@@ -24,8 +24,8 @@ if [ ! -z "${BLAS_LIBRARIES}" ]; then
     CONFOPTS="${CONFOPTS} -D BLAS_LIBRARIES:FILEPATH=\"${BLAS_LIBRARIES}\""
 fi
 
-if [ ! -z "${ATLAS_DIR}" ]; then
+if [ ! -z "${ATLAS_LIB_DIR}" ]; then
     CONFOPTS="${CONFOPTS}
-              -D LAPACK_LIBRARIES=${ATLAS_DIR}/lib/liblapack.a
-              -D BLAS_LIBRARIES=\"${ATLAS_DIR}/lib/libcblas.a;${ATLAS_DIR}/lib/libf77blas.a;${ATLAS_DIR}/lib/libatlas.a\""
+              -D LAPACK_LIBRARIES=${ATLAS_LIB_DIR}/liblapack.a
+              -D BLAS_LIBRARIES=\"${ATLAS_LIB_DIR}/libcblas.a;${ATLAS_LIB_DIR}/libf77blas.a;${ATLAS_LIB_DIR}/libatlas.a\""
 fi
