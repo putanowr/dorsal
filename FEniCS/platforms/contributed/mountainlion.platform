@@ -17,6 +17,13 @@
 # by MacPorts is the default one on your machine:
 #
 # sudo port select python python27
+#
+# If you run into compilation errors when trying out Python FEniCS
+# programs, please make sure the following environment variable is set
+# first:
+#
+# export CC=/opt/local/bin/gcc-mp-4.7
+# export CXX=/opt/local/bin/g++-mp-4.7
 ##
 
 # Platform specific variables
@@ -26,7 +33,9 @@ default SCOTCH_ARCH=i686_mac_darwin8
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
-export FC=/opt/local/bin/gfortran-mp-4.5
+export CC=/opt/local/bin/gcc-mp-4.7
+export CXX=/opt/local/bin/g++-mp-4.7
+export FC=/opt/local/bin/gfortran-mp-4.7
 
 # Platform specific setup
 if [ ! -d "${INSTALL_PATH}/bin" ]; then
