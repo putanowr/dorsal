@@ -4,6 +4,12 @@ PACKING=bzr
 BUILDCHAIN=cmake
 CONFOPTS="-DCMAKE_SKIP_RPATH:BOOL=ON -DCGAL_DISABLE_ROUNDING_MATH_CHECK:BOOL=ON"
 
+package_specific_setup() {
+    if [ ${STABLE_BUILD} = "false" ]; then
+	echo yes | cmake/scripts/generate-all
+    fi
+}
+
 if [ -x "${SWIG_EXECUTABLE}" ]; then
     CONFOPTS="${CONFOPTS} -D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}"
 fi
