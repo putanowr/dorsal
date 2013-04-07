@@ -23,18 +23,15 @@ default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
-#cusp
 parmetis
 trilinos
 petsc
 slepc
-# swiginac
 fiat
-# ferari
+#ferari
 ufc
 ufl
 ffc
-# syfi
 instant
 dolfin
 )

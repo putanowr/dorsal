@@ -1,6 +1,6 @@
 NAME=ufc
-SOURCE=lp:
-PACKING=bzr
+SOURCE=https://bitbucket.org/fenics-project/
+PACKING=git
 BUILDCHAIN=cmake
 
 if [ -x "${SWIG_EXECUTABLE}" ]; then
