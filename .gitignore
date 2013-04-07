@@ -1,0 +1,13 @@
+# Emacs crud
+*~
+RE:.*\#.*\#$
+
+# Mac OS X crud
+.DS_Store
+
+# Temporary files for testing
+FEniCS/platforms/*/*test.platform
+FEniCA/packages/test.package
+
+# Local configuration
+local*.cfg
