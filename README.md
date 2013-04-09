@@ -3,6 +3,8 @@ Harish Narayanan (<hnarayanan@gmail.com>)
 
 Licensing information follows a little later in this file.
 
+# Dorsal
+
 This directory tree holds Dorsal, a set of simple scripts to build
 components of the FEniCS Project (as well as their dependencies) for
 various platforms. Currently, Dorsal supports the following
