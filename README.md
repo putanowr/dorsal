@@ -1,20 +1,19 @@
-
 Copyright (C) 2007, 2008, 2009, 2010, 2011
-  Harish Narayanan <hnarayanan@gmail.com>
+Harish Narayanan (<hnarayanan@gmail.com>)
+
 Licensing information follows a little later in this file.
 
 This directory tree holds Dorsal, a set of simple scripts to build
 components of the FEniCS Project (as well as their dependencies) for
-various platforms.
+various platforms. Currently, Dorsal supports the following
+environments:
 
-Currently, Dorsal supports the following environments:
-
-   Fedora 13, 14, 15
-   Ubuntu 10.04 LTS, 10.10, 11.04, 11.10
-   openSUSE 11.3, 11.4, 12.1
-   Red Hat Enterprise Linux 6
-   Debian GNU/Linux 6.0, Unstable
-   Mac OS X 10.6, 10.7 (with MacPorts)
+* Fedora 13, 14, 15
+* Ubuntu 10.04 LTS, 10.10, 11.04, 11.10
+* openSUSE 11.3, 11.4, 12.1
+* Red Hat Enterprise Linux 6
+* Debian GNU/Linux 6.0, Unstable
+* Mac OS X 10.6, 10.7 (with MacPorts)
 
 If your favourite platform is not on the list above, let us know about
 it, and we can work together toward adding it.
@@ -35,7 +34,7 @@ your problem. If you're having further difficulty, please go through
 the file USAGE for detailed usage and troubleshooting instructions, or
 contact us by e-mailing dorsal@lists.launchpad.net. Before writing to
 this mailing list, you will need to become a participant at
-https://launchpad.net/~dorsal .
+<https://launchpad.net/~dorsal>.
 
 Dorsal is collaboratively developed free software. The file AUTHORS
 contains a complete list of authors and contributors to the project,
