@@ -1,4 +1,4 @@
-Copyright (C) 2007, 2008, 2009, 2010, 2011
+Copyright (C) 2007 -- 2013
 Harish Narayanan (<hnarayanan@gmail.com>)
 
 Licensing information follows a little later in this file.
