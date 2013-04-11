@@ -22,24 +22,29 @@ default SCOTCH_ARCH=i686_mac_darwin8
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
-export CC=/usr/bin/gcc
-export CXX=/usr/bin/g++
+export CC=/opt/local/bin/gcc-mp-4.7
+export CXX=/opt/local/bin/g++-mp-4.7
+export FC=/opt/local/bin/gfortran-mp-4.7
+
+export OMPI_CC=gcc
+export OMPI_CXX=g++
+export OMPI_FC=gfortran
 
 # Define the packages this platform needs
 PACKAGES=(
 skip:cgal
 skip:parmetis
-skip:trilinos
-skip:petsccore
-skip:slepc
+# skip:trilinos
+# skip:petsccore
+# skip:slepc
 skip:armadillo
 # skip:swiginac
-skip:mtl
 skip:scotch
 fiat
 # ferari
 ufc
 ufl
+uflacs
 ffc
 # syfi
 viper
