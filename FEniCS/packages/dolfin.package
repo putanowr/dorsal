@@ -35,3 +35,8 @@ if [ ! -z "${ATLAS_LIB_DIR}" ]; then
               -D LAPACK_LIBRARIES=${ATLAS_LIB_DIR}/liblapack.a
               -D BLAS_LIBRARIES=\"${ATLAS_LIB_DIR}/libcblas.a;${ATLAS_LIB_DIR}/libf77blas.a;${ATLAS_LIB_DIR}/libatlas.a\""
 fi
+
+if [ ! -z "${HDF5_DIR}" ]; then
+    CONFOPTS="${CONFOPTS}
+              -D HDF5_INCLUDE_DIRS=${HDF5_DIR}/include"
+fi
