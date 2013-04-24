@@ -6,7 +6,7 @@
 # su -c 'apt-get install autoconf bzr bzrtools cmake flex g++ gfortran \
 # libarmadillo-dev libatlas-base-dev libboost-dev \
 # libboost-{filesystem,iostreams,mpi,program-options,thread,math,timer,chrono}-dev \
-# libcgal-dev libcln-dev libcppunit-dev libginac-dev \
+# libcln-dev libcppunit-dev libginac-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
 # python-dev python-numpy python-scientific python-vtk subversion swig \
@@ -25,6 +25,7 @@ default UMFPACK_INCLUDE_DIR=/usr/include/suitesparse
 
 # Define the packages this platform needs
 PACKAGES=(
+cgal
 parmetis
 trilinos
 petsc
