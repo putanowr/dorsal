@@ -11,7 +11,7 @@ various platforms. Currently, Dorsal supports the following
 environments:
 
 * Fedora 13, 14, 15
-* Ubuntu 10.04 LTS, 10.10, 11.04, 11.10
+* Ubuntu 12.04 LTS, 12.10, 13.04
 * openSUSE 11.3, 11.4, 12.1
 * Red Hat Enterprise Linux 6
 * Debian GNU/Linux 6.0, Unstable
