@@ -104,7 +104,7 @@ package_fetch () {
       # Suitably clone or update git repositories
       if [ ! -d ${NAME} ]
       then
-        git clone ${SOURCE}${NAME}.git
+        git clone ${SOURCE}${NAME}
       else
         cd ${NAME}
         git pull
