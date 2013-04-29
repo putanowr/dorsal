@@ -24,6 +24,8 @@ library_dirs = ${LAPACKANDBLAS_DIR}
 atlas_libs = lapack, blas
 " > site.cfg
     fi
+
+    python setup.py build --fcompiler=gnu95
 }
 
 package_specific_register () {
