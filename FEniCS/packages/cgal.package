@@ -10,6 +10,10 @@ CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
           -D WITH_CGAL_Qt3:BOOL=OFF
           -D WITH_CGAL_Qt4:BOOL=OFF"
 
+if [ ! -z "${BOOST_USE_MULTITHREADED}" ]; then
+    CONFOPTS="${CONFOPTS} -D Boost_USE_MULTITHREADED:BOOL=${BOOST_USE_MULTITHREADED}"
+fi
+
 package_specific_register () {
     export CGAL_DIR=${INSTALL_PATH}
 }
