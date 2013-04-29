@@ -23,6 +23,8 @@ fi
 
 if [ "${ATLAS_LIB_DIR}" ]; then
     CONFOPTS="${CONFOPTS} --with-blas-lapack-dir=${ATLAS_LIB_DIR}"
+elif [ "${LAPACKANDBLAS_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-blas-lapack-dir=${LAPACKANDBLAS_DIR}/lib"
 fi
 
 if [ "${PARMETIS_DIR}" ]; then
