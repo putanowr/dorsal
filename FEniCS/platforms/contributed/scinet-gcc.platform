@@ -1,0 +1,57 @@
+# Platform file for the SciNet's clusters
+# (https://support.scinet.utoronto.ca/wiki/index.php)
+#
+# Set up environment:
+#
+#   module load gcc/4.6.1
+#   module load openmpi/1.4.4-gcc-v4.6.1
+#   module load extras/64
+#
+# The following variables must be set before running any
+# Python FEniCS programs:
+#
+#   export LD_LIBRARY_PATH=${INSTALL_PATH}/lib/vtk-5.8:${LD_LIBRARY_PATH}
+#   export BOOST_DIR=${INSTALL_PATH}
+##
+
+# Platform specific variables
+default PETSC_ARCH=linux-gnu-cxx-opt
+default SCOTCH_ARCH=pc_linux2
+
+# Define the packages this platform needs
+PACKAGES=(
+#zlib
+skip:libffi
+skip:glib2
+skip:pkg-config
+skip:blas
+skip:lapack
+libxml2
+#sqlite
+skip:python
+#ipython
+skip:cmake
+skip:boost
+skip:armadillo
+skip:pcre
+skip:swig
+skip:suitesparse
+skip:parmetis
+skip:numpy
+skip:scotch
+skip:trilinos
+skip:petsc-hpc
+skip:slepc
+skip:gmp
+skip:mpfr
+skip:cgal
+skip:scientificpython
+skip:ply
+#vtk
+#fiat
+#ufc
+#ufl
+#ffc
+#instant
+#dolfin
+)
