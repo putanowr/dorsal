@@ -11,6 +11,7 @@ package_specific_setup() {
 
 package_specific_register() {
     export PYTHON_DIR=${INSTALL_PATH}
+    export PYTHON_EXECUTABLE=${PYTHON_DIR}/bin/python
     export PYTHON_INCLUDE_DIR=${PYTHON_DIR}/include/python2.7
     # FIXME: should be .dylib on OS X
     export PYTHON_LIBRARY=${PYTHON_DIR}/lib/libpython2.7.so
