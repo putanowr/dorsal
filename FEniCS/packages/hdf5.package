@@ -1,5 +1,5 @@
 NAME=hdf5-1.8.10
-SOURCE=http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.10/src-1.8.10/
+SOURCE=http://www.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8.10/src/
 PACKING=.tar.bz2
 BUILDCHAIN=autotools
 
