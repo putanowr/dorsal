@@ -2,12 +2,10 @@
 # relying less on PETSc for building and instead using packages
 # installed from source.
 
-NAME=petsc-3.3-p6
+NAME=petsc-3.4.2
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
-MAKEOPTS="PETSC_DIR=\${PWD} PETSC_ARCH=${PETSC_ARCH}"
-TARGETS=(all install)
+BUILDCHAIN=custom
 
 CONFOPTS="COPTFLAGS=-O2
           --with-debugging=0 --with-shared-libraries=1
@@ -60,6 +58,12 @@ fi
 for external_pkg in ${EXTERNAL_PACKAGES}; do
     CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
 done
+
+package_specific_build () {
+    ./configure --prefix=${INSTALL_PATH} ${CONFOPTS}
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH} all
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH} install
+}
 
 package_specific_register () {
     export PETSC_DIR=${INSTALL_PATH}

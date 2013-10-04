@@ -1,9 +1,7 @@
-NAME=petsc-3.3-p6
+NAME=petsc-3.4.2
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
-MAKEOPTS="PETSC_DIR=\${PWD} PETSC_ARCH=${PETSC_ARCH}"
-TARGETS=(all install)
+BUILDCHAIN=custom
 
 CONFOPTS="COPTFLAGS=-O2
           --with-debugging=0 --with-shared-libraries=1
@@ -24,6 +22,12 @@ if [ "${CUDA_DIR}" ] && [ "${CUSP_DIR}" ]; then
     --with-cusp=1 --with-cusp-dir=${CUSP_DIR}
     --with-thrust=1 --with-thrust-dir=${CUDA_DIR}/include"
 fi
+
+package_specific_build () {
+    ./configure --prefix=${INSTALL_PATH} ${CONFOPTS}
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH} all
+    make PETSC_DIR=${PWD} PETSC_ARCH=${PETSC_ARCH} install
+}
 
 package_specific_register () {
     export PETSC_DIR=${INSTALL_PATH}
