@@ -1,13 +1,17 @@
 NAME=slepc-3.4.2
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
-
-MAKEOPTS="PETSC_ARCH=arch-installed-petsc"
+BUILDCHAIN=custom
 
 package_specific_setup () {
     patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/slepc.patch || true
     export SLEPC_DIR=${PWD}
+}
+
+package_specific_build () {
+    SLEPC_DIR=${PWD} ./configure --prefix=${INSTALL_PATH}
+    make PETSC_ARCH=arch-installed-petsc all
+    make PETSC_ARCH=arch-installed-petsc install
 }
 
 package_specific_register () {
