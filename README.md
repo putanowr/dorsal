@@ -34,9 +34,7 @@ list of this is provided in the .platform file for each platform,
 along with platform-specific tips. In most cases, these should solve
 your problem. If you're having further difficulty, please go through
 the file USAGE for detailed usage and troubleshooting instructions, or
-contact us by e-mailing dorsal@lists.launchpad.net. Before writing to
-this mailing list, you will need to become a participant at
-<https://launchpad.net/~dorsal>.
+see http://fenicsproject.org/support for contact information.
 
 Dorsal is collaboratively developed free software. The file AUTHORS
 contains a complete list of authors and contributors to the project,

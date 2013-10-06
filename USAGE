@@ -243,10 +243,9 @@ Using, troubleshooting and extending Dorsal
 
   ./dorsal.sh FEniCS/platforms/supported/myplatform.platform
 
-  If you're having further difficulty, please contact us by e-mailing
-  dorsal@lists.launchpad.net. We will try to help. Before writing to
-  this mailing list, you will need to become a participant at
-  https://launchpad.net/~dorsal .
+  If you're having further difficulty, please see
+  http://fenicsproject.org/support for contact information. We will
+  try to help.
 
 
  Elements of Dorsal's design
