@@ -18,6 +18,11 @@
 default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
 
+export CC=mpicc
+export CXX=mpic++
+export SWIG_CC=gcc
+export SWIG_CXX=g++
+
 # Define the packages this platform needs
 PACKAGES=(
 #zlib

@@ -10,6 +10,11 @@ default PETSC_ARCH=linux-gnu-cxx-opt
 default SCOTCH_ARCH=pc_linux2
 default PASTIX_ARCH=i686_pc_linux
 
+export CC=mpicc
+export CXX=mpic++
+export SWIG_CC=gcc
+export SWIG_CXX=g++
+
 export BOOST_INCLUDEDIR=${BOOST_ROOT}/include
 export BOOST_LIBRARYDIR=${BOOST_ROOT}/lib
 export BOOST_USE_MULTITHREADED=OFF
@@ -23,7 +28,7 @@ swig
 pkg-config
 ply
 numpy
-#scipy
+scipy
 bzip2
 mpfr
 cgal
