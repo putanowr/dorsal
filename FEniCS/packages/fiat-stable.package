@@ -1,4 +1,4 @@
-VERSION=1.1
+VERSION=1.3.0
 NAME=fiat-${VERSION}
-SOURCE=https://launchpad.net/fiat/1.1.x/release-${VERSION}/+download/
+SOURCE=https://bitbucket.org/fenics-project/fiat/downloads/
 PACKING=.tar.gz

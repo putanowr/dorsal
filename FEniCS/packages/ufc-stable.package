@@ -1,4 +1,4 @@
-VERSION=2.2.0
+VERSION=2.3.0
 NAME=ufc-${VERSION}
-SOURCE=http://launchpad.net/ufc/2.2.x/${VERSION}/+download/
+SOURCE=https://bitbucket.org/fenics-project/ufc/downloads/
 PACKING=.tar.gz
