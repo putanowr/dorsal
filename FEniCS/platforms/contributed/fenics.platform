@@ -35,8 +35,8 @@ PACKAGES=(
 skip:cgal
 skip:parmetis
 # skip:trilinos
-# skip:petsccore
-# skip:slepc
+skip:petsc
+skip:slepc
 skip:armadillo
 # skip:swiginac
 skip:scotch
@@ -44,10 +44,8 @@ fiat
 # ferari
 ufc
 ufl
-uflacs
 ffc
 # syfi
-viper
 instant
 dolfin
 )

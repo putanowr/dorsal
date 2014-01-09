@@ -49,8 +49,8 @@ PACKAGES=(
 cgal
 parmetis
 # trilinos
-# petsc
-# slepc
+petsc
+slepc
 armadillo
 # swiginac
 scotch
@@ -60,7 +60,6 @@ ufc
 ufl
 ffc
 # syfi
-viper
 instant
 dolfin
 )
