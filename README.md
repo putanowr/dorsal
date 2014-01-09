@@ -1,5 +1,5 @@
-Copyright (C) 2007 -- 2013
-Harish Narayanan (<hnarayanan@gmail.com>)
+Copyright (C) 2007 -- 2014
+Harish Narayanan (<mail@harishnarayanan.org>)
 
 Licensing information follows a little later in this file.
 
