@@ -1,0 +1,41 @@
+# Let CMake picks correct VTK, follow-up of issue151
+# https://bitbucket.org/fenics-project/dolfin/issue/151
+# Applies to DOLFIN 1.3.0, not applicable to 1.3.0+.
+diff --git a/demo/undocumented/plot-qt/cpp/CMakeLists.txt b/demo/undocumented/plot-qt/cpp/CMakeLists.txt
+index dfea1f2..80a6283 100644
+--- a/demo/undocumented/plot-qt/cpp/CMakeLists.txt
++++ b/demo/undocumented/plot-qt/cpp/CMakeLists.txt
+@@ -39,7 +39,8 @@ endif()
+ find_package(VTK)
+ if (VTK_FOUND)
+   include(${VTK_USE_FILE})
+-  find_library(QVTK_FOUND QVTK HINTS ${VTK_LIBRARY_DIRS})
++  find_library(QVTK_FOUND QVTK HINTS ${VTK_LIBRARY_DIRS} NO_DEFAULT_PATH)
++  find_library(QVTK_FOUND QVTK)
+ endif()
+ 
+ # If built stand-alone (in demo directory), DOLFIN_ENABLE_FOO are not set. We
+diff --git a/dolfin/CMakeLists.txt b/dolfin/CMakeLists.txt
+index 1e0ea59..61ac9f0 100644
+--- a/dolfin/CMakeLists.txt
++++ b/dolfin/CMakeLists.txt
+@@ -243,7 +243,8 @@ if (DOLFIN_ENABLE_VTK AND VTK_FOUND)
+   # Loop over libs and get full path
+   foreach (lib ${VTK_LIBRARIES})
+     find_library(VTK_LIB_${lib} NAMES ${lib}-6.0 ${lib}
+-      HINTS ${VTK_INSTALL_PREFIX} ${VTK_LIBRARY_DIRS})
++      HINTS ${VTK_INSTALL_PREFIX} ${VTK_LIBRARY_DIRS} NO_DEFAULT_PATH)
++    find_library(VTK_LIB_${lib} NAMES ${lib}-6.0 ${lib})
+     if (VTK_LIB_${lib})
+       list(APPEND DOLFIN_VTK_LIBRARIES ${VTK_LIB_${lib}})
+     endif()
+@@ -251,7 +252,8 @@ if (DOLFIN_ENABLE_VTK AND VTK_FOUND)
+ 
+   # Check if the QVTK library is found
+   if (DOLFIN_ENABLE_QT AND QT_FOUND)
+-    find_library(VTK_LIB_QVTK QVTK HINTS ${VTK_LIBRARY_DIRS})
++    find_library(VTK_LIB_QVTK QVTK HINTS ${VTK_LIBRARY_DIRS} NO_DEFAULT_PATH)
++    find_library(VTK_LIB_QVTK QVTK)
+     if (VTK_LIB_QVTK)
+       list(APPEND DOLFIN_CXX_DEFINITIONS "-DHAS_QVTK")
+       list(APPEND DOLFIN_VTK_LIBRARIES ${VTK_LIB_QVTK})
