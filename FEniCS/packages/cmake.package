@@ -4,6 +4,8 @@ PACKING=.tar.gz
 BUILDCHAIN=autotools
 
 package_specific_setup () {
+    rm -f Source/cmConfigure.h
     ./bootstrap --prefix=${INSTALL_PATH}
+    rm -f Source/cmConfigure.h
     export CMAKE_LIBRARY_PATH=${INSTALL_PATH}
 }
