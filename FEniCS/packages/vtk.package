@@ -15,6 +15,19 @@ if [ -d "${VTK_DATA_ROOT}" ]; then
     CONFOPTS="${CONFOPTS} -D VTK_DATA_ROOT:PATH=${VTK_DATA_ROOT}"
 fi
 
+if [ ! -z "${PYTHON_EXECUTABLE}" ]; then
+    CONFOPTS="${CONFOPTS} -D PYTHON_EXECUTABLE:FILEPATH=${PYTHON_EXECUTABLE}"
+fi
+
+if [ ! -z "${PYTHON_INCLUDE_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} -D PYTHON_INCLUDE_DIR:PATH=${PYTHON_INCLUDE_DIR}"
+fi
+
+if [ ! -z "${PYTHON_LIBRARY}" ]; then
+    CONFOPTS="${CONFOPTS} -D PYTHON_LIBRARY:PATH=${PYTHON_LIBRARY}"
+fi
+
+
 package_specific_setup () {
     chmod 600 Utilities/vtktiff/tif_fax3sm.c
 }
