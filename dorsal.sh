@@ -361,6 +361,17 @@ export CPLUS_INCLUDE_PATH=\$INSTALL_PATH/include:\$CPLUS_INCLUDE_PATH
 export CMAKE_PREFIX_PATH=\$INSTALL_PATH:\$CMAKE_PREFIX_PATH
 " >> $CONFIG_FILE
 
+    # Add some extra library paths for 64 bit machines
+    guess_architecture
+    if [ "$ARCH" == "x86_64" ]; then
+        echo "
+# 64 bit paths
+export PYTHONPATH=\$INSTALL_PATH/lib64/python${PYTHONVER}/site-packages:\$PYTHONPATH
+export LD_LIBRARY_PATH=\$INSTALL_PATH/lib64:\$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=\$INSTALL_PATH/lib64:\$DYLD_LIBRARY_PATH
+" >> $CONFIG_FILE
+    fi
+
     for PACKAGE in ${PACKAGES[@]}
     do
 	case ${PACKAGE} in
