@@ -7,7 +7,7 @@ set -a
 # The Unix date command does not work with nanoseconds, so use
 # the GNU date instead. This is available in the 'coreutils' package
 # from MacPorts.
-DATE_CMD=$(which gdate)
+DATE_CMD=$(which gdate 2>/dev/null)
 if [ $? != 0 ]; then
     DATE_CMD=$(which date)
 fi
