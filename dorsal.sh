@@ -217,7 +217,7 @@ package_build() {
         done
     elif [ ${BUILDCHAIN} = "python" ]
     then
-        echo python setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
+        echo ${PYTHON_EXECUTABLE} setup.py install --prefix=${INSTALL_PATH} >>dorsal_build
     elif [ ${BUILDCHAIN} = "scons" ]
     then
         for target in "${TARGETS[@]}"
@@ -515,9 +515,14 @@ else
     exit 1
 fi
 
+
+# If the PYTHON_EXECUTABLE environment variable hasn't been set,
+# set it to the default python executable
+default PYTHON_EXECUTABLE=python
+
 # If the platform doesn't override the system python by installing its
 # own, figure out the version of of the existing python
-default PYTHONVER=`python -c "import sys; print sys.version[:3]"`
+default PYTHONVER=`${PYTHON_EXECUTABLE} -c "import sys; print sys.version[:3]"`
 
 # Create necessary directories and set appropriate variables
 mkdir -p ${DOWNLOAD_PATH}
