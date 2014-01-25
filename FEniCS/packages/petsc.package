@@ -7,7 +7,7 @@ CONFOPTS="COPTFLAGS=-O2
           --with-debugging=0 --with-shared-libraries=1
           --with-clanguage=cxx --with-c-support=1"
 
-for external_pkg in umfpack hypre mumps scalapack blacs ptscotch scotch metis parmetis; do
+for external_pkg in umfpack hypre mumps scalapack blacs ptscotch scotch metis parmetis ${PETSC_EXTRA_PACKAGES}; do
     CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
 done
 
