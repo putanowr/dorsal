@@ -127,6 +127,44 @@ package_fetch () {
     quit_if_fail "Error fetching ${NAME}."
 }
 
+package_verify_cheksum() {
+    # First make sure we're in the right directory before verifying checksum
+    cd ${DOWNLOAD_PATH}
+    
+    # Only need to verify archives
+    if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".tar.xz" ] || [ ${PACKING} = ".zip" ]
+    then
+
+      cecho ${GOOD} "Verifying ${NAME}"
+
+      # Check checksum has been specified for the package
+      if [ -z "${CHECKSUM}" ]
+      then
+        cecho ${BAD} "No checksum for ${NAME}${PACKING}"
+        return 1
+      fi
+
+      # Skip checksum if asked to ignore
+      if [ "${CHECKSUM}" = "ignore" ]
+      then
+        return 1
+      fi
+
+      # Make sure the archive was downloaded
+      if [ ! -e ${NAME}${PACKING} ]
+      then
+        cecho ${BAD} "${NAME}${PACKING} does not exist. Please download first."
+        exit 1
+      fi
+
+      # Verify checksum using md5sum
+      echo "${CHECKSUM}  ${NAME}${PACKING}" | md5sum --check -
+    fi
+
+    # Quit with a useful message if something goes wrong
+    quit_if_fail "Error verifying checksum for ${NAME}${PACKING}"
+}
+
 package_unpack() {
     # First make sure we're in the right directory before unpacking
     cd ${DOWNLOAD_PATH}
@@ -572,6 +610,7 @@ do
     unset NAME
     unset SOURCE
     unset PACKING
+    unset CHECKSUM
     unset BUILDCHAIN
     unset CONFOPTS
     unset MAKEOPTS
@@ -619,6 +658,7 @@ do
     then
       # Fetch, unpack and build the current package
       package_fetch
+      package_verify_cheksum
       package_unpack
       package_build
     else
