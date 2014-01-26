@@ -1,6 +1,7 @@
 NAME=petsc-3.4.2
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
+CHECKSUM=449e27f3c9a37d0bd9d7941cc79a09a9
 BUILDCHAIN=custom
 
 CONFOPTS="COPTFLAGS=-O2

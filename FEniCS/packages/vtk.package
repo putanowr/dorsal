@@ -1,6 +1,7 @@
 NAME=vtk-5.8.0
 SOURCE=http://www.vtk.org/files/release/5.8/
 PACKING=.tar.gz
+CHECKSUM=37b7297d02d647cc6ca95b38174cb41f
 BUILDCHAIN=cmake
 EXTRACTSTO=VTK
 

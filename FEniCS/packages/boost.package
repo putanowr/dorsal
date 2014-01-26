@@ -2,6 +2,8 @@ NAME=boost_1_51_0
 SOURCE=http://downloads.sourceforge.net/boost/
 PACKING=.tar.bz2
 BUILDCHAIN=custom
+CHECKSUM=4b6bd483b692fd138aef84ed2c8eb679
+
 
 if [ ! -z "${BZIP2_DIR}" ]; then
     CONFOPTS="${CONFOPTS}

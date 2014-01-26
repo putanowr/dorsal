@@ -1,6 +1,7 @@
 NAME=trilinos-11.4.1-Source
 SOURCE=http://trilinos.sandia.gov/download/files/
 PACKING=.tar.gz
+CHECKSUM=28b6a3c7c0fb317b3a237997293faa8b
 BUILDCHAIN=cmake
 
 CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx

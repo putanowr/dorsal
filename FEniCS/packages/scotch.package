@@ -1,6 +1,7 @@
 NAME=scotch_6.0.0_esmumps
 SOURCE=http://fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
+CHECKSUM=c50d6187462ba801f9a82133ee666e8e
 BUILDCHAIN=autotools
 EXTRACTSTO=scotch_6.0.0_esmumps/src
 PROCS=1
