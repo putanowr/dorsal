@@ -447,7 +447,10 @@ then
     PLATFORM_SUPPORTED=${PROJECT}/platforms/supported/`guess_platform`.platform
     PLATFORM_CONTRIBUTED=${PROJECT}/platforms/contributed/`guess_platform`.platform
     PLATFORM_DEPRECATED=${PROJECT}/platforms/deprecated/`guess_platform`.platform
-    if [ -e ${PLATFORM_SUPPORTED} ]; then
+    if [ -e local.platform ]; then
+        PLATFORM=local.platform
+        cecho ${GOOD} "Building ${PROJECT} using local.platform"
+    elif [ -e ${PLATFORM_SUPPORTED} ]; then
         PLATFORM=${PLATFORM_SUPPORTED}
         cecho ${GOOD} "Building ${PROJECT} using ${PLATFORM}."
     elif [ -e ${PLATFORM_CONTRIBUTED} ]; then

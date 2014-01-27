@@ -11,3 +11,4 @@ FEniCA/packages/test.package
 
 # Local configuration
 local*.cfg
+local*.platform
