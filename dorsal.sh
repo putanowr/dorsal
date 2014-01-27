@@ -127,7 +127,7 @@ package_fetch () {
     quit_if_fail "Error fetching ${NAME}."
 }
 
-package_verify_cheksum() {
+package_verify() {
     # First make sure we're in the right directory before verifying checksum
     cd ${DOWNLOAD_PATH}
     
@@ -658,7 +658,7 @@ do
     then
       # Fetch, unpack and build the current package
       package_fetch
-      package_verify_cheksum
+      package_verify
       package_unpack
       package_build
     else
