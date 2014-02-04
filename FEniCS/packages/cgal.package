@@ -1,4 +1,4 @@
-NAME=CGAL-4.1
+NAME=CGAL-4.3
 SOURCE=http://fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
 BUILDCHAIN=cmake
