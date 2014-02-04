@@ -229,7 +229,8 @@ package_build() {
         BUILD_DIR="./dorsal_build_dir"
         echo mkdir -p ${BUILD_DIR} >>dorsal_configure
         echo cd ${BUILD_DIR} >>dorsal_configure
-        echo cmake ${CONFOPTS} -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} ../ >>dorsal_configure
+        echo rm -f CMakeCache.txt >>dorsal_configure
+        echo cmake ${CONFOPTS} -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} ../ >>dorsal_configure
         for target in "${TARGETS[@]}"
         do
             echo make -C ${BUILD_DIR} ${MAKEOPTS} -j ${PROCS} $target >>dorsal_build
