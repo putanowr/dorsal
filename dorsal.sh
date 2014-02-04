@@ -532,7 +532,7 @@ fi
 
 # If the PYTHON_EXECUTABLE environment variable hasn't been set,
 # set it to the default python executable
-default PYTHON_EXECUTABLE=python
+default PYTHON_EXECUTABLE=$(which python)
 
 # If the platform doesn't override the system python by installing its
 # own, figure out the version of of the existing python
