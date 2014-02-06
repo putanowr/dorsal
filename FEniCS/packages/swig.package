@@ -2,6 +2,7 @@ NAME=swig-2.0.3
 SOURCE=http://downloads.sourceforge.net/swig/
 PACKING=.tar.gz
 BUILDCHAIN=autotools
+CHECKSUM=e548ea3882b994c4907d6be86bef90f2
 
 package_specific_setup () {
     if [ ! -z ${SWIG_CC} ]; then

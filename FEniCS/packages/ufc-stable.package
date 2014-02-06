@@ -2,3 +2,4 @@ VERSION=2.3.0
 NAME=ufc-${VERSION}
 SOURCE=https://bitbucket.org/fenics-project/ufc/downloads/
 PACKING=.tar.gz
+CHECKSUM=11ee6ff8b7b44705932c6ebc6ae265d3

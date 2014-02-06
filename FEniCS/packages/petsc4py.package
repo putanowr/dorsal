@@ -1,4 +1,5 @@
 NAME=petsc4py-3.4
 SOURCE=https://bitbucket.org/petsc/petsc4py/downloads/
 PACKING=.tar.gz
+CHECKSUM=f6a2914fe3c057b0bf0eac4330a071ea
 BUILDCHAIN=python

@@ -1,6 +1,7 @@
 NAME=armadillo-3.6.1
 SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.gz
+CHECKSUM=cf0e72fbd2ed07d9fbde01ec8feee953
 BUILDCHAIN=custom
 
 CONFOPTS="-D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH}

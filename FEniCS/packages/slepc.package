@@ -1,6 +1,7 @@
 NAME=slepc-3.4.2
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
+CHECKSUM=78ff6a709f50ccd765fa61589400d5f3
 BUILDCHAIN=custom
 
 package_specific_setup () {
