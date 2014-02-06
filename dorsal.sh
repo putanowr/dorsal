@@ -130,7 +130,7 @@ package_fetch () {
 package_verify() {
     # First make sure we're in the right directory before verifying checksum
     cd ${DOWNLOAD_PATH}
-    
+
     # Only need to verify archives
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] ||  [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".tar.xz" ] || [ ${PACKING} = ".zip" ]
     then
@@ -157,8 +157,15 @@ package_verify() {
         exit 1
       fi
 
-      # Verify checksum using md5sum
-      echo "${CHECKSUM}  ${NAME}${PACKING}" | md5sum --check -
+      # Verify checksum using md5/md5sum
+      if builtin command -v md5 > /dev/null; then
+	  md5 -q ${NAME}${PACKING} | grep "${CHECKSUM}"
+      elif builtin command -v md5sum > /dev/null ; then
+	  echo "${CHECKSUM}  ${NAME}${PACKING}" | md5sum --check -
+      else
+	  cecho ${BAD} "Neither md5 nor md5sum were found in the PATH"
+	  return 1
+      fi
     fi
 
     # Quit with a useful message if something goes wrong
