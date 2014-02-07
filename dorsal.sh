@@ -159,7 +159,7 @@ package_verify() {
 
       # Verify checksum using md5/md5sum
       if builtin command -v md5 > /dev/null; then
-	  md5 -q ${NAME}${PACKING} | grep "${CHECKSUM}"
+	  test "${CHECKSUM}" = "$(md5 -q ${NAME}${PACKING})" && echo "${NAME}${PACKING}: OK"
       elif builtin command -v md5sum > /dev/null ; then
 	  echo "${CHECKSUM}  ${NAME}${PACKING}" | md5sum --check -
       else
