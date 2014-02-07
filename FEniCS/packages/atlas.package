@@ -40,8 +40,15 @@ package_specific_build () {
     # Determine CPU frequency
     CPU_MHZ=`cat /proc/cpuinfo | grep "cpu MHz" | awk '{print $4}' | cut -d'.' -f1 | tail -1`
 
+    # Set pointer bitwidth
+    if [ -z "${ATLAS_POINTER_BITWIDTH}" ]; then
+        ATLAS_POINTER_BITWIDTH=64
+    fi
+
     # Configure ATLAS
-    ../configure -b 64 -D c -DPentiumCPS=$CPU_MHZ --shared \
+    ../configure \
+      -b $ATLAS_POINTER_BITWIDTH \
+      -D c -DPentiumCPS=$CPU_MHZ --shared \
       --prefix=$INSTALL_PATH \
       --with-netlib-lapack-tarfile=../lapack-3.4.2.tgz
 
