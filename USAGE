@@ -77,13 +77,11 @@ Using, troubleshooting and extending Dorsal
       projects.
 
    2. Create a new copy of your system's platform file
-      (system.platform) in the platforms folder. Call it, say,
-      myplatform.platform.
+      (myplatform.platform) in the dorsal folder, calling it local.platform.
 
-      cd FEniCS/platforms/supported
-      cp system.platform myplatform.platform
+      cp FEniCS/platforms/supported/myplatform.platform local.platform
 
-   3. Open myplatform.platform in your favourite text editor, and
+   3. Open local.platform in your favourite text editor, and
       prepend the string `skip:' (without the quotes) before every
       package on the list PACKAGES you would like Dorsal to skip on
       subsequent builds. So now, your list might look something like
@@ -114,7 +112,7 @@ Using, troubleshooting and extending Dorsal
    4. Now, every time you wish to rebuild just the few packages you
       want to track, invoke Dorsal via:
 
-      ./dorsal.sh FEniCS/platforms/supported/myplatform.platform
+      ./dorsal.sh
 
   Using Dorsal in this manner should save you a lot of time if you
   need to rebuild FEniCS often.
@@ -167,13 +165,12 @@ Using, troubleshooting and extending Dorsal
       default.
 
    2. Create a new copy of your system's platform file
-      (system.platform) in the platforms folder. Call it, say,
-      myplatform.platform.
+      (myplatform.platform) from the platforms folder and
+      call it local.platform:
 
-      cd platforms
-      cp system.platform myplatform.platform
+      cp FEniCS/platforms/supported/myplatform.platform local.platform
 
-   3. Open myplatform.platform in your favourite text editor, and
+   3. Open local.platform in your favourite text editor, and
       append the string `-stable' to all the packages you want stable
       versions of. So now, your list might look something like the
       following:
@@ -192,7 +189,7 @@ Using, troubleshooting and extending Dorsal
 
    4. Now, invoke Dorsal via:
 
-      ./dorsal.sh FEniCS/platforms/supported/myplatform.platform
+      ./dorsal.sh
 
  Installing FEniCS with CUDA support
 
@@ -301,9 +298,9 @@ Using, troubleshooting and extending Dorsal
 
   ./dorsal.sh
 
-  it tries to do an additional step. Dorsal first tries to guess an
-  appropriate platform file for your system (by probing your operating
-  system for something specific to it), and then proceeds to work on
-  that platform file.
+  it will first look for a local.platform file to use. If this is not
+  found, Dorsal will try to guess an appropriate platform file for your
+  system (by probing your operating system for something specific to it),
+  and then proceed to work with that platform file.
 
   That completes the story.
