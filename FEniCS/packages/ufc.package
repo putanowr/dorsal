@@ -1,7 +1,7 @@
 NAME=ufc
 SOURCE=https://bitbucket.org/fenics-project/
 PACKING=git
-BUILDCHAIN=cmake
+BUILDCHAIN=nothing
 
 if [ -x "${SWIG_EXECUTABLE}" ]; then
     CONFOPTS="${CONFOPTS} -D SWIG_EXECUTABLE:FILEPATH=${SWIG_EXECUTABLE}"
