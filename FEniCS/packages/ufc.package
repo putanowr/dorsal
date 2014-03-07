@@ -1,4 +1,4 @@
-NAME=ufc
+NAME=ufc-deprecated
 SOURCE=https://bitbucket.org/fenics-project/
 PACKING=git
 BUILDCHAIN=nothing
