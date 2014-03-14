@@ -9,6 +9,9 @@ CONFOPTS="-D CMAKE_CXX_COMPILER:FILEPATH=mpicxx
           -D Trilinos_INSTALL_INCLUDE_DIR:PATH=include/trilinos
           -D Trilinos_ENABLE_ALL_OPTIONAL_PACKAGES:BOOL=ON
           -D Trilinos_ENABLE_Epetra:BOOL=ON
+          -D Trilinos_ENABLE_EpetraExt:BOOL=ON
+          -D Trilinos_ENABLE_Amesos:BOOL=ON
+          -D Trilinos_ENABLE_Belos:BOOL=ON
           -D Trilinos_ENABLE_ML:BOOL=ON
           -D Trilinos_ENABLE_PyTrilinos:BOOL=ON
           -D Trilinos_ENABLE_TESTS:BOOL=OFF
