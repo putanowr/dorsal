@@ -15,7 +15,7 @@ environments:
 * openSUSE 11.3, 11.4, 12.1
 * Red Hat Enterprise Linux 6
 * Debian GNU/Linux 6.0, Unstable
-* Mac OS X 10.6, 10.7 (with MacPorts)
+* Mac OS X 10.6, 10.7, 10.8 (with MacPorts)
 
 If your favourite platform is not on the list above, let us know about
 it, and we can work together toward adding it.
