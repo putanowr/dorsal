@@ -17,7 +17,8 @@
 # 4.7 installed by MacPorts are the defaults on your machine:
 #
 # sudo port select --set python python27
-# sudo port select --set gcc mp-gcc47
+# sudo port select --set gcc mp-gcc48
+# sudo port select --set mpi openmpi-mp-fortran
 ##
 
 # Platform specific variables
@@ -27,9 +28,9 @@ default SCOTCH_ARCH=i686_mac_darwin8
 export PKG_CONFIG_PATH=/opt/local/lib/pkgconfig:${PKG_CONFIG_PATH}
 export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:${DYLD_FRAMEWORK_PATH}
 
-export CC=/opt/local/bin/gcc-mp-4.7
-export CXX=/opt/local/bin/g++-mp-4.7
-export FC=/opt/local/bin/gfortran-mp-4.7
+export CC=/opt/local/bin/gcc-mp-4.8
+export CXX=/opt/local/bin/g++-mp-4.8
+export FC=/opt/local/bin/gfortran-mp-4.8
 
 export OMPI_CXX=g++
 export OMPI_CC=gcc
