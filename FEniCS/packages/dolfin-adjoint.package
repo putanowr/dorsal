@@ -1,4 +1,4 @@
 NAME=dolfin-adjoint
-SOURCE=lp:
-PACKING=bzr
+SOURCE=https://bitbucket.org/dolfin-adjoint/
+PACKING=hg
 BUILDCHAIN=python
