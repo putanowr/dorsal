@@ -4,8 +4,8 @@
 # installed via Ubuntu's apt-get using the following commands:
 #
 # sudo apt-get install bzr bzrtools cmake flex g++ gfortran \
-# libarmadillo-dev libatlas-base-dev libboost-dev \
-# libboost-{filesystem,iostreams,mpi,program-options,thread,math}-dev \
+# libarmadillo-dev libatlas-base-dev libboost1.48-dev \
+# libboost-{filesystem,iostreams,mpi,program-options,thread,math}1.48-dev \
 # libcln-dev libcppunit-dev libginac-dev \
 # liblapack-dev libmpfr-dev libopenmpi-dev libptscotch-dev \
 # libsuitesparse-dev libxml2-dev openmpi-bin pkg-config \
