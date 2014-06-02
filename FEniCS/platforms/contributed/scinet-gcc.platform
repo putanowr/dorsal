@@ -54,7 +54,6 @@ scientificpython
 ply
 vtk
 fiat
-ufc
 ufl
 ffc
 instant

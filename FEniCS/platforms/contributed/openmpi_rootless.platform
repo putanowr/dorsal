@@ -31,7 +31,6 @@ mpfr
 mtl
 scientificpython
 fiat
-ufc
 ufl
 ffc
 instant

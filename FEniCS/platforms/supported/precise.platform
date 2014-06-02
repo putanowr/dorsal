@@ -32,7 +32,6 @@ slepc
 # swiginac
 fiat
 # ferari
-ufc
 ufl
 ffc
 # syfi

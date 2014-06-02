@@ -37,7 +37,6 @@ petsc-hpc
 slepc
 scientificpython
 fiat
-ufc
 ufl
 ffc
 instant

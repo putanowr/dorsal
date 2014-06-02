@@ -92,7 +92,6 @@ trilinos
 petsc-hpc
 slepc
 fiat
-ufc
 ufl
 ffc
 instant

@@ -43,7 +43,6 @@ cgal
 mtl
 scientificpython
 fiat
-ufc
 ufl
 ffc
 instant
