@@ -1,7 +1,7 @@
-NAME=slepc-3.4.2
+NAME=slepc-3.5.2
 SOURCE=http://www.fenicsproject.org/pub/software/contrib/
 PACKING=.tar.gz
-CHECKSUM=78ff6a709f50ccd765fa61589400d5f3
+CHECKSUM=a54ec4016021b2ec461d6c1ea4b34300
 BUILDCHAIN=custom
 
 package_specific_setup () {
@@ -11,8 +11,8 @@ package_specific_setup () {
 
 package_specific_build () {
     SLEPC_DIR=${PWD} ./configure --prefix=${INSTALL_PATH}
-    make PETSC_ARCH=arch-installed-petsc all
-    make PETSC_ARCH=arch-installed-petsc install
+    make all
+    make install
 }
 
 package_specific_register () {

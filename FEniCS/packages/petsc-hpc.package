@@ -2,9 +2,10 @@
 # relying less on PETSc for building and instead using packages
 # installed from source.
 
-NAME=petsc-3.4.2
+NAME=petsc-3.5.2
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
+CHECKSUM=ad170802b3b058b5deb9cd1f968e7e13
 BUILDCHAIN=custom
 
 CONFOPTS="COPTFLAGS=-O2
@@ -41,12 +42,12 @@ else
     EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} scotch ptscotch"
 fi
 
-if [ "${UMFPACK_DIR}" ]; then
-    CONFOPTS="${CONFOPTS} --with-umfpack=1
-              --with-umfpack-include=${UMFPACK_DIR}/include/suitesparse
-              --with-umfpack-lib=[${UMFPACK_DIR}/lib/libumfpack.a,${UMFPACK_DIR}/lib/libcholmod.a,${UMFPACK_DIR}/lib/libcamd.a,${UMFPACK_DIR}/lib/libccolamd.a,${UMFPACK_DIR}/lib/libcolamd.a,${UMFPACK_DIR}/lib/libamd.a,${UMFPACK_DIR}/lib/libsuitesparseconfig.a]"
+if [ "${SUITESPARSE_DIR}" ]; then
+    CONFOPTS="${CONFOPTS} --with-suitesparse=1
+              --with-suitesparse-include=${SUITESPARSE_DIR}/include/suitesparse
+              --with-suitesparse-lib=[${SUITESPARSE_DIR}/lib/libumfpack.a,libklu.a,libcholmod.a,libbtf.a,libccolamd.a,libcolamd.a,libcamd.a,libamd.a,libsuitesparseconfig.a]"
 else
-    EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} umfpack"
+    EXTERNAL_PACKAGES="${EXTERNAL_PACKAGES} suitesparse"
 fi
 
 if [ "${CUDA_DIR}" ] && [ "${CUSP_DIR}" ]; then

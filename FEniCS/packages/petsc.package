@@ -1,14 +1,14 @@
-NAME=petsc-3.4.2
+NAME=petsc-3.5.2
 SOURCE=http://ftp.mcs.anl.gov/pub/petsc/release-snapshots/
 PACKING=.tar.gz
-CHECKSUM=449e27f3c9a37d0bd9d7941cc79a09a9
+CHECKSUM=ad170802b3b058b5deb9cd1f968e7e13
 BUILDCHAIN=custom
 
 CONFOPTS="COPTFLAGS=-O2
           --with-debugging=0 --with-shared-libraries=1
           --with-clanguage=cxx --with-c-support=1"
 
-for external_pkg in umfpack hypre mumps scalapack blacs ptscotch scotch metis parmetis ${PETSC_EXTRA_PACKAGES}; do
+for external_pkg in suitesparse hypre mumps scalapack blacs ptscotch scotch metis parmetis ${PETSC_EXTRA_PACKAGES}; do
     CONFOPTS="${CONFOPTS} --download-${external_pkg}=1"
 done
 

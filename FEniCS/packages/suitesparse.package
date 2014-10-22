@@ -51,4 +51,5 @@ package_specific_install () {
 
 package_specific_register () {
     export UMFPACK_DIR=${INSTALL_PATH}
+    export SUITESPARSE_DIR=${INSTALL_PATH}
 }
