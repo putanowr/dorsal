@@ -3,3 +3,13 @@ SOURCE=https://bitbucket.org/dolfin-adjoint/
 PACKING=hg
 BUILDCHAIN=cmake
 CONFOPTS="-DBUILD_SHARED_LIBS:BOOL=ON"
+
+package_specific_setup() {
+    export PROCS_ORIG=${PROCS}
+    export PROCS=1
+}
+
+package_specific_register() {
+    export PROCS=${PROCS_ORIG}
+}
+
