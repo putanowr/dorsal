@@ -1,0 +1,4 @@
+NAME=mshr
+SOURCE=https://bitbucket.org/benjamik/
+PACKING=git
+BUILDCHAIN=cmake
