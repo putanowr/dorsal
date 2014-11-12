@@ -3,7 +3,3 @@ SOURCE=https://bitbucket.org/petsc/petsc4py/downloads/
 PACKING=.tar.gz
 CHECKSUM=9b485ca224ff38d6407f2adb431103ed
 BUILDCHAIN=python
-
-package_specific_setup () {
-    patch -p1 --forward < ${ORIG_DIR}/FEniCS/patches/petsc4py-c++11.patch || true
-}
