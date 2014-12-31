@@ -1,4 +1,0 @@
-NAME=dune-common-2.1.0
-SOURCE=http://www.dune-project.org/download/2.1/
-PACKING=.tar.gz
-BUILDCHAIN=autotools
