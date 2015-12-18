@@ -1,0 +1,9 @@
+NAME=tochnoglib
+SOURCE=https://femdk.l5.pk.edu.pl/tochnoglib/tochnoglib/trunk
+PACKING=svn
+BUILDCHAIN=cmake
+
+package_specific_setup() {
+  version=`cat ${DOWNLOAD_PATH}/$NAME/VERSION` 
+  INSTALL_PATH=$INSTALL_PATH/packages/$NAME/$version
+}
