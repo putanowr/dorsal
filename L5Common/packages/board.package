@@ -1,0 +1,27 @@
+NAME=libboard
+SOURCE=https://github.com/c-koi/
+PACKING=git
+BUILDCHAIN=custom
+CONFOPTS=""
+SCONSOPTS=""
+CLEANBUILD="no"
+TARGETS=('' install)
+
+package_specific_setup () {
+   ARCH=`guess_architecture`
+   echo "ARCHITECTURE: $ARCH"
+}
+
+package_specific_build () {
+    # Any custom build instructions go here. This function is only
+    # used if the 'custom' buildchain is defined.
+    ./configure --prefix=${INSTALL_PATH}
+    make
+    make doc
+}
+
+package_specific_install () {
+    make install
+    make install-doc
+    # here.
+}
