@@ -1,0 +1,10 @@
+--- process.orig/boost/process/operations.hpp	2009-04-20 15:10:02.000000000 +0200
++++ process/boost/process/operations.hpp	2011-12-16 10:23:49.000000000 +0100
+@@ -42,6 +42,7 @@
+ #include <boost/process/detail/file_handle.hpp> 
+ #include <boost/process/detail/pipe.hpp> 
+ #include <boost/process/detail/stream_info.hpp> 
++#include <boost/filesystem/operations.hpp> 
+ #include <boost/filesystem/path.hpp> 
+ #include <boost/algorithm/string/predicate.hpp> 
+ #include <boost/system/system_error.hpp> 

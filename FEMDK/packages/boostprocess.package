@@ -1,0 +1,17 @@
+NAME=process
+SOURCE=https://femdk.l5.pk.edu.pl/femdk/raw-attachment/wiki/FemdkDownloads/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+CONFOPTS=""
+SCONSOPTS=""
+CLEANBUILD="yes"
+
+package_specific_setup () {
+    patch -p1 --forward < ${ORIG_DIR}/FEMDK/patches/boostprocess.patch || true
+}
+
+package_specific_build () {
+    INSTPATH=${INSTALL_PATH}/packages/boostprocess/1.0.0/include
+    mkdir -p ${INSTPATH}
+    cp -R boost ${INSTPATH}
+}
