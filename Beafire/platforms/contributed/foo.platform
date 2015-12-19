@@ -9,5 +9,6 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-tochnoglib
+#tochnoglib
+board
 )
