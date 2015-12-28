@@ -1,0 +1,15 @@
+TENG_VERSION=2.1.1
+TENG_NAME=teng
+NAME=teng-${TENG_VERSION}
+SOURCE=http://prdownloads.sourceforge.net/teng/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+
+package_specific_setup() {
+  INSTALL_PATH=${INSTALL_PATH}/packages/${TENG_NAME}/${TENG_VERSION}`
+}
+
+package_specific_register () {
+  INSTALL_PATH=${INSTALL_PATH}/packages/${TENG_NAME}/${TENG_VERSION}`
+  export TENG_DIR=${INSTALL_PATH}
+}
