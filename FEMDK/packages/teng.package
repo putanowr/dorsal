@@ -6,10 +6,10 @@ PACKING=.tar.gz
 BUILDCHAIN=autotools
 
 package_specific_setup() {
-  INSTALL_PATH=${INSTALL_PATH}/packages/${TENG_NAME}/${TENG_VERSION}`
+  INSTALL_PATH=${INSTALL_PATH}/packages/${TENG_NAME}/${TENG_VERSION}
 }
 
 package_specific_register () {
-  INSTALL_PATH=${INSTALL_PATH}/packages/${TENG_NAME}/${TENG_VERSION}`
+  INSTALL_PATH=${INSTALL_PATH}/packages/${TENG_NAME}/${TENG_VERSION}
   export TENG_DIR=${INSTALL_PATH}
 }
