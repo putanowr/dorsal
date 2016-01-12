@@ -9,5 +9,7 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-boostprocess
+#boostprocess
+#teng
+board
 )
