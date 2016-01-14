@@ -11,5 +11,6 @@
 PACKAGES=(
 #boostprocess
 #teng
-board
+#board
+arabica
 )
