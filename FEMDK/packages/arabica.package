@@ -1,0 +1,25 @@
+NAME=arabica
+ARABICA_VERSION=2.0.15
+SOURCE=https://github.com/jezhiggins/arabica.git/trunk
+PACKING=svn
+BUILDCHAIN=custom
+CONFOPTS=""
+SCONSOPTS=""
+CLEANBUILD="no"
+TARGETS=('' install)
+
+package_specific_setup () {
+   INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${ARABICA_VERSION}
+}
+
+package_specific_build () {
+    # Any custom build instructions go here. This function is only
+    # used if the 'custom' buildchain is defined.
+    autoreconf -fi
+    ./configure --prefix=${INSTALL_PATH}
+    make
+}
+
+package_specific_install () {
+    make install
+}
