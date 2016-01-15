@@ -12,5 +12,6 @@ PACKAGES=(
 #boostprocess
 #teng
 #board
-arabica
+#arabica
+muparser
 )
