@@ -1,0 +1,24 @@
+NAME=muparser-2.2.5
+FETCH_NAME=v2.2.5
+MUPARSER_VERSION=2.2.5
+SOURCE=https://github.com/beltoforion/muparser/archive/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+CONFOPTS=""
+SCONSOPTS=""
+CLEANBUILD="yes"
+TARGETS=('' install)
+PROCS=1
+
+package_specific_setup () {
+   INSTALL_PATH=${INSTALL_PATH}/packages/muparser/${MUPARSER_VERSION}
+}
+
+package_specific_install () {
+    ./configure --prefix=${INSTALL_PATH} --includedir=${INSTALL_PATH}/include/muParser --oldincludedir=${INSTALL_PATH}/include/muParser
+    make
+    make install
+
+    mkdir ${INSTALL_PATH}/include/muParser
+    find ${INSTALL_PATH}/include/ -name "muParser*" -type f -exec cp {} ${INSTALL_PATH}/include/muParser \;
+}
