@@ -56,18 +56,18 @@ package_fetch () {
     cd ${DOWNLOAD_PATH}
 
     cecho ${GOOD} "Fetching ${NAME}"
-
     # Fetch the package appropriately from its source
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".tar.xz" ] || [ ${PACKING} = ".zip" ]
     then
+      FETCH_NAME=${FETCH_NAME-${NAME}}
       # Only download archives that do not exist
       if [ ! -e ${NAME}${PACKING} ]
       then
         if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ]
         then
-          wget --retry-connrefused --no-check-certificate --server-response -c ${SOURCE}${NAME}${PACKING}
+          wget --retry-connrefused --no-check-certificate --server-response -c -O ${NAME}${PACKING} ${SOURCE}${FETCH_NAME}${PACKING}
         else
-          wget --retry-connrefused --no-check-certificate -c ${SOURCE}${NAME}${PACKING}
+          wget --retry-connrefused --no-check-certificate -c -O ${NAME}${PACKING} ${SOURCE}${FETCH_NAME}${PACKING}
         fi
       fi
 
@@ -75,7 +75,7 @@ package_fetch () {
       # only when the timestamp has changed
       if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ]
       then
-        wget --timestamping --retry-connrefused --no-check-certificate ${SOURCE}${NAME}${PACKING}
+        wget --timestamping --retry-connrefused --no-check-certificate -O ${NAME}${PACKING} ${SOURCE}${FETCH_NAME}${PACKING}
       fi
     elif [ ${PACKING} = "hg" ]
     then
