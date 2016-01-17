@@ -1,0 +1,23 @@
+NAME=getfem
+GETFEM_VERSION=5.0.5224
+SOURCE=http://svn.gna.org/svn/getfem/trunk
+PACKING=svn
+BUILDCHAIN=custom
+SCONSOPTS=""
+CLEANBUILD="yes"
+TARGETS=('' install)
+
+package_specific_setup () {
+  INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${GETFEM_VERSION}
+  cd getfem
+  ./autogen.sh
+}
+
+package_specific_build () {
+  MACHINE_TYPE=`uname -m`
+  ./configure --prefix=${INSTALL_PATH} --enable-shared --enable-qhull --enable-boost --enable-python=yes --with-pic --enable-muparser --enable-par-mumps 
+}
+
+package_specific_install () {
+  make install
+}
