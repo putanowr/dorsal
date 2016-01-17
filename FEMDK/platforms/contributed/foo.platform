@@ -13,5 +13,6 @@ PACKAGES=(
 #teng
 #board
 #arabica
-muparser
+#muparser
+getfem
 )
