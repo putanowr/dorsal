@@ -9,10 +9,11 @@
 
 # Define the packages this platform needs
 PACKAGES=(
+#cgm
 #boostprocess
 #teng
 #board
 #arabica
 #muparser
-getfem
+#getfem
 )
