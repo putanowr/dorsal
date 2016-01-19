@@ -1,0 +1,10 @@
+NAME=openNURBS
+SOURCE=svn+ssh://${USER}@jinx/home/svn/svn1/cst/OpenNURBS/trunk
+PACKING=svn
+BUILDCHAIN=autotools
+OPENNURBS_VERSION=5.0.0
+
+package_specific_setup() {
+  INSTALL_PATH=$INSTALL_PATH/packages/$NAME/$OPENNURBS_VERSION
+  ./bootstrap
+}

@@ -1,0 +1,15 @@
+NAME=cgm
+SOURCE=https://bitbucket.org/fathomteam/
+PACKING=git
+BUILDCHAIN=autotools
+CONFOPTS="--with-occ=/usr"
+SCONSOPTS=""
+CLEANBUILD="no"
+TARGETS=('' install)
+CGM_VERSION=15.0
+
+INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${CGM_VERSION}
+
+package_specific_setup () {
+    autoreconf -fi
+}
