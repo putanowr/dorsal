@@ -1,0 +1,11 @@
+--- h5diff.c	2016-01-26 16:01:24.229065106 +0100
++++ h5diff_new.c	2016-01-26 15:59:30.937068035 +0100
+@@ -644,7 +644,7 @@
+     char         filenames[2][MAX_FILENAME];
+     hsize_t      nfound = 0;
+     int i;
+-    //int i1, i2;
++    /*int i1, i2;*/
+     int l_ret;
+     const char * obj1fullname = NULL;
+     const char * obj2fullname = NULL;
