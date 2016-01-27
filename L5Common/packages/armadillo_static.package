@@ -1,0 +1,18 @@
+NAME=armadillo-6.400.3
+SOURCE=http://downloads.sourceforge.net/arma/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+ARMADILLO_VERSION=6.400.3
+ARMADILLO_NAME=armadillo
+
+INSTALL_PATH=${INSTALL_PATH}/packages/${ARMADILLO_NAME}/${ARMADILLO_VERSION}
+
+package_specific_build () {
+    cmake -DBUILD_SHARED_LIBS=OFF -DCMAKE_INSTALL_PREFIX=${INSTALL_PATH} .
+    make  -j ${PROCS}
+    make install
+}
+
+package_specific_register () {
+    export ARMADILLO_DIR=${INSTALL_PATH}
+}
