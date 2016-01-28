@@ -16,4 +16,5 @@ PACKAGES=(
 #arabica
 #muparser
 #getfem
+mkcxxmodule
 )

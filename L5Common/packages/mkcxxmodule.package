@@ -1,0 +1,14 @@
+NAME=mkcxxmodule
+SOURCE=svn+ssh://${USER}@jinx/home/svn/svn1/cst/mkcxxmodule/trunk
+PACKING=svn
+BUILDCHAIN=custom
+
+package_specific_setup() {
+  VERSION=`python setup.py --version`
+  NAME=`python setup.py --name`
+  INSTALL_PATH=$INSTALL_PATH/packages/$NAME/$VERSION
+}
+
+package_specific_install() {
+  python setup.py install --prefix=$INSTALL_PATH
+}
