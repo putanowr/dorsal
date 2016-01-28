@@ -656,12 +656,14 @@ do
     unset MAKEOPTS
     unset SCONSOPTS
     unset EXTRACTSTO
+    unset VERSION
     TARGETS=('' install)
     PROCS=${ORIG_PROCS}
-
+    # Store default install path. Package might overwrite it
+    DEFAULT_INSTALL_PATH=${INSTALL_PATH}
     # Reset package-specific functions
     package_specific_setup () { true; }
-    package_specific_build () { true; }
+    ackage_specific_build () { true; }
     package_specific_install () { true; }
     package_specific_register () { true; }
 
@@ -710,6 +712,9 @@ do
     # Store timing
     TOC="$(($(${DATE_CMD} +%s%N)-TIC))"
     TIMINGS="$TIMINGS"$"\n""$PACKAGE: ""$((TOC/1000000000)) s"
+
+    # restor default install path
+    INSTALL_PATH=${DEFAULT_INSTALL_PATH}
 
 done
 
