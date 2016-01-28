@@ -7,10 +7,10 @@ BUILDCHAIN=custom
 package_specific_setup() {
   VERSION=`python setup.py --version`
   filter_version ${VERSION}
-  NAME=`python setup.py --name`
-  INSTALL_PATH=$INSTALL_PATH/packages/$NAME/${VERSION}
+  MKCXXMODULE_NAME=`python setup.py --name`
+  INSTALL_PATH=$INSTALL_PATH/packages/${MKCXXMODULE_NAME}/${VERSION}
 }
 
 package_specific_install() {
-  python setup.py install --prefix=$INSTALL_PATH
+  python setup.py install --prefix=${INSTALL_PATH}
 }
