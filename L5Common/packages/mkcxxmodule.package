@@ -1,12 +1,14 @@
 NAME=mkcxxmodule
-SOURCE=svn+ssh://${USER}@jinx/home/svn/svn1/cst/mkcxxmodule/trunk
+SOURCE=svn+ssh://${USER}@jinx/home/svn/svn1/mkcxxmodule/mkcxxmodule/trunk
 PACKING=svn
 BUILDCHAIN=custom
 
+
 package_specific_setup() {
   VERSION=`python setup.py --version`
+  filter_version ${VERSION}
   NAME=`python setup.py --name`
-  INSTALL_PATH=$INSTALL_PATH/packages/$NAME/$VERSION
+  INSTALL_PATH=$INSTALL_PATH/packages/$NAME/${VERSION}
 }
 
 package_specific_install() {
