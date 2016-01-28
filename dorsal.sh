@@ -22,6 +22,19 @@ BOLD="\033[1m"
 
 ### Define helper functions ###
 
+# filtes major.minor version numbers from input and puts it
+# global variable VERSION
+
+filter_version() {
+local reg='([0-9])\.([0-9]).*'
+if [[ "$1" =~ $reg ]] ; then
+  VERSION=${BASH_REMATCH[1]}.${BASH_REMATCH[2]}
+else
+  echo "Error: Ill-formated version string $1"
+fi
+}
+
+
 prettify_dir() {
    # Make a directory name more readable by replacing homedir with "~"
    echo ${1/#$HOME\//~\/}
