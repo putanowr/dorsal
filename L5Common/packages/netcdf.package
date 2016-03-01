@@ -1,0 +1,12 @@
+NAME=netcdf-4.4.0
+NETCDF_VERSION=4.4.0
+SOURCE=ftp://ftp.unidata.ucar.edu/pub/netcdf/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+CONFOPTS=""
+SCONSOPTS=""
+CLEANBUILD="yes"
+TARGETS=('' install)
+PROCS=1
+
+INSTALL_PATH=${INSTALL_PATH}/packages/netcdf/${NETCDF_VERSION}
