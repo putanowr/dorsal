@@ -1,8 +1,8 @@
-NAME=netcdf-4.4.0
-NETCDF_VERSION=4.4.0
+NAME=netcdf-4.3.3.1
+NETCDF_VERSION=4.3.3.1
 SOURCE=ftp://ftp.unidata.ucar.edu/pub/netcdf/
 PACKING=.tar.gz
-BUILDCHAIN=autotools
+BUILDCHAIN=custom
 CONFOPTS=""
 SCONSOPTS=""
 CLEANBUILD="yes"
@@ -10,3 +10,14 @@ TARGETS=('' install)
 PROCS=1
 
 INSTALL_PATH=${INSTALL_PATH}/packages/netcdf/${NETCDF_VERSION}
+
+package_specific_build () {
+    module load hdf5
+    if [ x"$HDF5_VERSION" -eq "x" ]; then
+	echo "ERROR: HDF5 not configured"
+        exit 22
+    fi
+    configure --prefix=$INSTALL_PATH LDFLAGS=-L/mnt/space/install/packages/hdf5/$HDF5_VERSION/lib CPPFLAGS="-I`echo $CPLUS_INCLUDE_PATH | sed -e 's/:/ -I/g'`"
+    make
+    make install
+}
