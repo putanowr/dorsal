@@ -14,5 +14,7 @@ PACKAGES=(
 skip:hdf5
 skip:netcdf
 skip:cgm
-moab
+skip:moab
+skip:mesquite_2_3_0
+meshkit
 )

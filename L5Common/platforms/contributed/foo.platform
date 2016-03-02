@@ -10,5 +10,5 @@
 # Define the packages this platform needs
 PACKAGES=(
 skip:cmake
-mkcxxmodule
+skip:mkcxxmodule
 )
