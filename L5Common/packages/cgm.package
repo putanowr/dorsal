@@ -2,7 +2,7 @@ NAME=cgm
 SOURCE=https://bitbucket.org/fathomteam/
 PACKING=git
 BUILDCHAIN=autotools
-CONFOPTS="--with-occ=/usr"
+CONFOPTS="--with-occ=/usr --enable-shared"
 SCONSOPTS=""
 CLEANBUILD="no"
 TARGETS=('' install)
