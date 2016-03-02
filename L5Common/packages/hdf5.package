@@ -1,0 +1,14 @@
+HDF5_VERSION=1.8.8
+HDF5_NAME=hdf5
+NAME=hdf5-${HDF5_VERSION}
+SOURCE=http://overtureframework.org/software/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+
+INSTALL_PATH=${INSTALL_PATH}/packages/${HDF5_NAME}/${HDF5_VERSION}
+
+package_specific_setup () {
+    # Any non-standard configuration and pre-build instructions go
+    # here.
+    patch -N ${DOWNLOAD_PATH}/hdf5-${HDF5_VERSION}/tools/lib/h5diff.c  ${ORIG_DIR}/Overture/patches/h5diff.c_patch || true
+}
