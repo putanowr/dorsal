@@ -1,0 +1,11 @@
+NAME=mesquite-2.3.0
+SOURCE=https://software.sandia.gov/mesquite/
+PACKING=.tar.gz
+BUILDCHAIN=autotools
+CONFOPTS="--with-cppunit=/usr --with-imesh=/mnt/space/install/packages/moab/4.9/lib/iMesh-Defs.inc --with-igeom=/mnt/space/install/packages/cgm/15.0/lib/iGeom-Defs.inc"
+SCONSOPTS=""
+CLEANBUILD="no"
+TARGETS=('' install)
+MESQUITE_VERSION=2.3.0
+
+INSTALL_PATH=${INSTALL_PATH}/packages/mesquite/${MESQUITE_VERSION}
