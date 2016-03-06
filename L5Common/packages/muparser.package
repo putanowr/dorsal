@@ -14,7 +14,7 @@ package_specific_setup () {
    INSTALL_PATH=${INSTALL_PATH}/packages/muparser/${MUPARSER_VERSION}
 }
 
-package_specific_install () {
+package_specific_build () {
     ./configure --prefix=${INSTALL_PATH} --includedir=${INSTALL_PATH}/include/muParser --oldincludedir=${INSTALL_PATH}/include/muParser
     make
     make install
