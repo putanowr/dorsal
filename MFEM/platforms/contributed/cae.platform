@@ -9,6 +9,6 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-mfem
-glvis
+mfem_serial
+glvis_serial
 )
