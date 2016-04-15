@@ -1,0 +1,12 @@
+NAME=mfem-3.1
+WGET_NAME=xrScXn
+MFEM_VERSION=3.1
+SOURCE=http://goo.gl/
+PACKING=.tgz
+BUILDCHAIN=custom
+
+package_specific_build () {
+    make serial -j 2
+    make install PREFIX=${INSTALL_PATH}/packages/mfem_serial/${MFEM_VERSION}
+}
+

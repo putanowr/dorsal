@@ -1,0 +1,14 @@
+# Host of L5.pk.edu.pl, maintainer R.Putanowicz
+#
+# Host: cae
+# Linux 3.16.0-4-amd64 #1 SMP Debian 3.16.7-ckt20-1+deb8u3 (2016-01-17) x86_64 GNU/Linux
+
+# This build script assumes that you have several packages already
+# installed via Debian's apt-get using the following commands:
+#
+
+# Define the packages this platform needs
+PACKAGES=(
+mfem
+glvis
+)
