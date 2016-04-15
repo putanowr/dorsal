@@ -72,15 +72,17 @@ package_fetch () {
     # Fetch the package appropriately from its source
     if [ ${PACKING} = ".tar.bz2" ] || [ ${PACKING} = ".tar.gz" ] || [ ${PACKING} = ".tbz2" ] || [ ${PACKING} = ".tgz" ] || [ ${PACKING} = ".tar.xz" ] || [ ${PACKING} = ".zip" ]
     then
+
       FETCH_NAME=${FETCH_NAME-${NAME}}
+      WGET_NAME=${WGET_NAME-${FETCH_NAME}${PACKING}}
       # Only download archives that do not exist
       if [ ! -e ${NAME}${PACKING} ]
       then
         if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ]
         then
-          wget --retry-connrefused --no-check-certificate --server-response -c -O ${NAME}${PACKING} ${SOURCE}${FETCH_NAME}${PACKING}
+          wget --retry-connrefused --no-check-certificate --server-response -c -O ${NAME}${PACKING} ${SOURCE}${WGET_NAME}
         else
-          wget --retry-connrefused --no-check-certificate -c -O ${NAME}${PACKING} ${SOURCE}${FETCH_NAME}${PACKING}
+          wget --retry-connrefused --no-check-certificate -c -O ${NAME}${PACKING} ${SOURCE}${WGET_NAME}
         fi
       fi
 
@@ -88,7 +90,7 @@ package_fetch () {
       # only when the timestamp has changed
       if [ ${STABLE_BUILD} = false ] && [ ${USE_SNAPSHOTS} = true ]
       then
-        wget --timestamping --retry-connrefused --no-check-certificate -O ${NAME}${PACKING} ${SOURCE}${FETCH_NAME}${PACKING}
+        wget --timestamping --retry-connrefused --no-check-certificate -O ${NAME}${PACKING} ${SOURCE}${WGET_NAME}
       fi
     elif [ ${PACKING} = "hg" ]
     then
@@ -657,6 +659,8 @@ do
     unset SCONSOPTS
     unset EXTRACTSTO
     unset VERSION
+    unset FETCH_NAME
+    unset WGET_NAME
     TARGETS=('' install)
     PROCS=${ORIG_PROCS}
     # Store default install path. Package might overwrite it
