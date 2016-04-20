@@ -1,5 +1,5 @@
 NAME=openNURBS
-SOURCE=svn+ssh://${USER}@jinx/home/svn/svn1/cst/OpenNURBS/trunk
+SOURCE=svn+ssh://putanowr@jinx/home/svn/svn1/cst/OpenNURBS/trunk
 PACKING=svn
 BUILDCHAIN=autotools
 OPENNURBS_VERSION=5.0.0
