@@ -18,6 +18,7 @@ switch_project() {
           IGA*)   echo IGA; link_local_cfg;;
      Overture*)   echo Overture; link_local_cfg;;
      L5Common*)   echo L5Common; link_local_cfg;;
+         MFEM*)   echo MFEM; link_local_cfg;;
              *)   echo "Unknown project ${PROJECT}"; exit 22;;
       esac
 }
