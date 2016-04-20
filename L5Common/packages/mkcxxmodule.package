@@ -1,5 +1,5 @@
 NAME=mkcxxmodule
-SOURCE=svn+ssh://${USER}@jinx/home/svn/svn1/mkcxxmodule/mkcxxmodule/trunk
+SOURCE=svn+ssh://putanowr@jinx/home/svn/svn1/mkcxxmodule/mkcxxmodule/trunk
 PACKING=svn
 BUILDCHAIN=custom
 
