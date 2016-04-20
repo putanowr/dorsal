@@ -648,6 +648,7 @@ do
 
     # Reset package-specific variables
     unset NAME
+    unset FETCH_NAME
     unset SOURCE
     unset PACKING
     unset CHECKSUM
