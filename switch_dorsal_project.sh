@@ -16,6 +16,7 @@ switch_project() {
         FEMDK*)   echo FEMDK; link_local_cfg;;
       Beafire*)   echo Beafire; link_local_cfg;;
           IGA*)   echo IGA; link_local_cfg;;
+       GETFEM*)   echo GETFEM; link_local_cfg;;
      Overture*)   echo Overture; link_local_cfg;;
      L5Common*)   echo L5Common; link_local_cfg;;
          MFEM*)   echo MFEM; link_local_cfg;;
