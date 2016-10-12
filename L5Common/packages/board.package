@@ -2,28 +2,10 @@ NAME=libboard
 BOARD_VERSION=0.9.0
 SOURCE=https://github.com/c-koi/
 PACKING=git
-BUILDCHAIN=custom
-CONFOPTS=""
-SCONSOPTS=""
-CLEANBUILD="no"
-TARGETS=('' install)
+BUILDCHAIN=cmake
+CONFOPTS="-DMYPROJ_RAN_ONCE:BOOL=ON"
+INSTALL_PATH=${INSTALL_PATH}/packages/$NAME/${BOARD_VERSION}
 
 package_specific_setup () {
-   ARCH=`guess_architecture`
-   echo "ARCHITECTURE: $ARCH"
-   INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${BOARD_VERSION}
-}
-
-package_specific_build () {
-    # Any custom build instructions go here. This function is only
-    # used if the 'custom' buildchain is defined.
-    ./configure --prefix=${INSTALL_PATH}
-    make
-    make doc
-}
-
-package_specific_install () {
-    make install
-    make install-doc
-    # here.
+    patch -p1 --forward src/Shapes.cpp ${ORIG_DIR}/FEMDK/patches/Shapes.cpp.patch || true
 }
