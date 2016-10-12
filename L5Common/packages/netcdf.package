@@ -13,7 +13,7 @@ INSTALL_PATH=${INSTALL_PATH}/packages/netcdf/${NETCDF_VERSION}
 
 package_specific_build () {
     module load hdf5
-    if [ x"$HDF5_VERSION" -eq "x" ]; then
+    if [ x"$HDF5_VERSION" == "x" ]; then
 	echo "ERROR: HDF5 not configured"
         exit 22
     fi
