@@ -1,0 +1,11 @@
+--- Shapes.cpp	2016-10-11 06:29:31.365579056 +0200
++++ Shapes_new.cpp	2016-10-11 12:48:03.151016000 +0200
+@@ -1908,7 +1908,7 @@
+ }
+ 
+ Text::Text(Point p,
+-           const std::__cxx11::string & text,
++           const std::string & text,
+            const Fonts::Font font,
+            double size,
+            Color color,
