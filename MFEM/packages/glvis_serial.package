@@ -1,0 +1,11 @@
+NAME=glvis-3.1
+WGET_NAME=gQZuu9
+GLVIS_VERSION=3.1
+SOURCE=http://goo.gl/
+PACKING=.tgz
+BUILDCHAIN=custom
+
+package_specific_build () {
+    make MFEM_DIR=../mfem-3.1 -j
+    make install MFEM_DIR=../mfem-3.1 PREFIX=${INSTALL_PATH}/packages/glvis_serial/${GLVIS_VERSION}
+}
