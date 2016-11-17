@@ -1,0 +1,6 @@
+NAME=KDreports
+KDREPORTS_VERSION=1.7.1
+SOURCE=https://github.com/KDAB/
+PACKING=git
+BUILDCHAIN=cmake
+INSTALL_PATH=${INSTALL_PATH}/packages/kdreports/${KDREPORTS_VERSION}
