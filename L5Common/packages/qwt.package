@@ -1,0 +1,17 @@
+NAME=qwt
+QWT_VERSION=6.1.3
+SOURCE=svn://svn.code.sf.net/p/qwt/code/branches/qwt-6.1
+PACKING=svn
+BUILDCHAIN=custom
+CONFOPTS=""
+INSTALL_PATH=${INSTALL_PATH}/packages/$NAME/${QWT_VERSION}
+
+package_specific_setup () {
+ sed -i -e "s|QWT_INSTALL_PREFIX *=.*|QWT_INSTALL_PREFIX = ${INSTALL_PATH}|" qwtconfig.pri
+}
+
+package_specific_build () {
+  qmake qwt.pro
+  make
+  make install
+}
