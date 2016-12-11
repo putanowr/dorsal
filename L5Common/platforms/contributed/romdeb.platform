@@ -12,10 +12,12 @@ PACKAGES=(
 #cmake
 #skip:mkcxxmodule
 #hdf5
-skip:netcdf
+#skip:netcdf
 #cgm
-skip:moab
-skip:mesquite_2_99
+#skip:moab
+#skip:mesquite_2_99
 #skip:meshkit
-kdreports
+#kdreports
+#qwt
+cereal
 )
