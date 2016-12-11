@@ -1,0 +1,7 @@
+NAME=cereal-1.2.1
+FETCH_NAME=v1.2.1
+CEREAL_VERSION=1.2.1
+SOURCE=https://github.com/USCiLab/cereal/archive/
+PACKING=.tar.gz
+BUILDCHAIN=cmake
+INSTALL_PATH=${INSTALL_PATH}/packages/cereal/${CEREAL_VERSION}
