@@ -1,0 +1,6 @@
+NAME=yaml-cpp
+YAML_CPP_VERSION=0.5.3
+SOURCE=https://github.com/jbeder/
+PACKING=git
+BUILDCHAIN=cmake
+INSTALL_PATH=${INSTALL_PATH}/packages/yaml-cpp/${YAML_CPP_VERSION}

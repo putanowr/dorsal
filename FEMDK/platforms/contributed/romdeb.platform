@@ -12,7 +12,7 @@ PACKAGES=(
 skip:cgm
 skip:teng
 skip:boostprocess
-skip:board
+board
 skip:arabica
 skip:muparser
 skip:getfem

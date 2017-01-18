@@ -19,5 +19,6 @@ PACKAGES=(
 #skip:meshkit
 #kdreports
 #qwt
-cereal
+#cereal
+yaml-cpp
 )
