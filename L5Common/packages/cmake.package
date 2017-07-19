@@ -7,7 +7,7 @@ CMAKE_NAME=cmake
 INSTALL_PATH=$INSTALL_PATH/packages/$CMAKE_NAME/$CMAKE_VERSION
 
 package_specific_build() {
-  bootstrap --prefix=${INSTALL_PATH}
+  ./bootstrap --prefix=${INSTALL_PATH}
   make
   make install
 }
