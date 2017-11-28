@@ -1,8 +1,8 @@
-NAME=armadillo-7.200.2
+NAME=armadillo-8.300.0
 SOURCE=http://downloads.sourceforge.net/arma/
 PACKING=.tar.xz
 BUILDCHAIN=custom
-ARMADILLO_VERSION=7.200.2
+ARMADILLO_VERSION=8.300.0
 ARMADILLO_NAME=armadillo
 INSTALL_PATH=${INSTALL_PATH}/packages/${ARMADILLO_NAME}/${ARMADILLO_VERSION}
 
