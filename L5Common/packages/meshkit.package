@@ -21,7 +21,7 @@ package_specific_build () {
     module load cgm
     module load moab
     module load mesquite
-    configure --prefix=$INSTALL_PATH $CONFOPTS LDFLAGS="-L`echo $LD_LIBRARY_PATH | sed -e 's/:/ -L/g'`" CPPFLAGS="-I`echo $CPLUS_INCLUDE_PATH | sed -e 's/:/ -I/g'`"
+    ./configure --prefix=$INSTALL_PATH $CONFOPTS LDFLAGS="-L`echo $LD_LIBRARY_PATH | sed -e 's/:/ -L/g'`" CPPFLAGS="-I`echo $CPLUS_INCLUDE_PATH | sed -e 's/:/ -I/g'`"
     make 
     make install
 }

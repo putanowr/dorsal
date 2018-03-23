@@ -1,7 +1,7 @@
 NAME=getfem
-GETFEM_VERSION=5.1.5381
-SOURCE=http://svn.gna.org/svn/getfem/trunk
-PACKING=svn
+GETFEM_VERSION=5.2
+SOURCE=https://git.savannah.nongnu.org/git/
+PACKING=git
 BUILDCHAIN=custom
 SCONSOPTS=""
 CLEANBUILD="yes"
@@ -9,7 +9,6 @@ TARGETS=('' install)
 
 package_specific_setup () {
   INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${GETFEM_VERSION}
-  cd getfem
   ./autogen.sh
 }
 

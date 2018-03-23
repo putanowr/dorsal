@@ -17,7 +17,7 @@ package_specific_build () {
 	echo "ERROR: HDF5 not configured"
         exit 22
     fi
-    configure --prefix=$INSTALL_PATH LDFLAGS=-L/mnt/space/install/packages/hdf5/$HDF5_VERSION/lib CPPFLAGS="-I`echo $CPLUS_INCLUDE_PATH | sed -e 's/:/ -I/g'`"
+    ./configure --prefix=$INSTALL_PATH LDFLAGS=-L/mnt/space/install/packages/hdf5/$HDF5_VERSION/lib CPPFLAGS="-I`echo $CPLUS_INCLUDE_PATH | sed -e 's/:/ -I/g'`"
     make
     make install
 }
