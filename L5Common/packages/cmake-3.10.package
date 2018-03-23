@@ -1,0 +1,13 @@
+NAME=cmake-3.10.3
+SOURCE=https://cmake.org/files/v3.10/
+PACKING=.tar.gz
+BUILDCHAIN=custom
+CMAKE_VERSION=3.10.3
+CMAKE_NAME=cmake
+
+package_specific_build() {
+  INSTALL_PATH=$INSTALL_PATH/packages/$CMAKE_NAME/$CMAKE_VERSION
+  bootstrap --prefix=${INSTALL_PATH}
+  make
+  make install
+}
