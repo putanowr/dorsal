@@ -11,11 +11,12 @@
 PACKAGES=(
 #cmake
 cmake-3.10
-#skip:mkcxxmodule
-#hdf5
+#skip:cmake-3.8
+##skip:mkcxxmodule
+#skip:hdf5
 #skip:netcdf
-#cgm
-#moab
+#skip:cgm
+#skip:moab
 #skip:mesquite_2_99
 #skip:meshkit
 #kdreports
@@ -23,4 +24,5 @@ cmake-3.10
 #cereal
 #yaml-cpp
 #moab-debug
+#tfel
 )
