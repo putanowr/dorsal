@@ -9,12 +9,12 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:cgm
-skip:teng
-skip:boostprocess
-board
-skip:arabica
-skip:muparser
-skip:getfem
-skip:mkcxxmodule
+#skip:cgm
+#teng
+#boostprocess
+#board
+#arabica
+#muparser
+getfem
+#mkcxxmodule
 )
