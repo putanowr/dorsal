@@ -1,0 +1,11 @@
+NAME=BSTools
+SOURCE=https://trac.l5.pk.edu.pl/bstools/BSTools/branches/rp_devel
+PACKING=svn
+BUILDCHAIN=cmake
+BSTOOLS_VERSION=0.39.0
+INSTALL_PATH=${INSTALL_PATH}/packages/bstools/${BSTOOLS_VERSION}
+
+package_specific_setup () {
+  module load cmake 
+}
+

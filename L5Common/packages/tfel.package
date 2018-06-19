@@ -1,0 +1,19 @@
+TFEL_VERSION=3.0.2
+NAME=tfel-${TFEL_VERSION}
+SOURCE=https://sourceforge.net/projects/tfel/files/
+PACKING=.tar.bz2
+BUILDCHAIN=custom
+SCONSOPTS=""
+CLEANBUILD="yes"
+TARGETS=('' install)
+TFEL_NAME=tfel
+
+INSTALL_PATH=${INSTALL_PATH}/packages/${TFEL_NAME}/${TFEL_VERSION}
+
+package_specific_build () {
+  ./configure --prefix=${INSTALL_PATH} --enable-python --enable-python-bindings
+}
+
+package_specific_install () {
+  make install
+}

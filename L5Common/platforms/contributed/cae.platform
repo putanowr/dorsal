@@ -22,4 +22,5 @@ PACKAGES=(
 #kdreports
 #cereal
 #yaml-cpp
+bstools
 )
