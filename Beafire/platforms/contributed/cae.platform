@@ -9,13 +9,6 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-skip:cgm
-#skip:moab
-skip:teng
-skip:boostprocess
-board
-skip:arabica
-skip:muparser
-skip:getfem
-skip:mkcxxmodule
+tochnoglib
+#board
 )

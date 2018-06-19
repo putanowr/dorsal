@@ -9,12 +9,17 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-#skip:cmake
+#cmake
+#cmake-3.10
 #skip:mkcxxmodule
-skip:hdf5
-skip:netcdf
-skip:cgm
-skip:moab
-skip:mesquite_2_3_0
-meshkit
+#skip:hdf5
+#skip:netcdf
+#cgm
+#skip:moab
+#skip:mesquite_2_3_0
+#skip:meshkit
+#skip:qwt
+#kdreports
+#cereal
+#yaml-cpp
 )
