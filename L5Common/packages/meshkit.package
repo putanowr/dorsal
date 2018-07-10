@@ -2,11 +2,11 @@ NAME=meshkit
 SOURCE=https://bitbucket.org/fathomteam/
 PACKING=git
 BUILDCHAIN=custom
-CONFOPTS="--enable-shared --enable-tools --with-ipopt=/usr --with-igeom=/mnt/space/install/packages/cgm/15.0 --with-imesh=/mnt/space/install/packages/moab/4.9"
+CONFOPTS="--enable-shared --enable-tools --with-ipopt=/usr --with-igeom=/mnt/space/install/packages/cgm/16.0 --with-imesh=/mnt/space/install/packages/moab/5.0"
 SCONSOPTS=""
 CLEANBUILD="no"
 TARGETS=('' install)
-MESHKIT_VERSION=1.4
+MESHKIT_VERSION=1.5
 
 INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${MESHKIT_VERSION}
 

@@ -6,7 +6,7 @@ CONFOPTS="--with-occ=/usr --enable-shared"
 SCONSOPTS=""
 CLEANBUILD="no"
 TARGETS=('' install)
-CGM_VERSION=15.0
+CGM_VERSION=16.0
 
 INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${CGM_VERSION}
 

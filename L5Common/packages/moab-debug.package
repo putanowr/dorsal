@@ -6,7 +6,7 @@ CONFOPTS="--enable-debug --enable-parallel  --enable-fbigeom --enable-irel --ena
 SCONSOPTS=""
 CLEANBUILD="no"
 TARGETS=('' install)
-MOAB_VERSION=4.9
+MOAB_VERSION=5.0
 
 INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}-debug/${MOAB_VERSION}
 

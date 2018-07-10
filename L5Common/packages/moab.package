@@ -2,11 +2,11 @@ NAME=moab
 SOURCE=https://bitbucket.org/fathomteam/
 PACKING=git
 BUILDCHAIN=custom
-CONFOPTS="--enable-parallel  --enable-fbigeom --enable-irel --enable-shared --enable-tools --with-cgm=/mnt/space/install/packages/cgm/15.0 --with-hdf5=/mnt/space/install/packages/hdf5/1.8.8 --with-netcdf=/mnt/space/install/packages/netcdf/4.3.3.1"
+CONFOPTS="--enable-parallel  --enable-fbigeom --enable-irel --enable-shared --enable-tools --with-cgm=/mnt/space/install/packages/cgm/16.0 --with-hdf5=/mnt/space/install/packages/hdf5/1.8.8 --with-netcdf=/mnt/space/install/packages/netcdf/4.3.3.1"
 SCONSOPTS=""
 CLEANBUILD="yes"
 TARGETS=('' install)
-MOAB_VERSION=4.9
+MOAB_VERSION=5.0
 
 INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${MOAB_VERSION}
 
