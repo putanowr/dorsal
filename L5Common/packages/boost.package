@@ -1,0 +1,15 @@
+NAME=boost
+FETCH_NAME=boost_1_67_0
+EXTRACTSTO=${FETCH_NAME}
+SOURCE=https://dl.bintray.com/boostorg/release/1.67.0/source/
+PACKING=.tar.bz2
+BUILDCHAIN=custom
+
+BOOST_VERSION=1.67.0
+
+INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${BOOST_VERSION}
+
+package_specific_build () {
+    ./bootstrap.sh --prefix=${INSTALL_PATH}
+    ./b2 install --prefix=${INSTALL_PATH}
+}
