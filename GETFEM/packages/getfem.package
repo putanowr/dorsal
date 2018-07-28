@@ -8,6 +8,7 @@ CLEANBUILD="yes"
 TARGETS=('' install)
 
 package_specific_setup () {
+  module load getfem_build
   INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${GETFEM_VERSION}
   ./autogen.sh
 }
