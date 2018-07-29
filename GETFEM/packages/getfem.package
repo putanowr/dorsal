@@ -15,7 +15,7 @@ package_specific_setup () {
 
 package_specific_build () {
   MACHINE_TYPE=`uname -m`
-  ./configure --prefix=${INSTALL_PATH} --enable-shared --enable-qhull --enable-boost --enable-python=yes --with-pic --enable-muparser --enable-par-mumps 
+  ./configure --prefix=${INSTALL_PATH} --enable-shared --enable-qhull --enable-python=yes --with-pic --enable-muparser --enable-par-mumps --with-boost=${BOOST_DIR}
 }
 
 package_specific_install () {
