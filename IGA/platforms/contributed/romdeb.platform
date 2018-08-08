@@ -11,5 +11,5 @@
 PACKAGES=(
 armadillo
 armadillo_static
-opennurbs
+#opennurbs
 )
