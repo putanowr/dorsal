@@ -1,0 +1,13 @@
+# Host of L5.pk.edu.pl, maintainer R.Putanowicz
+#
+# System:    Host: foo Kernel: 3.16.0-4-amd64 x86_64 (64 bit gcc: 4.8.4) Desktop: N/A
+#            Distro: Debian GNU/Linux 8
+
+# This build script assumes that you have several packages already
+# installed via Ubuntu's apt-get using the following commands:
+#
+
+# Define the packages this platform needs
+PACKAGES=(
+vtkwithqt
+)
