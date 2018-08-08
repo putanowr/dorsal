@@ -20,6 +20,7 @@ switch_project() {
      Overture*)   echo Overture; link_local_cfg;;
      L5Common*)   echo L5Common; link_local_cfg;;
          MFEM*)   echo MFEM; link_local_cfg;;
+          VTK*)   echo VTK; link_local_cfg;;
              *)   echo "Unknown project ${PROJECT}"; exit 22;;
       esac
 }
