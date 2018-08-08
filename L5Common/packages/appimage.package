@@ -1,0 +1,13 @@
+NAME=appimage
+FETCHNAME=AppImageKitt
+SOURCE=https://cmake.org/files/v3.12/
+https://github.com/AppImage/AppImageKit.git
+PACKING=git
+BUILDCHAIN=custom
+
+package_specific_build() {
+  INSTALL_PATH=$INSTALL_PATH/packages/$CMAKE_NAME/$CMAKE_VERSION
+  ./bootstrap --prefix=${INSTALL_PATH}
+  make
+  make install
+}
