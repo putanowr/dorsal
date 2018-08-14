@@ -23,6 +23,7 @@ fi
 
 package_specific_setup () {
   chmod 600 Utilities/vtktiff/tif_fax3sm.c
+  module load cmake
   module load_boost 
   INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${VTK_VERSION}
 }
