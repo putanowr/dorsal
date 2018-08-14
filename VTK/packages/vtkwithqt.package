@@ -12,8 +12,6 @@ CONFOPTS="-D CMAKE_BUILD_TYPE:STRING=Release
           -D VTK_WRAP_PYTHON:BOOL=ON
           -D VTK_USE_TK:BOOL=ON
           -D VTK_USE_GL2PS:BOOL=ON
-          -D VTK_USE_QT=ON
-          -D VTK_Group_Qt:BOOL=ON
           -D VTK_Group_Tk:BOOL=ON
           -D VTK_Group_Imaging:BOOL=ON"
 
