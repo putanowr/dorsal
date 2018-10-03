@@ -9,6 +9,6 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-getfem
-#getfem_debug
+#getfem
+getfem_debug
 )

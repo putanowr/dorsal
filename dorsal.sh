@@ -117,11 +117,11 @@ package_fetch () {
     elif [ ${PACKING} = "git" ]
     then
       # Suitably clone or update git repositories
-      if [ ! -d ${NAME} ]
+      if [ ! -d ${EXTRACTSTO} ]
       then
-        git clone ${SOURCE}${NAME}
+        git clone ${SOURCE}${NAME} ${EXTRACTSTO}
       else
-        cd ${NAME}
+        cd ${EXTRACTSTO}
         git pull
         cd ..
       fi

@@ -1,4 +1,5 @@
 NAME=getfem
+EXTRACTSTO=getfem_debug
 GETFEM_VERSION=5.3
 SOURCE=https://git.savannah.nongnu.org/git/
 PACKING=git
