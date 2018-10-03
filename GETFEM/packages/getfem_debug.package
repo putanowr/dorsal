@@ -9,13 +9,13 @@ TARGETS=('' install)
 
 package_specific_setup () {
   module load getfem_build
-  INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${GETFEM_VERSION}
+  INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}_debug/${GETFEM_VERSION}
   ./autogen.sh
 }
 
 package_specific_build () {
   MACHINE_TYPE=`uname -m`
-  ./configure --prefix=${INSTALL_PATH} --enable-shared --enable-qhull  --enable-python=yes --with-pic --enable-mumps --enable-paralevel=0 --with-boost=${BOOST_DIR}
+  ./configure --prefix=${INSTALL_PATH} --enable-shared --enable-qhull  --enable-python=yes --with-pic --enable-mumps --enable-paralevel=0 --with-boost=${BOOST_DIR} --with-optimization=-O0 CPPFLAGS=-g CFLAGS=-g 
 }
 
 package_specific_install () {
