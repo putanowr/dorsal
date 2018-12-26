@@ -9,6 +9,7 @@
 
 # Define the packages this platform needs
 PACKAGES=(
+catch2
 #cmake
 #cmake-3.10
 #skip:mkcxxmodule
@@ -22,5 +23,5 @@ PACKAGES=(
 #kdreports
 #cereal
 #yaml-cpp
-bstools
+#bstools
 )
