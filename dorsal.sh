@@ -293,6 +293,7 @@ package_build() {
         echo cmake ${CONFOPTS} -D CMAKE_INSTALL_PREFIX:PATH=${INSTALL_PATH} ../ >>dorsal_configure
         for target in "${TARGETS[@]}"
         do
+            echo echo "** Make target: ${target}" >> dorsal_build
             echo make -C ${BUILD_DIR} ${MAKEOPTS} -j ${PROCS} $target >>dorsal_build
         done
     elif [ ${BUILDCHAIN} = "custom" ]
@@ -662,19 +663,20 @@ do
     unset VERSION
     unset FETCH_NAME
     unset WGET_NAME
-    TARGETS=('' install)
+    unset TEST_TARGET
     PROCS=${ORIG_PROCS}
     # Store default install path. Package might overwrite it
     DEFAULT_INSTALL_PATH=${INSTALL_PATH}
     # Reset package-specific functions
     package_specific_setup () { true; }
-    ackage_specific_build () { true; }
+    package_specific_build () { true; }
     package_specific_install () { true; }
     package_specific_register () { true; }
 
     # Fetch information pertinent to the package
     source ${PROJECT}/packages/${PACKAGE}.package
 
+    TARGETS=('' ${TEST_TARGET} install)
     # Turn to a stable version of the package if that's what the user
     # wants and it exists
     if [ ${STABLE_BUILD} = true ] && [ -e ${PROJECT}/packages/${PACKAGE}-stable.package ]
