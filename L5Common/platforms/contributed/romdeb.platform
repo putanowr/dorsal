@@ -9,7 +9,8 @@
 
 # Define the packages this platform needs
 PACKAGES=(
-boost
+#boost
+catch2
 #cmake
 #cmake-3.10
 #cmake-3.12

@@ -1,0 +1,8 @@
+NAME=catch2
+FETCH_NAME=Catch2
+CATCH2_VERSION=2.5.0
+SOURCE=https://github.com/catchorg/
+PACKING=git
+BUILDCHAIN=cmake
+INSTALL_PATH=${INSTALL_PATH}/packages/${NAME}/${CATCH2_VERSION}
+TEST_TARGET=test
