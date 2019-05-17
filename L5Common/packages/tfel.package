@@ -1,4 +1,5 @@
-TFEL_VERSION=3.1.2
+#TFEL_VERSION=3.1.2
+TFEL_VERSION=3.2.1
 NAME=tfel-${TFEL_VERSION}
 SOURCE=https://sourceforge.net/projects/tfel/files/
 PACKING=.tar.bz2
