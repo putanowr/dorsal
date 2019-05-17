@@ -9,19 +9,22 @@
 
 # Define the packages this platform needs
 PACKAGES=(
+#bstools
 catch2
 #cmake
 #cmake-3.10
+#cmake-3.12
 #skip:mkcxxmodule
 #skip:hdf5
 #skip:netcdf
 #cgm
-#skip:moab
+#moab
+#moab-debug
 #skip:mesquite_2_3_0
-#skip:meshkit
+#meshkit
 #skip:qwt
 #kdreports
 #cereal
 #yaml-cpp
-#bstools
+#tfel
 )
